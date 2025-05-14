@@ -1,5 +1,7 @@
 import { ThreeElements } from '@react-three/fiber';
 
+import { MODELS } from '@/utils/const';
+
 export type MeshProps = ThreeElements['mesh'];
 
 export interface PrimitiveFactoryProps extends MeshProps {
@@ -7,4 +9,4 @@ export interface PrimitiveFactoryProps extends MeshProps {
   scale?: number | [number, number, number];
 }
 
-export type ModelsNameType = 'Sphere';
+export type ModelsNameType = (typeof MODELS)[keyof typeof MODELS]['name'];
