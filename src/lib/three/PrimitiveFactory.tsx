@@ -1,23 +1,12 @@
 import { useGLTF } from '@react-three/drei';
-import { ThreeElements } from '@react-three/fiber';
 import { Suspense } from 'react';
 
 import { useThreeAnimation } from '@/hooks/threejs';
 
+import { MODELS } from '@/utils/const';
+
+import { MeshProps, PrimitiveFactoryProps } from './types';
 import { useModels } from '@/contexts/ModelContext';
-
-type MeshProps = ThreeElements['mesh'];
-
-interface PrimitiveFactoryProps extends MeshProps {
-  prompt?: ModelsNameType;
-  scale?: number | [number, number, number];
-}
-
-export const MODELS = {
-  SPHERE: { url: '/models/Sphere.glb', name: 'Sphere' },
-} as const;
-
-export type ModelsNameType = 'Sphere';
 
 function GLTFModel({
   modelName,

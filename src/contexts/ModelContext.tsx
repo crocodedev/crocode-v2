@@ -1,11 +1,9 @@
 import { useGLTF } from '@react-three/drei';
 import { createContext, useContext, useEffect, useState } from 'react';
 
-export const MODELS = {
-  SPHERE: { url: '/models/Sphere.glb', name: 'Sphere' },
-} as const;
+import { MODELS } from '@/utils/const';
 
-export type ModelsNameType = (typeof MODELS)[keyof typeof MODELS]['name'];
+import { ModelsNameType } from '@/lib/three/types';
 
 interface ModelsContextValue {
   isLoaded: boolean;
