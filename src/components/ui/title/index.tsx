@@ -8,12 +8,11 @@ type TProps = {
 };
 
 export const Title = ({ title, anchor = 'left' }: TProps) => {
-  const containerClass = `${styles.container} ${styles[`container_${anchor}`]}`;
-  const titleClass = `${styles.title} ${styles[`title_${anchor}`]}`;
-
   return (
-    <div className={containerClass}>
-      <h2 className={titleClass}>{title?.toUpperCase()}</h2>
+    <div className={`${styles.container} ${styles[anchor]}`}>
+      <h2 className={`${styles.title} ${styles[anchor]}`}>
+        {title?.toUpperCase()}
+      </h2>
     </div>
   );
 };

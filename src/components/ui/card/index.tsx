@@ -8,7 +8,7 @@ type TProps = {
   children: PropsWithChildren<unknown>['children'];
 };
 
-export const CardLayout = ({ children, className, ...props }: TProps) => {
+export const Card = ({ children, className, ...props }: TProps) => {
   return (
     <div className={`${styles.card} ${className}`} {...props}>
       {children}
