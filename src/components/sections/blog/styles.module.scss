@@ -1,0 +1,36 @@
+.container {
+  padding: 60px 0;
+  display: grid;
+  grid-template-columns: 750px 350px 200px;
+  grid-template-rows: 524px 520px;
+  grid-template-areas:
+    'main rightCol rightBottom'
+    'bottom bottom bottom';
+  gap: 40px;
+  justify-content: center;
+
+  & > :nth-child(1) {
+    grid-area: main;
+  }
+
+  & > :nth-child(2) {
+    grid-area: rightCol;
+
+    display: grid;
+    grid-template-rows: 80% 20%;
+    gap: 20px;
+  }
+
+  & > :nth-child(3) {
+    grid-area: rightBottom;
+  }
+
+  & > :nth-child(4) {
+    grid-area: bottom;
+  }
+
+  & :nth-child(2) > button {
+    color: var(--color-text-black);
+    font-size: var(--size-text-2);
+  }
+}

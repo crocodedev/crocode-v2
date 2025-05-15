@@ -1,0 +1,30 @@
+.container {
+  display: grid;
+  align-items: center;
+  justify-content: center;
+  grid-template-columns: 765px 760px;
+  grid-template-rows: 370px 330px;
+  grid-template-areas:
+    'card1 card2'
+    'card3 card2';
+  gap: 20px;
+  padding: 60px 0;
+}
+
+.card {
+  &:nth-child(1) {
+    grid-area: card1;
+    width: 765px;
+    height: 370px;
+  }
+  &:nth-child(2) {
+    grid-area: card2;
+    width: 760px;
+    height: 700px;
+  }
+  &:nth-child(3) {
+    grid-area: card3;
+    width: 765px;
+    height: 330px;
+  }
+}

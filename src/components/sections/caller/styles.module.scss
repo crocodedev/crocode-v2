@@ -1,0 +1,10 @@
+.banner {
+  height: 400px;
+  color: var(--color-text-white);
+  background-color: var(--color-bg-black);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 50px;
+}

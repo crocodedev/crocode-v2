@@ -1,9 +1,13 @@
 import {
+  AboutUsSection,
+  BlogSection,
+  CallerSection,
   IndustriesSection,
+  OurProjectsSection,
   ServicesSection,
   TechnologiesSection,
 } from '@/components/sections';
-import { Banner } from '@/components/ui/banner';
+import { Banner } from '@/components/ui';
 
 export default function Home() {
   return (
@@ -11,8 +15,12 @@ export default function Home() {
       <h1>crocode v2</h1>
       <IndustriesSection />
       <ServicesSection />
-      <Banner title='ABOUT CROCODE'></Banner>
+      <Banner title='ABOUT CROCODE' />
       <TechnologiesSection />
+      <CallerSection />
+      <OurProjectsSection />
+      <AboutUsSection />
+      <BlogSection />
     </div>
   );
 }
