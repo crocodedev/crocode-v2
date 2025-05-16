@@ -2,8 +2,7 @@ import { PropsWithChildren } from 'react';
 
 import styles from './styles.module.scss';
 
-type TProps = {
-  children?: PropsWithChildren<unknown>['children'];
+type TProps = PropsWithChildren<unknown> & {
   title: string;
   className?: string;
 };

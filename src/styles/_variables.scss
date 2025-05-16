@@ -19,3 +19,59 @@
   --size-text-1: clamp(0.875rem, 0.775rem + 0.5vw, 1.375rem); // 14 - 22
   --size-text-2: clamp(1.25rem, 1.05rem + 1vw, 2.25rem); // 36 - 20
 }
+
+@function fluid-size($min-size, $max-size, $min-width: 320, $max-width: 1920) {
+  @return clamp(
+    #{$min-size / 16}rem,
+    calc(
+      #{$min-size / 16}rem + (#{$max-size} - #{$min-size}) *
+        (100vw - #{$min-width}px) / (#{$max-width} - #{$min-width})
+    ),
+    #{$max-size / 16}rem
+  );
+}
+
+$breakpoints: (
+  'xs': 375px,
+  'sm': 576px,
+  'md': 768px,
+  'lg': 992px,
+  'xl': 1200px,
+  'xxl': 1400px,
+  'xxxl': 1920px,
+);
+
+@mixin media-up($name) {
+  $min: map-get($breakpoints, $name);
+  @if $min {
+    @media (min-width: $min) {
+      @content;
+    }
+  } @else {
+    @content;
+  }
+}
+
+@mixin media-down($name) {
+  $max: map-get($breakpoints, $name);
+  @if $max {
+    @media (max-width: $max) {
+      @content;
+    }
+  } @else {
+    @content;
+  }
+}
+
+@mixin media-between($lower, $upper) {
+  $min: map-get($breakpoints, $lower);
+  $max: map-get($breakpoints, $upper);
+
+  @if $min and $max {
+    @media (min-width: $min) and (max-width: $max) {
+      @content;
+    }
+  } @else {
+    @content;
+  }
+}

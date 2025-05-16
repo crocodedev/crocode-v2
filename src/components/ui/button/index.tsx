@@ -1,15 +1,16 @@
-import { PropsWithChildren } from 'react';
+import { ButtonHTMLAttributes, PropsWithChildren } from 'react';
 
 import styles from './styles.module.scss';
 
-type TProps = {
-  children: PropsWithChildren<unknown>['children'];
+type TProps = PropsWithChildren<ButtonHTMLAttributes<HTMLButtonElement>> & {
   className?: string;
 };
 
-const Button = ({ children, className }: TProps) => {
+const Button = ({ children, className = '', ...props }: TProps) => {
   return (
-    <button className={`${styles.button} ${className}`}>{children}!</button>
+    <button className={`${styles.button} ${className}`} {...props}>
+      {children}
+    </button>
   );
 };
 

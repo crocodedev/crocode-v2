@@ -2,10 +2,9 @@ import React, { PropsWithChildren } from 'react';
 
 import styles from './styles.module.scss';
 
-type TProps = {
+type TProps = PropsWithChildren<unknown> & {
   className?: string;
   onClick?: () => void;
-  children: PropsWithChildren<unknown>['children'];
 };
 
 export const Card = ({ children, className, ...props }: TProps) => {
