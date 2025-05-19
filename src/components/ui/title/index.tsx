@@ -4,14 +4,14 @@ type AnchorType = 'left' | 'right';
 
 type TProps = {
   anchor?: AnchorType;
-  title: string;
+  text: string;
 };
 
-export const Title = ({ title, anchor = 'left' }: TProps) => {
+export const Title = ({ text, anchor = 'left' }: TProps) => {
   return (
     <div className={`${styles.container} ${styles[anchor]}`}>
       <h2 className={`${styles.title} ${styles[anchor]}`}>
-        {title?.toUpperCase()}
+        {text?.toUpperCase()}
       </h2>
     </div>
   );

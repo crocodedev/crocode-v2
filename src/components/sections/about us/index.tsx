@@ -20,7 +20,7 @@ export const AboutUsSection = () => {
 
   return (
     <SectionLayout>
-      <Title title='Say About us' />
+      <Title text='Say About us' />
       <div className={styles.container}>
         <div className={styles.navbar}>
           <Button className={styles.navbar__button} onClick={handlePrev}>

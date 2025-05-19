@@ -7,7 +7,7 @@ import styles from './styles.module.scss';
 export const BlogSection = () => {
   return (
     <SectionLayout className={styles.layout}>
-      <Title title='BLOG' anchor='right' />
+      <Title text='BLOG' anchor='right' />
       <div className={styles.container}>
         <Card>1</Card>
         <div className={styles.rightCol}>

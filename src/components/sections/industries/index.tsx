@@ -6,7 +6,7 @@ import styles from './style.module.scss';
 export const IndustriesSection = () => {
   return (
     <SectionLayout>
-      <Title title={'INDUSTRIES'} />
+      <Title text={'INDUSTRIES'} />
       <div className={styles.container}>
         {Array.from({ length: 4 }).map((_, index) => {
           return (

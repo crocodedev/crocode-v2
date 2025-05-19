@@ -6,3 +6,5 @@ export * from './technologies';
 export * from './our projects';
 export * from './about us';
 export * from './blog';
+export * from './what we can';
+export * from './questions';

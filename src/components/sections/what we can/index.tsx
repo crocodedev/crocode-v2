@@ -3,10 +3,10 @@ import { Card, Title } from '@/components/ui';
 
 import styles from './styles.module.scss';
 
-export const ServicesSection = () => {
+export const WhatWeCanSection = () => {
   return (
     <SectionLayout>
-      <Title text={'SERVICES'} anchor='right' />
+      <Title text={'WHAT WE CAN'} />
       <div className={styles.container}>
         <Card className={styles.card}>1</Card>
         <Card className={styles.card}>2</Card>
