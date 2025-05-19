@@ -1,0 +1,55 @@
+@use 'src/styles/mixins' as *;
+
+.container {
+  display: grid;
+  grid-template-areas:
+    'up-left up-right'
+    'down-left down-right';
+  grid-template-columns: clamp(10.3125rem, 6.3125rem + 20vw, 30.3125rem) clamp(
+      9.6875rem,
+      3.875rem + 29.0625vw,
+      38.75rem
+    );
+  grid-template-rows: clamp(5.3125rem, 2.4375rem + 14.375vw, 19.6875rem) clamp(
+      6.875rem,
+      3.1875rem + 18.4375vw,
+      25.3125rem
+    );
+  gap: 0 clamp(0.3125rem, -0.4276rem + 2.9605vw, 3.125rem);
+  justify-content: center;
+  margin-top: 50px;
+}
+
+.card {
+  width: 100%;
+  height: 100%;
+
+  &:nth-child(1) {
+    grid-area: up-left;
+  }
+
+  &:nth-child(2) {
+    grid-area: up-right;
+    height: clamp(3.25rem, 1.4625rem + 8.9375vw, 12.1875rem);
+    align-self: start;
+  }
+
+  &:nth-child(3) {
+    grid-area: down-left;
+    height: clamp(5.625rem, 2.625rem + 15vw, 20.625rem);
+    transform: translateX(
+        calc(-1 * clamp(1.25rem, 0.875rem + 1.875vw, 3.125rem))
+      )
+      translateY(20px);
+
+    @include media-down('sm') {
+      transform: translateX(-10px) translateY(20px);
+    }
+  }
+
+  &:nth-child(4) {
+    grid-area: down-right;
+    transform: translateY(50px);
+    margin-top: -75px;
+  }
+}

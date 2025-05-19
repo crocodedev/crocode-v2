@@ -1,0 +1,16 @@
+.banner {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  text-align: center;
+  background-color: var(--color-bg-gray);
+  height: 600px; // мокнул
+  margin-bottom: 200px;
+
+  &__title {
+    font-size: var(--size-title-2);
+    font-weight: 700;
+  }
+}

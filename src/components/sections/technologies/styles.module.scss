@@ -1,0 +1,32 @@
+.wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow-x: auto;
+  padding: 60px 0;
+}
+
+.container {
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+  gap: 50px 70px;
+  max-width: 90%;
+  width: 100%;
+  flex-wrap: nowrap;
+  width: max-content;
+}
+
+.card {
+  width: 140px;
+  height: 700px;
+  gap: 20px;
+  background: var(--color-bg-gray);
+  border-radius: 34px;
+  flex-shrink: 0;
+  cursor: pointer;
+
+  &.active {
+    width: 800px;
+  }
+}

@@ -1,0 +1,13 @@
+.avatar {
+  background-color: var(--color-bg-white);
+  border-radius: 50%;
+}
+
+.active {
+  transform: scale(1.2);
+  border-color: var(--color-bg-green);
+  box-shadow: 0 0 12px 4px var(--color-bg-green);
+  transition:
+    box-shadow 0.3s ease,
+    transform 0.3s ease;
+}

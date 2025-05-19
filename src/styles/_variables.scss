@@ -12,9 +12,10 @@
 
   //sizes for titles
   --size-title-1: clamp(3rem, 1.35rem + 8.25vw, 11.25rem); // 48 - 180
-  --size-title-2: clamp(1.25rem, 0.75rem + 2.5vw, 3.75rem); // 32 - 96
+  --size-title-2: clamp(1.25rem, 0.75rem + 2.5vw, 3.75rem); // 20 - 60
   --size-title-3: clamp(1.25rem, 0.75rem + 2.5vw, 3.75rem); // 20 - 60
 
   //sizes for texts
   --size-text-1: clamp(0.875rem, 0.775rem + 0.5vw, 1.375rem); // 14 - 22
+  --size-text-2: clamp(1.25rem, 1.05rem + 1vw, 2.25rem); // 36 - 20
 }
