@@ -1,3 +1,5 @@
+@use 'src/styles/mixins' as *;
+
 .container {
   display: grid;
   grid-template-areas:
@@ -13,7 +15,7 @@
       3.1875rem + 18.4375vw,
       25.3125rem
     );
-  gap: 0 clamp(1.875rem, -1.25rem + 15.625vw, 17.5rem);
+  gap: 0 clamp(0.3125rem, -0.4276rem + 2.9605vw, 3.125rem);
   justify-content: center;
   margin-top: 50px;
 }
@@ -35,7 +37,14 @@
   &:nth-child(3) {
     grid-area: down-left;
     height: clamp(5.625rem, 2.625rem + 15vw, 20.625rem);
-    transform: translateX(-50px) translateY(50px);
+    transform: translateX(
+        calc(-1 * clamp(1.25rem, 0.875rem + 1.875vw, 3.125rem))
+      )
+      translateY(20px);
+
+    @include media-down('sm') {
+      transform: translateX(-10px) translateY(20px);
+    }
   }
 
   &:nth-child(4) {

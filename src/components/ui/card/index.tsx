@@ -5,11 +5,12 @@ import styles from './styles.module.scss';
 type TProps = PropsWithChildren<unknown> & {
   className?: string;
   onClick?: () => void;
+  id?: string;
 };
 
-export const Card = ({ children, className, ...props }: TProps) => {
+export const Card = ({ children, id, className, ...props }: TProps) => {
   return (
-    <div className={`${styles.card} ${className}`} {...props}>
+    <div id={id} className={`${styles.card} ${className}`} {...props}>
       {children}
     </div>
   );

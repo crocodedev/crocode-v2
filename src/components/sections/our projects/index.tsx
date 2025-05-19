@@ -10,7 +10,9 @@ export const OurProjectsSection = () => {
       <div className={styles.container}>
         <Card className={styles.card}>1</Card>
         <Card className={styles.card}>2</Card>
-        <Card className={styles.card}>3</Card>
+        <Card className={`${styles.card} ${styles.card__button}`}>
+          Show more
+        </Card>
       </div>
     </SectionLayout>
   );

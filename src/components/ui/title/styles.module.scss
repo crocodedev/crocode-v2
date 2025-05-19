@@ -16,9 +16,12 @@
   background-color: var(--color-text-green);
   color: var(--color-text-black);
   font-size: var(--size-title-2);
-  padding: 32px 56px;
+  padding: clamp(0.625rem, 0.35rem + 1.375vw, 2rem)
+    clamp(0.75rem, 0.2rem + 2.75vw, 3.5rem);
   font-weight: 700;
   width: 30%;
+  min-width: 200px;
+  flex-basis: max-content;
   max-width: 800px;
   display: flex;
   align-items: center;
