@@ -1,0 +1,20 @@
+.section {
+  display: flex;
+  flex-direction: column;
+  gap: 150px;
+  align-items: center;
+}
+
+.container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 50px;
+}
+
+.card {
+  height: clamp(8.75rem, 6.5rem + 11.25vw, 20rem);
+  width: clamp(17.5rem, 12.625rem + 24.375vw, 41.875rem);
+  border-radius: 20px;
+}

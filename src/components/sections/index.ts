@@ -8,3 +8,6 @@ export * from './about us';
 export * from './blog';
 export * from './what we can';
 export * from './questions';
+export * from './filters';
+export * from './subscribe';
+export * from './cases';
