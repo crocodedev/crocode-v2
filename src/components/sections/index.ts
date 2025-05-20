@@ -11,3 +11,4 @@ export * from './questions';
 export * from './filters';
 export * from './subscribe';
 export * from './cases';
+export * from './our figures';
