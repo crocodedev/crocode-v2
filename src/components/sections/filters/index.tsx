@@ -6,7 +6,7 @@ import Button from '@/components/ui/button';
 
 import styles from './styles.module.scss';
 
-type Tprops = {
+type TProps = {
   items: string[];
   paramKey: string;
   className?: string;
@@ -18,7 +18,7 @@ export const FilterSection = ({
   paramKey,
   className,
   title,
-}: Tprops) => {
+}: TProps) => {
   const router = useRouter();
   const pathname = usePathname();
   const searchParams = useSearchParams();
