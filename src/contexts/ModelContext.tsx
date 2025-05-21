@@ -25,7 +25,7 @@ export const ModelsProvider = ({ children }: { children: React.ReactNode }) => {
       await Promise.all(
         entries.map(async ({ url, name }) => {
           await useGLTF.preload(url);
-          setLoadedModels(prev => [...prev, name as ModelsNameType]);
+          setLoadedModels((prev) => [...prev, name as ModelsNameType]);
         }),
       );
       setIsLoaded(true);

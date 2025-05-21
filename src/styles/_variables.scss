@@ -1,20 +1,18 @@
-:root {
-  //colors for text
-  --color-text-white: #ffffff;
-  --color-text-black: #000000;
-  --color-text-green: #b2d00b;
+//colors for text
+$color-text-white: #ffffff;
+$color-text-black: #000000;
+$color-text-green: #b2d00b;
 
-  //colors for backgrounds
-  --color-bg-white: #ffffff;
-  --color-bg-black: #000000;
-  --color-bg-green: #b2d00b;
-  --color-bg-gray: #d9d9d9;
+//colors for backgrounds
+$color-bg-white: #ffffff;
+$color-bg-black: #000000;
+$color-bg-green: #b2d00b;
+$color-bg-gray: #d9d9d9;
 
-  //sizes for titles
-  --size-title-1: clamp(3rem, 1.35rem + 8.25vw, 11.25rem); // 48 - 180
-  --size-title-2: clamp(1.25rem, 0.75rem + 2.5vw, 3.75rem); // 32 - 96
-  --size-title-3: clamp(1.25rem, 0.75rem + 2.5vw, 3.75rem); // 20 - 60
+//sizes for titles
+$size-title-1: clamp(3rem, 1.35rem + 8.25vw, 11.25rem); // 48 - 180
+$size-title-2: clamp(1.25rem, 0.75rem + 2.5vw, 3.75rem); // 32 - 96
+$size-title-3: clamp(1.25rem, 0.75rem + 2.5vw, 3.75rem); // 20 - 60
 
-  //sizes for texts
-  --size-text-1: clamp(0.875rem, 0.775rem + 0.5vw, 1.375rem); // 14 - 22
-}
+//sizes for texts
+$size-text-1: clamp(0.875rem, 0.775rem + 0.5vw, 1.375rem); // 14 - 22

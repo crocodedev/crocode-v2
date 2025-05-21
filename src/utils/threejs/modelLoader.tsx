@@ -8,7 +8,7 @@ export default function ModelLoader({ path }: { path: string }) {
   const { scene } = useGLTF(path);
   const ref = useRef<Object3D>(null);
 
-  useThreeAnimation(t => {
+  useThreeAnimation((t) => {
     if (ref.current) {
       ref.current!.rotation.y = Math.sin(t * 0.1) * 3;
       ref.current!.position.y = Math.sin(t * 0.5) * 5;
