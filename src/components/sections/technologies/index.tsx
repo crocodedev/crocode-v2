@@ -14,7 +14,7 @@ export const TechnologiesSection = () => {
 
   return (
     <SectionLayout>
-      <Title title={'TECHNOLOGIES'} />
+      <Title text={'TECHNOLOGIES'} />
       <div className={styles.wrapper}>
         <div className={styles.container}>
           {Array.from({ length: 8 }).map(
