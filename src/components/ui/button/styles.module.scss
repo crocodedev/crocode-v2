@@ -1,4 +1,6 @@
 .button {
+  display: flex;
+  justify-content: center;
   background-color: var(--color-text-green);
   border: none;
   font-size: var(--size-text-1);
