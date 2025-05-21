@@ -6,15 +6,19 @@ import Button from '@/components/ui/button';
 
 import styles from './styles.module.scss';
 
-export const FilterSection = ({
-  title,
-  items,
-  paramKey,
-}: {
-  title: string;
+type Tprops = {
   items: string[];
   paramKey: string;
-}) => {
+  className?: string;
+  title?: string;
+};
+
+export const FilterSection = ({
+  items,
+  paramKey,
+  className,
+  title,
+}: Tprops) => {
   const router = useRouter();
   const pathname = usePathname();
   const searchParams = useSearchParams();
@@ -44,8 +48,8 @@ export const FilterSection = ({
   };
 
   return (
-    <SectionLayout className={styles.section}>
-      <h3 className={styles.category}>{title}</h3>
+    <SectionLayout className={`${styles.section} ${className}`}>
+      {title && <h3 className={styles.category}>{title}</h3>}
       <div className={styles.filters}>
         {items.map(item => (
           <Button
