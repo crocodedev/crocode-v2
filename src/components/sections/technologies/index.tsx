@@ -9,12 +9,12 @@ export const TechnologiesSection = () => {
   const [activeIndex, setActiveIndex] = useState<number | null>(null);
 
   const handleClickOnCard = useCallback((index: number) => {
-    setActiveIndex(prev => (prev === index ? null : index));
+    setActiveIndex((prev) => (prev === index ? null : index));
   }, []);
 
   return (
     <SectionLayout>
-      <Title title={'TECHNOLOGIES'} />
+      <Title text={'TECHNOLOGIES'} />
       <div className={styles.wrapper}>
         <div className={styles.container}>
           {Array.from({ length: 8 }).map(

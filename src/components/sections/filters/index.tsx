@@ -32,7 +32,7 @@ export const FilterSection = ({
 
   const toggleFilter = (item: string) => {
     const newSelected = selectedItems.includes(item)
-      ? selectedItems.filter(i => i !== item)
+      ? selectedItems.filter((i) => i !== item)
       : [...selectedItems, item];
 
     setSelectedItems(newSelected);
@@ -51,7 +51,7 @@ export const FilterSection = ({
     <SectionLayout className={`${styles.section} ${className}`}>
       {title && <h3 className={styles.category}>{title}</h3>}
       <div className={styles.filters}>
-        {items.map(item => (
+        {items.map((item) => (
           <Button
             key={item}
             className={`${styles.button} ${

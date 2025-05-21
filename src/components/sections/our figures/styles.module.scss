@@ -1,5 +1,3 @@
-@use 'src/styles/mixins' as *;
-
 .section {
   margin: 0;
   display: grid;
@@ -12,14 +10,14 @@
 
   & > div:nth-child(1) {
     grid-area: 5 / 5 / 9 / 11;
-    background-color: var(--color-bg-green);
-    color: var(--color-text-black);
+    background-color: $color-bg-green;
+    color: $color-text-black;
   }
 
   & > div:nth-child(2) {
     grid-area: 4 / 12 / 9 / 18;
-    background-color: var(--color-bg-black);
-    color: var(--color-text-white);
+    background-color: $color-bg-black;
+    color: $color-text-white;
   }
 
   & > div:nth-child(3) {
@@ -42,7 +40,7 @@
   font-weight: 400;
 
   &__text {
-    font-size: var(--size-text-3);
+    font-size: $size-text-3;
     max-width: 80%;
   }
 }

@@ -13,9 +13,9 @@
 }
 
 .title {
-  background-color: var(--color-text-green);
-  color: var(--color-text-black);
-  font-size: var(--size-title-2);
+  background-color: $color-text-green;
+  color: $color-text-black;
+  font-size: $size-title-2;
   padding: clamp(0.625rem, 0.35rem + 1.375vw, 2rem)
     clamp(0.75rem, 0.2rem + 2.75vw, 3.5rem);
   font-weight: 700;

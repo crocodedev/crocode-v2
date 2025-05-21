@@ -15,3 +15,5 @@ export * from './our figures';
 export * from './blog catalog';
 export * from './technology stack';
 export * from './advantages';
+export * from './header';
+export * from './hero';

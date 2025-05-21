@@ -1,5 +1,3 @@
-@use 'src/styles/mixins' as *;
-
 .container {
   display: grid;
   align-items: center;
@@ -48,9 +46,9 @@
       height: 35px;
       padding: 15px 5px;
       font-weight: 700;
-      font-size: var(--size-text-1);
+      font-size: $size-text-1;
       width: 115px;
-      background-color: var(--color-bg-green);
+      background-color: $color-bg-green;
     }
   }
 }

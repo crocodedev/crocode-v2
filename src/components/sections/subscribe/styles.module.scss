@@ -9,9 +9,9 @@
 
   &__title {
     text-align: center;
-    font-size: var(--size-title-4);
+    font-size: $size-title-4;
     font-weight: 700;
-    color: var(--color-bg-black);
+    color: $color-bg-black;
     text-wrap: wrap;
   }
 
@@ -21,10 +21,10 @@
     padding: 14px 16px;
     border: none;
     box-shadow: 0px 0px 10px 0px rgba(125, 190, 59, 0.1);
-    background-color: var(--color-bg-black);
+    background-color: $color-bg-black;
     border-radius: 10px;
-    color: var(--color-text-white);
-    font-size: var(--size-text-1);
+    color: $color-text-white;
+    font-size: $size-text-1;
   }
 
   &__button {

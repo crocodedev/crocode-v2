@@ -30,7 +30,7 @@ export const AdvantagesSection = () => {
   return (
     <SectionLayout className={styles.section}>
       <div className={styles.container}>
-        {DATA_ITEMS.map(item => (
+        {DATA_ITEMS.map((item) => (
           <Card key={item.title} className={styles.card}>
             <h2 className={styles.card__title}>{item.title.toUpperCase()}</h2>
             <p className={styles.card__text}>{item.text.toUpperCase()}</p>

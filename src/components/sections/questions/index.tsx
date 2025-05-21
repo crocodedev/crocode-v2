@@ -40,7 +40,7 @@ export const QuestionsSection = () => {
     <SectionLayout>
       <Title text='QUESTIONS' anchor='right' />
       <div className={styles.container}>
-        {QUESTIONS.map(question => (
+        {QUESTIONS.map((question) => (
           <div className={styles.question} key={question.text}>
             <h2 className={styles.question__title}>{question.text}</h2>
             <p className={styles.question__answer}>{question.answer}</p>

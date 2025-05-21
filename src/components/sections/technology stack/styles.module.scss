@@ -1,5 +1,3 @@
-@use 'src/styles/mixins' as *;
-
 .section {
   @include flex-center;
 }
@@ -27,7 +25,7 @@
     'front-end front-end front-end front-end front-end services'
     'front-end front-end front-end front-end front-end services'
     'front-end front-end front-end front-end front-end services';
-  font-size: var(--size-title-5);
+  font-size: $size-title-5;
   font-weight: 700;
 
   & > * {
@@ -36,13 +34,13 @@
 
   & > :nth-child(1) {
     grid-area: mobile;
-    @include color-scheme(--color-bg-green, --color-text-black);
+    @include color-scheme($color-bg-green, $color-text-black);
     @include vertical-text;
   }
 
   & > :nth-child(2) {
     grid-area: e-commerce;
-    @include color-scheme(--color-bg-black, --color-text-white);
+    @include color-scheme($color-bg-black, $color-text-white);
     @include vertical-text;
 
     .title {
@@ -56,7 +54,7 @@
 
   & > :nth-child(4) {
     grid-area: headles-cms;
-    @include color-scheme(--color-bg-black, --color-text-white);
+    @include color-scheme($color-bg-black, $color-text-white);
   }
 
   & > :nth-child(5) {
@@ -66,7 +64,7 @@
 
   & > :nth-child(6) {
     grid-area: game-engine;
-    @include color-scheme(--color-bg-green, --color-text-black);
+    @include color-scheme($color-bg-green, $color-text-black);
   }
 
   & > :nth-child(7) {
@@ -75,7 +73,7 @@
 
   & > :nth-child(8) {
     grid-area: front-end;
-    @include color-scheme(--color-bg-green, --color-text-black);
+    @include color-scheme($color-bg-green, $color-text-black);
 
     .title {
       max-width: 80%;
@@ -84,7 +82,7 @@
 
   & > :nth-child(9) {
     grid-area: services;
-    @include color-scheme(--color-bg-black, --color-text-white);
+    @include color-scheme($color-bg-black, $color-text-white);
     @include vertical-text;
   }
 }

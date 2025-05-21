@@ -1,7 +1,5 @@
-@use 'src/styles/mixins' as *;
-
 .footer {
-  background-color: var(--color-bg-black);
+  background-color: $color-bg-black;
   padding: 50px 25px;
   display: flex;
   flex-direction: column;
@@ -12,7 +10,7 @@
 .logo {
   font-size: 24px;
   font-weight: 700;
-  color: var(--color-text-green);
+  color: $color-text-green;
 }
 
 .container {
@@ -43,14 +41,14 @@
   &__title {
     font-size: 16px;
     font-weight: 700;
-    color: var(--color-text-green);
+    color: $color-text-green;
   }
 
   &__link {
     text-decoration: none;
     font-weight: 300;
     font-size: 16px;
-    color: var(--color-text-white);
+    color: $color-text-white;
   }
 
   @include media-down('md') {
@@ -63,11 +61,11 @@
 .copyright {
   font-size: 16px;
   font-weight: 400;
-  color: var(--color-text-white);
+  color: $color-text-white;
 }
 
 .privacy {
   font-size: 16px;
   font-weight: 600;
-  color: var(--color-text-green);
+  color: $color-text-green;
 }

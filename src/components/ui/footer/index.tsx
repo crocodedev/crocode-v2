@@ -76,7 +76,7 @@ export const Footer = () => {
         <h2 className={styles.logo}>crocode</h2>
         <div className={styles.column}>
           <h3 className={styles.column__title}>Services</h3>
-          {SERVICES_ROUTES.map(route => (
+          {SERVICES_ROUTES.map((route) => (
             <a key={route.id} className={styles.column__link} href={route.href}>
               {route.title}
             </a>
@@ -84,7 +84,7 @@ export const Footer = () => {
         </div>
         <div className={styles.column}>
           <h3 className={styles.column__title}>Technologies</h3>
-          {TECHNOLOGIES_ROUTES.map(route => (
+          {TECHNOLOGIES_ROUTES.map((route) => (
             <a key={route.id} className={styles.column__link} href={route.href}>
               {route.title}
             </a>
@@ -92,7 +92,7 @@ export const Footer = () => {
         </div>
         <div className={styles.column}>
           <h3 className={styles.column__title}>About us</h3>
-          {ABOUT_US_ROUTES.map(route => (
+          {ABOUT_US_ROUTES.map((route) => (
             <a key={route.id} className={styles.column__link} href={route.href}>
               {route.title}
             </a>

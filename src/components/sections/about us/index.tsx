@@ -11,11 +11,11 @@ export const AboutUsSection = () => {
   const [activeIndex, setActiveIndex] = useState(0);
 
   const handleNext = () => {
-    setActiveIndex(prev => (prev + 1) % users.length);
+    setActiveIndex((prev) => (prev + 1) % users.length);
   };
 
   const handlePrev = () => {
-    setActiveIndex(prev => (prev - 1 + users.length) % users.length);
+    setActiveIndex((prev) => (prev - 1 + users.length) % users.length);
   };
 
   return (

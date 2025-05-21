@@ -19,7 +19,7 @@ export const TechnologyStackSection = () => {
   return (
     <SectionLayout className={styles.section}>
       <div className={styles.container}>
-        {DATA_ITEMS.map(item => (
+        {DATA_ITEMS.map((item) => (
           <Card key={item}>
             <h2 className={styles.title}>{item.toUpperCase()}</h2>
           </Card>

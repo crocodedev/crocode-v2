@@ -15,7 +15,7 @@ function GLTFModel({
 }: { modelName: string; scale?: PrimitiveFactoryProps['scale'] } & MeshProps) {
   const { scene } = useGLTF(`/models/${modelName}.glb`);
 
-  useThreeAnimation(t => {
+  useThreeAnimation((t) => {
     if (scene) {
       scene.rotation.y = Math.sin(t * 0.1) * 3;
       scene.position.y = Math.sin(t * 0.5) * 5;
