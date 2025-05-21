@@ -3,7 +3,7 @@ import Button from '@/components/ui/button';
 
 import styles from './styles.module.scss';
 
-export const SubscribeSection = () => {
+const SubscribeSection = () => {
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     console.log('Subscribed!');
@@ -26,3 +26,5 @@ export const SubscribeSection = () => {
     </SectionLayout>
   );
 };
+
+export default SubscribeSection;

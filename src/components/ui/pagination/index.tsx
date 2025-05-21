@@ -1,12 +1,10 @@
-'use client';
-
 import { usePathname, useRouter, useSearchParams } from 'next/navigation';
 
 import Button from '@/components/ui/button';
 
 import styles from './styles.module.scss';
 
-export const Pagination = ({
+const Pagination = ({
   currentPage,
   totalPages,
   onPageChange,
@@ -54,3 +52,5 @@ export const Pagination = ({
     </div>
   );
 };
+
+export default Pagination;

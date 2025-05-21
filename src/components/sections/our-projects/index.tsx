@@ -3,16 +3,19 @@ import { Card, Title } from '@/components/ui';
 
 import styles from './styles.module.scss';
 
-export const ServicesSection = () => {
+const OurProjectsSection = () => {
   return (
     <SectionLayout>
-      <Title text={'SERVICES'} anchor='right' />
+      <Title text='OUR PROJECTS' anchor='right' />
       <div className={styles.container}>
         <Card className={styles.card}>1</Card>
         <Card className={styles.card}>2</Card>
-        <Card className={styles.card}>3</Card>
-        <Card className={styles.card}>4</Card>
+        <Card className={`${styles.card} ${styles.card__button}`}>
+          Show more
+        </Card>
       </div>
     </SectionLayout>
   );
 };
+
+export default OurProjectsSection;

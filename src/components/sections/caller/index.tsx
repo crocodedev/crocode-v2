@@ -4,7 +4,7 @@ import Button from '@/components/ui/button';
 
 import styles from './styles.module.scss';
 
-export const CallerSection = () => {
+const CallerSection = () => {
   return (
     <SectionLayout>
       <Banner
@@ -16,3 +16,5 @@ export const CallerSection = () => {
     </SectionLayout>
   );
 };
+
+export default CallerSection;

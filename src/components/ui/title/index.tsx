@@ -7,7 +7,7 @@ type TProps = {
   text: string;
 };
 
-export const Title = ({ text, anchor = 'left' }: TProps) => {
+const Title = ({ text, anchor = 'left' }: TProps) => {
   return (
     <div className={`${styles.container} ${styles[anchor]}`}>
       <h2 className={`${styles.title} ${styles[anchor]}`}>
@@ -16,3 +16,5 @@ export const Title = ({ text, anchor = 'left' }: TProps) => {
     </div>
   );
 };
+
+export default Title;

@@ -3,7 +3,7 @@ import { Card, Title } from '@/components/ui';
 
 import styles from './style.module.scss';
 
-export const IndustriesSection = () => {
+const IndustriesSection = () => {
   return (
     <SectionLayout>
       <Title text={'INDUSTRIES'} />
@@ -19,3 +19,5 @@ export const IndustriesSection = () => {
     </SectionLayout>
   );
 };
+
+export default IndustriesSection;

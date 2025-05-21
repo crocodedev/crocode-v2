@@ -1,5 +1,5 @@
 import { SectionLayout } from '@/components/sections';
-import { FilterSection } from '@/components/sections/filters';
+import { Filters } from '@/components/ui';
 
 import styles from './styles.module.scss';
 
@@ -26,19 +26,13 @@ const FILTERS_COUNTRY = [
   'Italy',
 ];
 
-export const CasesFilters = () => {
+const FiltersCases = () => {
   return (
     <SectionLayout className={styles.layout}>
-      <FilterSection
-        title='Tech stack:'
-        items={FILTERS_TECH_STACK}
-        paramKey='tech'
-      />
-      <FilterSection
-        title='Country:'
-        items={FILTERS_COUNTRY}
-        paramKey='country'
-      />
+      <Filters title='Tech stack:' items={FILTERS_TECH_STACK} paramKey='tech' />
+      <Filters title='Country:' items={FILTERS_COUNTRY} paramKey='country' />
     </SectionLayout>
   );
 };
+
+export default FiltersCases;

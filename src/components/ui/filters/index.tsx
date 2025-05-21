@@ -1,7 +1,6 @@
 import { usePathname, useRouter, useSearchParams } from 'next/navigation';
 import { useEffect, useState } from 'react';
 
-import { SectionLayout } from '@/components/sections';
 import Button from '@/components/ui/button';
 
 import styles from './styles.module.scss';
@@ -13,12 +12,7 @@ type TProps = {
   title?: string;
 };
 
-export const FilterSection = ({
-  items,
-  paramKey,
-  className,
-  title,
-}: TProps) => {
+const Filters = ({ items, paramKey, className, title }: TProps) => {
   const router = useRouter();
   const pathname = usePathname();
   const searchParams = useSearchParams();
@@ -48,7 +42,7 @@ export const FilterSection = ({
   };
 
   return (
-    <SectionLayout className={`${styles.section} ${className}`}>
+    <div className={`${styles.container} ${className}`}>
       {title && <h3 className={styles.category}>{title}</h3>}
       <div className={styles.filters}>
         {items.map((item) => (
@@ -63,6 +57,8 @@ export const FilterSection = ({
           </Button>
         ))}
       </div>
-    </SectionLayout>
+    </div>
   );
 };
+
+export default Filters;

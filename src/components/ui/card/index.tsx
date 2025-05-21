@@ -8,10 +8,12 @@ type TProps = PropsWithChildren<unknown> & {
   id?: string;
 };
 
-export const Card = ({ children, id, className, ...props }: TProps) => {
+const Card = ({ children, id, className, ...props }: TProps) => {
   return (
     <div id={id} className={`${styles.card} ${className}`} {...props}>
       {children}
     </div>
   );
 };
+
+export default Card;

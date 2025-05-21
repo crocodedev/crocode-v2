@@ -7,7 +7,7 @@ import Button from '@/components/ui/button';
 import { users } from './mockData';
 import styles from './styles.module.scss';
 
-export const AboutUsSection = () => {
+const AboutUsSection = () => {
   const [activeIndex, setActiveIndex] = useState(0);
 
   const handleNext = () => {
@@ -45,3 +45,5 @@ export const AboutUsSection = () => {
     </SectionLayout>
   );
 };
+
+export default AboutUsSection;

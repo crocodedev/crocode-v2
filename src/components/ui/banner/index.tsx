@@ -7,7 +7,7 @@ type TProps = PropsWithChildren<unknown> & {
   className?: string;
 };
 
-export const Banner = ({ children, title, className }: TProps) => {
+const Banner = ({ children, title, className }: TProps) => {
   return (
     <div className={`${styles.banner} ${className}`}>
       <h2 className={styles.banner__title}>{title}</h2>
@@ -15,3 +15,5 @@ export const Banner = ({ children, title, className }: TProps) => {
     </div>
   );
 };
+
+export default Banner;

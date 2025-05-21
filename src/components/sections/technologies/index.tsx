@@ -5,7 +5,7 @@ import { Card, Title } from '@/components/ui';
 
 import styles from './styles.module.scss';
 
-export const TechnologiesSection = () => {
+const TechnologiesSection = () => {
   const [activeIndex, setActiveIndex] = useState<number | null>(null);
 
   const handleClickOnCard = useCallback((index: number) => {
@@ -36,3 +36,5 @@ export const TechnologiesSection = () => {
     </SectionLayout>
   );
 };
+
+export default TechnologiesSection;
