@@ -13,8 +13,8 @@
   }
 
   &__title {
-    font-size: var(--size-title-1);
-    color: var(--color-text-green);
+    font-size: $size-title-1;
+    color: $color-text-green;
     z-index: 1;
     font-weight: 700;
   }

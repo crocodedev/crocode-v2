@@ -1,0 +1,75 @@
+.section {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.filters {
+  min-width: 270px;
+  display: flex;
+  align-items: center;
+
+  & div {
+    display: flex;
+    justify-content: center;
+    gap: clamp(0.4375rem, -0.2697rem + 2.8289vw, 3.125rem);
+    margin-bottom: 100px;
+    @include media-down('md') {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      grid-template-rows: repeat(2, 1fr);
+    }
+  }
+}
+
+.card {
+  border-radius: 20px;
+}
+
+.container {
+  display: grid;
+  grid-area: auto;
+  grid-template-rows: repeat(
+    12,
+    clamp(9.375rem, 4.4408rem + 19.7368vw, 28.125rem)
+  );
+  grid-template-columns: repeat(
+    2,
+    clamp(9.375rem, 1.1513rem + 32.8947vw, 40.625rem)
+  );
+
+  gap: 35px;
+  margin-bottom: 250px;
+
+  & > div:nth-child(odd) {
+    grid-column: 2;
+
+    &:nth-child(1) {
+      grid-row: 1 / span 3;
+    }
+    &:nth-child(3) {
+      grid-row: 4 / span 3;
+    }
+    &:nth-child(5) {
+      grid-row: 7 / span 3;
+    }
+    &:nth-child(7) {
+      grid-row: 10 / span 3;
+    }
+  }
+
+  & > div:nth-child(even) {
+    grid-column: 1;
+
+    &:nth-child(2) {
+      grid-row: 1 / span 4;
+    }
+    &:nth-child(4) {
+      grid-row: 5 / span 4;
+    }
+    &:nth-child(6) {
+      grid-row: 9 / span 4;
+    }
+  }
+}

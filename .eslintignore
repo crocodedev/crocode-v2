@@ -1,9 +1,0 @@
-node_modules/
-.next/
-dist/
-out/
-public/
-coverage/
-scripts/
-**/*.test.ts
-**/*.spec.ts

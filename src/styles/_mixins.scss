@@ -42,3 +42,15 @@ $breakpoints: (
     @content;
   }
 }
+
+@mixin flex-center {
+  display: flex;
+  align-items: center;
+  text-align: center;
+  justify-content: center;
+}
+
+@mixin color-scheme($bg, $text) {
+  background-color: $bg;
+  color: $text;
+}

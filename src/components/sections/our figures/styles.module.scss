@@ -1,0 +1,65 @@
+.section {
+  margin: 0;
+  display: grid;
+  justify-content: center;
+  grid-template-columns: repeat(
+    20,
+    clamp(1.125rem, -0.1579rem + 5.1316vw, 6rem)
+  );
+  grid-template-rows: repeat(20, clamp(2rem, 1.3421rem + 2.6316vw, 4.5rem));
+
+  & > div:nth-child(1) {
+    grid-area: 5 / 5 / 9 / 11;
+    background-color: $color-bg-green;
+    color: $color-text-black;
+  }
+
+  & > div:nth-child(2) {
+    grid-area: 4 / 12 / 9 / 18;
+    background-color: $color-bg-black;
+    color: $color-text-white;
+  }
+
+  & > div:nth-child(3) {
+    grid-area: 10 / 3 / 14 / 9;
+  }
+
+  @include media-down('md') {
+    & > div {
+      border-radius: 20px;
+    }
+  }
+}
+
+.mission {
+  grid-area: 10 / 10 / 16 / 18;
+  display: flex;
+  text-align: justify;
+  align-items: center;
+  line-height: clamp(0.3125rem, -0.25rem + 2.8125vw, 3.125rem);
+  font-weight: 400;
+
+  &__text {
+    font-size: $size-text-3;
+    max-width: 80%;
+  }
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  text-wrap: nowrap;
+  border-radius: 64px;
+}
+
+.number {
+  font-size: clamp(2.5rem, 0.1974rem + 9.2105vw, 11.25rem);
+  font-weight: 700;
+}
+
+.label {
+  font-size: clamp(0.625rem, 0rem + 2.5vw, 3rem);
+  font-weight: 700;
+}

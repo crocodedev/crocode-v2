@@ -1,0 +1,88 @@
+.section {
+  @include flex-center;
+}
+
+.container {
+  display: grid;
+  grid-template-columns: repeat(
+    6,
+    clamp(2.1875rem, -1.3016rem + 14.8867vw, 16.5625rem)
+  );
+  grid-template-rows: repeat(
+    10,
+    clamp(2.1875rem, -0.2397rem + 10.356vw, 12.1875rem)
+  );
+  gap: clamp(0.5rem, 0.2775rem + 2.3729vw, 3.125rem)
+    clamp(0.625rem, 0.5191rem + 1.1299vw, 1.875rem);
+  grid-template-areas:
+    'mobile e-commerce e-commerce back-end back-end back-end'
+    'mobile e-commerce e-commerce back-end back-end back-end'
+    'mobile e-commerce e-commerce headles-cms headles-cms headles-cms'
+    'mobile e-commerce e-commerce headles-cms headles-cms headles-cms'
+    'other game-engine game-engine industries industries industries'
+    'other game-engine game-engine industries industries industries'
+    'front-end front-end front-end front-end front-end services'
+    'front-end front-end front-end front-end front-end services'
+    'front-end front-end front-end front-end front-end services'
+    'front-end front-end front-end front-end front-end services';
+  font-size: $size-title-5;
+  font-weight: 700;
+
+  & > * {
+    @include card-base;
+  }
+
+  & > :nth-child(1) {
+    grid-area: mobile;
+    @include color-scheme($color-bg-green, $color-text-black);
+    @include vertical-text;
+  }
+
+  & > :nth-child(2) {
+    grid-area: e-commerce;
+    @include color-scheme($color-bg-black, $color-text-white);
+    @include vertical-text;
+
+    .title {
+      min-width: clamp(11.875rem, 4.1383rem + 33.0097vw, 43.75rem);
+    }
+  }
+
+  & > :nth-child(3) {
+    grid-area: back-end;
+  }
+
+  & > :nth-child(4) {
+    grid-area: headles-cms;
+    @include color-scheme($color-bg-black, $color-text-white);
+  }
+
+  & > :nth-child(5) {
+    grid-area: other;
+    @include vertical-text;
+  }
+
+  & > :nth-child(6) {
+    grid-area: game-engine;
+    @include color-scheme($color-bg-green, $color-text-black);
+  }
+
+  & > :nth-child(7) {
+    grid-area: industries;
+  }
+
+  & > :nth-child(8) {
+    grid-area: front-end;
+    @include color-scheme($color-bg-green, $color-text-black);
+
+    .title {
+      max-width: 80%;
+    }
+  }
+
+  & > :nth-child(9) {
+    grid-area: services;
+    @include color-scheme($color-bg-black, $color-text-white);
+    @include vertical-text;
+  }
+}
