@@ -14,3 +14,4 @@ export * from './cases';
 export * from './our figures';
 export * from './blog catalog';
 export * from './technology stack';
+export * from './advantages';

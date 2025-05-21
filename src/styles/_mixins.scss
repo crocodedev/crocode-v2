@@ -1,3 +1,5 @@
+// MEDIA
+
 $breakpoints: (
   'xs': 375px,
   'sm': 576px,
@@ -42,6 +44,8 @@ $breakpoints: (
     @content;
   }
 }
+
+// POSITION
 
 @mixin cards-offset-layout() {
   display: grid;
@@ -88,4 +92,37 @@ $breakpoints: (
       margin-top: -75px;
     }
   }
+}
+
+@mixin vertical-text {
+  .title {
+    transform: rotate(270deg);
+  }
+}
+
+@mixin flex-center {
+  display: flex;
+  align-items: center;
+  text-align: center;
+  justify-content: center;
+}
+
+// STYLES
+
+@mixin card-base {
+  display: flex;
+  align-items: center;
+  text-align: center;
+  border-radius: 64px;
+
+  @include media-down('md') {
+    border-radius: 20px;
+  }
+}
+
+// UTILS
+
+@mixin color-scheme($bg, $text) {
+  background-color: var($bg);
+  color: var($text);
 }

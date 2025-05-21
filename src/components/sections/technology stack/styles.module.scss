@@ -1,9 +1,7 @@
 @use 'src/styles/mixins' as *;
 
 .section {
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  @include flex-center;
 }
 
 .container {
@@ -33,68 +31,60 @@
   font-weight: 700;
 
   & > * {
-    display: flex;
-    align-items: center;
-    text-align: center;
-
-    @include media-down('md') {
-      border-radius: 20px;
-    }
+    @include card-base;
   }
 
   & > :nth-child(1) {
     grid-area: mobile;
-    background-color: var(--color-bg-green);
-    color: var(--color-text-black);
-    & > .title {
-      transform: rotate(270deg);
-    }
+    @include color-scheme(--color-bg-green, --color-text-black);
+    @include vertical-text;
   }
+
   & > :nth-child(2) {
-    background-color: var(--color-bg-black);
-    color: var(--color-text-white);
     grid-area: e-commerce;
-    & > .title {
+    @include color-scheme(--color-bg-black, --color-text-white);
+    @include vertical-text;
+
+    .title {
       min-width: clamp(11.875rem, 4.1383rem + 33.0097vw, 43.75rem);
-      transform: rotate(270deg);
     }
   }
+
   & > :nth-child(3) {
     grid-area: back-end;
   }
+
   & > :nth-child(4) {
-    background-color: var(--color-bg-black);
-    color: var(--color-text-white);
     grid-area: headles-cms;
+    @include color-scheme(--color-bg-black, --color-text-white);
   }
+
   & > :nth-child(5) {
     grid-area: other;
-    & > .title {
-      transform: rotate(270deg);
-    }
+    @include vertical-text;
   }
+
   & > :nth-child(6) {
     grid-area: game-engine;
-    background-color: var(--color-bg-green);
-    color: var(--color-text-black);
+    @include color-scheme(--color-bg-green, --color-text-black);
   }
+
   & > :nth-child(7) {
     grid-area: industries;
   }
+
   & > :nth-child(8) {
     grid-area: front-end;
-    background-color: var(--color-bg-green);
-    color: var(--color-text-black);
-    & > .title {
+    @include color-scheme(--color-bg-green, --color-text-black);
+
+    .title {
       max-width: 80%;
     }
   }
+
   & > :nth-child(9) {
-    background-color: var(--color-bg-black);
-    color: var(--color-text-white);
     grid-area: services;
-    & > .title {
-      transform: rotate(270deg);
-    }
+    @include color-scheme(--color-bg-black, --color-text-white);
+    @include vertical-text;
   }
 }
