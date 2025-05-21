@@ -26,7 +26,7 @@ const DATA_ITEMS = [
   },
 ];
 
-export const AdvantagesSection = () => {
+const AdvantagesSection = () => {
   return (
     <SectionLayout className={styles.section}>
       <div className={styles.container}>
@@ -40,3 +40,5 @@ export const AdvantagesSection = () => {
     </SectionLayout>
   );
 };
+
+export default AdvantagesSection;

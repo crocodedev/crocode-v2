@@ -1,6 +1,5 @@
+import { SectionLayout } from '@/components/sections';
 import { Card } from '@/components/ui';
-
-import { SectionLayout } from '../layout';
 
 import styles from './styles.module.scss';
 
@@ -19,7 +18,7 @@ const OUR_FIGURES = [
   },
 ];
 
-export const OurFiguresSection = () => {
+const OurFiguresSection = () => {
   return (
     <SectionLayout className={styles.section}>
       {OUR_FIGURES.map(({ number, label }) => (
@@ -40,3 +39,5 @@ export const OurFiguresSection = () => {
     </SectionLayout>
   );
 };
+
+export default OurFiguresSection;

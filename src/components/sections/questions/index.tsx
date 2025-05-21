@@ -1,4 +1,4 @@
-import { SectionLayout } from '@/components/sections/layout';
+import { SectionLayout } from '@/components/sections';
 import { Title } from '@/components/ui';
 
 import styles from './styles.module.scss';
@@ -35,7 +35,7 @@ const QUESTIONS = [
   },
 ];
 
-export const QuestionsSection = () => {
+const QuestionsSection = () => {
   return (
     <SectionLayout>
       <Title text='QUESTIONS' anchor='right' />
@@ -51,3 +51,5 @@ export const QuestionsSection = () => {
     </SectionLayout>
   );
 };
+
+export default QuestionsSection;

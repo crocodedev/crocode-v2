@@ -1,14 +1,14 @@
-import { FilterSection, SectionLayout } from '@/components/sections';
+import { Filters, SectionLayout } from '@/components/sections';
 import { Card, Pagination } from '@/components/ui';
 
 import styles from './styles.module.scss';
 
 const BLOG_CATEGORY = ['Latest', 'Technologies', 'UI/UX', 'Client guides'];
 
-export const BlogCatalogSection = () => {
+const BlogCatalogSection = () => {
   return (
     <SectionLayout className={styles.section}>
-      <FilterSection
+      <Filters
         items={BLOG_CATEGORY}
         paramKey='category'
         className={styles.filters}
@@ -25,3 +25,5 @@ export const BlogCatalogSection = () => {
     </SectionLayout>
   );
 };
+
+export default BlogCatalogSection;

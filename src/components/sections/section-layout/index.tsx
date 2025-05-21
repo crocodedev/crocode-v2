@@ -6,8 +6,10 @@ type TProps = PropsWithChildren<unknown> & {
   className?: string;
 };
 
-export const SectionLayout = ({ children, className }: TProps) => {
+const SectionLayout = ({ children, className }: TProps) => {
   return (
     <section className={`${styles.layout} ${className}`}>{children}</section>
   );
 };
+
+export default SectionLayout;

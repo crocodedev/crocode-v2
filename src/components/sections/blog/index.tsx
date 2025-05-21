@@ -4,7 +4,7 @@ import Button from '@/components/ui/button';
 
 import styles from './styles.module.scss';
 
-export const BlogSection = () => {
+const BlogSection = () => {
   return (
     <SectionLayout className={styles.layout}>
       <Title text='BLOG' anchor='right' />
@@ -25,3 +25,5 @@ export const BlogSection = () => {
     </SectionLayout>
   );
 };
+
+export default BlogSection;

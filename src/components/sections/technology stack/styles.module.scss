@@ -1,7 +1,12 @@
+@mixin vertical-text {
+  .title {
+    transform: rotate(270deg);
+  }
+}
+
 .section {
   @include flex-center;
 }
-
 .container {
   display: grid;
   grid-template-columns: repeat(
@@ -27,10 +32,6 @@
     'front-end front-end front-end front-end front-end services';
   font-size: $size-title-5;
   font-weight: 700;
-
-  & > * {
-    @include card-base;
-  }
 
   & > :nth-child(1) {
     grid-area: mobile;

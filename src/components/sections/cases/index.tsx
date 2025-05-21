@@ -4,7 +4,7 @@ import { Pagination } from '@/components/ui';
 
 import styles from './styles.module.scss';
 
-export const CasesSection = () => {
+const CasesSection = () => {
   return (
     <SectionLayout className={styles.section}>
       <div className={styles.container}>
@@ -18,3 +18,5 @@ export const CasesSection = () => {
     </SectionLayout>
   );
 };
+
+export default CasesSection;

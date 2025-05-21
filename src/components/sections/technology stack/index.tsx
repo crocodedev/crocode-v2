@@ -15,7 +15,7 @@ const DATA_ITEMS = [
   'Services',
 ];
 
-export const TechnologyStackSection = () => {
+const TechnologyStackSection = () => {
   return (
     <SectionLayout className={styles.section}>
       <div className={styles.container}>
@@ -28,3 +28,5 @@ export const TechnologyStackSection = () => {
     </SectionLayout>
   );
 };
+
+export default TechnologyStackSection;
