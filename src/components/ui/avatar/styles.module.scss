@@ -1,0 +1,13 @@
+.avatar {
+  background-color: $color-bg-white;
+  border-radius: 50%;
+}
+
+.active {
+  transform: scale(1.2);
+  border-color: $color-bg-green;
+  box-shadow: 0 0 12px 4px $color-bg-green;
+  transition:
+    box-shadow 0.3s ease,
+    transform 0.3s ease;
+}

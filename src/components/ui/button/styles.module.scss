@@ -1,6 +1,12 @@
 .button {
-  color: var(--color-text-green);
-  font-size: var(--size-text-1);
-  width: 500px;
-  height: 200px;
+  display: flex;
+  justify-content: center;
+  background-color: $color-text-green;
+  border: none;
+  font-size: $size-text-1;
+  cursor: pointer;
+  color: $color-text-white;
+  font-weight: 700;
+  padding: 13px 25px;
+  border-radius: 100px;
 }

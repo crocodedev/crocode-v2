@@ -22,6 +22,7 @@ const eslintConfig = [
           semi: true,
           tabWidth: 2,
           singleQuote: true,
+          jsxSingleQuote: true,
           printWidth: 80,
           endOfLine: 'auto',
           arrowParens: 'always',

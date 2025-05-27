@@ -2,19 +2,23 @@
   "name": "crocode-v2",
   "version": "0.1.0",
   "private": true,
+  "sideEffects": false,
   "scripts": {
     "dev": "next dev --turbopack",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint",
+    "lint": "next lint --fix",
     "prepare": "npx husky-init && husky install"
   },
   "dependencies": {
     "@react-three/drei": "^10.0.7",
     "@react-three/fiber": "^9.1.2",
+    "graphql": "^16.11.0",
+    "graphql-request": "^7.1.2",
     "next": "15.3.2",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
+    "react-helmet": "^6.1.0",
     "three": "^0.176.0"
   },
   "devDependencies": {
@@ -23,6 +27,7 @@
     "@types/node": "^20",
     "@types/react": "^19",
     "@types/react-dom": "^19",
+    "@types/react-helmet": "^6.1.11",
     "eslint": "^9.26.0",
     "eslint-config-next": "15.3.2",
     "eslint-config-prettier": "^10.1.5",

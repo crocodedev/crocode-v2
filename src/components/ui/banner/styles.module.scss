@@ -1,0 +1,16 @@
+.banner {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  text-align: center;
+  background-color: $color-bg-gray;
+  height: 600px;
+  margin-bottom: 200px;
+
+  &__title {
+    font-size: $size-title-2;
+    font-weight: 700;
+  }
+}
