@@ -1,6 +1,11 @@
+import {defineField, defineType} from 'sanity'
 import {LinkIcon} from '@sanity/icons'
 
-export default {
+export default defineType({
+  name: 'link',
+  title: 'Link',
+  type: 'object',
+  icon: LinkIcon,
   preview: {
     select: {
       internalLabel: 'linkInternal.label',
@@ -15,31 +20,26 @@ export default {
       }
     },
   },
-
-  title: 'Link',
-  name: 'link',
-  type: 'object',
-  icon: LinkIcon,
   fields: [
-    {
+    defineField({
       title: 'Title',
       name: 'title',
       type: 'string',
-    },
-    {
+    }),
+    defineField({
       title: 'Link Internal',
       name: 'linkInternal',
       type: 'internal',
-    },
-    {
+    }),
+    defineField({
       title: 'Link External',
       name: 'linkExternal',
       type: 'external',
-    },
-    {
+    }),
+    defineField({
       title: 'Pdf',
       name: 'pdf',
       type: 'file',
-    },
+    }),
   ],
-}
+})

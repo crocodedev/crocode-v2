@@ -1,61 +1,57 @@
-export default {
+import {defineType, defineField} from 'sanity'
+
+export default defineType({
+  name: 'ourTeam',
+  title: 'Our team',
+  type: 'document',
+  i18n: true,
   preview: {
     select: {
       title: 'sectionTitle',
     },
   },
-
-  title: 'Our team',
-  name: 'ourTeam',
-  type: 'document',
-  i18n: true,
   fields: [
-    {
-      title: 'Section Title',
+    defineField({
       name: 'sectionTitle',
+      title: 'Section Title',
       type: 'string',
       validation: (Rule) => Rule.required(),
-    },
-    {
-      title: 'Position',
+    }),
+    defineField({
       name: 'position',
+      title: 'Position',
       type: 'number',
       validation: (Rule) => Rule.required(),
-    },
-    {
-      title: 'Component',
+    }),
+    defineField({
       name: 'component',
+      title: 'Component',
       type: 'string',
       initialValue: 'OurTeam',
       readOnly: true,
       hidden: true,
       validation: (Rule) => Rule.required(),
-    },
-    {
-      title: 'Title',
+    }),
+    defineField({
       name: 'title',
+      title: 'Title',
       type: 'string',
       validation: (Rule) => Rule.required(),
-    },
-    {
-      title: 'Subtitle',
+    }),
+    defineField({
       name: 'subtitle',
+      title: 'Subtitle',
       type: 'text',
-    },
-    {
+    }),
+    defineField({
       name: 'link',
       type: 'link',
-    },
-    {
-      title: 'Items',
+    }),
+    defineField({
       name: 'items',
+      title: 'Items',
       type: 'array',
-
-      of: [
-        {
-          type: 'ourTeamItem',
-        },
-      ],
-    },
+      of: [{type: 'ourTeamItem'}],
+    }),
   ],
-}
+})

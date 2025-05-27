@@ -1,23 +1,24 @@
-export default {
+import {defineType} from 'sanity'
+
+export default defineType({
+  name: 'textTwoItem',
+  title: 'Text two item',
+  type: 'object',
   preview: {
     select: {
       title: 'text',
     },
   },
-
-  title: 'Text two item',
-  name: 'textTwoItem',
-  type: 'object',
   fields: [
     {
-      title: 'Title',
       name: 'title',
+      title: 'Title',
       type: 'string',
     },
     {
-      title: 'Text',
       name: 'text',
+      title: 'Text',
       type: 'text',
     },
   ],
-}
+})

@@ -1,4 +1,12 @@
+import {defineArrayMember} from 'sanity'
+
 export default [
-  {title: 'light', value: 'light'},
-  {title: 'paper', value: 'paper'},
+  defineArrayMember({
+    title: 'light',
+    value: 'light',
+  }),
+  defineArrayMember({
+    title: 'paper',
+    value: 'paper',
+  }),
 ]

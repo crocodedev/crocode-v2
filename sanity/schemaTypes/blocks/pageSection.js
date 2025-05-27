@@ -1,11 +1,11 @@
-export default {
-  title: 'Section',
+import {defineType} from 'sanity'
+
+export default defineType({
   name: 'pageSection',
+  title: 'Section',
   type: 'reference',
   to: [
-    {
-      type: 'hero',
-    },
+    {type: 'hero'},
     {type: 'heroMain'},
     {type: 'heroProject'},
     {type: 'list'},
@@ -36,7 +36,6 @@ export default {
     {type: 'technologiesCaseItem'},
     {type: 'imageBlock'},
   ],
-
   options: {
     filter: ({document}) => {
       return {
@@ -47,4 +46,4 @@ export default {
       }
     },
   },
-}
+})

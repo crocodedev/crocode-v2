@@ -1,57 +1,52 @@
-export default {
+import {defineField, defineType} from 'sanity'
+
+export default defineType({
+  name: 'development',
+  title: 'Development',
+  type: 'document',
   preview: {
     select: {
       title: 'sectionTitle',
     },
   },
-
-  title: 'Development',
-  name: 'development',
-  type: 'document',
-  i18n: true,
   fields: [
-    {
-      title: 'Section Title',
+    defineField({
       name: 'sectionTitle',
+      title: 'Section Title',
       type: 'string',
       validation: (Rule) => Rule.required(),
-    },
-    {
-      title: 'Position',
+    }),
+    defineField({
       name: 'position',
+      title: 'Position',
       type: 'number',
       validation: (Rule) => Rule.required(),
-    },
-    {
-      title: 'Component',
+    }),
+    defineField({
       name: 'component',
+      title: 'Component',
       type: 'string',
       initialValue: 'Development',
       readOnly: true,
       hidden: true,
       validation: (Rule) => Rule.required(),
-    },
-    {
-      title: 'Title',
+    }),
+    defineField({
       name: 'title',
+      title: 'Title',
       type: 'string',
       validation: (Rule) => Rule.required(),
-    },
-    {
-      title: 'Subtitle',
+    }),
+    defineField({
       name: 'subtitle',
+      title: 'Subtitle',
       type: 'text',
-    },
-    {
-      title: 'Items',
+    }),
+    defineField({
       name: 'items',
+      title: 'Items',
       type: 'array',
-
-      of: [
-        {
-          type: 'devItem',
-        },
-      ],
-    },
+      of: [{type: 'devItem'}],
+    }),
   ],
-}
+})

@@ -1,88 +1,80 @@
+import {defineType, defineField} from 'sanity'
 import bgColors from '../objects/bgColors'
 
-export default {
+export default defineType({
+  name: 'textTwo',
+  title: 'Text Two',
+  type: 'document',
+  i18n: true,
   preview: {
     select: {
       title: 'sectionTitle',
     },
   },
-
-  title: 'Text Two',
-  name: 'textTwo',
-  type: 'document',
-  i18n: true,
   fields: [
-    {
-      title: 'Section Title',
+    defineField({
       name: 'sectionTitle',
+      title: 'Section Title',
       type: 'string',
       validation: (Rule) => Rule.required(),
-    },
-    {
-      title: 'Position',
+    }),
+    defineField({
       name: 'position',
+      title: 'Position',
       type: 'number',
       validation: (Rule) => Rule.required(),
-    },
-    {
-      title: 'Component',
+    }),
+    defineField({
       name: 'component',
+      title: 'Component',
       type: 'string',
       initialValue: 'TextTwo',
       readOnly: true,
       hidden: true,
       validation: (Rule) => Rule.required(),
-    },
-    {
-      title: 'Title',
+    }),
+    defineField({
       name: 'title',
+      title: 'Title',
       type: 'string',
       validation: (Rule) => Rule.required(),
-    },
-    {
-      title: 'Subtitle',
+    }),
+    defineField({
       name: 'subtitle',
+      title: 'Subtitle',
       type: 'text',
-    },
-    {
-      title: 'RichTextBlock',
+    }),
+    defineField({
       name: 'richTextBlock',
+      title: 'RichTextBlock',
       type: 'array',
-      of: [
-        {
-          type: 'block',
-        },
-      ],
-    },
-    {
-      title: 'DEPRECATED Text',
+      of: [{type: 'block'}],
+    }),
+    defineField({
       name: 'text',
+      title: 'DEPRECATED Text',
       type: 'text',
-    },
-    {
-      title: 'Image',
+      description: 'Deprecated. Use "RichTextBlock" instead.',
+    }),
+    defineField({
       name: 'image',
+      title: 'Image',
       type: 'imageWithAlt',
-    },
-    {
-      title: 'Items',
+    }),
+    defineField({
       name: 'items',
+      title: 'Items',
       type: 'array',
-
-      of: [
-        {
-          type: 'textTwoItem',
-        },
-      ],
-    },
-    {
-      title: 'Background color',
+      of: [{type: 'textTwoItem'}],
+    }),
+    defineField({
       name: 'bgColor',
+      title: 'Background color',
       type: 'string',
       options: {
         list: [...bgColors],
       },
       validation: (Rule) => Rule.required(),
-    },
+    }),
   ],
-}
+})

@@ -1,3 +1,5 @@
+import {defineField} from 'sanity'
+
 export default {
   preview: {
     select: {
@@ -9,12 +11,12 @@ export default {
   name: 'contentItem',
   type: 'object',
   fields: [
-    {
+    defineField({
       title: 'Title',
       name: 'title',
       type: 'string',
-    },
-    {
+    }),
+    defineField({
       title: 'Component',
       name: 'component',
       type: 'string',
@@ -24,8 +26,8 @@ export default {
           {title: 'Image', value: 'Image'},
         ],
       },
-    },
-    {
+    }),
+    defineField({
       title: 'Text',
       name: 'text',
       type: 'array',
@@ -34,13 +36,13 @@ export default {
           type: 'text',
         },
       ],
-      hidden: (e) => !(e.parent.component === 'Text'),
-    },
-    {
+      hidden: (e) => !(e.parent?.component === 'Text'),
+    }),
+    defineField({
       title: 'Content image',
       name: 'contentImage',
       type: 'imageWithAlt',
-      hidden: (e) => !(e.parent.component === 'Image'),
-    },
+      hidden: (e) => !(e.parent?.component === 'Image'),
+    }),
   ],
 }

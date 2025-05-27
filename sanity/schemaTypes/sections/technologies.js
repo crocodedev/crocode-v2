@@ -1,30 +1,31 @@
-export default {
+import {defineType, defineField} from 'sanity'
+
+export default defineType({
+  name: 'technologies',
+  title: 'Technologies',
+  type: 'document',
+  i18n: true,
   preview: {
     select: {
       title: 'sectionTitle',
     },
   },
-
-  title: 'Technologies',
-  name: 'technologies',
-  type: 'document',
-  i18n: true,
   fields: [
-    {
-      title: 'Section Title',
+    defineField({
       name: 'sectionTitle',
+      title: 'Section Title',
       type: 'string',
       validation: (Rule) => Rule.required(),
-    },
-    {
-      title: 'Position',
+    }),
+    defineField({
       name: 'position',
+      title: 'Position',
       type: 'number',
       validation: (Rule) => Rule.required(),
-    },
-    {
-      title: 'Component',
+    }),
+    defineField({
       name: 'component',
+      title: 'Component',
       type: 'string',
       initialValue: 'Technologies',
       options: {
@@ -34,39 +35,29 @@ export default {
         ],
       },
       validation: (Rule) => Rule.required(),
-    },
-    {
-      title: 'Title',
+    }),
+    defineField({
       name: 'title',
+      title: 'Title',
       type: 'string',
       validation: (Rule) => Rule.required(),
-    },
-    {
-      title: 'Subtitle',
+    }),
+    defineField({
       name: 'subtitle',
+      title: 'Subtitle',
       type: 'text',
-    },
-    {
-      title: 'Categories',
+    }),
+    defineField({
       name: 'categories',
+      title: 'Categories',
       type: 'array',
-      of: [
-        {
-          type: 'technologyCategory',
-        },
-      ],
-    },
-    {
-      title: 'Breadcrumbs',
+      of: [{type: 'technologyCategory'}],
+    }),
+    defineField({
       name: 'breadcrumbs',
+      title: 'Breadcrumbs',
       type: 'array',
-
-      of: [
-        {
-          name: 'link',
-          type: 'link',
-        },
-      ],
-    },
+      of: [{name: 'link', type: 'link'}],
+    }),
   ],
-}
+})

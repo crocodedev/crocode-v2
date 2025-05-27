@@ -1,65 +1,66 @@
-export default {
+import {defineType, defineField} from 'sanity'
+
+export default defineType({
+  name: 'header',
+  title: 'Header',
+  type: 'document',
+  i18n: true,
   preview: {
     select: {
       title: 'sectionTitle',
     },
   },
-
-  title: 'Header',
-  name: 'header',
-  type: 'document',
-  i18n: true,
   fields: [
-    {
-      title: 'Section Title',
+    defineField({
       name: 'sectionTitle',
+      title: 'Section Title',
       type: 'string',
       validation: (Rule) => Rule.required(),
-    },
-    {
-      title: 'Position',
+    }),
+    defineField({
       name: 'position',
+      title: 'Position',
       type: 'number',
       readOnly: true,
       validation: (Rule) => Rule.required(),
-    },
-    {
-      title: 'Component',
+    }),
+    defineField({
       name: 'component',
+      title: 'Component',
       type: 'string',
       initialValue: 'Header',
       readOnly: true,
       hidden: true,
       validation: (Rule) => Rule.required(),
-    },
-    {
-      title: 'Logo image',
+    }),
+    defineField({
       name: 'logoImage',
+      title: 'Logo image',
       type: 'imageWithAlt',
-    },
-    {
+    }),
+    defineField({
       name: 'Link',
       type: 'link',
-    },
-    {
-      title: 'Header links',
+    }),
+    defineField({
       name: 'headerLinks',
+      title: 'Header links',
       type: 'headerLinks',
-    },
-    {
-      title: 'Header button',
+    }),
+    defineField({
       name: 'headerButton',
+      title: 'Header button',
       type: 'link',
-    },
-    {
-      title: 'Link with icon',
+    }),
+    defineField({
       name: 'linkWithIcon',
+      title: 'Link with icon',
       type: 'iconLink',
-    },
-    {
-      title: 'Touch Us',
+    }),
+    defineField({
       name: 'touchUsModal',
+      title: 'Touch Us',
       type: 'touchUs',
-    },
+    }),
   ],
-}
+})

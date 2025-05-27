@@ -1,85 +1,84 @@
+import {defineType, defineField} from 'sanity'
 import fadeColors from '../objects/fadeColors'
 
-export default {
+export default defineType({
+  name: 'hero',
+  title: 'Hero',
+  type: 'document',
+  i18n: true,
   preview: {
     select: {
       title: 'sectionTitle',
     },
   },
-
-  title: 'Hero',
-  name: 'hero',
-  type: 'document',
-  i18n: true,
   fields: [
-    {
-      title: 'Section Title',
+    defineField({
       name: 'sectionTitle',
+      title: 'Section Title',
       type: 'string',
       validation: (Rule) => Rule.required(),
-    },
-    {
-      title: 'Position',
+    }),
+    defineField({
       name: 'position',
+      title: 'Position',
       type: 'number',
       validation: (Rule) => Rule.required(),
-    },
-    {
-      title: 'Component',
+    }),
+    defineField({
       name: 'component',
+      title: 'Component',
       type: 'string',
       initialValue: 'Hero',
       readOnly: true,
       hidden: true,
       validation: (Rule) => Rule.required(),
-    },
-    {
-      title: 'Title',
+    }),
+    defineField({
       name: 'title',
+      title: 'Title',
       type: 'string',
       validation: (Rule) => Rule.required(),
-    },
-    {
-      title: 'Portfolio',
+    }),
+    defineField({
       name: 'portfolio',
+      title: 'Portfolio',
       type: 'imagePortfolio',
-    },
-    {
-      title: 'RichTextBlock',
+    }),
+    defineField({
       name: 'richTextBlock',
+      title: 'RichTextBlock',
       type: 'array',
       of: [{type: 'block'}],
-    },
-    {
-      title: 'DEPRECATED Subtitle',
+    }),
+    defineField({
       name: 'subtitle',
+      title: 'DEPRECATED Subtitle',
       type: 'text',
-    },
-    {
-      title: 'Image With Alt Text',
+    }),
+    defineField({
       name: 'imageWithAltText',
+      title: 'Image With Alt Text',
       type: 'imageWithAlt',
-    },
-    {
-      title: 'Fade color',
+    }),
+    defineField({
       name: 'fadeColor',
+      title: 'Fade color',
       type: 'string',
       options: {
         list: [...fadeColors],
       },
       validation: (Rule) => Rule.required(),
-    },
-    {
-      title: 'Breadcrumbs',
+    }),
+    defineField({
       name: 'breadcrumbs',
+      title: 'Breadcrumbs',
       type: 'array',
-
       of: [
         {
           name: 'link',
           type: 'link',
         },
       ],
-    },
+    }),
   ],
-}
+})

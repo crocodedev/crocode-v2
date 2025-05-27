@@ -1,9 +1,10 @@
 import {MasterDetailIcon} from '@sanity/icons'
+import {defineField, defineType} from 'sanity'
 
-export default {
+export default defineType({
   name: 'casesCountry',
-  type: 'document',
   title: 'Cases Country',
+  type: 'document',
   icon: MasterDetailIcon,
   i18n: {
     fieldNames: {
@@ -12,20 +13,19 @@ export default {
       references: 'i18n_refs',
     },
   },
-
   fields: [
-    {
+    defineField({
       name: 'i18n_lang',
       type: 'string',
       hidden: true,
-    },
-    {
+    }),
+    defineField({
       name: 'i18n_base',
       type: 'reference',
       to: [{type: 'casesCountry'}],
       hidden: true,
-    },
-    {
+    }),
+    defineField({
       name: 'i18n_refs',
       type: 'array',
       hidden: true,
@@ -35,19 +35,19 @@ export default {
           to: [{type: 'casesCountry'}],
         },
       ],
-    },
-    {
+    }),
+    defineField({
       title: 'Section Title',
       name: 'sectionTitle',
       type: 'string',
       validation: (Rule) => Rule.required(),
-    },
-    {
+    }),
+    defineField({
       title: 'Title',
       name: 'title',
       type: 'string',
-    },
-    {
+    }),
+    defineField({
       name: 'slug',
       title: 'Slug',
       type: 'slug',
@@ -55,25 +55,24 @@ export default {
         source: 'title',
         maxLength: 96,
       },
-    },
-    {
+    }),
+    defineField({
       title: 'Position',
       name: 'position',
       type: 'string',
-    },
-    {
+    }),
+    defineField({
       title: 'Breadcrumbs',
       name: 'breadcrumbs',
       type: 'array',
-
       of: [
         {
           name: 'link',
           type: 'link',
         },
       ],
-    },
-    {
+    }),
+    defineField({
       title: 'Article separator',
       name: 'articleSeparator',
       type: 'reference',
@@ -82,13 +81,13 @@ export default {
           type: 'ctaForm',
         },
       ],
-    },
-    {
+    }),
+    defineField({
       title: 'Number of posts',
       name: 'numberOfPosts',
       type: 'number',
-    },
-    {
+    }),
+    defineField({
       title: 'Component',
       name: 'component',
       type: 'string',
@@ -96,15 +95,15 @@ export default {
       readOnly: true,
       hidden: true,
       validation: (Rule) => Rule.required(),
-    },
-    {
+    }),
+    defineField({
       title: 'Sections',
       name: 'sections',
       type: 'blogContent',
-    },
-    {
+    }),
+    defineField({
       name: 'seo',
       type: 'seo',
-    },
+    }),
   ],
-}
+})

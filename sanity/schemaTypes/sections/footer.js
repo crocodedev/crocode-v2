@@ -1,75 +1,64 @@
-export default {
+import {defineField, defineType} from 'sanity'
+
+export default defineType({
+  name: 'footer',
+  title: 'Footer',
+  type: 'document',
   preview: {
     select: {
       title: 'sectionTitle',
     },
   },
-
-  title: 'Footer',
-  name: 'footer',
-  type: 'document',
-  i18n: true,
   fields: [
-    {
-      title: 'Section Title',
+    defineField({
       name: 'sectionTitle',
+      title: 'Section Title',
       type: 'string',
       validation: (Rule) => Rule.required(),
-    },
-    {
-      title: 'Position',
+    }),
+    defineField({
       name: 'position',
+      title: 'Position',
       type: 'number',
       readOnly: true,
       validation: (Rule) => Rule.required(),
-    },
-    {
-      title: 'Component',
+    }),
+    defineField({
       name: 'component',
+      title: 'Component',
       type: 'string',
       initialValue: 'Footer',
       readOnly: true,
       hidden: true,
       validation: (Rule) => Rule.required(),
-    },
-    {
-      title: 'Logo image',
+    }),
+    defineField({
       name: 'logoImage',
+      title: 'Logo image',
       type: 'imageWithAlt',
-    },
-    {
-      title: 'Copyright text',
+    }),
+    defineField({
       name: 'copyrightText',
+      title: 'Copyright text',
       type: 'string',
-    },
-    {
-      title: 'Social icons',
+    }),
+    defineField({
       name: 'socialIcons',
+      title: 'Social icons',
       type: 'array',
-
       of: [{type: 'socialIconsItem'}],
-    },
-    {
-      title: 'Column',
+    }),
+    defineField({
       name: 'column',
+      title: 'Column',
       type: 'array',
-      of: [
-        {
-          type: 'columnGroup',
-        },
-      ],
-    },
-    {
-      title: 'Bottom links',
+      of: [{type: 'columnGroup'}],
+    }),
+    defineField({
       name: 'bottomLinks',
+      title: 'Bottom links',
       type: 'array',
-
-      of: [
-        {
-          name: 'link',
-          type: 'link',
-        },
-      ],
-    },
+      of: [{name: 'link', type: 'link'}],
+    }),
   ],
-}
+})

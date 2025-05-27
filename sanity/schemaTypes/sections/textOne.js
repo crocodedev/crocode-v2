@@ -1,92 +1,92 @@
+import {defineType, defineField} from 'sanity'
 import bgColors from '../objects/bgColors'
 import fadeColors from '../objects/fadeColors'
 
-export default {
+export default defineType({
+  name: 'textOne',
+  title: 'Text One',
+  type: 'document',
+  i18n: true,
   preview: {
     select: {
       title: 'sectionTitle',
     },
   },
-
-  title: 'Text One',
-  name: 'textOne',
-  type: 'document',
-  i18n: true,
   fields: [
-    {
-      title: 'Section Title',
+    defineField({
       name: 'sectionTitle',
+      title: 'Section Title',
       type: 'string',
       validation: (Rule) => Rule.required(),
-    },
-    {
-      title: 'Position',
+    }),
+    defineField({
       name: 'position',
+      title: 'Position',
       type: 'number',
       validation: (Rule) => Rule.required(),
-    },
-    {
-      title: 'Component',
+    }),
+    defineField({
       name: 'component',
+      title: 'Component',
       type: 'string',
       initialValue: 'TextOne',
       readOnly: true,
       hidden: true,
       validation: (Rule) => Rule.required(),
-    },
-    {
-      title: 'Title',
+    }),
+    defineField({
       name: 'title',
+      title: 'Title',
       type: 'string',
       validation: (Rule) => Rule.required(),
-    },
-    {
-      title: 'Subtitle',
+    }),
+    defineField({
       name: 'subtitle',
+      title: 'Subtitle',
       type: 'text',
-    },
-    {
-      title: 'Text',
+    }),
+    defineField({
       name: 'text',
+      title: 'Text',
       type: 'text',
-    },
-    {
-      title: 'Image',
+    }),
+    defineField({
       name: 'image',
+      title: 'Image',
       type: 'imageWithAlt',
-    },
-    {
-      title: 'Image for mobile',
+    }),
+    defineField({
       name: 'mobileImage',
+      title: 'Image for mobile',
       type: 'imageWithAlt',
-    },
-    {
-      title: 'Image for tablet',
+    }),
+    defineField({
       name: 'tabletImage',
+      title: 'Image for tablet',
       type: 'imageWithAlt',
-    },
-    {
-      title: 'Image for desktop',
+    }),
+    defineField({
       name: 'desktopImage',
+      title: 'Image for desktop',
       type: 'imageWithAlt',
-    },
-    {
-      title: 'Fade color',
+    }),
+    defineField({
       name: 'fadeColor',
+      title: 'Fade color',
       type: 'string',
       options: {
         list: [...fadeColors],
       },
       validation: (Rule) => Rule.required(),
-    },
-    {
-      title: 'Background color',
+    }),
+    defineField({
       name: 'bgColor',
+      title: 'Background color',
       type: 'string',
       options: {
         list: [...bgColors],
       },
       validation: (Rule) => Rule.required(),
-    },
+    }),
   ],
-}
+})

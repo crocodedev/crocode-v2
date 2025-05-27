@@ -1,18 +1,17 @@
-export default {
+import {defineType} from 'sanity'
+
+export default defineType({
+  name: 'itemsSteps',
+  title: 'Items steps',
+  type: 'array',
+  of: [
+    {
+      type: 'imageWithAlt',
+    },
+  ],
   preview: {
     select: {
       title: 'title',
     },
   },
-
-  title: 'Items steps',
-  name: 'itemsSteps',
-  type: 'array',
-  of: [
-    {
-      title: 'Image',
-      name: 'image',
-      type: 'imageWithAlt',
-    },
-  ],
-}
+})

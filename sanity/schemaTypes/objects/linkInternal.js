@@ -1,17 +1,19 @@
-export default {
+import {defineField, defineType} from 'sanity'
+
+export default defineType({
   title: 'Internal',
   name: 'internal',
-  description: 'use this to link between pages',
+  description: 'Use this to link between pages',
   type: 'object',
   hidden: ({parent, value}) => !value && parent?.external,
   fields: [
-    {
+    defineField({
       title: 'Label',
       name: 'label',
       type: 'string',
-      description: 'display label will replace reference title if set',
-    },
-    {
+      description: 'Display label will replace reference title if set',
+    }),
+    defineField({
       title: 'Reference',
       name: 'reference',
       type: 'reference',
@@ -24,6 +26,6 @@ export default {
       options: {
         disableNew: true,
       },
-    },
+    }),
   ],
-}
+})

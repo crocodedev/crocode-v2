@@ -1,24 +1,25 @@
-export default {
+import {defineType, defineField} from 'sanity'
+
+export default defineType({
+  name: 'imageBlock',
+  title: 'Image block',
+  type: 'document',
+  i18n: true,
   preview: {
     select: {
       title: 'title',
     },
   },
-
-  title: 'Image block',
-  name: 'imageBlock',
-  type: 'document',
-  i18n: true,
   fields: [
-    {
-      title: 'Title',
+    defineField({
       name: 'title',
+      title: 'Title',
       type: 'string',
-    },
-    {
-      title: 'Image',
+    }),
+    defineField({
       name: 'image',
+      title: 'Image',
       type: 'imageWithAlt',
-    },
+    }),
   ],
-}
+})

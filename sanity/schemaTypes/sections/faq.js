@@ -1,68 +1,62 @@
+import {defineField, defineType} from 'sanity'
 import bgColors from '../objects/bgColors'
 
-export default {
+export default defineType({
+  name: 'faq',
+  title: 'FAQ',
+  type: 'document',
   preview: {
     select: {
       title: 'sectionTitle',
     },
   },
-
-  title: 'FAQ',
-  name: 'faq',
-  type: 'document',
-  i18n: true,
   fields: [
-    {
-      title: 'Section Title',
+    defineField({
       name: 'sectionTitle',
+      title: 'Section Title',
       type: 'string',
       validation: (Rule) => Rule.required(),
-    },
-    {
-      title: 'Position',
+    }),
+    defineField({
       name: 'position',
+      title: 'Position',
       type: 'number',
       validation: (Rule) => Rule.required(),
-    },
-    {
-      title: 'Component',
+    }),
+    defineField({
       name: 'component',
+      title: 'Component',
       type: 'string',
       initialValue: 'FAQ',
       readOnly: true,
       hidden: true,
       validation: (Rule) => Rule.required(),
-    },
-    {
-      title: 'Title',
+    }),
+    defineField({
       name: 'title',
+      title: 'Title',
       type: 'string',
       validation: (Rule) => Rule.required(),
-    },
-    {
-      title: 'Subtitle',
+    }),
+    defineField({
       name: 'subtitle',
+      title: 'Subtitle',
       type: 'text',
-    },
-    {
-      title: 'Items',
+    }),
+    defineField({
       name: 'items',
+      title: 'Items',
       type: 'array',
-
-      of: [
-        {
-          type: 'faqItem',
-        },
-      ],
-    },
-    {
-      title: 'Background color',
+      of: [{type: 'faqItem'}],
+    }),
+    defineField({
       name: 'bgColor',
+      title: 'Background color',
       type: 'string',
       options: {
-        color: [...bgColors],
+        list: [...bgColors],
       },
       validation: (Rule) => Rule.required(),
-    },
+    }),
   ],
-}
+})

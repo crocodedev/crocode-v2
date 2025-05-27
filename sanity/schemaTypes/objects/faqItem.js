@@ -1,23 +1,24 @@
-export default {
+import {defineField, defineType} from 'sanity'
+
+export default defineType({
+  name: 'faqItem',
+  title: 'Faq item',
+  type: 'object',
   preview: {
     select: {
       title: 'title',
     },
   },
-
-  title: 'Faq item',
-  name: 'faqItem',
-  type: 'object',
   fields: [
-    {
+    defineField({
       title: 'Title',
       name: 'title',
       type: 'string',
-    },
-    {
+    }),
+    defineField({
       title: 'Text',
       name: 'text',
       type: 'text',
-    },
+    }),
   ],
-}
+})

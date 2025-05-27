@@ -1,35 +1,35 @@
 import {CogIcon} from '@sanity/icons'
+import {defineField, defineType} from 'sanity'
 
-export default {
+export default defineType({
+  name: 'settings',
+  title: 'Settings',
+  type: 'document',
+  icon: CogIcon,
   preview: {
     select: {
       title: 'name',
     },
   },
-
-  title: 'Settings',
-  name: 'settings',
-  type: 'document',
-  icon: CogIcon,
   // https://www.sanity.io/docs/experimental/ui-affordances-for-actions
   __experimental_actions: [/*"create", 'delete',*/ 'update', 'publish'],
   fields: [
-    {
+    defineField({
       title: 'Site name',
       name: 'name',
       type: 'string',
-    },
-    {
+    }),
+    defineField({
       title: 'Site url',
       name: 'siteUrl',
       type: 'string',
-    },
-    {
+    }),
+    defineField({
       title: 'Recaptcha key',
       name: 'recaptchaKey',
       type: 'string',
-    },
-    {
+    }),
+    defineField({
       title: 'Default locale',
       name: 'defaultLocale',
       type: 'string',
@@ -41,22 +41,21 @@ export default {
         ],
       },
       validation: (Rule) => Rule.required(),
-    },
-    {
+    }),
+    defineField({
       title: 'Locales',
       name: 'locales',
       type: 'array',
-
       of: [
         {
           type: 'locale',
         },
       ],
-    },
-    {
+    }),
+    defineField({
       title: 'Cookies',
       name: 'cookies',
       type: 'cookies',
-    },
+    }),
   ],
-}
+})

@@ -1,61 +1,61 @@
+import {defineField, defineType} from 'sanity'
 import bgColors from '../objects/bgColors'
 
-export default {
+export default defineType({
+  name: 'ctaText',
+  title: 'CTA Text',
+  type: 'document',
   preview: {
     select: {
       title: 'sectionTitle',
     },
   },
-
-  title: 'CTA Text',
-  name: 'ctaText',
-  type: 'document',
-  i18n: true,
   fields: [
-    {
-      title: 'Section Title',
+    defineField({
       name: 'sectionTitle',
+      title: 'Section Title',
       type: 'string',
       validation: (Rule) => Rule.required(),
-    },
-    {
-      title: 'Position',
+    }),
+    defineField({
       name: 'position',
+      title: 'Position',
       type: 'number',
       validation: (Rule) => Rule.required(),
-    },
-    {
-      title: 'Component',
+    }),
+    defineField({
       name: 'component',
+      title: 'Component',
       type: 'string',
       initialValue: 'CtaText',
       readOnly: true,
       hidden: true,
       validation: (Rule) => Rule.required(),
-    },
-    {
-      title: 'Title',
+    }),
+    defineField({
       name: 'title',
+      title: 'Title',
       type: 'string',
       validation: (Rule) => Rule.required(),
-    },
-    {
-      title: 'Subtitle',
+    }),
+    defineField({
       name: 'subtitle',
+      title: 'Subtitle',
       type: 'text',
-    },
-    {
+    }),
+    defineField({
       name: 'link',
+      title: 'Link',
       type: 'link',
-    },
-    {
-      title: 'Background color',
+    }),
+    defineField({
       name: 'bgColor',
+      title: 'Background color',
       type: 'string',
       options: {
-        color: [...bgColors],
+        list: [...bgColors],
       },
       validation: (Rule) => Rule.required(),
-    },
+    }),
   ],
-}
+})

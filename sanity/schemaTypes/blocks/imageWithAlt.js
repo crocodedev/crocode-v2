@@ -1,17 +1,19 @@
-export default {
-  title: 'Image With Alt Text',
+import {defineField, defineType} from 'sanity'
+
+export default defineType({
   name: 'imageWithAlt',
+  title: 'Image With Alt Text',
   type: 'object',
   fields: [
-    {
-      title: 'Image',
+    defineField({
       name: 'image',
+      title: 'Image',
       type: 'image',
-    },
-    {
-      title: 'Alt Text',
+    }),
+    defineField({
       name: 'altText',
+      title: 'Alt Text',
       type: 'string',
-    },
+    }),
   ],
-}
+})

@@ -1,9 +1,10 @@
-export default {
-  title: 'Section',
+import {defineType} from 'sanity'
+
+export default defineType({
   name: 'blogSections',
+  title: 'Section',
   type: 'reference',
   to: [{type: 'footer'}, {type: 'header'}, {type: 'ctaForm'}, {type: 'contactUs'}],
-
   options: {
     filter: ({document}) => {
       return {
@@ -12,4 +13,4 @@ export default {
       }
     },
   },
-}
+})

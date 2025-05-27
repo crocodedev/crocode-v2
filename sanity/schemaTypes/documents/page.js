@@ -1,9 +1,10 @@
 import {MasterDetailIcon} from '@sanity/icons'
+import {defineField, defineType} from 'sanity'
 
-export default {
+export default defineType({
   name: 'page',
-  type: 'document',
   title: 'Page',
+  type: 'document',
   icon: MasterDetailIcon,
   i18n: {
     fieldNames: {
@@ -12,14 +13,13 @@ export default {
       references: 'i18n_refs',
     },
   },
-
   fields: [
-    {
+    defineField({
       name: 'i18n_lang',
       type: 'string',
       hidden: true,
-    },
-    {
+    }),
+    defineField({
       name: 'i18n_base',
       type: 'reference',
       to: [
@@ -28,8 +28,8 @@ export default {
         },
       ],
       hidden: true,
-    },
-    {
+    }),
+    defineField({
       name: 'i18n_refs',
       type: 'array',
       hidden: true,
@@ -43,13 +43,13 @@ export default {
           ],
         },
       ],
-    },
-    {
+    }),
+    defineField({
       name: 'title',
       title: 'Title',
       type: 'string',
-    },
-    {
+    }),
+    defineField({
       name: 'slug',
       title: 'Slug',
       type: 'slug',
@@ -57,15 +57,15 @@ export default {
         source: 'title',
         maxLength: 96,
       },
-    },
-    {
+    }),
+    defineField({
       name: 'content',
       title: 'Page sections',
       type: 'pageContent',
-    },
-    {
+    }),
+    defineField({
       name: 'seo',
       type: 'seo',
-    },
+    }),
   ],
-}
+})

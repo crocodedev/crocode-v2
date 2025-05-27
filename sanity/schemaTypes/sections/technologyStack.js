@@ -1,57 +1,53 @@
-export default {
+import {defineType, defineField} from 'sanity'
+
+export default defineType({
+  name: 'technologyStack',
+  title: 'Technology Stack',
+  type: 'document',
+  i18n: true,
   preview: {
     select: {
       title: 'sectionTitle',
     },
   },
-
-  title: 'Technology Stack',
-  name: 'technologyStack',
-  type: 'document',
-  i18n: true,
   fields: [
-    {
-      title: 'Section Title',
+    defineField({
       name: 'sectionTitle',
+      title: 'Section Title',
       type: 'string',
       validation: (Rule) => Rule.required(),
-    },
-    {
-      title: 'Position',
+    }),
+    defineField({
       name: 'position',
+      title: 'Position',
       type: 'number',
       validation: (Rule) => Rule.required(),
-    },
-    {
-      title: 'Component',
+    }),
+    defineField({
       name: 'component',
+      title: 'Component',
       type: 'string',
       initialValue: 'TechnologyStack',
       readOnly: true,
       hidden: true,
       validation: (Rule) => Rule.required(),
-    },
-    {
-      title: 'Title',
+    }),
+    defineField({
       name: 'title',
+      title: 'Title',
       type: 'string',
       validation: (Rule) => Rule.required(),
-    },
-    {
-      title: 'Subtitle',
+    }),
+    defineField({
       name: 'subtitle',
+      title: 'Subtitle',
       type: 'text',
-    },
-    {
-      title: 'Items',
+    }),
+    defineField({
       name: 'items',
+      title: 'Items',
       type: 'array',
-
-      of: [
-        {
-          type: 'technologyStackItem',
-        },
-      ],
-    },
+      of: [{type: 'technologyStackItem'}],
+    }),
   ],
-}
+})

@@ -1,80 +1,75 @@
-export default {
+import {defineField, defineType} from 'sanity'
+
+export default defineType({
+  name: 'contacts',
+  title: 'Contacts',
+  type: 'document',
   preview: {
     select: {
       title: 'sectionTitle',
     },
   },
-
-  title: 'Contacts',
-  name: 'contacts',
-  type: 'document',
-  i18n: true,
   fields: [
-    {
-      title: 'Section Title',
+    defineField({
       name: 'sectionTitle',
+      title: 'Section Title',
       type: 'string',
       validation: (Rule) => Rule.required(),
-    },
-    {
-      title: 'Position',
+    }),
+    defineField({
       name: 'position',
+      title: 'Position',
       type: 'number',
       validation: (Rule) => Rule.required(),
-    },
-    {
-      title: 'Component',
+    }),
+    defineField({
       name: 'component',
+      title: 'Component',
       type: 'string',
       initialValue: 'Contacts',
       readOnly: true,
       hidden: true,
       validation: (Rule) => Rule.required(),
-    },
-    {
-      title: 'Title',
+    }),
+    defineField({
       name: 'title',
+      title: 'Title',
       type: 'string',
       validation: (Rule) => Rule.required(),
-    },
-    {
-      title: 'Subtitle',
+    }),
+    defineField({
       name: 'subtitle',
+      title: 'Subtitle',
       type: 'text',
-    },
-    {
-      title: 'Image',
+    }),
+    defineField({
       name: 'image',
+      title: 'Image',
       type: 'imageWithAlt',
-    },
-    {
-      title: 'Pop up text',
+    }),
+    defineField({
       name: 'popUpText',
+      title: 'Pop up text',
       type: 'string',
       validation: (Rule) => Rule.required(),
-    },
-    {
-      title: 'Style link',
+    }),
+    defineField({
       name: 'styleLink',
+      title: 'Style link',
       type: 'string',
       validation: (Rule) => Rule.required(),
-    },
-    {
-      title: 'Access token',
+    }),
+    defineField({
       name: 'accessToken',
+      title: 'Access token',
       type: 'string',
       validation: (Rule) => Rule.required(),
-    },
-    {
-      title: 'Contact items',
+    }),
+    defineField({
       name: 'contactItems',
+      title: 'Contact items',
       type: 'array',
-
-      of: [
-        {
-          type: 'contactItem',
-        },
-      ],
-    },
+      of: [{type: 'contactItem'}],
+    }),
   ],
-}
+})

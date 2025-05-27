@@ -1,63 +1,58 @@
-export default {
+import {defineField, defineType} from 'sanity'
+
+export default defineType({
+  name: 'challenge',
+  title: 'Challenge',
+  type: 'document',
   preview: {
     select: {
       title: 'sectionTitle',
     },
   },
-
-  title: 'Challenge',
-  name: 'challenge',
-  type: 'document',
-  i18n: true,
   fields: [
-    {
-      title: 'Section Title',
+    defineField({
       name: 'sectionTitle',
+      title: 'Section Title',
       type: 'string',
       validation: (Rule) => Rule.required(),
-    },
-    {
-      title: 'Position',
+    }),
+    defineField({
       name: 'position',
+      title: 'Position',
       type: 'number',
       validation: (Rule) => Rule.required(),
-    },
-    {
-      title: 'Component',
+    }),
+    defineField({
       name: 'component',
+      title: 'Component',
       type: 'string',
       initialValue: 'Challenge',
       readOnly: true,
       hidden: true,
       validation: (Rule) => Rule.required(),
-    },
-    {
-      title: 'Title',
+    }),
+    defineField({
       name: 'title',
+      title: 'Title',
       type: 'string',
       validation: (Rule) => Rule.required(),
-    },
-    {
-      title: 'Subtitle',
+    }),
+    defineField({
       name: 'subtitle',
+      title: 'Subtitle',
       type: 'text',
-    },
-    {
-      title: 'Modal content',
+    }),
+    defineField({
       name: 'modalContent',
+      title: 'Modal content',
       type: 'array',
+      of: [{type: 'modalWindow'}],
       validation: (Rule) => Rule.required().max(3),
-
-      of: [
-        {
-          type: 'modalWindow',
-        },
-      ],
-    },
-    {
-      title: 'Images item',
+    }),
+    defineField({
       name: 'imagesItem',
+      title: 'Images item',
       type: 'imageWithAlt',
-    },
+    }),
   ],
-}
+})

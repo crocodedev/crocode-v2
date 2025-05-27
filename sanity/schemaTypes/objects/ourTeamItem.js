@@ -1,4 +1,6 @@
-export default {
+import {defineField, defineType} from 'sanity'
+
+export default defineType({
   preview: {
     select: {
       title: 'title',
@@ -9,20 +11,20 @@ export default {
   name: 'ourTeamItem',
   type: 'object',
   fields: [
-    {
+    defineField({
       title: 'Title',
       name: 'title',
       type: 'string',
-    },
-    {
-      title: 'Subitle',
+    }),
+    defineField({
+      title: 'Subtitle',
       name: 'subtitle',
       type: 'string',
-    },
-    {
+    }),
+    defineField({
       title: 'Team member photo',
       name: 'teamMemberPhoto',
       type: 'imageWithAlt',
-    },
+    }),
   ],
-}
+})

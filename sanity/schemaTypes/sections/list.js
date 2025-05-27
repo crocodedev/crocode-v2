@@ -1,32 +1,32 @@
+import {defineType, defineField} from 'sanity'
 import bgColors from '../objects/bgColors'
 
-export default {
+export default defineType({
+  name: 'list',
+  title: 'List',
+  type: 'document',
+  i18n: true,
   preview: {
     select: {
       title: 'sectionTitle',
     },
   },
-
-  title: 'List',
-  name: 'list',
-  type: 'document',
-  i18n: true,
   fields: [
-    {
-      title: 'Section Title',
+    defineField({
       name: 'sectionTitle',
+      title: 'Section Title',
       type: 'string',
       validation: (Rule) => Rule.required(),
-    },
-    {
-      title: 'Position',
+    }),
+    defineField({
       name: 'position',
+      title: 'Position',
       type: 'number',
       validation: (Rule) => Rule.required(),
-    },
-    {
-      title: 'Component',
+    }),
+    defineField({
       name: 'component',
+      title: 'Component',
       type: 'string',
       options: {
         list: [
@@ -40,37 +40,32 @@ export default {
         ],
       },
       validation: (Rule) => Rule.required(),
-    },
-    {
-      title: 'Title',
+    }),
+    defineField({
       name: 'title',
+      title: 'Title',
       type: 'string',
       validation: (Rule) => Rule.required(),
-    },
-    {
-      title: 'Text',
+    }),
+    defineField({
       name: 'text',
+      title: 'Text',
       type: 'text',
-    },
-    {
-      title: 'Items',
+    }),
+    defineField({
       name: 'items',
+      title: 'Items',
       type: 'array',
-
-      of: [
-        {
-          type: 'listItem',
-        },
-      ],
-    },
-    {
-      title: 'Background color',
+      of: [{type: 'listItem'}],
+    }),
+    defineField({
       name: 'bgColor',
+      title: 'Background color',
       type: 'string',
       options: {
         list: [...bgColors],
       },
       validation: (Rule) => Rule.required(),
-    },
+    }),
   ],
-}
+})

@@ -1,68 +1,58 @@
-export default {
+import {defineField, defineType} from 'sanity'
+
+export default defineType({
+  name: 'benefits',
+  title: 'Benefits',
+  type: 'document',
   preview: {
     select: {
       title: 'sectionTitle',
     },
   },
-
-  title: 'Benefits',
-  name: 'benefits',
-  type: 'document',
-  i18n: true,
   fields: [
-    {
-      title: 'Section Title',
+    defineField({
       name: 'sectionTitle',
+      title: 'Section Title',
       type: 'string',
       validation: (Rule) => Rule.required(),
-    },
-    {
-      title: 'Position',
+    }),
+    defineField({
       name: 'position',
+      title: 'Position',
       type: 'number',
       validation: (Rule) => Rule.required(),
-    },
-    {
-      title: 'Component',
+    }),
+    defineField({
       name: 'component',
+      title: 'Component',
       type: 'string',
       initialValue: 'Benefits',
       readOnly: true,
       hidden: true,
       validation: (Rule) => Rule.required(),
-    },
-    {
-      title: 'Title',
+    }),
+    defineField({
       name: 'title',
+      title: 'Title',
       type: 'string',
       validation: (Rule) => Rule.required(),
-    },
-    {
-      title: 'Subtitle',
+    }),
+    defineField({
       name: 'subtitle',
+      title: 'Subtitle',
       type: 'text',
-    },
-    {
-      title: 'Left column items',
+    }),
+    defineField({
       name: 'itemsLeft',
+      title: 'Left column items',
       type: 'array',
-
-      of: [
-        {
-          type: 'leftColumnItem',
-        },
-      ],
-    },
-    {
-      title: 'Right column items',
+      of: [{type: 'leftColumnItem'}],
+    }),
+    defineField({
       name: 'itemsRight',
+      title: 'Right column items',
       type: 'array',
-
-      of: [
-        {
-          type: 'rightColumnItem',
-        },
-      ],
-    },
+      of: [{type: 'rightColumnItem'}],
+    }),
   ],
-}
+})

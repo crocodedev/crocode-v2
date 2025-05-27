@@ -1,127 +1,127 @@
-export default {
+import {defineField, defineType} from 'sanity'
+
+export default defineType({
+  name: 'contactUs',
+  title: 'Contact us',
+  type: 'document',
   preview: {
     select: {
       title: 'sectionTitle',
     },
   },
-
-  title: 'Contact us',
-  name: 'contactUs',
-  type: 'document',
-  i18n: true,
   fields: [
-    {
-      title: 'Section Title',
+    defineField({
       name: 'sectionTitle',
+      title: 'Section Title',
       type: 'string',
       validation: (Rule) => Rule.required(),
-    },
-    {
-      title: 'Position',
+    }),
+    defineField({
       name: 'position',
+      title: 'Position',
       type: 'number',
       validation: (Rule) => Rule.required(),
-    },
-    {
-      title: 'Component',
+    }),
+    defineField({
       name: 'component',
+      title: 'Component',
       type: 'string',
       initialValue: 'ContactUs',
       readOnly: true,
       hidden: true,
       validation: (Rule) => Rule.required(),
-    },
-    {
-      title: 'Title',
+    }),
+    defineField({
       name: 'title',
+      title: 'Title',
       type: 'string',
       validation: (Rule) => Rule.required(),
-    },
-    {
-      title: 'Subtitle',
+    }),
+    defineField({
       name: 'subtitle',
+      title: 'Subtitle',
       type: 'text',
-    },
-    {
-      title: 'Name text',
+    }),
+    defineField({
       name: 'nameText',
+      title: 'Name text',
       type: 'string',
       validation: (Rule) => Rule.required(),
-    },
-    {
-      title: 'Name placeholder',
+    }),
+    defineField({
       name: 'namePlaceholder',
+      title: 'Name placeholder',
       type: 'string',
       validation: (Rule) => Rule.required(),
-    },
-    {
-      title: 'Email text',
+    }),
+    defineField({
       name: 'emailText',
+      title: 'Email text',
       type: 'string',
       validation: (Rule) => Rule.required(),
-    },
-    {
-      title: 'Email placeholder',
+    }),
+    defineField({
       name: 'emailPlaceholder',
+      title: 'Email placeholder',
       type: 'string',
       validation: (Rule) => Rule.required(),
-    },
-    {
-      title: 'Phone text',
+    }),
+    defineField({
       name: 'phoneText',
+      title: 'Phone text',
       type: 'string',
       validation: (Rule) => Rule.required(),
-    },
-    {
-      title: 'Message text',
+    }),
+    defineField({
       name: 'messageText',
+      title: 'Message text',
       type: 'string',
       validation: (Rule) => Rule.required(),
-    },
-    {
-      title: 'Message placeholder',
+    }),
+    defineField({
       name: 'messagePlaceholder',
+      title: 'Message placeholder',
       type: 'string',
       validation: (Rule) => Rule.required(),
-    },
-    {
-      title: 'Message icon',
+    }),
+    defineField({
       name: 'messageIcon',
+      title: 'Message icon',
       type: 'imageWithAlt',
-    },
-    {
-      title: 'Background image',
+    }),
+    defineField({
       name: 'backgroundImage',
+      title: 'Background image',
       type: 'imageWithAlt',
-    },
-    {
-      title: 'Image',
+    }),
+    defineField({
       name: 'image',
+      title: 'Image',
       type: 'imageWithAlt',
       description: 'Photo of company manager',
-    },
-    {
-      title: 'Image title',
+    }),
+    defineField({
       name: 'imageTitle',
+      title: 'Image title',
       type: 'string',
       description: 'Name and surname of team member',
-    },
-    {
-      title: 'Image subtitle',
+    }),
+    defineField({
       name: 'imageSubtitle',
+      title: 'Image subtitle',
       type: 'string',
       description: 'Post of team member',
-    },
-    {
-      title: 'Button text',
+    }),
+    defineField({
       name: 'buttonText',
+      title: 'Button text',
       type: 'string',
       validation: (Rule) => Rule.required(),
-    },
-    {
-      title: 'Agreement text',
+    }),
+    defineField({
       name: 'agreementText',
+      title: 'Agreement text',
       type: 'textItem',
-    },
+    }),
   ],
-}
+})

@@ -1,57 +1,59 @@
-export default {
-  title: 'Image Portfolio',
+import {defineField, defineType} from 'sanity'
+
+export default defineType({
   name: 'imagePortfolio',
+  title: 'Image Portfolio',
   type: 'object',
   fields: [
-    {
-      title: 'Image1',
+    defineField({
       name: 'image1',
+      title: 'Image1',
       type: 'image',
-    },
-    {
-      title: 'Alt Text Image 1',
+    }),
+    defineField({
       name: 'altTextImage1',
+      title: 'Alt Text Image 1',
       type: 'string',
-    },
-    {
-      title: 'Image2',
+    }),
+    defineField({
       name: 'image2',
+      title: 'Image2',
       type: 'image',
-    },
-    {
-      title: 'Alt Text Image 2',
+    }),
+    defineField({
       name: 'altTextImage2',
+      title: 'Alt Text Image 2',
       type: 'string',
-    },
-    {
-      title: 'Image3',
+    }),
+    defineField({
       name: 'image3',
+      title: 'Image3',
       type: 'image',
-    },
-    {
-      title: 'Alt Text Image 3',
+    }),
+    defineField({
       name: 'altTextImage3',
+      title: 'Alt Text Image 3',
       type: 'string',
-    },
-    {
-      title: 'Image4',
+    }),
+    defineField({
       name: 'image4',
+      title: 'Image4',
       type: 'image',
-    },
-    {
-      title: 'Alt Text Image 4',
+    }),
+    defineField({
       name: 'altTextImage4',
+      title: 'Alt Text Image 4',
       type: 'string',
-    },
-    {
-      title: 'Image5',
+    }),
+    defineField({
       name: 'image5',
+      title: 'Image5',
       type: 'image',
-    },
-    {
-      title: 'Alt Text Image 5',
+    }),
+    defineField({
       name: 'altTextImage5',
+      title: 'Alt Text Image 5',
       type: 'string',
-    },
+    }),
   ],
-}
+})
