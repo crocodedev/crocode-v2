@@ -1,2 +1,37 @@
 .modal {
+  @include flex-center;
+  gap: 70px;
+  font-weight: 700;
+  font-size: 14px;
+  height: 300px;
+  padding: 15px;
+
+  @include media-down('md') {
+    flex-direction: column;
+  }
+
+  &__column {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    align-items: flex-start;
+    text-align: start;
+  }
+
+  &__text {
+    max-width: 570px;
+    text-align: justify;
+  }
+
+  &__link {
+    text-decoration: underline;
+    color: $color-text-green;
+  }
+
+  &__button {
+    width: 125px;
+    height: 45px;
+    border-radius: 100px;
+    @include color-scheme($color-bg-black, $color-text-white);
+  }
 }

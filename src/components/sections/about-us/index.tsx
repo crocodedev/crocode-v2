@@ -19,7 +19,7 @@ const AboutUsSection = () => {
   };
 
   return (
-    <SectionLayout>
+    <SectionLayout className={styles.section}>
       <Title text='Say About us' />
       <div className={styles.container}>
         <div className={styles.navbar}>

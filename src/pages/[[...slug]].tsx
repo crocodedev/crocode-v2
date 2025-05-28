@@ -13,6 +13,7 @@ export default function Page({ seo, title, content, cookies }: any) {
     <>
       <Seo {...seo} title={title} />
       <CookiesModal {...cookies} />
+
       {content
         ?.sort((a: any, b: any) => +a.position - +b.position)
         ?.map(({ component, _id, ...props }: any) => {

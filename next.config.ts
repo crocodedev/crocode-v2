@@ -3,6 +3,7 @@ import path from 'path';
 
 const nextConfig: NextConfig = {
   reactStrictMode: true,
+  transpilePackages: ['three', 'react-three'],
   images: {
     domains: ['localhost:4000'],
   },
@@ -14,28 +15,35 @@ const nextConfig: NextConfig = {
       @use "@/styles/_functions" as *;
     `,
   },
-  async headers() {
-    return [
-      {
-        source: '/(.*)',
-        headers: [
-          {
-            key: 'Content-Security-Policy',
-            value: `
-              default-src 'self';
-              script-src 'self' https://www.googletagmanager.com 'unsafe-inline';
-              style-src 'self' 'unsafe-inline';
-              img-src 'self' data: https:;
-              font-src 'self';
-              connect-src 'self' https:;
-              frame-src https://www.youtube.com https://www.google.com;
-            `
-              .replace(/\s{2,}/g, ' ')
-              .trim(),
-          },
-        ],
-      },
-    ];
+  // async headers() {
+  //   return [
+  //     {
+  //       source: '/(.*)',
+  //       headers: [
+  //         {
+  //           key: 'Content-Security-Policy',
+  //           value: `
+  //             default-src 'self';
+  //             script-src 'self' 'wasm-unsafe-eval' https://www.googletagmanager.com 'unsafe-inline';
+  //             style-src 'self' 'unsafe-inline';
+  //             img-src 'self' https: blob: data:;
+  //             font-src 'self';
+  //             connect-src 'self' https: https://www.gstatic.com/;
+  //             frame-src https://www.youtube.com https://www.google.com;
+  //           `
+  //             .replace(/\s{2,}/g, ' ')
+  //             .trim(),
+  //         },
+  //       ],
+  //     },
+  //   ];
+  // },
+  webpack(config) {
+    config.experiments = {
+      ...config.experiments,
+      asyncWebAssembly: true,
+    };
+    return config;
   },
 };
 
