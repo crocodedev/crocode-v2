@@ -1,5 +1,8 @@
+import { Montserrat } from 'next/font/google';
 import { useEffect, useState } from 'react';
 import { createPortal } from 'react-dom';
+
+const font = Montserrat({ subsets: ['latin'] });
 
 type containerOptions = {
   id: string;
@@ -13,8 +16,8 @@ const createContainer = (options: containerOptions) => {
   const { id, mountNode = document.body } = options;
 
   const portalContainer = document.createElement('div');
+  portalContainer.classList.add(font.className);
   portalContainer.setAttribute('id', id);
-  portalContainer.setAttribute('data-testid', `portalContainer-${id}`);
   mountNode.appendChild(portalContainer);
 };
 

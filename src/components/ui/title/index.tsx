@@ -1,6 +1,5 @@
 import styles from './styles.module.scss';
-
-type AnchorType = 'left' | 'right';
+import { AnchorType } from './types';
 
 type TProps = {
   anchor?: AnchorType;

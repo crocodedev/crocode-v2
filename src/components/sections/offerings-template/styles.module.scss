@@ -1,4 +1,11 @@
 .section {
+  position: relative;
+  overflow: hidden;
+}
+
+.container {
+  position: relative;
+
   display: grid;
   grid-template-areas:
     'up-left up-right'
@@ -9,7 +16,7 @@
   grid-template-rows:
     clamp(5.3125rem, 2.4375rem + 14.375vw, 19.6875rem)
     clamp(6.875rem, 3.1875rem + 18.4375vw, 25.3125rem);
-  gap: 0 clamp(0.3125rem, -0.4276rem + 2.9605vw, 3.125rem);
+  gap: fluid-size(10, 40) fluid-size(10, 200);
   justify-content: center;
   margin-top: 50px;
 
