@@ -72,7 +72,6 @@ import contentItem from './objects/contentItem'
 import blockTextItem from './objects/blockTextItem'
 import modalWindow from './objects/modalWindow'
 import cookies from './objects/cookies'
-import cookiesItem from './objects/cookiesItem'
 import heroProjectInfo from './objects/heroProjectInfo'
 
 // blocks
@@ -163,7 +162,6 @@ export const schemaTypes = [
   blockTextItem,
   heroProjectInfo,
   cookies,
-  cookiesItem,
 
   // blocks
   pageSection,

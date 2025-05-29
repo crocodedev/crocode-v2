@@ -1,24 +1,32 @@
-import {defineField} from 'sanity'
-
 export default {
   title: 'Cookies',
   name: 'cookies',
   type: 'object',
   fields: [
-    defineField({
-      title: 'Cookies English',
-      name: 'en',
-      type: 'cookiesItem',
-    }),
-    defineField({
-      title: 'Cookies Deutch',
-      name: 'de',
-      type: 'cookiesItem',
-    }),
-    defineField({
-      title: 'Cookies Polish',
-      name: 'pl',
-      type: 'cookiesItem',
-    }),
+    {
+      title: 'Title',
+      name: 'title',
+      type: 'string',
+    },
+    {
+      title: 'Click here',
+      name: 'clickHere',
+      type: 'string',
+    },
+    {
+      title: 'Text',
+      name: 'text',
+      type: 'text',
+    },
+    {
+      title: 'Button text',
+      name: 'buttonText',
+      type: 'string',
+    },
+    {
+      title: 'Cookies name',
+      name: 'cookiesName',
+      type: 'string',
+    },
   ],
 }

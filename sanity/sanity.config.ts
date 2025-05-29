@@ -1,15 +1,20 @@
 import {defineConfig} from 'sanity'
-import {structureTool} from 'sanity/structure'
-import {schemaTypes} from './schemaTypes'
+import {schemaTypes} from './schemaTypes/index'
+import {structure} from './structure'
+import {deskTool} from 'sanity/desk'
 
 export default defineConfig({
   name: 'default',
   title: 'crocode-v2',
 
-  projectId: 'tccwx7vi',
-  dataset: 'production',
+  projectId: process.env.SANITY_STUDIO_PROJECT_ID!,
+  dataset: process.env.SANITY_STUDIO_DATASET!,
 
-  plugins: [structureTool()],
+  plugins: [
+    deskTool({
+      structure,
+    }),
+  ],
 
   schema: {
     types: schemaTypes,

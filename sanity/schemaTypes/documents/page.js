@@ -6,44 +6,7 @@ export default defineType({
   title: 'Page',
   type: 'document',
   icon: MasterDetailIcon,
-  i18n: {
-    fieldNames: {
-      lang: 'i18n_lang',
-      baseReference: 'i18n_base',
-      references: 'i18n_refs',
-    },
-  },
   fields: [
-    defineField({
-      name: 'i18n_lang',
-      type: 'string',
-      hidden: true,
-    }),
-    defineField({
-      name: 'i18n_base',
-      type: 'reference',
-      to: [
-        {
-          type: 'page',
-        },
-      ],
-      hidden: true,
-    }),
-    defineField({
-      name: 'i18n_refs',
-      type: 'array',
-      hidden: true,
-      of: [
-        {
-          type: 'reference',
-          to: [
-            {
-              type: 'page',
-            },
-          ],
-        },
-      ],
-    }),
     defineField({
       name: 'title',
       title: 'Title',
