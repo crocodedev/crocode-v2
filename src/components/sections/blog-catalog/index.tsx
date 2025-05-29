@@ -1,5 +1,5 @@
-import { Filters, SectionLayout } from '@/components/sections';
-import { Card, Pagination } from '@/components/ui';
+import { SectionLayout } from '@/components/sections';
+import { Card, Filters, Pagination } from '@/components/ui';
 
 import styles from './styles.module.scss';
 
