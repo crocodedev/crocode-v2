@@ -1,0 +1,28 @@
+.planet {
+  position: absolute;
+  width: fluid-size(75, 330);
+  height: fluid-size(75, 330);
+  z-index: $z-index-models;
+  top: 0%;
+  left: 10%;
+}
+
+.marshmallow {
+  position: absolute;
+  width: fluid-size(75, 350);
+  height: fluid-size(75, 350);
+  z-index: $z-index-models;
+  transform: translate(-50%, -50%);
+  top: 80%;
+  left: 45%;
+}
+
+.fluted_pipe {
+  position: absolute;
+  width: fluid-size(75, 400);
+  height: fluid-size(75, 450);
+  z-index: $z-index-models;
+  transform: translate(-50%, -50%);
+  top: 75%;
+  right: -15%;
+}
