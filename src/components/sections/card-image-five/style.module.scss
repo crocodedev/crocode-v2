@@ -29,12 +29,10 @@
   row-gap: fluid-size(11, 40);
 
   @include media-up(xl) {
-    // grid-template-rows: 300px 80px 125px 285px;
     max-width: 1200px;
   }
 
   @include media-down(md) {
-    // grid-template-rows: 88px 23px 38px 82px;
   }
 }
 

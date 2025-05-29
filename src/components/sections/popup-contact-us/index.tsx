@@ -7,6 +7,7 @@ import { TInput } from '@/types/Input';
 import styles from './styles.module.scss';
 
 type TProps = {
+  className?: string;
   isShow: boolean;
   form: {
     title: string;
@@ -21,9 +22,11 @@ type TProps = {
   };
 };
 
-const PopupContactUs = ({ isShow, form }: TProps) => {
+const PopupContactUs = ({ isShow, form, className }: TProps) => {
   return (
-    <div className={`${styles.popup} ${isShow ? styles.popup__show : ''}`}>
+    <div
+      className={`${styles.popup} ${isShow ? styles.popup__show : ''} ${className}`}
+    >
       <div className={styles.popup__background_wrapper}>
         <Image
           width={1920}

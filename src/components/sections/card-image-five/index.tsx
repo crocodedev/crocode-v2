@@ -6,48 +6,6 @@ import SectionLayout from '../section-layout';
 
 import styles from './style.module.scss';
 
-// const CARDS_IMAGE = [
-//   {
-//     src: '/image.png',
-//     alt: 'image',
-//   },
-//   {
-//     src: '/image.png',
-//     alt: 'image',
-//   },
-//   {
-//     src: '/image.png',
-//     alt: 'image',
-//   },
-//   {
-//     src: '/image.png',
-//     alt: 'image',
-//   },
-//   {
-//     src: '/image.png',
-//     alt: 'image',
-//   },
-// ];
-
-// const INFO = [
-//   {
-//     title: 'Tech',
-//     description: 'HTML, CSS, JavaScript, Shopify Liquid, PHP',
-//   },
-//   {
-//     title: 'Duration',
-//     description: '2 Months',
-//   },
-//   {
-//     title: 'Industry',
-//     description: 'Bags shop',
-//   },
-//   {
-//     title: 'Service',
-//     description: 'Visual fixes',
-//   },
-// ];
-
 type TCardImage = {
   src: string;
   alt: string;
