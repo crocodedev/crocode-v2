@@ -1,5 +1,6 @@
 import AboutUs from './about-us';
 import Advanteges from './advantages';
+import Benefits from './benefits';
 import Blog from './blog';
 import BlogCatalog from './blog-catalog';
 import Caller from './caller';
@@ -7,23 +8,35 @@ import CardImageFive from './card-image-five';
 import CardGrid from './cards-grid';
 import Cases from './cases';
 import ContactUs from './contact-us';
+import DedicatedSoftware from './dedicated-software';
+import Expections from './expections';
 import Footer from './footer';
 import Header from './header';
 import Hero from './hero';
 import Industries from './industries';
 import Info from './info';
+import ModelsSectionTemplate from './models-section-template';
+import MVP from './mvp';
+import OfferingsTemplate from './offerings-template';
 import OurFigures from './our-figures';
 import OurProject from './our-projects';
 import PopupContactUs from './popup-contact-us';
 import Questions from './questions';
 import SectionLayout from './section-layout';
+import Specialist from './specialists';
 import Subscribe from './subscribe';
 import Technologes from './technologies';
-import TechnologyStack from './technology stack';
+import TechnologyStack from './technology-stack';
+import WhyCrocode from './why-crocode';
 
 export {
   SectionLayout,
+  MVP,
   AboutUs,
+  OfferingsTemplate,
+  DedicatedSoftware,
+  Specialist,
+  Expections,
   Advanteges,
   Blog,
   BlogCatalog,
@@ -31,6 +44,8 @@ export {
   Cases,
   Footer,
   Header,
+  Benefits,
+  WhyCrocode,
   Hero,
   Industries,
   OurFigures,
@@ -44,4 +59,5 @@ export {
   Info,
   ContactUs,
   PopupContactUs,
+  ModelsSectionTemplate,
 };
