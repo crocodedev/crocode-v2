@@ -1,0 +1,55 @@
+import { useEffect, useState } from 'react';
+
+import Portal, { createContainer } from '../portal';
+import { PopupContactUs } from '../sections';
+
+import styles from './styles.module.scss';
+
+const MODAL_CONTAINER_ID = 'contactUs';
+
+const ContactUSModal = () => {
+  const [isMounted, setMounted] = useState(false);
+
+  useEffect(() => {
+    createContainer({ id: MODAL_CONTAINER_ID });
+    setMounted(true);
+  }, []);
+
+  const POPUP = {
+    isShow: true,
+    form: {
+      title: 'get in touch with us',
+      inputs: [
+        {
+          type: 'text',
+          label: 'Your name',
+          placeholder: 'Enter your name',
+        },
+        {
+          type: 'email',
+          label: 'Corporate E-mail',
+          placeholder: 'Enter E-mail',
+        },
+      ],
+      message: {
+        text: 'By leaving your data you agree to the',
+      },
+      link: {
+        href: '/',
+        text: 'Privacy Policy',
+      },
+    },
+  };
+
+  return isMounted ? (
+    <Portal id={MODAL_CONTAINER_ID}>
+      <PopupContactUs
+        className={styles.modal}
+        isShow={POPUP.isShow}
+        form={POPUP.form}
+      />
+    </Portal>
+  ) : null;
+};
+
+export default ContactUSModal;
