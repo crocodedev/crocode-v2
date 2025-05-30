@@ -84,14 +84,16 @@
 
 .info {
   display: flex;
-  gap: 100px;
+  justify-content: space-between;
 
-  @include media-down(md) {
-    gap: 5px;
+  @include media-up(md) {
+    max-width: 1200px;
+    gap: 30px;
   }
 
   @include media-down(md) {
     flex-direction: column;
+    gap: 5px;
   }
 
   &__item {

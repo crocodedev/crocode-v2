@@ -32,7 +32,7 @@ const CardImageFive = ({ cards, info }: TProps) => {
               width={100}
               height={100}
               src={card.src}
-              alt='image'
+              alt={card.alt}
             />
           </Card>
         ))}
