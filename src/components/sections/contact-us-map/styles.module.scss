@@ -1,0 +1,96 @@
+.section {
+  display: flex;
+  justify-content: space-between;
+  gap: 40px;
+  max-width: 1920px;
+  padding: 0 fluid-size(55, 145);
+  margin-top: fluid-size(65, 140);
+  margin-left: auto;
+  margin-right: auto;
+
+  @include media-down(xl) {
+    align-items: center;
+    flex-direction: column;
+  }
+}
+
+.info {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: fluid-size(20, 36);
+  max-width: 630px;
+  width: 100%;
+
+  &__title {
+    line-height: 130%;
+
+    @include media-down(xl) {
+      max-width: 65%;
+    }
+  }
+
+  &__contacts {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    max-width: fluid-size(300, 630);
+    padding: fluid-size(15, 30);
+    border-radius: fluid-size(20, 50);
+    background-color: $color-bg-black;
+
+    @include media-up(md) {
+      aspect-ratio: 630/465;
+    }
+
+    @include media-down(md) {
+      aspect-ratio: 300/170;
+    }
+  }
+
+  &__contacts__inner {
+    display: flex;
+    flex-direction: column;
+    gap: fluid-size(15, 20);
+  }
+
+  &__contact {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    color: $color-text-green;
+
+    &:nth-child(2) {
+      text-decoration: none;
+    }
+  }
+
+  &__contact_icon {
+    width: fluid-size(20, 38);
+    height: fluid-size(16, 25);
+    color: inherit;
+  }
+
+  &__contact_text {
+    font-size: fluid-size(16, 36);
+    font-weight: 600;
+    color: inherit;
+  }
+}
+
+.map {
+  width: 100%;
+  border-radius: fluid-size(20, 64);
+  overflow: hidden;
+  background: $color-bg-black;
+
+  @include media-up(xl) {
+    max-width: 876px;
+  }
+
+  @include media-down(xl) {
+    max-width: 630px;
+    aspect-ratio: 1/1;
+  }
+}

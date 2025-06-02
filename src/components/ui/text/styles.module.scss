@@ -1,0 +1,8 @@
+.text {
+  background-color: $color-bg-gray;
+
+  &__label {
+    font-size: fluid-size(14, 20);
+    line-height: 170%;
+  }
+}
