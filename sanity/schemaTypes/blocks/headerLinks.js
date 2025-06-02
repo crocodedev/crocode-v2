@@ -5,11 +5,11 @@ export default defineType({
   title: 'Header links',
   type: 'array',
   of: [
-    defineType({
+    {
       name: 'link',
-      type: 'url',
-      title: 'Link',
-    }),
+      type: 'link',
+      title: 'link',
+    },
   ],
   preview: {
     select: {

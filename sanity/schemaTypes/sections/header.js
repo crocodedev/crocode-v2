@@ -53,11 +53,6 @@ export default defineType({
       type: 'link',
     }),
     defineField({
-      name: 'linkWithIcon',
-      title: 'Link with icon',
-      type: 'iconLink',
-    }),
-    defineField({
       name: 'touchUsModal',
       title: 'Touch Us',
       type: 'touchUs',

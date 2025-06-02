@@ -6,7 +6,6 @@ const allArticlesItems = `
   _id
   date
   title
-  i18n_lang
   position
   component
   author

@@ -4,7 +4,6 @@ import * as graphqlSections from '@/graphql/sections';
 const allCasesCountry = `
   ${graphqlBlocks['seo']}
   _id
-  i18n_lang
   sectionTitle
   numberOfPosts
   title
