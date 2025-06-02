@@ -5,6 +5,7 @@ import Card from './card';
 import Checkbox from './checkbox';
 import Filters from './filters';
 import Input from './input';
+import MapboxMap from './map';
 import Pagination from './pagination';
 import Text from './text';
 import Title from './title';
@@ -22,4 +23,5 @@ export {
   Text,
   Input,
   Checkbox,
+  MapboxMap,
 };

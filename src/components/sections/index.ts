@@ -7,7 +7,8 @@ import Caller from './caller';
 import CardImageFive from './card-image-five';
 import CardGrid from './cards-grid';
 import Cases from './cases';
-import ContactUs from './contact-us';
+import ContactUsForm from './contact-us-form';
+import ContactUsMap from './contact-us-map';
 import DedicatedSoftware from './dedicated-software';
 import Expections from './expections';
 import Footer from './footer';
@@ -57,7 +58,8 @@ export {
   CardImageFive,
   CardGrid,
   Info,
-  ContactUs,
   PopupContactUs,
   ModelsSectionTemplate,
+  ContactUsForm,
+  ContactUsMap,
 };
