@@ -24,16 +24,6 @@ const header = `
         ${graphqlBlocks['image']}
       }
 
-      linkWithIcon {
-        icon {
-          ${graphqlBlocks['image']}
-        }
-
-        link {
-          ${graphqlBlocks['link']}
-        }
-      }
-
       headerLinks {
         _key
         ${graphqlBlocks['link']}
