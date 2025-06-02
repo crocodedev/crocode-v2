@@ -6,7 +6,12 @@ type TProps = TInput & {
   className?: string;
 };
 
-const Input = ({ label = '', placeholder = '', type, className }: TProps) => {
+const Input = ({
+  label = '',
+  placeholder = '',
+  type = 'text',
+  className,
+}: TProps) => {
   return (
     <label className={`${styles.input} ${className}`}>
       {label && <span className={styles.input__label}>{label}</span>}
