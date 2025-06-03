@@ -1,0 +1,22 @@
+.input {
+  display: flex;
+  flex-direction: column;
+
+  &__label {
+    font-size: 15px;
+    color: $color-text-black;
+  }
+
+  &__input {
+    padding: 11px 16px;
+    border: none;
+    border-radius: 10px;
+    font-size: 16px;
+    color: $color-text-white;
+    background-color: $color-bg-black;
+
+    &::placeholder {
+      color: inherit;
+    }
+  }
+}

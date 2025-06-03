@@ -86,8 +86,6 @@ export const getStaticProps: GetStaticProps = async ({
   //   };
   // }
 
-  const { cookies, siteUrl, name, defaultLocale } = data.allSettings[0];
-
   const pages = [
     'allPage',
     'allBlogCategory',
@@ -114,13 +112,10 @@ export const getStaticProps: GetStaticProps = async ({
     props: {
       ...pageData,
       seo: {
-        siteUrl,
         url: slug,
-        name,
-        defaultLocale,
         ...pageData.seo,
+        ...data.allSettings[0],
       },
-      cookies,
     },
   };
 };

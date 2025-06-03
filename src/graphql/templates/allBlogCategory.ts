@@ -8,7 +8,6 @@ const allBlogCategory = `
   position
   component
   numberOfPosts
-  i18n_lang
   sections {
     ${graphqlSections['footer']}
     ${graphqlSections['header']}

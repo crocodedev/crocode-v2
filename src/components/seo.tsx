@@ -1,50 +1,38 @@
-import Head from 'next/head';
-import Script from 'next/script';
+/* eslint-disable @typescript-eslint/no-explicit-any */
+// import Head from 'next/head';
+// import Script from 'next/script';
 
-type TProps = {
-  url: string;
-  titleTemplate: boolean;
-  title: string;
-  description: string;
-  image: {
-    altText: string;
-    image: {
-      asset: {
-        url: string;
-        height: number;
-        width: number;
-      };
-    };
-  };
-  siteUrl: string;
-  lang: string;
-  keywords: string;
-  ogtype: string;
-  twitterCard: string;
-  name: string;
-  defaultLocale: string;
-};
+// type TProps = {
+//   url: string;
+//   titleTemplate: boolean;
+//   title: string;
+//   description: string;
+//   image: {
+//     altText: string;
+//     image: {
+//       asset: {
+//         url: string;
+//         height: number;
+//         width: number;
+//       };
+//     };
+//   };
+//   siteUrl: string;
+//   lang: string;
+//   keywords: string;
+//   ogtype: string;
+//   twitterCard: string;
+//   name: string;
+// };
 
-const Seo = ({
-  siteUrl,
-  url,
-  name,
-  defaultLocale,
-  titleTemplate,
-  title,
-  image,
-  description,
-  lang,
-  keywords,
-  ogtype,
-  twitterCard,
-}: TProps) => {
-  const fullTitle = `${title}${titleTemplate && name ? ` - ${name}` : ''}`;
-  const fullUrl = `${siteUrl}${url}${url === '/' ? '' : '/'}`;
+const Seo = (props: any) => {
+  console.log(props);
+  // const fullTitle = `${title}${titleTemplate && name ? ` - ${name}` : ''}`;
+  // const fullUrl = `${siteUrl}${url}${url === '/' ? '' : '/'}`;
 
   return (
     <>
-      <Head>
+      {/* <Head>
         <title>{fullTitle}</title>
         <meta name='description' content={description} />
         {keywords && <meta name='keywords' content={keywords} />}
@@ -52,14 +40,14 @@ const Seo = ({
         <meta
           name='google-site-verification'
           content='jdk_IKLpcmmGj_NAXIN1PC7OsBI4TrQzlO52SG5ZQzo'
-        />
+        /> */}
 
-        {/* Open Graph */}
-        <meta property='og:title' content={fullTitle} />
+      {/* Open Graph */}
+      {/* <meta property='og:title' content={fullTitle} />
         <meta property='og:description' content={description} />
         {ogtype && <meta property='og:type' content={ogtype} />}
-        <meta property='og:url' content={fullUrl} />
-        {image && (
+        <meta property='og:url' content={fullUrl} /> */}
+      {/* {image && (
           <>
             <meta property='og:image' content={image.image.asset.url} />
             <meta
@@ -72,10 +60,10 @@ const Seo = ({
             />
             <meta name='twitter:image:src' content={image.image.asset.url} />
           </>
-        )}
+        )} */}
 
-        {/* Twitter */}
-        {twitterCard && (
+      {/* Twitter */}
+      {/* {twitterCard && (
           <meta
             name='twitter:card'
             content={
@@ -84,32 +72,32 @@ const Seo = ({
                 : twitterCard
             }
           />
-        )}
+        )} */}
 
-        {/* Canonical */}
-        <link rel='canonical' href={fullUrl} />
+      {/* Canonical */}
+      {/* <link rel='canonical' href={fullUrl} /> */}
 
-        {/* Favicon */}
-        <link rel='icon' href='/favicon.ico' />
+      {/* Favicon */}
+      <link rel='icon' href='/favicon.ico' />
 
-        {/* Language */}
-        <html lang={lang || defaultLocale || 'en'} />
-      </Head>
+      {/* Language */}
+      {/* <html lang={lang} /> */}
+      {/* </Head> */}
 
       {/* Google Analytics */}
-      <Script
-        id='googletagmanager'
-        async
-        src='https://www.googletagmanager.com/gtag/js?id=G-JRHLER8WXC'
-      />
-      <Script id='gtag' strategy='afterInteractive'>
-        {`
-          window.dataLayer = window.dataLayer || [];
-          function gtag(){dataLayer.push(arguments);}
-          gtag('js', new Date());
-          gtag('config', 'G-JRHLER8WXC');
-        `}
-      </Script>
+      {/* <Script
+         id='googletagmanager'
+         async
+         src='https://www.googletagmanager.com/gtag/js?id=G-JRHLER8WXC'
+       />
+       <Script id='gtag' strategy='afterInteractive'>
+         {`
+           window.dataLayer = window.dataLayer || [];
+           function gtag(){dataLayer.push(arguments);}
+           gtag('js', new Date());
+           gtag('config', 'G-JRHLER8WXC');
+         `}
+       </Script> */}
     </>
   );
 };

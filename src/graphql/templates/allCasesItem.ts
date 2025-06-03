@@ -6,7 +6,6 @@ const allCasesItem = `
   _createdAt
   ${graphqlBlocks['seo']}
   _id
-  i18n_lang
   sectionTitle
   title
   slug {

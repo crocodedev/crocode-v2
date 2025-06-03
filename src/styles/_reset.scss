@@ -85,6 +85,7 @@ video {
   font-size: 100%;
   font: inherit;
   vertical-align: baseline;
+  box-sizing: border-box;
 }
 article,
 aside,
@@ -120,4 +121,13 @@ q:after {
 table {
   border-collapse: collapse;
   border-spacing: 0;
+}
+
+svg {
+  width: 100%;
+  height: 100%;
+}
+
+.mapboxgl-popup-tip {
+  display: none;
 }
