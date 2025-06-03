@@ -85,6 +85,10 @@
         background-color: $color-bg-green;
         padding: 13px 25px;
         border-radius: 60px;
+
+        @include media-down(md) {
+          display: none;
+        }
       }
 
       @include media-down('md') {
@@ -100,17 +104,20 @@
     width: 100%;
     @include flex-center;
 
-    button {
+    .mobile {
       background-color: $color-bg-black;
       color: $color-text-white;
     }
   }
 
   &__button {
+    text-decoration: none;
     color: $color-text-black;
     font-size: $size-title-2;
+    font-weight: 700;
     padding: 13px 25px;
     border-radius: 60px;
+    background: $color-bg-green;
   }
 
   &__link_mobile {

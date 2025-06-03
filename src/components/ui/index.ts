@@ -7,6 +7,7 @@ import Filters from './filters';
 import Input from './input';
 import MapboxMap from './map';
 import Pagination from './pagination';
+import SmartLink from './smart-link';
 import Text from './text';
 import Title from './title';
 import TitleSection from './title-section';
@@ -24,4 +25,5 @@ export {
   Input,
   Checkbox,
   MapboxMap,
+  SmartLink,
 };

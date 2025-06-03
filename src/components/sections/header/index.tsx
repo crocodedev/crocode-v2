@@ -1,17 +1,33 @@
-import Link from 'next/link';
 import { useState } from 'react';
 
+import { SmartLink } from '@/components/ui';
 import { Button } from '@/components/ui';
 
-import { ROUTES } from '@/utils/const';
+import { TImage, TLink } from '@/types/types';
 
 import styles from './styles.module.scss';
 
 type TProps = {
-  title: string;
+  headerButton: TLink;
+  headerLinks: TLink[];
+  logoImage: TImage;
+  position: number;
+  touchUsModal: {
+    buttonText: string;
+    emailPlaceholder: string;
+    subtitle: string;
+    namePlaceholder: string;
+    title: string;
+    yourEmail: string;
+    yourName: string;
+    agreementText: {
+      text: string;
+      link: TLink;
+    };
+  };
 };
 
-const Header = ({ title }: TProps) => {
+const Header = (props: TProps) => {
   const [isMenusClosed, setIsMenuClosed] = useState(true);
 
   const handleToggleMenu = () => {
@@ -33,21 +49,28 @@ const Header = ({ title }: TProps) => {
 
         <nav className={`${styles.nav} ${isMenusClosed ? styles.closed : ''}`}>
           <ul className={styles.nav__list}>
-            {ROUTES.map((route) => (
-              <li key={route.name} className={styles.nav__list__item}>
-                <Link href={route.link} className={styles.nav__link_mobile}>
-                  {route.name.toUpperCase()}
-                </Link>
-                <Link href={route.link} className={styles.nav__link_desktop}>
-                  {route.name}
-                </Link>
+            {props.headerLinks.map((link: TLink) => (
+              <li key={link._key} className={styles.nav__list__item}>
+                <SmartLink data={link} className={styles.nav__link_mobile} />
+                <SmartLink data={link} className={styles.nav__link_desktop} />
               </li>
             ))}
+            <li className={styles.nav__list__item}>
+              <SmartLink
+                data={props.headerButton}
+                className={styles.nav__link_mobile}
+              />
+              <SmartLink
+                data={props.headerButton}
+                className={styles.nav__link_desktop}
+              />
+            </li>
           </ul>
           <div className={styles.nav__actions}>
-            <Button className={`${styles.nav__button} ${styles.mobile}`}>
-              Contact us
-            </Button>
+            <SmartLink
+              className={`${styles.nav__button} ${styles.mobile}`}
+              data={props.headerButton}
+            />
           </div>
         </nav>
 
@@ -55,13 +78,12 @@ const Header = ({ title }: TProps) => {
           <h1
             className={`${styles.title} ${!isMenusClosed ? styles.closed : ''}`}
           >
-            {title}
+            {'Test'}
           </h1>
-          <Button
+          <SmartLink
+            data={props.headerButton}
             className={`${styles.nav__button} ${!isMenusClosed ? styles.closed : ''} ${styles.mobile}`}
-          >
-            Contact us
-          </Button>
+          />
         </div>
       </div>
     </header>
