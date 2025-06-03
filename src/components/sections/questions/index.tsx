@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { Fragment, useRef, useState } from 'react';
 
 import { SectionLayout } from '@/components/sections';
 import { Button, Card, Title } from '@/components/ui';
@@ -38,7 +38,7 @@ const QUESTIONS = [
   },
   {
     id: '07',
-    text: 'I don`t have the documentation ready. What to do?',
+    text: 'I dont have the documentation ready. What to do?',
     answer: 'Tralalero tralala',
   },
   {
@@ -47,56 +47,75 @@ const QUESTIONS = [
     answer: 'Tralalero tralala',
   },
 ];
-
-const getPushClass = (cardIndex: number, activeId: string | null): string => {
-  if (!activeId) return '';
-  const activeIndex = QUESTIONS.findIndex((q) => q.id === activeId);
-
-  if (cardIndex === activeIndex) return 'question_active';
-  if (cardIndex < activeIndex && cardIndex % 3 === 0) return 'pushed-left';
-  if (cardIndex < activeIndex && cardIndex % 3 === 1) return 'pushed-up';
-  if (cardIndex < activeIndex && cardIndex % 3 === 2) return 'pushed-down';
-  if (cardIndex > activeIndex && cardIndex % 2 === 0) return 'pushed-right';
-  return 'pushed-down';
-};
-
 const QuestionsSection = () => {
   const [indexActiveCard, setIndexActiveCard] = useState<string | null>(null);
+  const [clickPosition, setClickPosition] = useState({
+    top: 0,
+    left: 0,
+    width: 0,
+    height: 0,
+  });
+  const cardRefs = useRef<{ [key: string]: HTMLDivElement | null }>({});
 
   const handleClickMore = (index: string) => {
-    setIndexActiveCard(indexActiveCard !== index ? index : null);
+    const cardElement = cardRefs.current[index];
+    if (cardElement) {
+      const rect = cardElement.getBoundingClientRect();
+      setClickPosition({
+        top: rect.top,
+        left: rect.left,
+        width: rect.width,
+        height: rect.height,
+      });
+    }
+    setIndexActiveCard((prev) => (prev === index ? null : index));
   };
 
   return (
     <SectionLayout className={styles.section}>
       <Title text='QUESTIONS' anchor='right' />
       <div
-        className={`${styles.container} ${indexActiveCard !== null && styles.container_active}`}
+        className={`${styles.container} ${indexActiveCard !== null ? styles.container_active : ''}`}
       >
-        {QUESTIONS.map((question, index) => {
+        {QUESTIONS.map((question) => {
           const isActive = indexActiveCard === question.id;
 
           return (
-            <Card
-              onClick={handleClickMore.bind(null, question.id)}
-              className={`
-                  ${styles.question}
-                  ${isActive ? styles.question_active : ''}
-                  ${indexActiveCard && !isActive ? styles.hide : ''}
-                  ${getPushClass(index, indexActiveCard)}
-              `}
-              key={question.id}
-            >
-              <h2 className={styles.question__title}>{question.text}</h2>
-              <p
-                className={`${styles.question__answer} ${indexActiveCard !== null && styles.question__answer_active}`}
+            <Fragment key={question.id}>
+              <Card
+                onClick={handleClickMore.bind(null, question.id)}
+                className={`${styles.question} 
+                ${styles[`question__${question.id}`]}
+                ${indexActiveCard && styles.hide}`}
+                ref={(el: HTMLDivElement | null) => {
+                  cardRefs.current[question.id] = el;
+                }}
               >
-                {question.answer}
-              </p>
-              <Button className={styles.question__button}>
-                {isActive ? '-' : '+'}
-              </Button>
-            </Card>
+                <h2 className={styles.question__title}>{question.text}</h2>
+                <Button className={styles.question__button}>
+                  {isActive ? '-' : '+'}
+                </Button>
+              </Card>
+
+              {isActive && (
+                <Card
+                  onClick={handleClickMore.bind(null, question.id)}
+                  className={`${styles.question__absolute} ${styles.question}__${question.id}`}
+                  style={
+                    {
+                      '--initial-top': `${clickPosition.top - 50}px`,
+                      '--initial-left': `${clickPosition.left - 100}px`,
+                      '--initial-width': `${clickPosition.width}px`,
+                      '--initial-height': `${clickPosition.height}px`,
+                    } as React.CSSProperties
+                  }
+                >
+                  <h2 className={styles.question__title}>{question.text}</h2>
+                  <p className={styles.question__answer}>{question.answer}</p>
+                  <Button className={styles.question__button}>-</Button>
+                </Card>
+              )}
+            </Fragment>
           );
         })}
       </div>

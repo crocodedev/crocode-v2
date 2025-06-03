@@ -6,75 +6,20 @@
 .container {
   margin-top: 70px;
   display: grid;
-  grid-template-columns: repeat(12, 1fr);
-  grid-template-rows: repeat(8, minmax(50px, 110px));
+  position: relative;
+  grid-template-columns: repeat(12, minmax(50px, 150px));
+  grid-template-rows: repeat(8, minmax(20px, 110px));
   gap: 20px;
   max-width: 90%;
-  transition: height 0.5s ease;
+  transition: height 1.2 ease-in-out;
 
   &_active {
-    display: flex;
-    flex-direction: column;
     overflow: hidden;
-    height: 70vh;
-    width: 100%;
-    border-radius: 64px;
-    gap: 10px;
   }
 
-  & > div:nth-child(1) {
-    grid-column: span 4;
-    grid-row: span 3;
-  }
-
-  & > div:nth-child(2) {
-    grid-column: 5 / span 3;
-    grid-row: span 3;
-    @include color-scheme($color-bg-black, $color-text-white);
-    & button {
-      color: white;
-    }
-  }
-
-  & > div:nth-child(3) {
-    grid-column: 8 / span 5;
-    grid-row: span 3;
-  }
-
-  & > div:nth-child(4) {
-    grid-column: span 3;
-    grid-row: 4 / span 2;
-    @include color-scheme($color-bg-green, $color-text-black);
-  }
-
-  & > div:nth-child(5) {
-    grid-column: span 3;
-    grid-row: 4 / span 2;
-  }
-
-  & > div:nth-child(6) {
-    grid-column: span 3;
-    grid-row: 4 / span 2;
-    @include color-scheme($color-bg-green, $color-text-black);
-  }
-
-  & > div:nth-child(7) {
-    grid-column: span 3;
-    grid-row: 4 / span 4;
-  }
-
-  & > div:nth-child(8) {
-    grid-column: 1 / span 9;
-    grid-row: 6 / span 2;
-    @include color-scheme($color-bg-black, $color-text-white);
-    & button {
-      color: white;
-    }
-  }
-
-  @include media-down('md') {
-    grid-template-columns: repeat(2, minmax(150, 200));
-    grid-template-rows: repeat(4, minmax(150, 200));
+  @include media-down('lg') {
+    grid-template-columns: repeat(2, minmax(150, 400));
+    grid-template-rows: repeat(4, minmax(150, 400));
     & > div {
       grid-area: auto !important;
     }
@@ -83,9 +28,9 @@
 
 .question {
   position: relative;
-  font-size: $size-text-5;
+  font-size: $size-title-2;
   font-weight: 700;
-  transition: all 0.5s ease;
+  transition: all 1.2s ease-in-out;
   @include flex-center;
   text-align: start;
   overflow-wrap: break-word;
@@ -96,24 +41,20 @@
   &__title {
     max-width: 100%;
     margin-bottom: 20px;
+    font-weight: 700;
+    font-size: $size-title-2;
   }
 
   &__answer {
-    opacity: 0;
-    position: absolute;
-    pointer-events: none;
-
-    &_active {
-      text-align: justify;
-      font-size: $size-text-2;
-      max-width: 80%;
-      opacity: 1;
-      height: auto;
-      width: 100%;
-      position: relative;
-      pointer-events: auto;
-      margin-top: 15px;
-    }
+    text-align: justify;
+    font-size: $size-text-2;
+    max-width: 80%;
+    opacity: 1;
+    height: auto;
+    width: 100%;
+    position: relative;
+    pointer-events: auto;
+    margin-top: 15px;
   }
 
   &__button {
@@ -127,46 +68,103 @@
   }
 
   &_active {
-    flex-grow: 1;
-    transform: scale(1.02);
-    grid-column: unset;
-    grid-row: unset;
-    transition:
-      transform 0.5s ease,
-      flex-grow 0.5s ease;
+    z-index: 25;
+    animation: scale-active-card 1.2s ease-in-out;
   }
 
-  &.pushed-left,
-  &.pushed-right,
-  &.pushed-up,
-  &.pushed-down {
-    transition:
-      transform 0.5s ease,
-      opacity 0.5s ease;
-    opacity: 0;
-    pointer-events: none;
+  &__absolute {
+    z-index: 25;
+    position: absolute;
+    grid-area: auto !important;
+    width: 100%;
+    height: 100%;
+    animation: scale-active-card 1.2s ease-in-out;
   }
 
-  &.pushed-left {
-    transform: translateX(-120%);
+  &__01 {
+    grid-column: span 4;
+    grid-row: span 3;
   }
 
-  &.pushed-right {
-    transform: translateX(120%);
+  &__02 {
+    grid-column: 5 / span 3;
+    grid-row: span 3;
+    @include color-scheme($color-bg-black, $color-text-white);
+    & button {
+      color: white;
+    }
   }
 
-  &.pushed-up {
-    transform: translateY(-120%);
+  &__03 {
+    grid-column: 8 / span 5;
+    grid-row: span 3;
   }
 
-  &.pushed-down {
-    transform: translateY(120%);
+  &__04 {
+    grid-column: span 3;
+    grid-row: 4 / span 2;
+    @include color-scheme($color-bg-green, $color-text-black);
+  }
+
+  &__05 {
+    grid-column: span 3;
+    grid-row: 4 / span 2;
+  }
+
+  &__06 {
+    grid-column: span 3;
+    grid-row: 4 / span 2;
+    @include color-scheme($color-bg-green, $color-text-black);
+  }
+
+  &__07 {
+    grid-column: span 3;
+    grid-row: 4 / span 4;
+  }
+
+  &__08 {
+    grid-column: 1 / span 9;
+    grid-row: 6 / span 2;
+    @include color-scheme($color-bg-black, $color-text-white);
+    & button {
+      color: white;
+    }
   }
 }
 
 .hide {
-  position: absolute;
-  opacity: 0;
-  transform: scale(0.01);
-  transition: none;
+  animation: hide-card 2s ease-in-out;
+  scale: 0.3;
+  opacity: 0.3;
+}
+
+@keyframes hide-card {
+  from {
+    opacity: 1;
+    scale: 1;
+  }
+  50% {
+    opacity: 0;
+    scale: 0.1;
+  }
+  to {
+    scale: 1;
+    opacity: 1;
+  }
+}
+
+@keyframes scale-active-card {
+  from {
+    top: var(--initial-top);
+    left: var(--initial-left);
+    width: var(--initial-width);
+    height: var(--initial-height);
+  }
+
+  to {
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+  }
 }
