@@ -1,12 +1,9 @@
-import { Fragment, PropsWithChildren } from 'react';
-
-import { SectionLayout } from '@/components/sections';
+import { ModelsLayout, SectionLayout } from '@/components/sections';
 import { Card } from '@/components/ui';
 
 import { MODELS } from '@/utils/const';
 
 import styles from './styles.module.scss';
-import PrimitiveFactory from '@/lib/three/PrimitiveFactory';
 
 const DATA_ITEMS = [
   {
@@ -56,21 +53,10 @@ const MODELS_LIST = [
   },
 ];
 
-const ModelsLayout = ({ children }: PropsWithChildren) => {
-  return (
-    <Fragment>
-      {MODELS_LIST.map((model, index) => (
-        <PrimitiveFactory key={index} {...model} />
-      ))}
-      {children}
-    </Fragment>
-  );
-};
-
 const WhyCrocodeSection = () => {
   return (
     <div className={styles.wrapper}>
-      <ModelsLayout>
+      <ModelsLayout models={MODELS_LIST}>
         <SectionLayout className={styles.section}>
           {DATA_ITEMS.map((item) => (
             <Card key={item.title} className={styles.card}>
