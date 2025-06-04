@@ -66,18 +66,6 @@ const Header = (props: TProps) => {
             />
           </div>
         </nav>
-
-        <div className={styles.hero}>
-          <h1
-            className={`${styles.title} ${!isMenusClosed ? styles.closed : ''}`}
-          >
-            {'Test'}
-          </h1>
-          <SmartLink
-            data={props.headerButton}
-            className={`${styles.nav__button} ${!isMenusClosed ? styles.closed : ''} ${styles.mobile}`}
-          />
-        </div>
       </div>
     </header>
   );

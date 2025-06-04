@@ -5,7 +5,12 @@ import { Card, Title } from '@/components/ui';
 
 import styles from './styles.module.scss';
 
-const Technologies = () => {
+type TProps = {
+  title: string;
+};
+
+const Technologies = (props: TProps) => {
+  console.log(props);
   const [activeIndex, setActiveIndex] = useState<number | null>(null);
 
   const handleClickOnCard = useCallback((index: number) => {
@@ -14,7 +19,7 @@ const Technologies = () => {
 
   return (
     <SectionLayout>
-      <Title text={'TECHNOLOGIES'} />
+      <Title text={props.title} />
       <div className={styles.wrapper}>
         <div className={styles.container}>
           {Array.from({ length: 8 }).map(

@@ -1,19 +1,34 @@
 import { SectionLayout } from '@/components/sections';
 import { Card, Title } from '@/components/ui';
 
+import { TImage, TLink } from '@/types/types';
+
 import styles from './style.module.scss';
 
-const Industries = () => {
+type TProps = {
+  title: string;
+  text?: string;
+  bgColor: string;
+  items: {
+    _key: string;
+    text: string;
+    title: string;
+    imageWithAltText: TImage;
+    link: TLink;
+  }[];
+};
+
+const Industries = (props: TProps) => {
   return (
     <SectionLayout>
-      <Title text={'INDUSTRIES'} />
+      <Title text={props.title} />
       <div className={styles.container}>
-        {Array.from({ length: 4 }).map((_, index) => {
+        {props.items.map((item) => {
           return (
-            <Card className={styles.card} key={`tech-card-${index}`}>
+            <Card className={styles.card} key={item._key}>
               Mock Data
             </Card>
-          ); // TODO: AFTER DYNAMIC DATA FIX KEY
+          );
         })}
       </div>
     </SectionLayout>

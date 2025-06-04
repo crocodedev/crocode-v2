@@ -1,5 +1,9 @@
+import Image from 'next/image';
+
 import { ModelsLayout, SectionLayout } from '@/components/sections';
 import { Button } from '@/components/ui';
+
+import { TImage, TLink } from '@/types/types';
 
 import { MODELS } from '@/utils/const';
 
@@ -60,14 +64,22 @@ const MODELS_LIST = [
 
 type TProps = {
   title: string;
+  imageWithAltText: TImage;
+  breadcrumbs: TLink[];
 };
 
-const Hero = ({ title }: TProps) => {
+const Hero = (props: TProps) => {
   return (
     <SectionLayout>
       <ModelsLayout models={MODELS_LIST}>
         <div className={styles.hero}>
-          <h1 className={`${styles.title}`}>{title}</h1>
+          <Image
+            className={styles.hero__background}
+            src={props.imageWithAltText.image.asset.url}
+            fill
+            alt={props.imageWithAltText.altText}
+          />
+          <h1 className={`${styles.title}`}>{props.title}</h1>
           <Button className={`${styles.nav__button}  ${styles.mobile}`}>
             Contact us
           </Button>

@@ -1,11 +1,18 @@
 .hero {
   width: 100%;
-  height: 800px;
-  background-color: $color-bg-gray;
   position: relative;
   @include flex-center;
   gap: 30px;
   flex-direction: column;
+  background-color: $color-bg-gray;
+
+  @include media-up(md) {
+    height: 800px;
+  }
+
+  @include media-down(md) {
+    height: 925px;
+  }
 
   & img {
     top: 0;
