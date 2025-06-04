@@ -29,8 +29,9 @@ const PopupContactUs = ({ isShow, form, className }: TProps) => {
     >
       <div className={styles.popup__background_wrapper}>
         <Image
-          fill={true}
+          fill
           src={'/background.png'}
+          style={{ top: '50%', left: '50%' }}
           className={styles.popup__background}
           alt={'background'}
         />
