@@ -32,6 +32,13 @@ const Header = (props: TProps) => {
             aria-label='Toggle menu'
           />
         </div>
+        <div className={`${styles.burger__wrapper} ${styles.mobile}`}>
+          <Button
+            className={`${styles.burger} ${!isMenusClosed ? styles.burger_active : ''}`}
+            onClick={handleToggleMenu}
+            aria-label='Toggle menu'
+          />
+        </div>
 
         <nav className={`${styles.nav} ${isMenusClosed ? styles.closed : ''}`}>
           <ul className={styles.nav__list}>
