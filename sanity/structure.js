@@ -1,7 +1,6 @@
 import hero from './schemaTypes/sections/hero'
-import heroMain from './schemaTypes/sections/heroMain'
 import heroProject from './schemaTypes/sections/heroProject'
-import list from './schemaTypes/sections/list'
+import industries from './schemaTypes/sections/industries'
 import textOne from './schemaTypes/sections/textOne'
 import textTwo from './schemaTypes/sections/textTwo'
 import textThree from './schemaTypes/sections/textThree'
@@ -42,9 +41,8 @@ const sectionsArray = [
   footer,
   header,
   hero,
-  heroMain,
   heroProject,
-  list,
+  industries,
   notFound,
   ourClients,
   ourTeam,

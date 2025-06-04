@@ -9,9 +9,8 @@ import redirect from './documents/redirect'
 
 // sections
 import hero from './sections/hero'
-import heroMain from './sections/heroMain'
 import heroProject from './sections/heroProject'
-import list from './sections/list'
+import industries from './sections/industries'
 import textOne from './sections/textOne'
 import textTwo from './sections/textTwo'
 import textThree from './sections/textThree'
@@ -100,9 +99,8 @@ export const schemaTypes = [
 
   // sections
   hero,
-  heroMain,
   heroProject,
-  list,
+  industries,
   textOne,
   textTwo,
   textThree,

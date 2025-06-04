@@ -1,10 +1,13 @@
-@use 'src/styles/mixins' as *;
-
 .section {
   display: grid;
   grid-template-columns: repeat(12, 1fr);
   gap: clamp(0.25rem, 0.0073rem + 1.0356vw, 1.25rem);
   padding: 0 clamp(0.3125rem, -2.3422rem + 11.3269vw, 11.25rem);
+}
+
+.wrapper {
+  position: relative;
+  overflow: hidden;
 }
 
 .container {
@@ -16,7 +19,7 @@
   & > div:nth-child(1) {
     grid-column: 1 / span 5;
     grid-row: 1;
-    @include color-scheme(--color-bg-black, --color-text-white);
+    @include color-scheme($color-bg-black, $color-text-white);
     height: clamp(4.375rem, 1.6444rem + 11.6505vw, 15.625rem);
   }
 
@@ -30,12 +33,8 @@
   & > div:nth-child(3) {
     grid-column: 1 / -1;
     grid-row: 2;
-    @include color-scheme(--color-bg-green, --color-text-black);
+    @include color-scheme($color-bg-green, $color-text-black);
     height: clamp(8.125rem, 3.2706rem + 20.712vw, 28.125rem);
-
-    .card__text {
-      line-height: clamp(0.4375rem, -0.2148rem + 2.7832vw, 3.125rem);
-    }
   }
 
   & > div:nth-child(4) {
@@ -47,8 +46,20 @@
   & > div:nth-child(5) {
     grid-column: 9 / span 4;
     grid-row: 3;
-    @include color-scheme(--color-bg-black, --color-text-white);
+    @include color-scheme($color-bg-black, $color-text-white);
     height: clamp(5rem, 1.966rem + 12.945vw, 17.5rem);
+  }
+
+  @include media-down('lg') {
+    @include flex-center;
+    flex-direction: column;
+    gap: 30px;
+
+    & div {
+      height: auto !important;
+      transform: none !important;
+      width: 100% !important;
+    }
   }
 }
 
@@ -58,16 +69,59 @@
   padding: 20px;
 
   &__title {
-    font-size: var(--size-title-6);
+    font-size: $size-text-2;
     font-weight: 700;
     margin-bottom: 10px;
   }
 
   &__text {
+    font-size: $size-text-1;
+
     padding: clamp(0.125rem, -0.1481rem + 1.165vw, 1.25rem);
-    font-size: var(--size-text-3);
-    line-height: clamp(0.4375rem, 0.0886rem + 1.4887vw, 1.875rem);
+    line-height: fluid-size(15, 30);
     text-align: justify;
     font-weight: 400;
+  }
+}
+
+.fluted_pipe {
+  left: 5%;
+  top: 15%;
+  position: absolute;
+  width: fluid-size(150, 325);
+  height: fluid-size(150, 325);
+  z-index: $z-index-models;
+
+  @include media-down('lg') {
+    left: -60px;
+    top: 5%;
+  }
+}
+
+.hollow_planet {
+  z-index: $z-index-models;
+  position: absolute;
+  bottom: 30%;
+  right: -10%;
+  width: fluid-size(175, 450);
+  height: fluid-size(175, 450);
+
+  @include media-down('lg') {
+    right: -75px;
+    top: 45%;
+  }
+}
+
+.planet {
+  position: absolute;
+  z-index: $z-index-models;
+  bottom: 0%;
+  left: 40%;
+  width: fluid-size(150, 250);
+  height: fluid-size(150, 250);
+
+  @include media-down('lg') {
+    left: 15%;
+    bottom: 10px;
   }
 }

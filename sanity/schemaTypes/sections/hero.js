@@ -1,5 +1,5 @@
 import {defineType, defineField} from 'sanity'
-import fadeColors from '../objects/fadeColors'
+// import fadeColors from '../objects/fadeColors'
 
 export default defineType({
   name: 'hero',
@@ -40,34 +40,9 @@ export default defineType({
       validation: (Rule) => Rule.required(),
     }),
     defineField({
-      name: 'portfolio',
-      title: 'Portfolio',
-      type: 'imagePortfolio',
-    }),
-    defineField({
-      name: 'richTextBlock',
-      title: 'RichTextBlock',
-      type: 'array',
-      of: [{type: 'block'}],
-    }),
-    defineField({
-      name: 'subtitle',
-      title: 'DEPRECATED Subtitle',
-      type: 'text',
-    }),
-    defineField({
       name: 'imageWithAltText',
       title: 'Image With Alt Text',
       type: 'imageWithAlt',
-    }),
-    defineField({
-      name: 'fadeColor',
-      title: 'Fade color',
-      type: 'string',
-      options: {
-        list: [...fadeColors],
-      },
-      validation: (Rule) => Rule.required(),
     }),
     defineField({
       name: 'breadcrumbs',
