@@ -1,6 +1,6 @@
 import { GetStaticPaths, GetStaticProps, GetStaticPropsContext } from 'next';
 
-import ContactUSModal from '@/components/contactUsModal';
+// import ContactUSModal from '@/components/contactUsModal';
 import CookiesModal from '@/components/cookiesModal';
 import * as Sections from '@/components/sections';
 import Seo from '@/components/seo';
@@ -14,7 +14,7 @@ export default function Page({ seo, title, content, cookies }: any) {
     <>
       <Seo {...seo} title={title} />
       <CookiesModal {...cookies} />
-      <ContactUSModal />
+      {/* <ContactUSModal /> */}
 
       {content
         ?.sort((a: any, b: any) => +a.position - +b.position)

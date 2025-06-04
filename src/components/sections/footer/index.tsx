@@ -35,7 +35,7 @@ const Footer = (props: TProps) => {
   return (
     <footer className={styles.footer}>
       <div className={styles.container}>
-        <div className={styles.footer__}>
+        <div className={styles.footer__column}>
           <div className={styles.logo}>
             <Image
               src={props.logoImage.image.asset.url}

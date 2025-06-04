@@ -6,16 +6,18 @@
   padding: fluid-size(45, 50) fluid-size(10, 114) fluid-size(15, 25);
   gap: fluid-size(47, 78);
   background-color: $color-bg-black;
+
+  &__column {
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+  }
 }
 
 .logo {
   position: relative;
   width: 167px;
   height: 32px;
-
-  @include media-down(md) {
-    margin-bottom: 15px;
-  }
 }
 
 .social {
@@ -24,6 +26,7 @@
     align-items: center;
     gap: 7px;
   }
+
   &__icon {
     display: inline-block;
     position: relative;
