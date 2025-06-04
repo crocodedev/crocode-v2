@@ -64,7 +64,7 @@ type TProps = {
 
 const Hero = ({ title }: TProps) => {
   return (
-    <SectionLayout>
+    <SectionLayout className={styles.section}>
       <ModelsLayout models={MODELS_LIST}>
         <div className={styles.hero}>
           <h1 className={`${styles.title}`}>{title}</h1>
