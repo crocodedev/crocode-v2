@@ -1,13 +1,23 @@
+.wrapper {
+  @include flex-center;
+  width: 100%;
+  position: fixed;
+  bottom: 0;
+  z-index: $z-index-modals;
+}
+
 .modal {
   @include flex-center;
   gap: 70px;
   font-weight: 700;
   font-size: 14px;
+  width: 1000px;
   height: 300px;
   padding: 15px;
 
   @include media-down('md') {
     flex-direction: column;
+    width: 100%;
   }
 
   &__column {
@@ -29,9 +39,8 @@
   }
 
   &__button {
-    width: 125px;
-    height: 45px;
     border-radius: 100px;
+    padding: 10px 25px;
     @include color-scheme($color-bg-black, $color-text-white);
   }
 }
