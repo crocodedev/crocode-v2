@@ -52,10 +52,5 @@ export default defineType({
       title: 'Header button',
       type: 'link',
     }),
-    defineField({
-      name: 'touchUsModal',
-      title: 'Touch Us',
-      type: 'touchUs',
-    }),
   ],
 })

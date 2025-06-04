@@ -12,9 +12,8 @@ import faq from '@/graphql/sections/faq';
 import footer from '@/graphql/sections/footer';
 import header from '@/graphql/sections/header';
 import hero from '@/graphql/sections/hero';
-import heroMain from '@/graphql/sections/heroMain';
 import heroProject from '@/graphql/sections/heroProject';
-import list from '@/graphql/sections/list';
+import industries from '@/graphql/sections/industries';
 import notFound from '@/graphql/sections/notFound';
 import ourClients from '@/graphql/sections/ourClients';
 import ourTeam from '@/graphql/sections/ourTeam';
@@ -42,9 +41,8 @@ export {
   footer,
   header,
   hero,
-  heroMain,
   heroProject,
-  list,
+  industries,
   notFound,
   ourClients,
   ourTeam,

@@ -2,8 +2,8 @@ import {defineType, defineField} from 'sanity'
 import bgColors from '../objects/bgColors'
 
 export default defineType({
-  name: 'list',
-  title: 'List',
+  name: 'industries',
+  title: 'Industries',
   type: 'document',
   i18n: true,
   preview: {
@@ -28,18 +28,9 @@ export default defineType({
       name: 'component',
       title: 'Component',
       type: 'string',
-      options: {
-        list: [
-          {title: 'List One', value: 'ListOne'},
-          {title: 'List Two', value: 'ListTwo'},
-          {title: 'List Three', value: 'ListThree'},
-          {title: 'List Four', value: 'ListFour'},
-          {title: 'List Five', value: 'ListFive'},
-          {title: 'List Six', value: 'ListSix'},
-          {title: 'List Seven', value: 'ListSeven'},
-        ],
-      },
-      validation: (Rule) => Rule.required(),
+      initialValue: 'Industries',
+      readOnly: true,
+      hidden: true,
     }),
     defineField({
       name: 'title',

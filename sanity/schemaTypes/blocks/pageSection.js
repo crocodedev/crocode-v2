@@ -6,9 +6,8 @@ export default defineType({
   type: 'reference',
   to: [
     {type: 'hero'},
-    {type: 'heroMain'},
     {type: 'heroProject'},
-    {type: 'list'},
+    {type: 'industries'},
     {type: 'textOne'},
     {type: 'textTwo'},
     {type: 'textThree'},
