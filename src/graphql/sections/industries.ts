@@ -1,7 +1,7 @@
 import * as graphqlBlocks from '@/graphql/objects';
 
-const list = `
-    ... on List {
+const industries = `
+    ... on Industries {
       _id
       position
       component
@@ -22,4 +22,4 @@ const list = `
     }
 `;
 
-export default list;
+export default industries;

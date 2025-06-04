@@ -23,9 +23,8 @@ const allTechnologiesCaseItem = `
     ${graphqlSections['footer']}
     ${graphqlSections['header']}
     ${graphqlSections['hero']}
-    ${graphqlSections['heroMain']}
     ${graphqlSections['heroProject']}
-    ${graphqlSections['list']}
+    ${graphqlSections['industries']}
     ${graphqlSections['notFound']}
     ${graphqlSections['ourClients']}
     ${graphqlSections['ourTeam']}

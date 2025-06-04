@@ -28,7 +28,7 @@ import Questions from './questions';
 import SectionLayout from './section-layout';
 import Specialist from './specialists';
 import Subscribe from './subscribe';
-import Technologes from './technologies';
+import Technologies from './technologies';
 import TechnologyStack from './technology-stack';
 import WhyCrocode from './why-crocode';
 
@@ -56,7 +56,7 @@ export {
   OurProject,
   Questions,
   Subscribe,
-  Technologes,
+  Technologies,
   TechnologyStack,
   CardImageFive,
   CardGrid,

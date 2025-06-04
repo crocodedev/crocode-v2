@@ -6,17 +6,11 @@ const hero = `
           position
           component
           title
-          subtitle
-          richTextBlockRaw
-          fadeColor
           imageWithAltText {
             ${graphqlBlocks['image']}
           }
           breadcrumbs {
             ${graphqlBlocks['link']}
-          }
-          portfolio {
-            ${graphqlBlocks['imagePortfolio']}
           }
         }
 `;
