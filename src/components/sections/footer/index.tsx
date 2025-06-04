@@ -31,7 +31,6 @@ type TProps = {
 };
 
 const Footer = (props: TProps) => {
-  console.log(props);
   return (
     <footer className={styles.footer}>
       <div className={styles.container}>
