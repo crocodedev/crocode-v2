@@ -11,20 +11,6 @@ type TProps = {
   headerButton: TLink;
   headerLinks: TLink[];
   logoImage: TImage;
-  position: number;
-  touchUsModal: {
-    buttonText: string;
-    emailPlaceholder: string;
-    subtitle: string;
-    namePlaceholder: string;
-    title: string;
-    yourEmail: string;
-    yourName: string;
-    agreementText: {
-      text: string;
-      link: TLink;
-    };
-  };
 };
 
 const Header = (props: TProps) => {

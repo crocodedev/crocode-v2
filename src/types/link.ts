@@ -22,10 +22,7 @@ export type TPdf = {
 export type TLink = {
   linkExternal: TLinkExternal | null;
   linkInternal: TLinkInternal | null;
+  pdf?: TPdf;
   title: string;
   _key: string | null;
-};
-
-export type TLinkWithPdf = TLink & {
-  pdf: TPdf;
 };

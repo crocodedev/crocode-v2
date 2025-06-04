@@ -8,24 +8,36 @@ type TProps = {
 };
 
 const SmartLink = ({ data, className }: TProps) => {
-  return (
-    <>
-      {data.linkExternal ? (
-        <a href={data.linkExternal.href} className={className}>
-          {data.linkExternal.label}
-        </a>
-      ) : data.linkInternal ? (
-        <Link
-          href={data.linkInternal.reference.slug.current}
-          className={className}
-        >
-          {data.linkInternal.label}
-        </Link>
-      ) : (
-        ''
-      )}
-    </>
-  );
+  if (data.pdf) {
+    return (
+      <a href={data.pdf.asset.url} target='_blank' className={className}>
+        {data.title}
+      </a>
+    );
+  } else {
+    return (
+      <>
+        {data.linkExternal ? (
+          <a
+            href={data.linkExternal.href}
+            target={data.linkExternal.blank ? '_blank' : '_self'}
+            className={className}
+          >
+            {data.linkExternal.label}
+          </a>
+        ) : data.linkInternal ? (
+          <Link
+            href={data.linkInternal.reference.slug.current}
+            className={className}
+          >
+            {data.linkInternal.label}
+          </Link>
+        ) : (
+          ''
+        )}
+      </>
+    );
+  }
 };
 
 export default SmartLink;

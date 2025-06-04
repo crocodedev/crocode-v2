@@ -18,6 +18,20 @@
   }
 }
 
+.social {
+  &__links {
+    display: flex;
+    align-items: center;
+    gap: 7px;
+  }
+  &__icon {
+    display: inline-block;
+    position: relative;
+    width: 32px;
+    height: 32px;
+  }
+}
+
 .container {
   width: 100%;
   display: flex;

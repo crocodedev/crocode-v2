@@ -2,7 +2,7 @@ import Image from 'next/image';
 
 import { SmartLink } from '@/components/ui';
 
-import { TImage, TLink, TLinkWithPdf } from '@/types/types';
+import { TImage, TLink } from '@/types/types';
 
 import styles from './styles.module.scss';
 
@@ -23,34 +23,54 @@ type TSocialIcons = {
 };
 
 type TProps = {
-  bottomLinks: TLinkWithPdf[];
+  bottomLinks: TLink[];
   column: TColumn[];
   copyrightText: string;
   logoImage: TImage;
-  position: number;
   socialIcons: TSocialIcons[];
 };
 
 const Footer = (props: TProps) => {
+  console.log(props);
   return (
     <footer className={styles.footer}>
       <div className={styles.container}>
-        <div className={styles.logo}>
-          <Image
-            src={props.logoImage.image.asset.url}
-            fill
-            alt={props.logoImage.altText}
-          />
+        <div className={styles.footer__}>
+          <div className={styles.logo}>
+            <Image
+              src={props.logoImage.image.asset.url}
+              fill
+              alt={props.logoImage.altText}
+            />
+          </div>
+          <div className={styles.social}>
+            {props.socialIcons.map((item) => (
+              <a
+                href={item.link.linkExternal?.href}
+                target={item.link.linkExternal?.blank ? '_blank' : '_self'}
+                className={styles.socials__link}
+                key={item._key}
+              >
+                <span className={styles.social__icon}>
+                  <Image
+                    src={item.iconImage.image.asset.url}
+                    fill
+                    alt={item.iconImage.altText}
+                  />
+                </span>
+              </a>
+            ))}
+          </div>
         </div>
-        {props.column.map((column, index) => (
-          <div className={styles.column} key={index}>
+        {props.column.map((column) => (
+          <div className={styles.column} key={column._key}>
             <SmartLink data={column.link} className={styles.column__title} />
             <div className={styles.column__links}>
-              {column.items.map((item, index) => (
+              {column.items.map((item) => (
                 <SmartLink
                   data={item.link}
                   className={styles.column__link}
-                  key={column._key + index}
+                  key={item._key}
                 />
               ))}
             </div>
@@ -59,9 +79,9 @@ const Footer = (props: TProps) => {
       </div>
       <div className={`${styles.container} ${styles.bottom}`}>
         <p className={styles.copyright}>{props.copyrightText}</p>
-        <a href={props.bottomLinks[0].pdf.asset.url} className={styles.privacy}>
-          {props.bottomLinks[0].title}
-        </a>
+        {props.bottomLinks.map((link) => (
+          <SmartLink data={link} className={styles.privacy} key={link._key} />
+        ))}
       </div>
     </footer>
   );
