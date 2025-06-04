@@ -27,7 +27,7 @@ export default function PrimitiveFactory({
     bounceSpeed: 0.25,
     rotationAxis: 'bounce',
   },
-  isHaveTexture,
+  isHaveTexture = true,
   lightIntensity = 12,
   cameraPosition = [1.8, 1.8, 1.8],
   lightDirectionPosition = [2, 15, 12],
