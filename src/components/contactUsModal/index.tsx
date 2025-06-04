@@ -3,8 +3,6 @@ import { useEffect, useState } from 'react';
 import Portal, { createContainer } from '../portal';
 import { PopupContactUs } from '../sections';
 
-import styles from './styles.module.scss';
-
 const MODAL_CONTAINER_ID = 'contactUs';
 
 const ContactUSModal = () => {
@@ -43,11 +41,7 @@ const ContactUSModal = () => {
 
   return isMounted ? (
     <Portal id={MODAL_CONTAINER_ID}>
-      <PopupContactUs
-        className={styles.modal}
-        isShow={POPUP.isShow}
-        form={POPUP.form}
-      />
+      <PopupContactUs isShow={POPUP.isShow} form={POPUP.form} />
     </Portal>
   ) : null;
 };
