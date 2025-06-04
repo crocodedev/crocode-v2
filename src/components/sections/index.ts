@@ -1,3 +1,5 @@
+import ModelsLayout from '../models-layout';
+
 import AboutUs from './about-us';
 import Advanteges from './advantages';
 import Benefits from './benefits';
@@ -46,6 +48,7 @@ export {
   Footer,
   Header,
   Benefits,
+  ModelsLayout,
   WhyCrocode,
   Hero,
   Industries,
