@@ -1,4 +1,4 @@
-import {defineType, defineField} from 'sanity'
+import {defineType} from 'sanity'
 
 export default defineType({
   name: 'offerings',
@@ -10,19 +10,19 @@ export default defineType({
     },
   },
   fields: [
-    defineField({
+    {
       name: 'sectionTitle',
       title: 'Section Title',
       type: 'string',
       validation: (Rule) => Rule.required(),
-    }),
-    defineField({
+    },
+    {
       name: 'position',
       title: 'Position',
       type: 'number',
       validation: (Rule) => Rule.required(),
-    }),
-    defineField({
+    },
+    {
       name: 'component',
       title: 'Component',
       type: 'string',
@@ -30,16 +30,16 @@ export default defineType({
       readOnly: true,
       hidden: true,
       validation: (Rule) => Rule.required(),
-    }),
-    defineField({
+    },
+    {
       name: 'title',
       title: 'Title',
       type: 'string',
       validation: (Rule) => Rule.required(),
-    }),
-    defineField({
+    },
+    {
       name: 'positionOfTitle',
-      title: 'position of Title',
+      title: 'Position of Title',
       type: 'string',
       options: {
         list: [
@@ -49,12 +49,12 @@ export default defineType({
       },
       initialValue: 'Left',
       validation: (Rule) => Rule.required(),
-    }),
-    // defineField({
-    //   name: 'items',
-    //   title: 'Items',
-    //   type: 'array',
-    //   of: [{type: 'string', name: 'title', title: 'Title'}],
-    // }),
+    },
+    {
+      name: 'items',
+      title: 'Items',
+      type: 'array',
+      of: [{type: 'string', name: 'title', title: 'Title'}],
+    },
   ],
 })
