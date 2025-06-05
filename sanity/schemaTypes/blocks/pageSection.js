@@ -34,15 +34,6 @@ export default defineType({
     {type: 'relatedArticles'},
     {type: 'technologiesCaseItem'},
     {type: 'imageBlock'},
+    {type: 'offerings'},
   ],
-  options: {
-    filter: ({document}) => {
-      return {
-        filter: '__i18n_lang == $baseLanguage',
-        params: {
-          baseLanguage: document.i18n_lang,
-        },
-      }
-    },
-  },
 })

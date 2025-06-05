@@ -4,7 +4,6 @@ export default defineType({
   name: 'ourClients',
   title: 'Our clients',
   type: 'document',
-  i18n: true,
   preview: {
     select: {
       title: 'sectionTitle',

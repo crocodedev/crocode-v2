@@ -4,7 +4,6 @@ export default defineType({
   name: 'relatedArticles',
   title: 'Related articles',
   type: 'document',
-  i18n: true,
   preview: {
     select: {
       title: 'sectionTitle',

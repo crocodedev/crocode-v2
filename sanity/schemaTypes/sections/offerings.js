@@ -1,8 +1,8 @@
 import {defineType, defineField} from 'sanity'
 
 export default defineType({
-  name: 'header',
-  title: 'Header',
+  name: 'offerings',
+  title: 'Offerings',
   type: 'document',
   preview: {
     select: {
@@ -20,36 +20,41 @@ export default defineType({
       name: 'position',
       title: 'Position',
       type: 'number',
-      readOnly: true,
       validation: (Rule) => Rule.required(),
     }),
     defineField({
       name: 'component',
       title: 'Component',
       type: 'string',
-      initialValue: 'Header',
+      initialValue: 'OfferingsTemplate',
       readOnly: true,
       hidden: true,
       validation: (Rule) => Rule.required(),
     }),
     defineField({
-      name: 'logoImage',
-      title: 'Logo image',
-      type: 'imageWithAlt',
+      name: 'title',
+      title: 'Title',
+      type: 'string',
+      validation: (Rule) => Rule.required(),
     }),
     defineField({
-      name: 'Link',
-      type: 'link',
+      name: 'positionOfTitle',
+      title: 'position of Title',
+      type: 'string',
+      options: {
+        list: [
+          {title: 'Left', value: 'left'},
+          {title: 'Right', value: 'right'},
+        ],
+      },
+      initialValue: 'Left',
+      validation: (Rule) => Rule.required(),
     }),
-    defineField({
-      name: 'headerLinks',
-      title: 'Header links',
-      type: 'headerLinks',
-    }),
-    defineField({
-      name: 'headerButton',
-      title: 'Header button',
-      type: 'link',
-    }),
+    // defineField({
+    //   name: 'items',
+    //   title: 'Items',
+    //   type: 'array',
+    //   of: [{type: 'string', name: 'title', title: 'Title'}],
+    // }),
   ],
 })

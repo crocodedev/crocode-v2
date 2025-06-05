@@ -4,7 +4,6 @@ export default defineType({
   name: 'notFound',
   title: '404 page',
   type: 'document',
-  i18n: true,
   preview: {
     select: {
       title: 'sectionTitle',
