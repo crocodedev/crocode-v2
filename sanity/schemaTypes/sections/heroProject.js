@@ -4,7 +4,6 @@ export default defineType({
   name: 'heroProject',
   title: 'Hero Project',
   type: 'document',
-  i18n: true,
   preview: {
     select: {
       title: 'sectionTitle',

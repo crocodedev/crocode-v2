@@ -4,7 +4,6 @@ export default defineType({
   name: 'header',
   title: 'Header',
   type: 'document',
-  i18n: true,
   preview: {
     select: {
       title: 'sectionTitle',

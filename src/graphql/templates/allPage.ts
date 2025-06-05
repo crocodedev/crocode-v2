@@ -32,6 +32,7 @@ const allPage = `
     ${graphqlSections['textTwo']}
     ${graphqlSections['textThree']}
     ${graphqlSections['blockText']}
+    ${graphqlSections['offerings']}
   }
 `;
 
