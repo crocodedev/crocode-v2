@@ -81,6 +81,23 @@
 
     &__item {
       white-space: nowrap;
+      position: relative;
+
+      &:after {
+        content: '';
+        position: absolute;
+        bottom: -20%;
+        left: 50%;
+        width: 0;
+        height: 3px;
+        background-color: $color-bg-green;
+        transition: all 0.6s linear;
+        transform: translate(-50%, -50%);
+      }
+
+      &:hover:after {
+        width: 90%;
+      }
 
       a {
         text-decoration: none;
@@ -88,10 +105,26 @@
       }
 
       &:last-child {
+        transition: all 0.6s linear;
         font-weight: 700;
         background-color: $color-bg-green;
-        padding: 13px 25px;
         border-radius: 60px;
+
+        a {
+          padding: 13px 25px;
+        }
+
+        &:after {
+          opacity: 0;
+        }
+
+        &:hover {
+          background-color: $color-bg-black;
+
+          a {
+            color: $color-text-white;
+          }
+        }
       }
 
       @include media-down('md') {
