@@ -1,5 +1,5 @@
 import { SectionLayout } from '@/components/sections';
-import { Card, Title } from '@/components/ui';
+import { Card, SmartLink, Title } from '@/components/ui';
 
 import { TImage, TLink } from '@/types/types';
 
@@ -19,17 +19,21 @@ type TProps = {
 };
 
 const Industries = (props: TProps) => {
+  console.log(props);
   return (
     <SectionLayout>
       <Title text={props.title} />
       <div className={styles.container}>
-        {props.items.map((item) => {
-          return (
-            <Card className={styles.card} key={item._key}>
-              Mock Data
-            </Card>
-          );
-        })}
+        {props.items.map((item, i) => (
+          <Card className={styles.card} key={i}>
+            <div className={styles.card__inner}>
+              <div className={styles.card__number_wrapper}>
+                <span className={styles.card__number}>{item.text}</span>
+              </div>
+              <SmartLink data={item.link} className={styles.card__link} />
+            </div>
+          </Card>
+        ))}
       </div>
     </SectionLayout>
   );

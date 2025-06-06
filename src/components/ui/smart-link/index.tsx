@@ -4,7 +4,7 @@ import { TLink } from '@/types/link';
 
 type TProps = {
   data: TLink;
-  className: string;
+  className?: string;
 };
 
 const SmartLink = ({ data, className }: TProps) => {

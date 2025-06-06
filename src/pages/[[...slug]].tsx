@@ -11,7 +11,7 @@ import { sanityApi } from '@/lib/sanity';
 
 /* eslint-disable  @typescript-eslint/no-explicit-any */
 export default function Page({ seo, title, content, cookies }: any) {
-  console.log({ content });
+  // console.log({ content });
   return (
     <>
       <Seo {...seo} title={title} />
