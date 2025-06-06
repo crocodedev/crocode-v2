@@ -36,6 +36,7 @@ import challenge from './sections/challenge'
 import blockText from './sections/blockText'
 import relatedArticles from './sections/relatedArticles'
 import imageBlock from './sections/imageBlock'
+import offerings from './sections/offerings'
 
 // objects
 import link from './objects/link'
@@ -126,6 +127,7 @@ export const schemaTypes = [
   blockText,
   relatedArticles,
   imageBlock,
+  offerings,
 
   // objects
   link,

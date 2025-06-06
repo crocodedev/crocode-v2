@@ -6,8 +6,6 @@ const industries = `
       position
       component
       title
-      text
-      bgColor
       items {
         _key
         text

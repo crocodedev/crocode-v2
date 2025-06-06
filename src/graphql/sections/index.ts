@@ -15,6 +15,7 @@ import hero from '@/graphql/sections/hero';
 import heroProject from '@/graphql/sections/heroProject';
 import industries from '@/graphql/sections/industries';
 import notFound from '@/graphql/sections/notFound';
+import offerings from '@/graphql/sections/offerings';
 import ourClients from '@/graphql/sections/ourClients';
 import ourTeam from '@/graphql/sections/ourTeam';
 import relatedArticles from '@/graphql/sections/relatedArticles';
@@ -54,4 +55,5 @@ export {
   textOne,
   textThree,
   textTwo,
+  offerings,
 };

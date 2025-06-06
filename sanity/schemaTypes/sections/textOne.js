@@ -6,7 +6,6 @@ export default defineType({
   name: 'textOne',
   title: 'Text One',
   type: 'document',
-  i18n: true,
   preview: {
     select: {
       title: 'sectionTitle',

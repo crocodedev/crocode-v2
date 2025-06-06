@@ -1,3 +1,5 @@
+import ArrowUpScroll from '../arrow-up-scroll';
+
 import Avatar from './avatar';
 import Banner from './banner';
 import Button from './button';
@@ -14,6 +16,7 @@ import TitleSection from './title-section';
 
 export {
   Avatar,
+  ArrowUpScroll,
   Banner,
   Button,
   Card,

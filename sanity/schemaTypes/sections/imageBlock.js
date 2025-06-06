@@ -4,7 +4,6 @@ export default defineType({
   name: 'imageBlock',
   title: 'Image block',
   type: 'document',
-  i18n: true,
   preview: {
     select: {
       title: 'title',

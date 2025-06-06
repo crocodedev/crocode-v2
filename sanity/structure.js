@@ -25,6 +25,7 @@ import ctaForm from './schemaTypes/sections/ctaForm'
 import challenge from './schemaTypes/sections/challenge'
 import blockText from './schemaTypes/sections/blockText'
 import relatedArticles from './schemaTypes/sections/relatedArticles'
+import offerings from './schemaTypes/sections/offerings'
 
 const sectionsArray = [
   blockText,
@@ -54,6 +55,7 @@ const sectionsArray = [
   textTwo,
   textThree,
   relatedArticles,
+  offerings,
 ]
 
 export const structure = (S) =>

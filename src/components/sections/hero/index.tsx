@@ -70,7 +70,7 @@ type TProps = {
 
 const Hero = (props: TProps) => {
   return (
-    <SectionLayout>
+    <SectionLayout className={styles.section}>
       <ModelsLayout models={MODELS_LIST}>
         <div className={styles.hero}>
           <Image

@@ -1,5 +1,6 @@
 import { GetStaticPaths, GetStaticProps, GetStaticPropsContext } from 'next';
 
+import ArrowUpScroll from '@/components/arrow-up-scroll';
 // import ContactUSModal from '@/components/contactUsModal';
 import CookiesModal from '@/components/cookiesModal';
 import * as Sections from '@/components/sections';
@@ -10,12 +11,13 @@ import { sanityApi } from '@/lib/sanity';
 
 /* eslint-disable  @typescript-eslint/no-explicit-any */
 export default function Page({ seo, title, content, cookies }: any) {
+  console.log({ content });
   return (
     <>
       <Seo {...seo} title={title} />
       <CookiesModal {...cookies} />
       {/* <ContactUSModal /> */}
-
+      <ArrowUpScroll />
       {content
         ?.sort((a: any, b: any) => +a.position - +b.position)
         ?.map(({ component, _id, ...props }: any) => {
