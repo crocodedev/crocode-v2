@@ -8,7 +8,7 @@ export default defineType({
     {type: 'hero'},
     {type: 'heroProject'},
     {type: 'industries'},
-    {type: 'textOne'},
+    {type: 'about'},
     {type: 'textTwo'},
     {type: 'textThree'},
     {type: 'ctaText'},

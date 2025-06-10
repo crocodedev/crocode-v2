@@ -32,7 +32,7 @@ const allTechnologiesCaseItem = `
     ${graphqlSections['sliderSteps']}
     ${graphqlSections['technologies']}
     ${graphqlSections['technologyStack']}
-    ${graphqlSections['textOne']}
+    ${graphqlSections['about']}
     ${graphqlSections['textTwo']}
     ${graphqlSections['textThree']}
     ${graphqlSections['blockText']}

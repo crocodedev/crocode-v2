@@ -7,7 +7,8 @@ import { ROUTES } from '@/utils/const';
 
 import styles from './styles.module.scss';
 
-const Header = () => {
+const Header = (props) => {
+  console.log(props);
   const [isMenusClosed, setIsMenuClosed] = useState(true);
 
   const handleToggleMenu = () => {
