@@ -1,5 +1,6 @@
 import { useState } from 'react';
 
+import { usePopup } from '@/components/context-popup';
 import { SmartLink } from '@/components/ui';
 import { Button } from '@/components/ui';
 
@@ -15,6 +16,7 @@ type TProps = {
 
 const Header = (props: TProps) => {
   const [isMenusClosed, setIsMenuClosed] = useState(true);
+  const { openPopup } = usePopup();
 
   const handleToggleMenu = () => {
     setIsMenuClosed((prev) => !prev);
@@ -41,14 +43,12 @@ const Header = (props: TProps) => {
               </li>
             ))}
             <li className={styles.nav__list__item}>
-              <SmartLink
-                data={props.headerButton}
-                className={styles.nav__link_mobile}
-              />
-              <SmartLink
-                data={props.headerButton}
-                className={styles.nav__link_desktop}
-              />
+              <Button className={styles.nav__link_mobile} onClick={openPopup}>
+                Contact us
+              </Button>
+              <Button className={styles.nav__link_desktop} onClick={openPopup}>
+                Contact us
+              </Button>
             </li>
           </ul>
           <div className={styles.nav__actions}>
