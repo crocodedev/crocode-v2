@@ -1,7 +1,7 @@
 import hero from './schemaTypes/sections/hero'
 import heroProject from './schemaTypes/sections/heroProject'
 import industries from './schemaTypes/sections/industries'
-import textOne from './schemaTypes/sections/textOne'
+import about from './schemaTypes/sections/about'
 import textTwo from './schemaTypes/sections/textTwo'
 import textThree from './schemaTypes/sections/textThree'
 import ctaText from './schemaTypes/sections/ctaText'
@@ -51,7 +51,7 @@ const sectionsArray = [
   sliderSteps,
   technologyStack,
   technologies,
-  textOne,
+  about,
   textTwo,
   textThree,
   relatedArticles,

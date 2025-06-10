@@ -1,7 +1,7 @@
 import * as graphqlBlocks from '@/graphql/objects';
 
-const textOne = `
-    ... on TextOne {
+const about = `
+    ... on About {
       _id
       position
       component
@@ -25,4 +25,4 @@ const textOne = `
     }
 `;
 
-export default textOne;
+export default about;
