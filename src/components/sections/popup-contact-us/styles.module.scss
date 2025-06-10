@@ -112,5 +112,11 @@
 
   &__button {
     margin: 0 auto;
+
+    &_disabled {
+      cursor: auto;
+      background-color: $color-bg-gray;
+      color: $color-text-black;
+    }
   }
 }

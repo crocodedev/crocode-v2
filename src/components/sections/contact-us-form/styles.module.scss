@@ -89,11 +89,23 @@
     gap: 15px;
   }
 
+  &__input_file_wrapper {
+    position: relative;
+    width: 100%;
+  }
+
   &__checkbox {
     margin-bottom: 25px;
   }
 
   &__button {
     align-self: start;
+
+    &_disabled {
+      pointer-events: none;
+      cursor: auto;
+      color: $color-text-black;
+      background-color: $color-bg-gray;
+    }
   }
 }

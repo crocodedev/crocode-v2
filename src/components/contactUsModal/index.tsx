@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
 
+import { emailRules, nameRules } from '../../utils/validation';
 import Portal, { createContainer } from '../portal';
 import { PopupContactUs } from '../sections';
 
@@ -19,14 +20,18 @@ const ContactUSModal = () => {
       title: 'get in touch with us',
       inputs: [
         {
+          name: 'name',
           type: 'text',
           label: 'Your name',
           placeholder: 'Enter your name',
+          rules: nameRules,
         },
         {
+          name: 'email',
           type: 'email',
           label: 'Corporate E-mail',
           placeholder: 'Enter E-mail',
+          rules: emailRules,
         },
       ],
       message: {

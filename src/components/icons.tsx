@@ -42,3 +42,48 @@ export const IconArrowUp = () => (
     />
   </svg>
 );
+
+export const IconClip = () => (
+  <svg
+    xmlns='http://www.w3.org/2000/svg'
+    xlinkHref='http://www.w3.org/1999/xlink'
+    // width='24'
+    // height='25'
+    viewBox='0 0 24 25'
+    fill='none'
+  >
+    <g clip-path='url(#clip0_949_303)'>
+      <rect
+        width='24'
+        height='24'
+        transform='translate(0 0.929688)'
+        fill='url(#pattern0_949_303)'
+      />
+    </g>
+    <defs>
+      <pattern
+        id='pattern0_949_303'
+        patternContentUnits='objectBoundingBox'
+        width='1'
+        height='1'
+      >
+        <use xlinkHref='#image0_949_303' transform='scale(0.0526316)' />
+      </pattern>
+      <clipPath id='clip0_949_303'>
+        <rect
+          width='24'
+          height='24'
+          fill='white'
+          transform='translate(0 0.929688)'
+        />
+      </clipPath>
+      <image
+        id='image0_949_303'
+        width='19'
+        height='19'
+        preserveAspectRatio='none'
+        xlinkHref='data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABMAAAATCAYAAAByUDbMAAAACXBIWXMAAAsTAAALEwEAmpwYAAABF0lEQVQ4jZ2U4bGCMBCEKcESKIESLMEOtAPtwHQgHRwzsHv5Rwm29ubeJA6cCaL5xUDy7d3ekqb5YYlIO47jUUQOv5x/QVRVAAQAF5JDjPHxNQhAZ4fFVWPvDb4bRPIMoN8Q6ne1HGO8LpUBdAVYMA83Qap6zyBTJjlXYP0e0CWBWgOpalvaR/JWBZkSyVMGAXiWQCQfWfBt+VbSBOeSuQD6qk++lTTytynJhndNqZVaFLwgyVO2YwXKFfgofBAM3sQhb8i/S8GflXe6iIyHzQv1zk/He6dbUfCVpJaL3tkzalFIG1Ywazn5Jous2QSH6gSbtKZpulkFte85CqXQ1qoLJR8slLX0fwL+X3bp8rMWra3wzW36B6COKUe4buaTAAAAAElFTkSuQmCC'
+      />
+    </defs>
+  </svg>
+);
