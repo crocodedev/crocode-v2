@@ -11,7 +11,7 @@ import redirect from './documents/redirect'
 import hero from './sections/hero'
 import heroProject from './sections/heroProject'
 import industries from './sections/industries'
-import textOne from './sections/textOne'
+import about from './sections/about'
 import textTwo from './sections/textTwo'
 import textThree from './sections/textThree'
 import ctaText from './sections/ctaText'
@@ -102,7 +102,7 @@ export const schemaTypes = [
   hero,
   heroProject,
   industries,
-  textOne,
+  about,
   textTwo,
   textThree,
   ctaText,

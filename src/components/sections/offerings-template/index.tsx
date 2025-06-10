@@ -7,17 +7,21 @@ import styles from './styles.module.scss';
 
 type TProps = {
   title: string;
-  positionOfTitle: AnchorType;
+  items: string[];
+  positionOfTitle?: AnchorType;
 };
 
-const OfferingsTemplate = (props: TProps) => {
-  // console.log(props);
+const OfferingsTemplate = ({
+  title,
+  items,
+  positionOfTitle = 'left',
+}: TProps) => {
   return (
     <SectionLayout className={styles.section}>
-      <Title text={props.title} anchor={props.positionOfTitle} />
+      <Title text={title} anchor={positionOfTitle} />
       <ModelsSectionTemplate />
       <div className={styles.container}>
-        {/* {items.map(
+        {items?.map(
           (
             item, // TODO: AFTER DYNAMIC DATA FIX KEY
           ) => (
