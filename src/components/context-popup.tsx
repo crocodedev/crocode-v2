@@ -10,7 +10,7 @@ type TPopupContext = {
 const PopupContext = createContext<TPopupContext | undefined>(undefined);
 
 export const PopupProvider = ({ children }: { children: ReactNode }) => {
-  const [isOpen, setIsOpen] = useState(true);
+  const [isOpen, setIsOpen] = useState(false);
 
   const openPopup = () => setIsOpen(true);
   const closePopup = () => setIsOpen(false);

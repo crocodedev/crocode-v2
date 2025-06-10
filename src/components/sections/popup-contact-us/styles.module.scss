@@ -45,16 +45,17 @@
     position: absolute;
     top: 10px;
     right: 10px;
-    width: fluid-size(40, 60);
-    height: fluid-size(40, 60);
-    padding: 15px;
+    width: 40px;
+    height: 40px;
+    padding: 7px;
     border: none;
     background: transparent;
     transition: 0.2s;
     color: $color-bg-green;
+    cursor: pointer;
 
     &:hover {
-      color: $color-bg-white;
+      color: $color-bg-gray;
     }
   }
 
