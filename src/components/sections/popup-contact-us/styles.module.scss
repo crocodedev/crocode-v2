@@ -47,15 +47,16 @@
     right: 10px;
     width: 40px;
     height: 40px;
-    padding: 7px;
+    padding: 10px;
     border: none;
-    background: transparent;
+    border-radius: 50px;
+    background-color: $color-bg-green;
     transition: 0.2s;
-    color: $color-bg-green;
+    color: $color-bg-white;
     cursor: pointer;
 
     &:hover {
-      color: $color-bg-gray;
+      color: $color-bg-black;
     }
   }
 
