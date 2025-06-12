@@ -2,10 +2,10 @@ import ModelsLayout from '../models-layout';
 
 import AboutUs from './about-us';
 import Advanteges from './advantages';
+import Banner from './banner';
 import Benefits from './benefits';
 import Blog from './blog';
 import BlogCatalog from './blog-catalog';
-import Caller from './caller';
 import CardImageFive from './card-image-five';
 import CardGrid from './cards-grid';
 import Cases from './cases';
@@ -14,8 +14,9 @@ import ContactUsMap from './contact-us-map';
 import DedicatedSoftware from './dedicated-software';
 import Expections from './expections';
 import Footer from './footer';
+import GetStarted from './get-started';
 import Header from './header';
-// import Hero from './hero';
+import Hero from './hero';
 import Industries from './industries';
 import Info from './info';
 import ModelsSectionTemplate from './models-section-template';
@@ -43,14 +44,14 @@ export {
   Advanteges,
   Blog,
   BlogCatalog,
-  Caller,
+  GetStarted,
   Cases,
   Footer,
   Header,
   Benefits,
   ModelsLayout,
   WhyCrocode,
-  // Hero,
+  Hero,
   Industries,
   OurFigures,
   OurProject,
@@ -65,4 +66,5 @@ export {
   ModelsSectionTemplate,
   ContactUsForm,
   ContactUsMap,
+  Banner,
 };

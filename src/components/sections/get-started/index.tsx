@@ -1,20 +1,21 @@
 import { SectionLayout } from '@/components/sections';
-import { Banner } from '@/components/ui';
 import Button from '@/components/ui/button';
 
 import styles from './styles.module.scss';
 
-const CallerSection = () => {
+type TProps = {
+  title: string;
+};
+
+const GetStarted = ({ title }: TProps) => {
   return (
     <SectionLayout>
-      <Banner
-        className={styles.banner}
-        title='Get started on your journey to digital transformation!'
-      >
+      <div className={styles.banner}>
+        <h3 className={styles.banner__title}>{title}</h3>
         <Button>Start Project</Button>
-      </Banner>
+      </div>
     </SectionLayout>
   );
 };
 
-export default CallerSection;
+export default GetStarted;
