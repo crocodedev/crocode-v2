@@ -7,15 +7,13 @@ type TText = {
 
 const Text = ({ labels, className }: TText) => {
   return (
-    <>
-      <div className={`${styles.text} ${className}`}>
-        {labels.map((label, index) => (
-          <p className={styles.text__label} key={index}>
-            {label}
-          </p>
-        ))}
-      </div>
-    </>
+    <div className={`${styles.text} ${className}`}>
+      {labels.map((label, index) => (
+        <p className={styles.text__label} key={index}>
+          {label}
+        </p>
+      ))}
+    </div>
   );
 };
 

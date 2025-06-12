@@ -1,12 +1,22 @@
+import Image from 'next/image';
 import { Fragment, PropsWithChildren } from 'react';
 
+import { Text } from '@/components/ui';
+
 import { MODELS } from '@/utils/const';
+
+import SectionLayout from '../section-layout';
 
 import styles from './styles.module.scss';
 import PrimitiveFactory from '@/lib/three/PrimitiveFactory';
 
-type TProps = PropsWithChildren<unknown> & {
+type TProps = {
+  image?: {
+    src: string;
+    alt: string;
+  };
   title: string;
+  texts?: string[];
   className?: string;
   showModels?: boolean;
 };
@@ -87,14 +97,37 @@ const ModelLayout = ({
   );
 };
 
-const Banner = ({ children, title, className, showModels }: TProps) => {
+const Banner = ({
+  image,
+  title,
+  texts,
+  className,
+  showModels = false,
+}: TProps) => {
   return (
-    <div className={`${styles.banner} ${className}`}>
+    <SectionLayout className={`${styles.banner} ${className}`}>
+      {image && (
+        <Image
+          className={styles.banner__image}
+          src={'/image.png'}
+          fill
+          alt={''}
+        />
+      )}
       <ModelLayout showModels={showModels}>
-        <h2 className={styles.banner__title}>{title}</h2>
-        {children}
+        <div className={styles.banner__inner}>
+          <h2
+            className={`
+              ${styles.banner__title}
+              ${!texts ? styles.banner__title_main : styles.banner__title_second}
+            `}
+          >
+            {title}
+          </h2>
+          {texts && <Text labels={texts} className={styles.banner__texts} />}
+        </div>
       </ModelLayout>
-    </div>
+    </SectionLayout>
   );
 };
 
