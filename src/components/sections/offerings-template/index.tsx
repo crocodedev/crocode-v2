@@ -1,6 +1,6 @@
 import { ModelsSectionTemplate, SectionLayout } from '@/components/sections';
 import { Title } from '@/components/ui';
-import { Card } from '@/components/ui';
+// import { Card } from '@/components/ui';
 import { AnchorType } from '@/components/ui/title/types';
 
 import styles from './styles.module.scss';
@@ -13,7 +13,7 @@ type TProps = {
 
 const OfferingsTemplate = ({
   title,
-  items,
+  // items,
   positionOfTitle = 'left',
 }: TProps) => {
   return (
@@ -21,7 +21,7 @@ const OfferingsTemplate = ({
       <Title text={title} anchor={positionOfTitle} />
       <ModelsSectionTemplate />
       <div className={styles.container}>
-        {items?.map(
+        {/* {items?.map(
           (
             item, // TODO: AFTER DYNAMIC DATA FIX KEY
           ) => (
@@ -29,7 +29,7 @@ const OfferingsTemplate = ({
               {item}
             </Card>
           ),
-        )}
+        )} */}
       </div>
     </SectionLayout>
   );
