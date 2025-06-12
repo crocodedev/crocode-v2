@@ -1,3 +1,4 @@
+import about from '@/graphql/sections/about';
 import benefits from '@/graphql/sections/benefits';
 import blockText from '@/graphql/sections/blockText';
 import caseStudies from '@/graphql/sections/caseStudies';
@@ -15,6 +16,7 @@ import hero from '@/graphql/sections/hero';
 import heroProject from '@/graphql/sections/heroProject';
 import industries from '@/graphql/sections/industries';
 import notFound from '@/graphql/sections/notFound';
+import offerings from '@/graphql/sections/offerings';
 import ourClients from '@/graphql/sections/ourClients';
 import ourTeam from '@/graphql/sections/ourTeam';
 import relatedArticles from '@/graphql/sections/relatedArticles';
@@ -22,7 +24,6 @@ import reviews from '@/graphql/sections/reviews';
 import sliderSteps from '@/graphql/sections/sliderSteps';
 import technologies from '@/graphql/sections/technologies';
 import technologyStack from '@/graphql/sections/technologyStack';
-import textOne from '@/graphql/sections/textOne';
 import textThree from '@/graphql/sections/textThree';
 import textTwo from '@/graphql/sections/textTwo';
 
@@ -51,7 +52,8 @@ export {
   sliderSteps,
   technologies,
   technologyStack,
-  textOne,
+  about,
   textThree,
   textTwo,
+  offerings,
 };

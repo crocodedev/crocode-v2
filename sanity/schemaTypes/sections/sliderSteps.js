@@ -4,7 +4,6 @@ export default defineType({
   name: 'sliderSteps',
   title: 'Slider steps',
   type: 'document',
-  i18n: true,
   preview: {
     select: {
       title: 'sectionTitle',

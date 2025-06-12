@@ -1,11 +1,27 @@
 .header {
-  position: absolute;
-  transform: translate(-50%, -50%);
-  left: 50%;
-  top: 15%;
-  height: 200px;
   @include flex-center;
   z-index: $z-index-header;
+
+  @include media-up(md) {
+    position: absolute;
+    transform: translate(-50%, -50%);
+    left: 50%;
+    top: 15%;
+    height: 200px;
+  }
+
+  @include media-down('md') {
+    height: 100vh;
+    width: 100vw;
+    top: 0;
+    background-color: $color-bg-green;
+    position: fixed;
+
+    &_closed {
+      height: 0;
+      background-color: $color-bg-white;
+    }
+  }
 
   &__inner {
     @include flex-center;
@@ -15,22 +31,8 @@
     height: 100%;
 
     @include media-down('md') {
+      width: 90%;
       align-items: flex-start;
-    }
-  }
-
-  @include media-down('md') {
-    height: 100vh;
-    width: 100vw;
-    top: 50%;
-    background-color: $color-bg-green;
-    position: fixed;
-
-    &_closed {
-      position: relative;
-      height: 0;
-      width: 0;
-      background-color: $color-bg-white;
     }
   }
 }
@@ -124,7 +126,6 @@
           a {
             color: $color-text-white;
           }
-        }
       }
 
       @include media-down('md') {
@@ -140,17 +141,20 @@
     width: 100%;
     @include flex-center;
 
-    button {
+    .mobile {
       background-color: $color-bg-black;
       color: $color-text-white;
     }
   }
 
   &__button {
+    text-decoration: none;
     color: $color-text-black;
     font-size: $size-title-2;
+    font-weight: 700;
     padding: 13px 25px;
     border-radius: 60px;
+    background: $color-bg-green;
   }
 
   &__link_mobile {
@@ -226,5 +230,6 @@
 .closed {
   @include media-down('md') {
     opacity: 0;
+    position: absolute;
   }
 }

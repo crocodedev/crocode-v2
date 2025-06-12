@@ -11,7 +11,7 @@ import redirect from './documents/redirect'
 import hero from './sections/hero'
 import heroProject from './sections/heroProject'
 import industries from './sections/industries'
-import textOne from './sections/textOne'
+import about from './sections/about'
 import textTwo from './sections/textTwo'
 import textThree from './sections/textThree'
 import ctaText from './sections/ctaText'
@@ -36,6 +36,7 @@ import challenge from './sections/challenge'
 import blockText from './sections/blockText'
 import relatedArticles from './sections/relatedArticles'
 import imageBlock from './sections/imageBlock'
+import offerings from './sections/offerings'
 
 // objects
 import link from './objects/link'
@@ -101,7 +102,7 @@ export const schemaTypes = [
   hero,
   heroProject,
   industries,
-  textOne,
+  about,
   textTwo,
   textThree,
   ctaText,
@@ -126,6 +127,7 @@ export const schemaTypes = [
   blockText,
   relatedArticles,
   imageBlock,
+  offerings,
 
   // objects
   link,

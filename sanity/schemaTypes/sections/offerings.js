@@ -1,8 +1,8 @@
-import {defineType, defineField} from 'sanity'
+import {defineType} from 'sanity'
 
 export default defineType({
-  name: 'relatedArticles',
-  title: 'Related articles',
+  name: 'offerings',
+  title: 'Offerings',
   type: 'document',
   preview: {
     select: {
@@ -10,52 +10,51 @@ export default defineType({
     },
   },
   fields: [
-    defineField({
+    {
       name: 'sectionTitle',
       title: 'Section Title',
       type: 'string',
       validation: (Rule) => Rule.required(),
-    }),
-    defineField({
+    },
+    {
       name: 'position',
       title: 'Position',
       type: 'number',
       validation: (Rule) => Rule.required(),
-    }),
-    defineField({
+    },
+    {
       name: 'component',
       title: 'Component',
       type: 'string',
-      initialValue: 'RelatedArticles',
+      initialValue: 'OfferingsTemplate',
       readOnly: true,
       hidden: true,
       validation: (Rule) => Rule.required(),
-    }),
-    defineField({
+    },
+    {
       name: 'title',
       title: 'Title',
       type: 'string',
       validation: (Rule) => Rule.required(),
-    }),
-    defineField({
-      name: 'subtitle',
-      title: 'Subtitle',
-      type: 'text',
-    }),
-    defineField({
+    },
+    {
+      name: 'positionOfTitle',
+      title: 'Position of Title',
+      type: 'string',
+      options: {
+        list: [
+          {title: 'Left', value: 'left'},
+          {title: 'Right', value: 'right'},
+        ],
+      },
+      initialValue: 'Left',
+      validation: (Rule) => Rule.required(),
+    },
+    {
       name: 'items',
       title: 'Items',
       type: 'array',
-      of: [
-        {
-          type: 'reference',
-          to: [{type: 'articlesItem'}],
-        },
-      ],
-    }),
-    defineField({
-      name: 'link',
-      type: 'link',
-    }),
+      of: [{type: 'string', name: 'title', title: 'Title'}],
+    },
   ],
 })

@@ -4,7 +4,6 @@ export default defineType({
   name: 'technologyStack',
   title: 'Technology Stack',
   type: 'document',
-  i18n: true,
   preview: {
     select: {
       title: 'sectionTitle',

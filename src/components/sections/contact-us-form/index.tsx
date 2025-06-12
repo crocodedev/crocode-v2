@@ -2,14 +2,17 @@ import Image from 'next/image';
 
 import { Button, Checkbox, Input } from '@/components/ui';
 
-import { TImage, TInput } from '@/types/types';
+import { TInput } from '@/types/types';
 
 import SectionLayout from '../section-layout';
 
 import styles from './styles.module.scss';
 
 type TProps = {
-  image: TImage;
+  image: {
+    src: string;
+    alt: string;
+  };
   form: {
     title: string;
     inputs: TInput[];

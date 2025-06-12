@@ -1,14 +1,22 @@
-import Link from 'next/link';
 import { useState } from 'react';
 
+import { usePopup } from '@/components/context-popup';
+import { SmartLink } from '@/components/ui';
 import { Button } from '@/components/ui';
 
-import { ROUTES } from '@/utils/const';
+import { TImage, TLink } from '@/types/types';
 
 import styles from './styles.module.scss';
 
-const Header = () => {
+type TProps = {
+  headerButton: TLink;
+  headerLinks: TLink[];
+  logoImage: TImage;
+};
+
+const Header = (props: TProps) => {
   const [isMenusClosed, setIsMenuClosed] = useState(true);
+  const { openPopup } = usePopup();
 
   const handleToggleMenu = () => {
     setIsMenuClosed((prev) => !prev);
@@ -26,22 +34,25 @@ const Header = () => {
             aria-label='Toggle menu'
           />
         </div>
-
         <nav className={`${styles.nav} ${isMenusClosed ? styles.closed : ''}`}>
           <ul className={styles.nav__list}>
-            {ROUTES.map((route) => (
-              <li key={route.name} className={styles.nav__list__item}>
-                <Link href={route.link} className={styles.nav__link_mobile}>
-                  {route.name.toUpperCase()}
-                </Link>
-                <Link href={route.link} className={styles.nav__link_desktop}>
-                  {route.name}
-                </Link>
+            {props.headerLinks.map((link: TLink) => (
+              <li key={link._key} className={styles.nav__list__item}>
+                <SmartLink data={link} className={styles.nav__link_mobile} />
+                <SmartLink data={link} className={styles.nav__link_desktop} />
               </li>
             ))}
+            <li className={styles.nav__list__item}>
+              <Button className={styles.nav__link_desktop} onClick={openPopup}>
+                Contact us
+              </Button>
+            </li>
           </ul>
           <div className={styles.nav__actions}>
-            <Button className={`${styles.nav__button} ${styles.mobile}`}>
+            <Button
+              className={`${styles.nav__button} ${styles.mobile}`}
+              onClick={openPopup}
+            >
               Contact us
             </Button>
           </div>
