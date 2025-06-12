@@ -16,7 +16,7 @@ import Expections from './expections';
 import Footer from './footer';
 import GetStarted from './get-started';
 import Header from './header';
-// import Hero from './hero';
+import Hero from './hero';
 import Industries from './industries';
 import Info from './info';
 import ModelsSectionTemplate from './models-section-template';
@@ -51,7 +51,7 @@ export {
   Benefits,
   ModelsLayout,
   WhyCrocode,
-  // Hero,
+  Hero,
   Industries,
   OurFigures,
   OurProject,
