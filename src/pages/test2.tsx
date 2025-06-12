@@ -11,11 +11,11 @@ import {
   ContactUsMap,
   DedicatedSoftware,
   Expections,
-  Footer,
+  // Footer,
   GetStarted,
-  Header,
+  // Header,
   // Hero,
-  Industries,
+  // Industries,
   Info,
   MVP,
   ModelsSectionTemplate,
@@ -25,7 +25,7 @@ import {
   Questions,
   Specialist,
   Subscribe,
-  Technologies,
+  // Technologies,
   TechnologyStack,
   WhyCrocode,
 } from '@/components/sections';
@@ -201,7 +201,7 @@ const CONTACT_US = {
 const Test = () => {
   return (
     <>
-      <Header />
+      {/* <Header /> */}
       {/* <Hero title={'crocode'} /> */}
       <AboutUs />
       <Advanteges />
@@ -221,7 +221,7 @@ const Test = () => {
       <ContactUsMap />
       <DedicatedSoftware />
       <Expections />
-      <Industries />
+      {/* <Industries /> */}
       <GetStarted
         title={'Get started on your journey to digital transformation!'}
       />
@@ -233,10 +233,10 @@ const Test = () => {
       <Questions />
       <Specialist />
       <Subscribe />
-      <Technologies />
+      {/* <Technologies /> */}
       <TechnologyStack />
       <WhyCrocode />
-      <Footer />
+      {/* <Footer /> */}
     </>
   );
 };
