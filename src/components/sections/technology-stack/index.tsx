@@ -1,3 +1,5 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
+/* eslint-disable @typescript-eslint/no-unused-vars */
 import { SectionLayout } from '@/components/sections';
 import { Card } from '@/components/ui';
 
@@ -14,6 +16,13 @@ const DATA_ITEMS = [
   'Front-end Development',
   'Services',
 ];
+
+type TProps = {
+  cards: {
+    link: any;
+    text: string;
+  }[];
+};
 
 const TechnologyStackSection = () => {
   return (

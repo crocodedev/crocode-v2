@@ -1,10 +1,20 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import { SectionLayout } from '@/components/sections';
 import { Card, Title } from '@/components/ui';
 import Button from '@/components/ui/button';
 
+import { TLink } from '@/types/types';
+
 import styles from './styles.module.scss';
 
-const BlogSection = () => {
+type TProps = {
+  title: string;
+  cards: any; // заполнить карточки контентом
+  linkDetails: TLink;
+};
+
+const BlogSection = ({ title, cards, linkDetails }: TProps) => {
   return (
     <SectionLayout className={styles.layout}>
       <Title text='BLOG' anchor='right' />

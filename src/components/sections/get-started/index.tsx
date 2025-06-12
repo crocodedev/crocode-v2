@@ -1,10 +1,13 @@
 import { SectionLayout } from '@/components/sections';
 import Button from '@/components/ui/button';
 
+import { TLink } from '@/types/types';
+
 import styles from './styles.module.scss';
 
 type TProps = {
   title: string;
+  buttonLink: TLink;
 };
 
 const GetStarted = ({ title }: TProps) => {

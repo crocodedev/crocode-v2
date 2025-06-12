@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
 import { ModelsLayout, SectionLayout } from '@/components/sections';
 import { Card } from '@/components/ui';
 
@@ -53,10 +54,17 @@ const MODELS_LIST = [
   },
 ];
 
+type TProps = {
+  cards: {
+    title?: string;
+    text: string;
+  };
+};
+
 const WhyCrocodeSection = () => {
   return (
     <div className={styles.wrapper}>
-      <ModelsLayout models={MODELS_LIST}>
+      <ModelsLayout models={MODELS_LIST} isShow={false}>
         <SectionLayout className={styles.section}>
           {DATA_ITEMS.map((item) => (
             <Card key={item.title} className={styles.card}>

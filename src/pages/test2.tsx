@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
 import {
   AboutUs,
   Advanteges,
@@ -11,21 +12,21 @@ import {
   ContactUsMap,
   DedicatedSoftware,
   Expections,
-  // Footer,
+  Footer,
   GetStarted,
-  // Header,
-  // Hero,
-  // Industries,
+  Header,
+  Hero,
+  Industries,
   Info,
   MVP,
   ModelsSectionTemplate,
-  // OfferingsTemplate,
+  OfferingsTemplate,
   OurFigures,
   OurProject,
   Questions,
   Specialist,
   Subscribe,
-  // Technologies,
+  Technologies,
   TechnologyStack,
   WhyCrocode,
 } from '@/components/sections';
@@ -203,39 +204,39 @@ const Test = () => {
     <>
       {/* <Header /> */}
       {/* <Hero title={'crocode'} /> */}
-      <AboutUs />
-      <Advanteges />
-      <Info title={textData.title} texts={textData.texts} />
-      <Banner title={banner1.title} />
-      <Banner title={banner2.title} texts={banner2.texts} />
-      <Blog />
-      <BlogCatalog />
-      <CardImageFive cards={CARD_IMG.cards} info={CARD_IMG.info} />
-      <CardGrid
+      {/* <AboutUs /> */}
+      {/* <Advanteges /> */}
+      {/* <Info title={textData.title} texts={textData.texts} /> */}
+      {/* <Banner title={banner1.title} /> */}
+      {/* <Banner title={banner2.title} texts={banner2.texts} /> */}
+      {/* <Blog /> */}
+      {/* <BlogCatalog /> */}
+      {/* <CardImageFive cards={CARD_IMG.cards} info={CARD_IMG.info} /> */}
+      {/* <CardGrid
         title='The Arcus Nation Project: A Comprehensive Overview'
         cards={CARDS_1}
-      />
-      <CardGrid title='Our process' cards={CARDS_2} />
-      <Cases />
-      <ContactUsForm image={CONTACT_US.image} form={CONTACT_US.form} />
+      /> */}
+      {/* <CardGrid title='Our process' cards={CARDS_2} /> */}
+      {/* <Cases /> */}
+      {/* <ContactUsForm image={CONTACT_US.image} form={CONTACT_US.form} /> */}
       <ContactUsMap />
-      <DedicatedSoftware />
-      <Expections />
+      {/* <DedicatedSoftware /> */}
+      {/* <Expections /> */}
       {/* <Industries /> */}
-      <GetStarted
+      {/* <GetStarted
         title={'Get started on your journey to digital transformation!'}
-      />
+      /> */}
       <ModelsSectionTemplate />
-      <MVP />
+      {/* <MVP /> */}
       {/* <OfferingsTemplate /> */}
-      <OurFigures />
-      <OurProject />
+      {/* <OurFigures /> */}
+      {/* <OurProject /> */}
       <Questions />
-      <Specialist />
-      <Subscribe />
+      {/* <Specialist /> */}
+      {/* <Subscribe /> */}
       {/* <Technologies /> */}
-      <TechnologyStack />
-      <WhyCrocode />
+      {/* <TechnologyStack /> */}
+      {/* <WhyCrocode /> */}
       {/* <Footer /> */}
     </>
   );

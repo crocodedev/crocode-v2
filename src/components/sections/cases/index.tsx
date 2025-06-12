@@ -1,8 +1,14 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
+/* eslint-disable @typescript-eslint/no-unused-vars */
 import { SectionLayout } from '@/components/sections';
 import { Card } from '@/components/ui';
 import { Pagination } from '@/components/ui';
 
 import styles from './styles.module.scss';
+
+type TProps = {
+  cards: any; // заполнить карточки контентом
+};
 
 const CasesSection = () => {
   return (
