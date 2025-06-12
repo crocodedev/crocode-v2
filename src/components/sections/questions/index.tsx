@@ -1,5 +1,7 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
 import { SectionLayout } from '@/components/sections';
 import { Title } from '@/components/ui';
+import { AnchorType } from '@/components/ui/title/types';
 
 import styles from './styles.module.scss';
 
@@ -34,6 +36,17 @@ const QUESTIONS = [
     answer: 'Tralalero tralala',
   },
 ];
+
+type Tprops = {
+  title: {
+    text: string;
+    anchor: AnchorType;
+  };
+  quections: {
+    text: string;
+    answer: string;
+  }[];
+};
 
 const QuestionsSection = () => {
   return (

@@ -1,7 +1,16 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
 import { SectionLayout } from '@/components/sections';
 import Button from '@/components/ui/button';
 
 import styles from './styles.module.scss';
+
+type TProps = {
+  title: string;
+  background: {
+    src: string;
+    alt: string;
+  };
+};
 
 const SubscribeSection = () => {
   const handleSubmit = (e: React.FormEvent) => {

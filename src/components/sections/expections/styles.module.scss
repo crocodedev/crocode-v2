@@ -5,6 +5,7 @@
   gap: 100px;
 
   &__title {
+    text-transform: uppercase;
     font-size: $size-title-6;
     font-weight: 700;
   }
@@ -35,6 +36,7 @@
   justify-content: center;
 
   &__text {
+    text-transform: uppercase;
     text-align: justify;
     font-weight: 400;
     max-width: 400px;
