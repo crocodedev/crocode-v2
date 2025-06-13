@@ -1,86 +1,50 @@
 import Image from 'next/image';
+import Link from 'next/link';
 
-import { SmartLink } from '@/components/ui';
-
-import { TImage, TLink } from '@/types/types';
-
+import { data } from './data';
 import styles from './styles.module.scss';
 
-type TColumn = {
-  title: string;
-  _key: string;
-  link: TLink;
-  items: {
-    _key: string;
-    link: TLink;
-  }[];
-};
-
-type TSocialIcons = {
-  iconImage: TImage;
-  link: TLink;
-  _key: string;
-};
-
-type TProps = {
-  bottomLinks: TLink[];
-  column: TColumn[];
-  copyrightText: string;
-  logoImage: TImage;
-  socialIcons: TSocialIcons[];
-};
-
-const Footer = (props: TProps) => {
+const Footer = () => {
   return (
     <footer className={styles.footer}>
       <div className={styles.container}>
         <div className={styles.footer__column}>
           <div className={styles.logo}>
-            <Image
-              src={props.logoImage.image.asset.url}
-              fill
-              alt={props.logoImage.altText}
-            />
+            <Image src={data.logoImage.src} fill alt={data.logoImage.alt} />
           </div>
           <div className={styles.social}>
-            {props.socialIcons.map((item) => (
+            {data.socialIcons.map((item, i) => (
               <a
-                href={item.link.linkExternal?.href}
-                target={item.link.linkExternal?.blank ? '_blank' : '_self'}
-                className={styles.socials__link}
-                key={item._key}
+                href={item.href}
+                target='_blank'
+                className={styles.social__link}
+                key={i}
               >
-                <span className={styles.social__icon}>
-                  <Image
-                    src={item.iconImage.image.asset.url}
-                    fill
-                    alt={item.iconImage.altText}
-                  />
-                </span>
+                {item.icon()}
               </a>
             ))}
           </div>
         </div>
-        {props.column.map((column) => (
-          <div className={styles.column} key={column._key}>
-            <SmartLink data={column.link} className={styles.column__title} />
+        {data.columns.map((column, i) => (
+          <div className={styles.column} key={i}>
+            <Link href={column.title.href} className={styles.column__title}>
+              {column.title.text}
+            </Link>
             <div className={styles.column__links}>
-              {column.items.map((item) => (
-                <SmartLink
-                  data={item.link}
-                  className={styles.column__link}
-                  key={item._key}
-                />
+              {column.items.map((item, i) => (
+                <Link href={item.href} className={styles.column__link} key={i}>
+                  {item.text}
+                </Link>
               ))}
             </div>
           </div>
         ))}
       </div>
       <div className={`${styles.container} ${styles.bottom}`}>
-        <p className={styles.copyright}>{props.copyrightText}</p>
-        {props.bottomLinks.map((link) => (
-          <SmartLink data={link} className={styles.privacy} key={link._key} />
-        ))}
+        <p className={styles.copyright}>{data.copyrightText}</p>
+        <a href={data.bottomLink.href} className={styles.privacy}>
+          {data.bottomLink.text}
+        </a>
       </div>
     </footer>
   );

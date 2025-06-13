@@ -21,17 +21,18 @@
 }
 
 .social {
-  &__links {
-    display: flex;
-    align-items: center;
-    gap: 7px;
+  display: flex;
+  gap: 7px;
+
+  @include media-down(md) {
+    justify-content: center;
   }
 
-  &__icon {
+  &__link {
     display: inline-block;
-    position: relative;
     width: 32px;
     height: 32px;
+    color: $color-bg-green;
   }
 }
 

@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
 import Image from 'next/image';
 
 import { ModelsLayout, SectionLayout } from '@/components/sections';
@@ -63,23 +64,28 @@ const MODELS_LIST = [
 ];
 
 type TProps = {
+  modelsIsShow: boolean;
   title: string;
-  imageWithAltText: TImage;
-  breadcrumbs: TLink[];
+  image?: {
+    src: string;
+    alt: string;
+  };
 };
 
-const Hero = (props: TProps) => {
+const Hero = ({ title, image, modelsIsShow }: TProps) => {
   return (
     <SectionLayout className={styles.section}>
-      <ModelsLayout models={MODELS_LIST}>
+      <ModelsLayout models={MODELS_LIST} isShow={modelsIsShow}>
         <div className={styles.hero}>
-          <Image
-            className={styles.hero__background}
-            src={props.imageWithAltText.image.asset.url}
-            fill
-            alt={props.imageWithAltText.altText}
-          />
-          <h1 className={`${styles.title}`}>{props.title}</h1>
+          {image && (
+            <Image
+              className={styles.hero__background}
+              src={image.src}
+              fill
+              alt={image.alt}
+            />
+          )}
+          <h1 className={`${styles.title}`}>{title}</h1>
           <Button className={`${styles.nav__button}  ${styles.mobile}`}>
             Contact us
           </Button>

@@ -1,5 +1,7 @@
+/* eslint-disable prettier/prettier */
 /* eslint-disable @typescript-eslint/no-explicit-any */
-// import Head from 'next/head';
+import Head from 'next/head';
+
 // import Script from 'next/script';
 
 // type TProps = {
@@ -32,8 +34,8 @@ const Seo = (props: any) => {
 
   return (
     <>
-      {/* <Head>
-        <title>{fullTitle}</title>
+      <Head>
+        {/* <title>{fullTitle}</title>
         <meta name='description' content={description} />
         {keywords && <meta name='keywords' content={keywords} />}
         <meta name='viewport' content='width=device-width, initial-scale=1' />
@@ -42,12 +44,12 @@ const Seo = (props: any) => {
           content='jdk_IKLpcmmGj_NAXIN1PC7OsBI4TrQzlO52SG5ZQzo'
         /> */}
 
-      {/* Open Graph */}
-      {/* <meta property='og:title' content={fullTitle} />
+        {/* Open Graph */}
+        {/* <meta property='og:title' content={fullTitle} />
         <meta property='og:description' content={description} />
         {ogtype && <meta property='og:type' content={ogtype} />}
         <meta property='og:url' content={fullUrl} /> */}
-      {/* {image && (
+        {/* {image && (
           <>
             <meta property='og:image' content={image.image.asset.url} />
             <meta
@@ -62,8 +64,8 @@ const Seo = (props: any) => {
           </>
         )} */}
 
-      {/* Twitter */}
-      {/* {twitterCard && (
+        {/* Twitter */}
+        {/* {twitterCard && (
           <meta
             name='twitter:card'
             content={
@@ -74,15 +76,15 @@ const Seo = (props: any) => {
           />
         )} */}
 
-      {/* Canonical */}
-      {/* <link rel='canonical' href={fullUrl} /> */}
+        {/* Canonical */}
+        {/* <link rel='canonical' href={fullUrl} /> */}
 
-      {/* Favicon */}
-      <link rel='icon' href='/favicon.ico' />
+        {/* Favicon */}
+        <link rel='icon' href='/favicon.ico' />
 
-      {/* Language */}
-      {/* <html lang={lang} /> */}
-      {/* </Head> */}
+        {/* Language */}
+        {/* <html lang={lang} /> */}
+      </Head>
 
       {/* Google Analytics */}
       {/* <Script
