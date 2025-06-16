@@ -8,9 +8,8 @@ import styles from './styles.module.scss';
 type TProps = {
   title: string;
   users: {
-    _id: number;
     name: string;
-    avatarUrl: string;
+    avatarUrl?: string;
     comment: string;
   }[];
 };
@@ -41,7 +40,7 @@ const AboutUsSection = ({ title, users }: TProps) => {
         </div>
         <div className={styles.container__avatars}>
           {users.map((avatar, index) => (
-            <Avatar key={avatar._id} index={index} activeIndex={activeIndex} />
+            <Avatar key={index} index={index} activeIndex={activeIndex} />
           ))}
 
           <div className={styles.container__comment}>

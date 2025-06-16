@@ -13,6 +13,7 @@ import ContactUsForm from './contact-us-form';
 import ContactUsMap from './contact-us-map';
 import DedicatedSoftware from './dedicated-software';
 import Expections from './expections';
+import FiltersCases from './filter-cases';
 import Footer from './footer';
 import GetStarted from './get-started';
 import Header from './header';
@@ -67,4 +68,5 @@ export {
   ContactUsForm,
   ContactUsMap,
   Banner,
+  FiltersCases,
 };

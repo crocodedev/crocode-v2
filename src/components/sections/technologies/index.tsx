@@ -10,13 +10,9 @@ import styles from './styles.module.scss';
 
 type TCategory = {
   title: string;
-  slug: string;
-  text: string;
-  _key: string;
   technologiesList: {
     title: string;
-    _key: string;
-    technologyImage: TImage;
+    image: TImage;
   }[];
 };
 
@@ -40,7 +36,7 @@ const Technologies = (props: TProps) => {
         <div className={styles.container}>
           {props.categories.map((category, index) => (
             <Card
-              key={category._key}
+              key={index}
               className={`${styles.card}${activeIndex === index ? ' ' + styles.active : ''}`}
               onClick={() => handleClickOnCard(index)}
             >
@@ -49,16 +45,13 @@ const Technologies = (props: TProps) => {
                   <h3 className={styles.card__title}>{category.title}</h3>
                 </div>
                 <div className={styles.card__technologies}>
-                  {category.technologiesList.map((technology) => (
-                    <div
-                      className={styles.card__technology}
-                      key={technology._key}
-                    >
+                  {category.technologiesList.map((technology, index) => (
+                    <div className={styles.card__technology} key={index}>
                       <span className={styles.card__technology_icon}>
                         <Image
-                          src={technology.technologyImage.image.asset.url}
+                          src={technology.image.src}
                           fill
-                          alt={technology.technologyImage.altText}
+                          alt={technology.image.alt}
                         />
                       </span>
                       <span className={styles.card__technology_name}>

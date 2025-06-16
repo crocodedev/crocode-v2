@@ -1,19 +1,16 @@
-import { SectionLayout } from '@/components/sections';
-import { Card, SmartLink, Title } from '@/components/ui';
+import Link from 'next/link';
 
-import { TImage, TLink } from '@/types/types';
+import { SectionLayout } from '@/components/sections';
+import { Card, Title } from '@/components/ui';
+
+import { TLink } from '@/types/types';
 
 import styles from './style.module.scss';
 
 type TProps = {
   title: string;
-  text?: string;
-  bgColor: string;
   items: {
-    _key: string;
-    text: string;
-    title: string;
-    imageWithAltText: TImage;
+    number: string | number;
     link: TLink;
   }[];
 };
@@ -28,9 +25,11 @@ const Industries = (props: TProps) => {
           <Card className={styles.card} key={i}>
             <div className={styles.card__inner}>
               <div className={styles.card__number_wrapper}>
-                <span className={styles.card__number}>{item.text}</span>
+                <span className={styles.card__number}>{item.number}</span>
               </div>
-              <SmartLink data={item.link} className={styles.card__link} />
+              <Link href={item.link.href} className={styles.card__link}>
+                {item.link.text}
+              </Link>
             </div>
           </Card>
         ))}

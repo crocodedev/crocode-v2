@@ -55,15 +55,23 @@ const MODELS_LIST = [
   },
 ];
 
-const ModelsSectionTemplate = ({ children }: PropsWithChildren) => {
-  return (
-    <Fragment>
-      {MODELS_LIST.map((model, index) => (
-        <PrimitiveFactory key={index} {...model} />
-      ))}
-      {children}
-    </Fragment>
-  );
+type TProps = PropsWithChildren & {
+  modelsIsShow: boolean;
+};
+
+const ModelsSectionTemplate = ({ modelsIsShow, children }: TProps) => {
+  if (modelsIsShow) {
+    return (
+      <Fragment>
+        {MODELS_LIST.map((model, index) => (
+          <PrimitiveFactory key={index} {...model} />
+        ))}
+        {children}
+      </Fragment>
+    );
+  } else {
+    return <>{children}</>;
+  }
 };
 
 export default ModelsSectionTemplate;

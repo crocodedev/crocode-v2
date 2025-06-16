@@ -7,15 +7,18 @@ import styles from './styles.module.scss';
 
 type TProps = {
   title: string;
-  buttonLink: TLink;
+  buttonLink?: TLink;
 };
 
-const GetStarted = ({ title }: TProps) => {
+const GetStarted = ({
+  title,
+  buttonLink = { text: 'Start Project', href: '/' },
+}: TProps) => {
   return (
     <SectionLayout>
       <div className={styles.banner}>
         <h3 className={styles.banner__title}>{title}</h3>
-        <Button>Start Project</Button>
+        <Button>{buttonLink.text}</Button>
       </div>
     </SectionLayout>
   );

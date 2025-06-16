@@ -19,11 +19,16 @@
     display: flex;
     align-items: flex-end;
     height: 100%;
+    justify-content: space-between;
+    gap: 10px;
   }
 
   &:nth-child(3n) > &__inner,
   &:nth-child(4n) > &__inner {
     flex-direction: row-reverse;
+    .card__link {
+      text-align: right;
+    }
   }
 
   &__number_wrapper {
@@ -39,7 +44,7 @@
     right: 0;
     width: 100%;
     height: 100%;
-    font-size: fluid-size(64, 300);
+    font-size: fluid-size(64, 240);
     font-weight: 700;
     color: $color-text-white;
     width: max-content;

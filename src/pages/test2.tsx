@@ -219,24 +219,24 @@ const Test = () => {
       {/* <CardGrid title='Our process' cards={CARDS_2} /> */}
       {/* <Cases /> */}
       {/* <ContactUsForm image={CONTACT_US.image} form={CONTACT_US.form} /> */}
-      <ContactUsMap />
+      {/* <ContactUsMap /> */}
       {/* <DedicatedSoftware /> */}
       {/* <Expections /> */}
-      {/* <Industries /> */}
+      {/* <Industries title={''} items={[]} /> */}
       {/* <GetStarted
         title={'Get started on your journey to digital transformation!'}
       /> */}
-      <ModelsSectionTemplate />
-      {/* <MVP /> */}
+      {/* <ModelsSectionTemplate /> */}
+      <MVP />
       {/* <OfferingsTemplate /> */}
-      {/* <OurFigures /> */}
+      <OurFigures />
       {/* <OurProject /> */}
       <Questions />
-      {/* <Specialist /> */}
-      {/* <Subscribe /> */}
+      <Specialist />
+      <Subscribe />
       {/* <Technologies /> */}
-      {/* <TechnologyStack /> */}
-      {/* <WhyCrocode /> */}
+      <TechnologyStack />
+      <WhyCrocode />
       {/* <Footer /> */}
     </>
   );
