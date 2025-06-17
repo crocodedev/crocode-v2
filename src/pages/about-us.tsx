@@ -1,24 +1,28 @@
 import {
   AboutUs,
+  Blog,
   ContactUsForm,
+  GetStarted,
   Hero,
-  OfferingsTemplate,
-  Questions,
+  OurFigures,
 } from '@/components/sections';
 
-export const PROPS_SECTIONS = {
+const PROPS_SECTIONS = {
   hero: {
     modelsIsShow: false,
-    title: 'our services',
+    title: 'ABOUT US',
     image: {
       src: '/images/background.jpg',
       alt: 'background',
     },
   },
-  offeringsTemplate: {
-    title: 'Services',
-    items: ['01', '02', '03', '04'] as [string, string, string, string],
-    modelsIsShow: false,
+  blog: {
+    title: 'BLOG',
+    cards: ['1', '2', '3', '4'],
+    linkDetails: {
+      text: 'Learn in detail',
+      href: '/',
+    },
   },
   aboutUs: {
     title: ' say about us',
@@ -55,28 +59,23 @@ export const PROPS_SECTIONS = {
       },
     ],
   },
-  contactUs: {
-    image: {
-      src: '/image.png',
-      alt: 'image',
-    },
-  },
 };
 
-const ServicesPage = () => {
+const AboutUsPage = () => {
   return (
     <>
       <Hero
         title={PROPS_SECTIONS.hero.title}
-        modelsIsShow={PROPS_SECTIONS.hero.modelsIsShow}
         image={PROPS_SECTIONS.hero.image}
+        modelsIsShow={PROPS_SECTIONS.hero.modelsIsShow}
       />
-      <OfferingsTemplate
-        title={PROPS_SECTIONS.offeringsTemplate.title}
-        items={PROPS_SECTIONS.offeringsTemplate.items}
-        modelsIsShow={PROPS_SECTIONS.offeringsTemplate.modelsIsShow}
+      <OurFigures />
+      <GetStarted />
+      <Blog
+        title={PROPS_SECTIONS.blog.title}
+        cards={PROPS_SECTIONS.blog.cards}
+        linkDetails={PROPS_SECTIONS.blog.linkDetails}
       />
-      <Questions />
       <AboutUs
         title={PROPS_SECTIONS.aboutUs.title}
         users={PROPS_SECTIONS.aboutUs.users}
@@ -86,4 +85,4 @@ const ServicesPage = () => {
   );
 };
 
-export default ServicesPage;
+export default AboutUsPage;

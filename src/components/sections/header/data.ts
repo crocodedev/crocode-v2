@@ -22,15 +22,15 @@ export const data: THeader = {
     },
     {
       text: 'Technologies',
-      href: '/',
+      href: '/technologies',
     },
     {
       text: 'About us',
-      href: '/',
+      href: '/about-us',
     },
     {
       text: 'Blog',
-      href: '/',
+      href: '/blog',
     },
   ],
 };

@@ -19,17 +19,26 @@
     height: 925px;
   }
 
-  & img {
+  &__background {
     top: 0;
     left: 0;
     object-fit: cover;
   }
 
   & .title {
-    font-size: $size-title-1;
-    color: $color-text-green;
     z-index: 1;
+    font-size: $size-title-1;
     font-weight: 700;
+    line-height: 110%;
+    max-width: 80%;
+
+    &__main {
+      color: $color-text-green;
+    }
+
+    &__default {
+      color: $color-text-black;
+    }
   }
 }
 

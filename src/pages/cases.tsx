@@ -16,7 +16,7 @@ const PROPS_SECTIONS = {
   },
 };
 
-const Cases = () => {
+const CasesPage = () => {
   return (
     <>
       <Hero
@@ -31,4 +31,4 @@ const Cases = () => {
   );
 };
 
-export default Cases;
+export default CasesPage;

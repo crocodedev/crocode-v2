@@ -1,7 +1,7 @@
 import Link from 'next/link';
 import { useState } from 'react';
 
-import { usePopup } from '@/components/context-popup';
+import { useMainContext } from '@/components/main-context';
 import { Button } from '@/components/ui';
 
 import { data } from './data';
@@ -9,7 +9,7 @@ import styles from './styles.module.scss';
 
 const Header = () => {
   const [isMenusClosed, setIsMenuClosed] = useState(true);
-  const { openPopup } = usePopup();
+  const { openPopup } = useMainContext();
 
   const handleToggleMenu = () => setIsMenuClosed((prev) => !prev);
 

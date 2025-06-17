@@ -3,7 +3,8 @@ import { Montserrat } from 'next/font/google';
 
 import ArrowUpScroll from '@/components/arrow-up-scroll';
 import ContactUSModal from '@/components/contactUsModal';
-import { PopupProvider } from '@/components/context-popup';
+import CookiesModal from '@/components/cookiesModal';
+import { MainProvider } from '@/components/main-context';
 import { Footer, Header } from '@/components/sections';
 import Seo from '@/components/seo';
 
@@ -16,8 +17,9 @@ export default function App({ Component, pageProps }: AppProps) {
   return (
     <>
       <Seo />
-      <PopupProvider>
+      <MainProvider>
         <ContactUSModal />
+        <CookiesModal />
         <ArrowUpScroll />
         <main className={font.className}>
           <Header />
@@ -26,7 +28,7 @@ export default function App({ Component, pageProps }: AppProps) {
           </div>
           <Footer />
         </main>
-      </PopupProvider>
+      </MainProvider>
     </>
   );
 }

@@ -14,8 +14,8 @@ type TProps = {
 
 const ContactUsForm = ({
   image = {
-    src: '/image.png',
-    alt: 'image',
+    src: '/background.png',
+    alt: 'background',
   },
 }: TProps) => {
   return (

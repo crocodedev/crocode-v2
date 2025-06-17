@@ -109,7 +109,7 @@ export const data: TFooter = {
         },
         {
           text: 'Contacts',
-          href: '/',
+          href: '/contact-us',
         },
       ],
     },

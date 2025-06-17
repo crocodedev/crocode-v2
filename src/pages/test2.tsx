@@ -220,8 +220,8 @@ const Test = () => {
       {/* <Cases /> */}
       {/* <ContactUsForm image={CONTACT_US.image} form={CONTACT_US.form} /> */}
       {/* <ContactUsMap /> */}
-      {/* <DedicatedSoftware /> */}
-      {/* <Expections /> */}
+      <DedicatedSoftware />
+      <Expections />
       {/* <Industries title={''} items={[]} /> */}
       {/* <GetStarted
         title={'Get started on your journey to digital transformation!'}

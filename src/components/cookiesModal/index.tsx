@@ -1,41 +1,51 @@
+import Image from 'next/image';
 import Link from 'next/link';
 import { useEffect, useState } from 'react';
 
 import { Button } from '@/components/ui';
 
+import { useMainContext } from '../main-context';
 import Portal, { createContainer } from '../portal';
 
+import { cookiesData } from './data';
 import styles from './styles.module.scss';
 
-const MODAL_CONTAINER_ID = 'cookies';
-
 const CookiesModal = () => {
-  const LINK_URL = 'https://www.google.com';
-  const BUTTON_TEXT = 'Accept';
-  const TITLE = 'Our website uses cookies';
-  const TEXT =
-    'This site uses cookies for analytics, personalization and advertising. By continuing to browse it, you agree to our use of cookies. To find out more or change your cookie settings, ';
   const [isMounted, setMounted] = useState(false);
+  const { isOpenCookies, closeCookies } = useMainContext();
 
   useEffect(() => {
-    createContainer({ id: MODAL_CONTAINER_ID });
+    createContainer({ id: cookiesData.modalContainerId });
     setMounted(true);
   }, []);
 
   return isMounted ? (
-    <Portal id={MODAL_CONTAINER_ID}>
-      <div className={styles.wrapper}>
+    <Portal id={cookiesData.modalContainerId}>
+      <div
+        className={`
+        ${styles.wrapper}
+        ${!isOpenCookies ? styles.close : ''}
+        `}
+      >
         <div className={styles.modal}>
+          <Image
+            className={styles.modal__background}
+            src={cookiesData.background.src}
+            fill
+            alt={cookiesData.background.alt}
+          />
           <div className={styles.modal__column}>
-            <h3>{TITLE.toUpperCase()}</h3>
+            <h3>{cookiesData.title.toUpperCase()}</h3>
             <p className={styles.modal__text}>
-              {TEXT}
-              <Link className={styles.modal__link} href={LINK_URL}>
-                click here.
+              {cookiesData.text}
+              <Link className={styles.modal__link} href={cookiesData.link.href}>
+                {cookiesData.link.text}
               </Link>
             </p>
           </div>
-          <Button className={styles.modal__button}>{BUTTON_TEXT}</Button>
+          <Button className={styles.modal__button} onClick={closeCookies}>
+            {cookiesData.button.text}
+          </Button>
         </div>
       </div>
     </Portal>

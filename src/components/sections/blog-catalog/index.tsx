@@ -9,7 +9,7 @@ const BLOG_CATEGORY = ['Latest', 'Technologies', 'UI/UX', 'Client guides'];
 
 type TProps = {
   category: string[];
-  cards: any; // заполнить карточки контентом
+  cards?: any; // заполнить карточки контентом
 };
 
 const BlogCatalogSection = ({ category }: TProps) => {
@@ -25,7 +25,6 @@ const BlogCatalogSection = ({ category }: TProps) => {
           <Card key={index} className={styles.card}>
             {index}
           </Card>
-          // TODO: AFTER DYNAMIC DATA FIX KEY
         ))}
       </div>
       <Pagination totalPages={10} currentPage={1} />

@@ -4,25 +4,10 @@ import { useCallback, useState } from 'react';
 import { SectionLayout } from '@/components/sections';
 import { Card, Title } from '@/components/ui';
 
-import { TImage } from '@/types/types';
-
+import { data } from './data';
 import styles from './styles.module.scss';
 
-type TCategory = {
-  title: string;
-  technologiesList: {
-    title: string;
-    image: TImage;
-  }[];
-};
-
-type TProps = {
-  title: string;
-  categories: TCategory[];
-};
-
-const Technologies = (props: TProps) => {
-  console.log(props);
+const Technologies = () => {
   const [activeIndex, setActiveIndex] = useState<number | null>(null);
 
   const handleClickOnCard = useCallback((index: number) => {
@@ -31,10 +16,10 @@ const Technologies = (props: TProps) => {
 
   return (
     <SectionLayout>
-      <Title text={props.title} />
+      <Title text={data.title} />
       <div className={styles.wrapper}>
         <div className={styles.container}>
-          {props.categories.map((category, index) => (
+          {data.categories.map((category, index) => (
             <Card
               key={index}
               className={`${styles.card}${activeIndex === index ? ' ' + styles.active : ''}`}

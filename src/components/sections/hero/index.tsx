@@ -1,10 +1,9 @@
-/* eslint-disable @typescript-eslint/no-unused-vars */
 import Image from 'next/image';
 
 import { ModelsLayout, SectionLayout } from '@/components/sections';
 import { Button } from '@/components/ui';
 
-import { TImage, TLink } from '@/types/types';
+import { TImage } from '@/types/types';
 
 import { MODELS } from '@/utils/const';
 
@@ -64,28 +63,34 @@ const MODELS_LIST = [
 ];
 
 type TProps = {
+  typeText?: 'default' | 'main' | string;
   modelsIsShow: boolean;
   title: string;
-  image?: {
-    src: string;
-    alt: string;
-  };
+  image?: TImage;
 };
 
-const Hero = ({ title, image, modelsIsShow }: TProps) => {
+const Hero = ({
+  title,
+  image = {
+    src: '/images/background.jpg',
+    alt: 'background',
+  },
+  modelsIsShow,
+  typeText = 'default',
+}: TProps) => {
   return (
     <SectionLayout className={styles.section}>
       <ModelsLayout models={MODELS_LIST} isShow={modelsIsShow}>
         <div className={styles.hero}>
-          {image && (
-            <Image
-              className={styles.hero__background}
-              src={image.src}
-              fill
-              alt={image.alt}
-            />
-          )}
-          <h1 className={`${styles.title}`}>{title}</h1>
+          <Image
+            className={styles.hero__background}
+            src={image.src}
+            fill
+            alt={image.alt}
+          />
+          <h1 className={`${styles.title} ${styles[`title__${typeText}`]}`}>
+            {title}
+          </h1>
           <Button className={`${styles.nav__button}  ${styles.mobile}`}>
             Contact us
           </Button>

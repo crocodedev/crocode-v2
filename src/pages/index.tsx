@@ -17,10 +17,7 @@ const PROPS_SECTIONS = {
   hero: {
     modelsIsShow: false,
     title: 'crocode',
-    image: {
-      src: '/images/background.jpg',
-      alt: 'background',
-    },
+    typeText: 'main',
   },
   industries: {
     title: 'Industries',
@@ -214,13 +211,6 @@ const PROPS_SECTIONS = {
       },
     ],
   },
-  getStarted: {
-    title: 'Get started on your journey to digital transformation!',
-    buttonLink: {
-      text: 'Start project',
-      href: '/',
-    },
-  },
   ourProject: {
     title: 'OUR PROJECTS',
     cards: [
@@ -281,58 +271,21 @@ const PROPS_SECTIONS = {
       href: '/',
     },
   },
-  contactUs: {
-    image: {
-      src: '/image.png',
-      alt: 'image',
-    },
-  },
 };
 
 const HomePage = () => {
   return (
     <>
-      <Hero
-        title={PROPS_SECTIONS.hero.title}
-        image={PROPS_SECTIONS.hero.image}
-        modelsIsShow={PROPS_SECTIONS.hero.modelsIsShow}
-      />
-      <Industries
-        title={PROPS_SECTIONS.industries.title}
-        items={PROPS_SECTIONS.industries.items}
-      />
-      <OfferingsTemplate
-        title={PROPS_SECTIONS.offeringsTemplate.title}
-        items={PROPS_SECTIONS.offeringsTemplate.items}
-        modelsIsShow={PROPS_SECTIONS.offeringsTemplate.modelsIsShow}
-      />
-      <Banner
-        title={PROPS_SECTIONS.banner.title}
-        texts={PROPS_SECTIONS.banner.texts}
-        showModels={PROPS_SECTIONS.banner.showModels}
-      />
-      <Technologies
-        title={PROPS_SECTIONS.technologies.title}
-        categories={PROPS_SECTIONS.technologies.categories}
-      />
-      <GetStarted
-        title={PROPS_SECTIONS.getStarted.title}
-        buttonLink={PROPS_SECTIONS.getStarted.buttonLink}
-      />
-      <OurProject
-        title={PROPS_SECTIONS.ourProject.title}
-        cards={PROPS_SECTIONS.ourProject.cards}
-      />
-      <AboutUs
-        title={PROPS_SECTIONS.aboutUs.title}
-        users={PROPS_SECTIONS.aboutUs.users}
-      />
-      <Blog
-        title={PROPS_SECTIONS.blog.title}
-        cards={PROPS_SECTIONS.blog.cards}
-        linkDetails={PROPS_SECTIONS.blog.linkDetails}
-      />
-      <ContactUsForm image={PROPS_SECTIONS.contactUs.image} />
+      <Hero {...PROPS_SECTIONS.hero} />
+      <Industries {...PROPS_SECTIONS.industries} />
+      <OfferingsTemplate {...PROPS_SECTIONS.offeringsTemplate} />
+      <Banner {...PROPS_SECTIONS.banner} />
+      <Technologies />
+      <GetStarted />
+      <OurProject {...PROPS_SECTIONS.ourProject} />
+      <AboutUs {...PROPS_SECTIONS.aboutUs} />
+      <Blog {...PROPS_SECTIONS.blog} />
+      <ContactUsForm />
     </>
   );
 };
