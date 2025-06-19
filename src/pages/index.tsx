@@ -10,8 +10,7 @@ import {
   OurProject,
   Technologies,
 } from '@/components/sections';
-
-import { TImage } from '@/types/image';
+import { AnchorType } from '@/components/ui/title/types';
 
 const PROPS_SECTIONS = {
   hero: {
@@ -19,214 +18,17 @@ const PROPS_SECTIONS = {
     title: 'crocode',
     typeText: 'main',
   },
-  industries: {
-    title: 'Industries',
-    items: [
-      {
-        number: '01',
-        link: {
-          text: 'eCommerce',
-          href: '/',
-        },
-      },
-      {
-        number: '02',
-        link: {
-          text: 'Web',
-          href: '/',
-        },
-      },
-      {
-        number: '03',
-        link: {
-          text: 'Mobile',
-          href: '/',
-        },
-      },
-      {
-        number: '04',
-        link: {
-          text: 'GameDev',
-          href: '/',
-        },
-      },
-    ],
-  },
   offeringsTemplate: {
     title: 'Services',
-    items: ['01', '02', '03', '04'] as [string, string, string, string],
     modelsIsShow: false,
+    anchor: 'right' as AnchorType,
   },
   banner: {
     title: 'About Crocode',
     texts: [
-      'Lorem ipsum dolor, sit amet consectetur adipisicing elit. Adipisci expedita officia odit enim porro delectus suscipit vel aperiam! Dignissimos qui nesciunt culpa recusandae quisquam, maxime enim animi quae molestiae voluptatem!',
-      'Lorem ipsum dolor sit amet consectetur adipisicing elit. A, illum vitae porro sapiente ea ut mollitia illo odit neque veritatis. Necessitatibus quam quis voluptatem distinctio amet sequi rem quas repudiandae.',
+      `Crocode is a go-to tech company providing a full-cycle of mobile and web application development, solutions to UX/UI design problems, business solutions for e-commerce and project management. We always focus on technical orientation to give you superior quality. Our team consists of developers who are able to work with a variety of technologies, such as: Shopify, JS, Gatsby.js, React and so on. Crocode Team is here to transform and expand your business through e-commerce and marketplaces.`,
     ],
     showModels: false,
-  },
-  technologies: {
-    title: ' Technologies',
-    categories: [
-      {
-        title: 'Front-End Development',
-        technologiesList: [
-          {
-            title: 'JavaScript',
-            image: {
-              src: '/images/technologies/js.svg',
-              alt: 'JavaScript image',
-            },
-          },
-          {
-            title: 'JavaScript',
-            image: {
-              src: '/images/technologies/js.svg',
-              alt: 'JavaScript image',
-            },
-          },
-          {
-            title: 'JavaScript',
-            image: {
-              src: '/images/technologies/js.svg',
-              alt: 'JavaScript image',
-            },
-          },
-          {
-            title: 'JavaScript',
-            image: {
-              src: '/images/technologies/js.svg',
-              alt: 'JavaScript image',
-            },
-          },
-          {
-            title: 'JavaScript',
-            image: {
-              src: '/images/technologies/js.svg',
-              alt: 'JavaScript image',
-            },
-          },
-          {
-            title: 'JavaScript',
-            image: {
-              src: '/images/technologies/js.svg',
-              alt: 'JavaScript image',
-            },
-          },
-        ],
-      },
-      {
-        title: 'Back-End Development',
-        technologiesList: [
-          {
-            title: 'JavaScript',
-            image: {
-              src: '/images/technologies/js.svg',
-              alt: 'JavaScript image',
-            },
-          },
-          {
-            title: 'JavaScript',
-            image: {
-              src: '/images/technologies/js.svg',
-              alt: 'JavaScript image',
-            },
-          },
-          {
-            title: 'JavaScript',
-            image: {
-              src: '/images/technologies/js.svg',
-              alt: 'JavaScript image',
-            },
-          },
-          {
-            title: 'JavaScript',
-            image: {
-              src: '/images/technologies/js.svg',
-              alt: 'JavaScript image',
-            },
-          },
-          {
-            title: 'JavaScript',
-            image: {
-              src: '/images/technologies/js.svg',
-              alt: 'JavaScript image',
-            },
-          },
-          {
-            title: 'JavaScript',
-            image: {
-              src: '/images/technologies/js.svg',
-              alt: 'JavaScript image',
-            },
-          },
-        ],
-      },
-      {
-        title: 'Mobile',
-        technologiesList: [
-          {
-            title: 'JavaScript',
-            image: {
-              src: '/images/technologies/js.svg',
-              alt: 'JavaScript image',
-            },
-          },
-          {
-            title: 'JavaScript',
-            image: {
-              src: '/images/technologies/js.svg',
-              alt: 'JavaScript image',
-            },
-          },
-          {
-            title: 'JavaScript',
-            image: {
-              src: '/images/technologies/js.svg',
-              alt: 'JavaScript image',
-            },
-          },
-          {
-            title: 'JavaScript',
-            image: {
-              src: '/images/technologies/js.svg',
-              alt: 'JavaScript image',
-            },
-          },
-          {
-            title: 'JavaScript',
-            image: {
-              src: '/images/technologies/js.svg',
-              alt: 'JavaScript image',
-            },
-          },
-          {
-            title: 'JavaScript',
-            image: {
-              src: '/images/technologies/js.svg',
-              alt: 'JavaScript image',
-            },
-          },
-        ],
-      },
-    ],
-  },
-  ourProject: {
-    title: 'OUR PROJECTS',
-    cards: [
-      {
-        src: '/images/more.png',
-        alt: 'Show More',
-      },
-      {
-        src: '/images/more.png',
-        alt: 'Show More',
-      },
-      {
-        src: '/images/more.png',
-        alt: 'Show More',
-      },
-    ] as [TImage, TImage, TImage],
   },
   aboutUs: {
     title: ' say about us',
@@ -277,12 +79,12 @@ const HomePage = () => {
   return (
     <>
       <Hero {...PROPS_SECTIONS.hero} />
-      <Industries {...PROPS_SECTIONS.industries} />
+      <Industries />
       <OfferingsTemplate {...PROPS_SECTIONS.offeringsTemplate} />
       <Banner {...PROPS_SECTIONS.banner} />
       <Technologies />
       <GetStarted />
-      <OurProject {...PROPS_SECTIONS.ourProject} />
+      <OurProject />
       <AboutUs {...PROPS_SECTIONS.aboutUs} />
       <Blog {...PROPS_SECTIONS.blog} />
       <ContactUsForm />

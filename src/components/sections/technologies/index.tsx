@@ -10,6 +10,8 @@ import styles from './styles.module.scss';
 const Technologies = () => {
   const [activeIndex, setActiveIndex] = useState<number | null>(null);
 
+  const smartNumber = (num: number) => (num >= 10 ? `${num}` : `0${num}`);
+
   const handleClickOnCard = useCallback((index: number) => {
     setActiveIndex((prev) => (prev === index ? null : index));
   }, []);
@@ -28,12 +30,16 @@ const Technologies = () => {
               <div className={styles.card__inner}>
                 <div className={styles.card__header}>
                   <h3 className={styles.card__title}>{category.title}</h3>
+                  <span className={styles.card__number}>
+                    {smartNumber(index + 1)}
+                  </span>
                 </div>
                 <div className={styles.card__technologies}>
                   {category.technologiesList.map((technology, index) => (
                     <div className={styles.card__technology} key={index}>
                       <span className={styles.card__technology_icon}>
                         <Image
+                          loading='lazy'
                           src={technology.image.src}
                           fill
                           alt={technology.image.alt}

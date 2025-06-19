@@ -9,7 +9,9 @@ const GetStarted = () => {
     <SectionLayout>
       <div className={styles.banner}>
         <h3 className={styles.banner__title}>{data.title}</h3>
-        <Button>Start Project</Button>
+        <Button type='link' href='/contact-us'>
+          Start Project
+        </Button>
       </div>
     </SectionLayout>
   );

@@ -1,52 +1,33 @@
 import Image from 'next/image';
+import Link from 'next/link';
 
 import { SectionLayout } from '@/components/sections';
-import { Card, Title } from '@/components/ui';
-import { AnchorType } from '@/components/ui/title/types';
+import { Button, Card, Title } from '@/components/ui';
 
-import { TImage } from '@/types/types';
-
+import { data } from './data';
 import styles from './styles.module.scss';
 
-type TProps = {
-  title: string;
-  anchor?: AnchorType;
-  cards: [TImage, TImage, TImage];
-};
-
-const OurProjectsSection = ({ title, anchor = 'right', cards }: TProps) => {
+const OurProjectsSection = () => {
   return (
-    <SectionLayout>
-      <Title text={title} anchor={anchor} />
+    <SectionLayout className={styles.section}>
+      <Title text={data.title} anchor={'right'} />
       <div className={styles.container}>
-        {cards.map((card, index) => {
-          if (index == cards.length - 1) {
-            return (
-              <Card
-                className={`${styles.card} ${styles.card__button}`}
-                key={index}
-              >
-                <Image
-                  className={styles.card__image}
-                  src={card.src}
-                  fill
-                  alt={card.alt}
-                />
-              </Card>
-            );
-          } else {
-            return (
-              <Card className={styles.card} key={index}>
-                <Image
-                  className={styles.card__image}
-                  src={card.src}
-                  fill
-                  alt={card.alt}
-                />
-              </Card>
-            );
-          }
-        })}
+        {data.cards.map((card, index) => (
+          <Link href={card.link.href} className={styles.card} key={index}>
+            <Image
+              className={styles.card__image}
+              src={card.image.src}
+              fill
+              alt={card.image.alt}
+            />
+          </Link>
+        ))}
+        <Card className={`${styles.card} ${styles.card__more}`}>
+          <span className={styles.card__more_text}>Show more</span>
+          <Button type={'link'} href='/'>
+            Show More
+          </Button>
+        </Card>
       </div>
     </SectionLayout>
   );

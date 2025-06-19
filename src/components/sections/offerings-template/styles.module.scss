@@ -21,17 +21,39 @@
   margin-top: 50px;
 
   .card {
+    @include flex-center;
     width: 100%;
     height: 100%;
+    padding: 0 30px;
+    font-size: fluid-size(12, 54);
+    font-weight: 700;
+    text-decoration: none;
+    text-transform: uppercase;
+    transition: 0.2s;
+    color: $color-text-white;
 
     &:nth-child(1) {
       grid-area: up-left;
+      border-radius: fluid-size(20, 64);
+      background: $color-bg-green;
+
+      &:hover {
+        color: $color-bg-black;
+      }
     }
+
     &:nth-child(2) {
       grid-area: up-right;
       height: clamp(3.25rem, 1.4625rem + 8.9375vw, 12.1875rem);
       align-self: start;
+      border-radius: fluid-size(10, 50);
+      background: $color-bg-black;
+
+      &:hover {
+        color: $color-bg-green;
+      }
     }
+
     &:nth-child(3) {
       grid-area: down-left;
       height: clamp(5.625rem, 2.625rem + 15vw, 20.625rem);
@@ -39,15 +61,28 @@
           calc(-1 * clamp(1.25rem, 0.875rem + 1.875vw, 3.125rem))
         )
         translateY(20px);
+      border-radius: fluid-size(20, 64);
+      background: $color-bg-black;
 
       @include media-down('sm') {
         transform: translateX(-10px) translateY(20px);
       }
+
+      &:hover {
+        color: $color-bg-green;
+      }
     }
+
     &:nth-child(4) {
       grid-area: down-right;
       transform: translateY(50px);
       margin-top: -75px;
+      border-radius: fluid-size(20, 64);
+      background: $color-bg-gray;
+
+      &:hover {
+        color: $color-bg-black;
+      }
     }
   }
 }

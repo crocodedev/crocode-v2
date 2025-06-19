@@ -1,20 +1,20 @@
+import Link from 'next/link';
+
 import { ModelsSectionTemplate, SectionLayout } from '@/components/sections';
 import { Title } from '@/components/ui';
-import { Card } from '@/components/ui';
 import { AnchorType } from '@/components/ui/title/types';
 
+import { items } from './data';
 import styles from './styles.module.scss';
 
 type TProps = {
   title: string;
-  items: [string, string, string, string];
   anchor?: AnchorType;
   modelsIsShow?: boolean;
 };
 
 const OfferingsTemplate = ({
   title,
-  items,
   anchor = 'left',
   modelsIsShow = true,
 }: TProps) => {
@@ -24,9 +24,9 @@ const OfferingsTemplate = ({
       <ModelsSectionTemplate modelsIsShow={modelsIsShow} />
       <div className={styles.container}>
         {items?.map((item, index) => (
-          <Card key={index} className={styles.card}>
-            {item}
-          </Card>
+          <Link className={styles.card} href={item.href} key={index}>
+            {item.text}
+          </Link>
         ))}
       </div>
     </SectionLayout>

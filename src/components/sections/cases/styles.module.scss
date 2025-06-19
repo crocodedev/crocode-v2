@@ -16,5 +16,10 @@
 .card {
   height: clamp(8.75rem, 6.5rem + 11.25vw, 20rem);
   width: clamp(17.5rem, 12.625rem + 24.375vw, 41.875rem);
-  border-radius: 20px;
+  border-radius: fluid-size(20, 53);
+  overflow: hidden;
+
+  &__image {
+    object-fit: cover;
+  }
 }

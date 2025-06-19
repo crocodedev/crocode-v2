@@ -16,8 +16,7 @@ export const PROPS_SECTIONS = {
     },
   },
   offeringsTemplate: {
-    title: 'Services',
-    items: ['01', '02', '03', '04'] as [string, string, string, string],
+    title: 'what we can',
     modelsIsShow: false,
   },
   aboutUs: {
@@ -66,21 +65,10 @@ export const PROPS_SECTIONS = {
 const ServicesPage = () => {
   return (
     <>
-      <Hero
-        title={PROPS_SECTIONS.hero.title}
-        modelsIsShow={PROPS_SECTIONS.hero.modelsIsShow}
-        image={PROPS_SECTIONS.hero.image}
-      />
-      <OfferingsTemplate
-        title={PROPS_SECTIONS.offeringsTemplate.title}
-        items={PROPS_SECTIONS.offeringsTemplate.items}
-        modelsIsShow={PROPS_SECTIONS.offeringsTemplate.modelsIsShow}
-      />
+      <Hero {...PROPS_SECTIONS.hero} />
+      <OfferingsTemplate {...PROPS_SECTIONS.offeringsTemplate} />
       <Questions />
-      <AboutUs
-        title={PROPS_SECTIONS.aboutUs.title}
-        users={PROPS_SECTIONS.aboutUs.users}
-      />
+      <AboutUs {...PROPS_SECTIONS.aboutUs} />
       <ContactUsForm />
     </>
   );

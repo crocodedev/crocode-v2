@@ -10,51 +10,49 @@
 }
 
 .card {
+  @include flex-center;
   width: clamp(10.3125rem, 3.625rem + 33.4375vw, 43.75rem);
   height: clamp(4.0625rem, 1.875rem + 10.9375vw, 15rem);
-  overflow: hidden;
   padding: fluid-size(0, 10) fluid-size(7, 25);
+  border-radius: fluid-size(14, 64);
+  text-decoration: none;
+  font-size: fluid-size(24, 96);
+  font-weight: 700;
+  transition: 0.2s;
 
-  &__inner {
-    display: flex;
-    align-items: flex-end;
-    height: 100%;
-    justify-content: space-between;
-    gap: 10px;
-  }
+  &:nth-child(1) {
+    background: $color-bg-gray;
+    color: $color-text-black;
 
-  &:nth-child(3n) > &__inner,
-  &:nth-child(4n) > &__inner {
-    flex-direction: row-reverse;
-    .card__link {
-      text-align: right;
+    &:hover {
+      color: $color-text-white;
     }
   }
 
-  &__number_wrapper {
-    flex: 50%;
-    position: relative;
-    height: 100%;
-    transform: translateY(40px);
-  }
-
-  &__number {
-    position: absolute;
-    top: 0;
-    right: 0;
-    width: 100%;
-    height: 100%;
-    font-size: fluid-size(64, 240);
-    font-weight: 700;
+  &:nth-child(2) {
+    background: $color-bg-green;
     color: $color-text-white;
-    width: max-content;
+
+    &:hover {
+      color: $color-text-black;
+    }
   }
 
-  &__link {
-    flex: 50%;
-    font-size: fluid-size(12, 40);
-    font-weight: 700;
+  &:nth-child(3) {
+    background: $color-bg-black;
+    color: $color-text-white;
+
+    &:hover {
+      color: $color-text-green;
+    }
+  }
+
+  &:nth-child(4) {
+    background: $color-bg-gray;
     color: $color-text-black;
-    height: max-content;
+
+    &:hover {
+      color: $color-text-white;
+    }
   }
 }

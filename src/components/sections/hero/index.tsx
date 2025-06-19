@@ -83,6 +83,7 @@ const Hero = ({
       <ModelsLayout models={MODELS_LIST} isShow={modelsIsShow}>
         <div className={styles.hero}>
           <Image
+            loading='eager'
             className={styles.hero__background}
             src={image.src}
             fill

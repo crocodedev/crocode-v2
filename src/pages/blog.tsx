@@ -4,11 +4,6 @@ const PROPS_SECTIONS = {
   hero: {
     modelsIsShow: false,
     title: 'BLOG',
-    typeText: 'main',
-    image: {
-      src: '/images/background.jpg',
-      alt: 'background',
-    },
   },
   blogCatalog: {
     category: ['Latest', 'Technologies', 'UA/UX', 'Client guides'],
@@ -18,13 +13,8 @@ const PROPS_SECTIONS = {
 const BlogPage = () => {
   return (
     <>
-      <Hero
-        title={PROPS_SECTIONS.hero.title}
-        image={PROPS_SECTIONS.hero.image}
-        modelsIsShow={PROPS_SECTIONS.hero.modelsIsShow}
-        typeText={PROPS_SECTIONS.hero.typeText}
-      />
-      <BlogCatalog category={PROPS_SECTIONS.blogCatalog.category} />
+      <Hero {...PROPS_SECTIONS.hero} />
+      <BlogCatalog {...PROPS_SECTIONS.blogCatalog} />
       <Subscribe />
     </>
   );

@@ -3,7 +3,7 @@ import { ContactUsForm, ContactUsMap, Hero } from '@/components/sections';
 const PROPS_SECTIONS = {
   hero: {
     modelsIsShow: false,
-    title: 'CONTACT US',
+    title: `Tell us about your project`.toUpperCase(),
   },
 };
 

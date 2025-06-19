@@ -1,10 +1,13 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
+import Image from 'next/image';
+import Link from 'next/link';
+
 import { SectionLayout } from '@/components/sections';
-import { Card, Title } from '@/components/ui';
+import { Title } from '@/components/ui';
 import Button from '@/components/ui/button';
 import { AnchorType } from '@/components/ui/title/types';
 
-import { TLink } from '@/types/types';
+import { TImage, TLink } from '@/types/types';
 
 import styles from './styles.module.scss';
 
@@ -15,9 +18,30 @@ type TProps = {
   linkDetails: TLink;
 };
 
+type TCardProps = {
+  href?: '/';
+  image?: TImage;
+};
+
+const Card = ({
+  href = '/',
+  image = { src: '/images/our-project.png', alt: 'image' },
+}: TCardProps) => {
+  return (
+    <Link href={href} className={styles.card}>
+      <Image
+        className={styles.card__image}
+        src={image.src}
+        fill
+        alt={image.alt}
+      />
+    </Link>
+  );
+};
+
 const BlogSection = ({
   title,
-  cards,
+  // cards,
   anchor = 'right',
   linkDetails,
 }: TProps) => {
@@ -25,9 +49,9 @@ const BlogSection = ({
     <SectionLayout className={styles.layout}>
       <Title text={title} anchor={anchor} />
       <div className={styles.container}>
-        <Card>{cards[0]}</Card>
+        <Card />
         <div className={styles.rightCol}>
-          <Card>{cards[1]}</Card>
+          <Card />
           <Button
             type='link'
             className={`${styles.button} ${styles.button__lg}`}
@@ -35,8 +59,8 @@ const BlogSection = ({
             {linkDetails.text}
           </Button>
         </div>
-        <Card>{cards[2]}</Card>
-        <Card>{cards[3]}</Card>
+        <Card />
+        <Card />
       </div>
       <Button className={`${styles.button} ${styles.button__md}`}>
         {linkDetails.text}

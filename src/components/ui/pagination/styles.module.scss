@@ -3,15 +3,22 @@
   align-items: center;
   justify-content: space-between;
   padding: 5px;
-  width: 200px;
-  height: 50px;
+  max-width: 200px;
+  width: 100%;
+  height: 85px;
   border-radius: 100px;
   background-color: $color-bg-green;
+  padding: 20px;
 }
 
 .arrow {
   background-color: transparent;
+  width: 52px;
+  height: 52px;
+  border: none;
   font-size: $size-text-2;
   font-weight: 700;
   color: $color-text-black;
+  padding: 5px;
+  cursor: pointer;
 }

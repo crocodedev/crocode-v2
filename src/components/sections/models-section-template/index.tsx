@@ -56,10 +56,10 @@ const MODELS_LIST = [
 ];
 
 type TProps = PropsWithChildren & {
-  modelsIsShow: boolean;
+  modelsIsShow?: boolean;
 };
 
-const ModelsSectionTemplate = ({ modelsIsShow, children }: TProps) => {
+const ModelsSectionTemplate = ({ modelsIsShow = true, children }: TProps) => {
   if (modelsIsShow) {
     return (
       <Fragment>

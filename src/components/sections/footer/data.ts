@@ -49,15 +49,15 @@ export const data: TFooter = {
       items: [
         {
           text: 'Dedicated Teams',
-          href: '/',
+          href: '/dedicated-team',
         },
         {
           text: 'MVP Development',
-          href: '/',
+          href: '/mwp',
         },
         {
           text: 'Custom Software',
-          href: '/',
+          href: '/custom-software-development',
         },
         {
           text: 'Consulting',
@@ -67,13 +67,13 @@ export const data: TFooter = {
     },
     {
       title: {
-        href: '/',
+        href: '/technologies',
         text: 'Technologies',
       },
       items: [
         {
           text: 'Game Development',
-          href: '/',
+          href: '/game-dev',
         },
         {
           text: 'Front-end Development',
@@ -99,13 +99,13 @@ export const data: TFooter = {
     },
     {
       title: {
-        href: '/',
         text: 'About us',
+        href: '/about-us',
       },
       items: [
         {
           text: 'Blog',
-          href: '/',
+          href: '/blog',
         },
         {
           text: 'Contacts',

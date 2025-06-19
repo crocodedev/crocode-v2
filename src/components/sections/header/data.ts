@@ -18,7 +18,7 @@ export const data: THeader = {
     },
     {
       text: 'Portfolio',
-      href: '/portfolio',
+      href: '/cases',
     },
     {
       text: 'Technologies',
