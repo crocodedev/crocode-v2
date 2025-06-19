@@ -14,7 +14,7 @@ import styles from './styles.module.scss';
 type TProps = {
   title: string;
   anchor?: AnchorType;
-  cards: any; // заполнить карточки контентом
+  cards?: any; // заполнить карточки контентом
   linkDetails: TLink;
 };
 
@@ -39,12 +39,7 @@ const Card = ({
   );
 };
 
-const BlogSection = ({
-  title,
-  // cards,
-  anchor = 'right',
-  linkDetails,
-}: TProps) => {
+const BlogSection = ({ title, anchor = 'right', linkDetails }: TProps) => {
   return (
     <SectionLayout className={styles.layout}>
       <Title text={title} anchor={anchor} />
