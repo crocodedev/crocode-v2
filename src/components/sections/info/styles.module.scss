@@ -11,6 +11,7 @@
 
   &__text {
     background-color: $color-bg-gray;
+
     @include media-up(xl) {
       padding: 88px 164px;
     }

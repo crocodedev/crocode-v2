@@ -1,4 +1,15 @@
 .subscribe {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: fluid-size(385, 446);
+
+  &__background {
+    z-index: -1;
+    object-fit: cover;
+  }
+
   &__form {
     display: flex;
     flex-direction: column;

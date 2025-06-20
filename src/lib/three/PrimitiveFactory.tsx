@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/rules-of-hooks */
 import { useCallback, useEffect, useMemo, useRef } from 'react';
 import {
   Camera,
@@ -38,6 +39,7 @@ export default function PrimitiveFactory({
   className,
   lightIntensity = 4,
 }: PrimitiveFactoryProps) {
+  return;
   const containerRef = useRef<HTMLDivElement>(null);
   const rendererRef = useRef<WebGLRenderer | null>(null);
   const animationId = useRef<number | null>(null);

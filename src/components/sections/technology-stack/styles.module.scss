@@ -14,7 +14,7 @@
     clamp(2.1875rem, -1.3016rem + 14.8867vw, 16.5625rem)
   );
   grid-template-rows: repeat(
-    10,
+    9,
     clamp(2.1875rem, -0.2397rem + 10.356vw, 12.1875rem)
   );
   gap: clamp(0.5rem, 0.2775rem + 2.3729vw, 3.125rem)
@@ -85,5 +85,15 @@
     grid-area: services;
     @include color-scheme($color-bg-black, $color-text-white);
     @include vertical-text;
+  }
+}
+
+.card {
+  &__link {
+    @include flex-center;
+    text-decoration: none;
+    color: inherit;
+    width: 100%;
+    height: 100%;
   }
 }

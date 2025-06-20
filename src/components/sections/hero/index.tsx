@@ -1,7 +1,7 @@
 import { ModelsLayout, SectionLayout } from '@/components/sections';
 import { Button } from '@/components/ui';
-
-import { TImage, TLink } from '@/types/types';
+import Image from 'next/image';
+import { TImage } from '@/types/types';
 
 import { MODELS } from '@/utils/const';
 
@@ -47,21 +47,42 @@ const COMPONENT_MODELS = [
 ];
 
 type TProps = {
+  typeText?: 'default' | 'main' | string;
+  modelsIsShow: boolean;
   title: string;
-  imageWithAltText: TImage;
-  breadcrumbs: TLink[];
+  image?: TImage;
 };
 
-const Hero = ({ title }: TProps) => {
+const Hero = ({
+  title,
+  image = {
+    src: '/images/background.jpg',
+    alt: 'background',
+  },
+  modelsIsShow = true,
+  typeText = 'default',
+}: TProps) => {
   return (
     <SectionLayout className={styles.section}>
-      <ModelsLayout models={COMPONENT_MODELS} />
-      <div className={styles.hero}>
-        <h1 className={styles.title}>{title}</h1>
-        <Button className={`${styles.nav__button} ${styles.mobile}`}>
-          Contact us
-        </Button>
-      </div>
+      <ModelsLayout models={COMPONENT_MODELS} showModels={modelsIsShow}>
+        <div className={styles.hero}>
+          <Image
+            loading='eager'
+            className={styles.hero__background}
+            src={image.src}
+            fill
+            alt={image.alt}
+          />
+          <div className={styles.hero__content}>
+            <h1
+              className={`${styles.hero__title} ${styles[`hero__title_${typeText}`]}`}
+            >
+              {title}
+            </h1>
+            <Button className={styles.hero__button}>Contact us</Button>
+          </div>
+        </div>
+      </ModelsLayout>
     </SectionLayout>
   );
 };

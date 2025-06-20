@@ -1,21 +1,17 @@
 import { SectionLayout } from '@/components/sections';
 import Button from '@/components/ui/button';
 
-import { TLink } from '@/types/types';
-
+import { data } from './data';
 import styles from './styles.module.scss';
 
-type TProps = {
-  title: string;
-  buttonLink: TLink;
-};
-
-const GetStarted = ({ title }: TProps) => {
+const GetStarted = () => {
   return (
     <SectionLayout>
       <div className={styles.banner}>
-        <h3 className={styles.banner__title}>{title}</h3>
-        <Button>Start Project</Button>
+        <h3 className={styles.banner__title}>{data.title}</h3>
+        <Button type='link' href='/contact-us'>
+          Start Project
+        </Button>
       </div>
     </SectionLayout>
   );

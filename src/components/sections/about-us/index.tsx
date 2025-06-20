@@ -3,19 +3,22 @@ import { useState } from 'react';
 import { SectionLayout } from '@/components/sections';
 import { Avatar, Button, Title } from '@/components/ui';
 
+import { usersData } from './mockData';
 import styles from './styles.module.scss';
 
 type TProps = {
-  title: string;
-  users: {
-    _id: number;
+  title?: string;
+  users?: {
     name: string;
-    avatarUrl: string;
+    avatarUrl?: string;
     comment: string;
   }[];
 };
 
-const AboutUsSection = ({ title, users }: TProps) => {
+const AboutUsSection = ({
+  title = 'Say about us',
+  users = usersData,
+}: TProps) => {
   const [activeIndex, setActiveIndex] = useState(0);
 
   const handleNext = () => {
@@ -41,7 +44,7 @@ const AboutUsSection = ({ title, users }: TProps) => {
         </div>
         <div className={styles.container__avatars}>
           {users.map((avatar, index) => (
-            <Avatar key={avatar._id} index={index} activeIndex={activeIndex} />
+            <Avatar key={index} index={index} activeIndex={activeIndex} />
           ))}
 
           <div className={styles.container__comment}>

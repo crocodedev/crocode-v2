@@ -5,7 +5,7 @@ type User = {
   comment: string;
 };
 
-export const users: User[] = [
+export const usersData: User[] = [
   {
     id: 1,
     name: 'Анна Петрова',

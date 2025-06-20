@@ -8,8 +8,6 @@
   padding-top: fluid-size(10, 20);
   height: fluid-size(40, 70);
   @include flex-center;
-  background-color: $color-bg-black;
-  color: $color-bg-green;
   font-size: $size-title-1;
   opacity: 0;
   transform: translateY(30px) scale(0.8);
@@ -17,6 +15,9 @@
   cursor: pointer;
   z-index: 1000;
   overflow: hidden;
+  background-color: $color-bg-green;
+  color: $color-bg-white;
+  border: none;
 
   &::before {
     content: '';
