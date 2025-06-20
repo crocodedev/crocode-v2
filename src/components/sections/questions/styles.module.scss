@@ -1,0 +1,180 @@
+.section {
+  @include flex-center;
+  flex-direction: column;
+}
+
+.container {
+  margin-top: 70px;
+  display: grid;
+  position: relative;
+  grid-template-columns: repeat(12, minmax(50px, 150px));
+  grid-template-rows: repeat(8, minmax(20px, 110px));
+  gap: 20px;
+  max-width: 90%;
+  transition: height 1.2 ease-in-out;
+
+  &_active {
+    overflow: hidden;
+  }
+
+  @include media-down('lg') {
+    grid-template-columns: repeat(2, minmax(150, 400));
+    grid-template-rows: repeat(4, minmax(150, 400));
+
+    & > div {
+      grid-area: auto !important;
+    }
+  }
+}
+
+.question {
+  position: relative;
+  font-size: $size-title-2;
+  font-weight: 700;
+  transition: all 1.2s ease-in-out;
+  @include flex-center;
+  overflow-wrap: break-word;
+  padding: 30px;
+
+  border-radius: fluid-size(20, 45);
+  cursor: pointer;
+
+  &__title {
+    max-width: 100%;
+    margin-bottom: 20px;
+
+    font-weight: 700;
+    font-size: $size-title-2;
+  }
+
+  &__answer {
+    text-align: justify;
+    font-size: $size-text-2;
+    max-width: 80%;
+    opacity: 1;
+    height: auto;
+    width: 100%;
+    position: relative;
+    pointer-events: auto;
+    margin-top: 15px;
+  }
+
+  &__button {
+    position: absolute;
+    bottom: 5%;
+    right: 5%;
+    background: transparent;
+    color: $color-text-black;
+    font-size: $size-title-2;
+    font-weight: 700;
+
+    &:hover {
+      background-color: transparent;
+    }
+  }
+
+  &_active {
+    z-index: 25;
+    animation: scale-active-card 1.2s ease-in-out;
+  }
+
+  &__absolute {
+    z-index: 25;
+    position: absolute;
+    grid-area: auto !important;
+    width: 100%;
+    height: 100%;
+    animation: scale-active-card 1.2s ease-in-out;
+  }
+
+  &__01 {
+    grid-column: span 4;
+    grid-row: span 3;
+  }
+
+  &__02 {
+    grid-column: 5 / span 3;
+    grid-row: span 3;
+    @include color-scheme($color-bg-black, $color-text-white);
+
+    & button {
+      color: white;
+    }
+  }
+
+  &__03 {
+    grid-column: 8 / span 5;
+    grid-row: span 3;
+  }
+
+  &__04 {
+    grid-column: span 3;
+    grid-row: 4 / span 2;
+    @include color-scheme($color-bg-green, $color-text-black);
+  }
+
+  &__05 {
+    grid-column: span 3;
+    grid-row: 4 / span 2;
+  }
+
+  &__06 {
+    grid-column: span 3;
+    grid-row: 4 / span 2;
+    @include color-scheme($color-bg-green, $color-text-black);
+  }
+
+  &__07 {
+    grid-column: span 3;
+    grid-row: 4 / span 4;
+  }
+
+  &__08 {
+    grid-column: 1 / span 9;
+    grid-row: 6 / span 2;
+    @include color-scheme($color-bg-black, $color-text-white);
+
+    & button {
+      color: white;
+    }
+  }
+}
+
+.hide {
+  animation: hide-card 2s ease-in-out;
+  scale: 0.3;
+  opacity: 0.3;
+}
+
+@keyframes hide-card {
+  from {
+    opacity: 1;
+    scale: 1;
+  }
+
+  50% {
+    opacity: 0;
+    scale: 0.1;
+  }
+
+  to {
+    scale: 1;
+    opacity: 1;
+  }
+}
+
+@keyframes scale-active-card {
+  from {
+    top: var(--initial-top);
+    left: var(--initial-left);
+    width: var(--initial-width);
+    height: var(--initial-height);
+  }
+
+  to {
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+  }
+}
