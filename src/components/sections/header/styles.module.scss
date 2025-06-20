@@ -130,6 +130,7 @@
 
         @include media-down('md') {
           padding: 0px;
+
           &:last-child {
             padding: 0px;
           }
@@ -149,30 +150,35 @@
 
     &__button {
       text-decoration: none;
-      color: $color-text-black;
-      font-size: $size-title-2;
+      text-wrap: nowrap;
       font-weight: 700;
-      padding: 13px 25px;
-      border-radius: 60px;
-      background: $color-bg-green;
     }
+  }
 
-    &__link_mobile {
+  &__link {
+    &_mobile {
       display: none;
       padding: 5px 15px;
       padding-left: 0px;
+
       @include media-down('md') {
         display: flex;
       }
     }
 
-    &__link_desktop {
+    &_desktop {
       display: none;
       padding: 5px 15px;
+
       @include media-up('md') {
         display: flex;
       }
     }
+  }
+
+  &__actions {
+    width: 100%;
+    @include flex-center;
   }
 }
 
@@ -188,6 +194,10 @@
   padding: 0;
   cursor: pointer;
   z-index: $z-index-header;
+
+  &:hover {
+    background-color: $color-bg-green;
+  }
 
   &__wrapper {
     width: 100%;

@@ -42,15 +42,16 @@ const Header = (props: TProps) => {
                 <SmartLink data={link} className={styles.nav__link_desktop} />
               </li>
             ))}
-            <li className={styles.nav__list__item}>
-              <Button className={styles.nav__link_desktop} onClick={openPopup}>
+            <li className={styles.nav__list__actions}>
+              <Button className={styles.nav__list__button} onClick={openPopup}>
                 Contact us
               </Button>
             </li>
           </ul>
           <div className={styles.nav__actions}>
             <Button
-              className={`${styles.nav__button} ${styles.mobile}`}
+              view='second'
+              className={` ${styles.mobile}`}
               onClick={openPopup}
             >
               Contact us
