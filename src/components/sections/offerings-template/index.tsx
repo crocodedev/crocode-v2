@@ -14,18 +14,14 @@ type TProps = {
 const OfferingsTemplate = ({ title, items, anchor = 'left' }: TProps) => {
   return (
     <SectionLayout className={styles.section}>
-      <Title text={title} anchor={anchor} />
       <ModelsSectionTemplate />
+      <Title text={title} anchor={anchor} />
       <div className={styles.container}>
-        {items.map(
-          (
-            item, // TODO: AFTER DYNAMIC DATA FIX KEY
-          ) => (
-            <Card key={item} className={styles.card}>
-              {item}
-            </Card>
-          ),
-        )}
+        {items.map((item) => (
+          <Card key={item} className={styles.card}>
+            {item}
+          </Card>
+        ))}
       </div>
     </SectionLayout>
   );

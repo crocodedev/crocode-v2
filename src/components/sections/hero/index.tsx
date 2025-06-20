@@ -5,56 +5,42 @@ import { MODELS } from '@/utils/const';
 
 import styles from './styles.module.scss';
 
-const MODELS_LIST = [
+const COMPONENT_MODELS = [
   {
     prompt: MODELS.ROGUE.url,
-    className: styles.rogue,
-    lightIntensity: 2,
-    rotation: [Math.PI / 10, 0, 0] as [number, number, number],
+    scale: { desktop: 0.2, mobile: 0.1 },
+    rotation: [Math.PI / 4, 0, 0],
+    position: { desktop: [-0.55, 0.2, 0], mobile: [-0.1, 0.1, 0] },
   },
   {
     prompt: MODELS.HOLLOW_PLANET.url,
-    className: styles.hollow_planet_1,
-    lightDirectionPosition: [40, 20, 20],
-    rotation: [Math.PI / 3.2, 0, -Math.PI * 0.25] as [number, number, number],
-    lightIntensity: 5,
+    scale: { desktop: 0.15, mobile: 0.08 },
+    rotation: [Math.PI / 1, Math.PI / 4, -Math.PI * 0.25],
+    position: { desktop: [-0.3, 0.15, 0], mobile: [0.1, 0.23, 0] },
   },
   {
     prompt: MODELS.CROSS.url,
-    lightIntensity: 2.5,
-    className: styles.cross_1,
-    rotateY: Math.PI / 6,
-    rotation: [-Math.PI * 0.55, Math.PI * 0.65, Math.PI * 0.45] as [
-      number,
-      number,
-      number,
-    ],
+    scale: { desktop: 0.15, mobile: 0.08 },
+    rotation: [-Math.PI * 0.55, -Math.PI * 0.9, Math.PI * 0.15],
+    position: { desktop: [-0.4, -0.05, 0], mobile: [-0.01, 0.17, 0] },
   },
   {
     prompt: MODELS.HOLLOW_PLANET.url,
-
-    className: styles.hollow_planet_2,
-    lightIntensity: 5,
-    cameraPosition: [1.5, 1.8, 1.8],
-    lightDirectionPosition: [10, 5, 5],
-    rotation: [Math.PI * 0.3, Math.PI * 0.18, Math.PI * 0.3] as [
-      number,
-      number,
-      number,
-    ],
-  },
-  {
-    prompt: MODELS.HOLLOW_PLANET.url,
-    className: styles.hollow_planet_3,
-    lightIntensity: 5,
-    rotation: [Math.PI / 5, 0, 0] as [number, number, number],
+    scale: { desktop: 0.1, mobile: 0.05 },
+    rotation: [Math.PI * 0.1, Math.PI * 0.15, Math.PI * 0.3],
+    position: { desktop: [0.52, -0.05, 0], mobile: [0.08, 0.1, 0] },
   },
   {
     prompt: MODELS.CROSS.url,
-    lightIntensity: 2.5,
-    className: styles.cross_2,
-    rotateY: Math.PI / 6,
-    rotation: [Math.PI / 2, 0, Math.PI * -0.85] as [number, number, number],
+    scale: { desktop: 0.15, mobile: 0.08 },
+    rotation: [0, Math.PI * -0.8, Math.PI / 8],
+    position: { desktop: [0.3, 0.2, 0], mobile: [-0.01, -0.12, 0] },
+  },
+  {
+    prompt: MODELS.HOLLOW_PLANET.url,
+    scale: { desktop: 0.15, mobile: 0.08 },
+    rotation: [Math.PI / 1, Math.PI / 4, -Math.PI * 0.25],
+    position: { desktop: [-0.55, -0.2, 0], mobile: [-0.1, -0.1, 0] },
   },
 ];
 
@@ -65,14 +51,13 @@ type TProps = {
 const Hero = ({ title }: TProps) => {
   return (
     <SectionLayout className={styles.section}>
-      <ModelsLayout models={MODELS_LIST}>
-        <div className={styles.hero}>
-          <h1 className={`${styles.title}`}>{title}</h1>
-          <Button className={`${styles.nav__button}  ${styles.mobile}`}>
-            Contact us
-          </Button>
-        </div>
-      </ModelsLayout>
+      <ModelsLayout models={COMPONENT_MODELS} />
+      <div className={styles.hero}>
+        <h1 className={styles.title}>{title}</h1>
+        <Button className={`${styles.nav__button} ${styles.mobile}`}>
+          Contact us
+        </Button>
+      </div>
     </SectionLayout>
   );
 };

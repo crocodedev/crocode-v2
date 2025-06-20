@@ -76,27 +76,3 @@
   font-size: clamp(0.625rem, 0rem + 2.5vw, 3rem);
   font-weight: 700;
 }
-
-.marshmallow {
-  left: 15%;
-  top: 5%;
-  position: absolute;
-  width: fluid-size(150, 325);
-  height: fluid-size(150, 325);
-}
-
-.hollow_planet {
-  position: absolute;
-  top: 50%;
-  left: -5%;
-  width: fluid-size(175, 450);
-  height: fluid-size(175, 450);
-}
-
-.planet {
-  position: absolute;
-  right: 0%;
-  bottom: 15%;
-  width: fluid-size(150, 550);
-  height: fluid-size(150, 550);
-}

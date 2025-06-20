@@ -1,18 +1,39 @@
+import dynamic from 'next/dynamic';
 import { Fragment, PropsWithChildren } from 'react';
 
-import PrimitiveFactory from '@/lib/three/PrimitiveFactory';
-import { PrimitiveFactoryProps } from '@/lib/three/types';
+import { Loader } from '@/components/ui';
+
+import styles from './styles.module.scss';
+import { ModelProps } from '@/lib/three/types';
+
+const PrimitiveFactory = dynamic(() => import('@/lib/three/PrimitiveFactory'), {
+  ssr: false,
+  loading: () => <Loader />,
+});
 
 type TProps = PropsWithChildren & {
-  models: PrimitiveFactoryProps[];
+  className?: string;
+  models: ModelProps[];
+  lightIntensity?: number;
+  showModels?: boolean;
 };
 
-const ModelsLayout = ({ models, children }: TProps) => {
+const ModelsLayout = ({
+  className,
+  models,
+  lightIntensity,
+  children,
+  showModels = true,
+}: TProps) => {
   return (
     <Fragment>
-      {models.map((model, index) => (
-        <PrimitiveFactory key={index} {...model} />
-      ))}
+      {showModels && (
+        <PrimitiveFactory
+          lightIntensity={lightIntensity}
+          className={`${styles.models} ${className}`}
+          models={models}
+        />
+      )}
       {children}
     </Fragment>
   );
