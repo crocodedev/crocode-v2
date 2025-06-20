@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
 import { SectionLayout } from '@/components/sections';
 import { Card } from '@/components/ui';
 
@@ -20,6 +21,15 @@ const DATA_ITEMS = [
     text: 'These specialists are involved in the development of the entire game world: from the characters and the purpose of the game to the text and sound. Their goal is to make a cool product for the audience',
   },
 ];
+
+type Tprops = {
+  title: string;
+  cards: {
+    title: string;
+    text: string;
+    _key: string;
+  }[];
+};
 
 const SepcialistsSection = () => {
   return (

@@ -5,18 +5,31 @@
   cursor: pointer;
   font-weight: 700;
   border-radius: 100px;
+  transition: all 0.6s linear;
+  padding: 13px 25px;
+  font-size: $size-text-1;
+
+  &:hover {
+    background-color: $color-bg-black;
+  }
+
+  &:disabled {
+    cursor: not-allowed;
+    color: $color-text-black;
+    background-color: $color-bg-gray;
+  }
 
   &__prime {
-    padding: 13px 25px;
     color: $color-text-white;
-    font-size: $size-text-1;
     background-color: $color-text-green;
   }
 
   &__second {
-    padding: fluid-size(9, 13) fluid-size(14, 25);
-    font-size: 14px;
     color: $color-text-white;
     background-color: $color-bg-black;
+
+    &:hover {
+      color: $color-text-green;
+    }
   }
 }

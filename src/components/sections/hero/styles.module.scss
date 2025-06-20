@@ -15,10 +15,20 @@
   @include flex-center;
   gap: 30px;
   flex-direction: column;
+  background-color: $color-bg-gray;
+
+  @include media-up(md) {
+    height: 800px;
+  }
+
+  @include media-down(md) {
+    height: 925px;
+  }
 
   & img {
-    width: 100%;
-    height: 100%;
+    top: 0;
+    left: 0;
+    object-fit: cover;
   }
 
   & .title {

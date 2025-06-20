@@ -8,14 +8,18 @@ import styles from './styles.module.scss';
 type TProps = {
   title: string;
   items: string[];
-  anchor?: AnchorType;
+  positionOfTitle?: AnchorType;
 };
 
-const OfferingsTemplate = ({ title, items, anchor = 'left' }: TProps) => {
+const OfferingsTemplate = ({
+  title,
+  items,
+  positionOfTitle = 'left',
+}: TProps) => {
   return (
     <SectionLayout className={styles.section}>
       <ModelsSectionTemplate />
-      <Title text={title} anchor={anchor} />
+      <Title text={title} anchor={positionOfTitle} />
       <div className={styles.container}>
         {items.map((item) => (
           <Card key={item} className={styles.card}>

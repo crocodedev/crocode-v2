@@ -1,5 +1,8 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
 import { SectionLayout } from '@/components/sections';
 import { Card } from '@/components/ui';
+
+import { TLink } from '@/types/types';
 
 import styles from './style.module.scss';
 
@@ -11,6 +14,11 @@ const DATA_ITEMS = [
   'Mobile app Developers',
   'Full Stack Consultants',
 ];
+
+type TProps = {
+  title: string;
+  links: TLink[];
+};
 
 const DedicatedSoftwareSection = () => {
   return (

@@ -1,3 +1,5 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import { SectionLayout } from '@/components/sections';
 import { Card, Filters, Pagination } from '@/components/ui';
 
@@ -5,7 +7,12 @@ import styles from './styles.module.scss';
 
 const BLOG_CATEGORY = ['Latest', 'Technologies', 'UI/UX', 'Client guides'];
 
-const BlogCatalogSection = () => {
+type TProps = {
+  category: string[];
+  cards: any; // заполнить карточки контентом
+};
+
+const BlogCatalogSection = ({ category }: TProps) => {
   return (
     <SectionLayout className={styles.section}>
       <Filters

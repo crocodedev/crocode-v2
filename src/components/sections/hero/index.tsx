@@ -1,6 +1,8 @@
 import { ModelsLayout, SectionLayout } from '@/components/sections';
 import { Button } from '@/components/ui';
 
+import { TImage, TLink } from '@/types/types';
+
 import { MODELS } from '@/utils/const';
 
 import styles from './styles.module.scss';
@@ -46,6 +48,8 @@ const COMPONENT_MODELS = [
 
 type TProps = {
   title: string;
+  imageWithAltText: TImage;
+  breadcrumbs: TLink[];
 };
 
 const Hero = ({ title }: TProps) => {
