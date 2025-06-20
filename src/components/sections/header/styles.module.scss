@@ -130,8 +130,9 @@
 
         @include media-down('md') {
           padding: 0px;
+
           &:last-child {
-            padding: 0px;
+            display: none;
           }
         }
       }
@@ -190,6 +191,8 @@
   padding: 0;
   cursor: pointer;
   z-index: $z-index-header;
+  background-color: $color-bg-green;
+  border-radius: 60px;
 
   &__wrapper {
     width: 100%;
@@ -202,8 +205,8 @@
     width: 20px;
     height: 4.5px;
     left: 0;
-    border-radius: 60px;
-    background-color: $color-bg-green;
+    border-radius: inherit;
+    background-color: inherit;
     transition: 0.3s linear;
   }
 

@@ -75,7 +75,7 @@ const Hero = ({
     src: '/images/background.jpg',
     alt: 'background',
   },
-  modelsIsShow,
+  modelsIsShow = true,
   typeText = 'default',
 }: TProps) => {
   return (
@@ -89,12 +89,14 @@ const Hero = ({
             fill
             alt={image.alt}
           />
-          <h1 className={`${styles.title} ${styles[`title__${typeText}`]}`}>
-            {title}
-          </h1>
-          <Button className={`${styles.nav__button}  ${styles.mobile}`}>
-            Contact us
-          </Button>
+          <div className={styles.hero__content}>
+            <h1
+              className={`${styles.hero__title} ${styles[`hero__title_${typeText}`]}`}
+            >
+              {title}
+            </h1>
+            <Button className={styles.hero__button}>Contact us</Button>
+          </div>
         </div>
       </ModelsLayout>
     </SectionLayout>

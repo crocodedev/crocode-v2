@@ -19,7 +19,7 @@ const Header = () => {
     >
       <div className={styles.header__inner}>
         <div className={`${styles.burger__wrapper} ${styles.mobile}`}>
-          <Button
+          <button
             className={`${styles.burger} ${!isMenusClosed ? styles.burger_active : ''}`}
             onClick={handleToggleMenu}
             aria-label='Toggle menu'

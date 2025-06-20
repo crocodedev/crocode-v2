@@ -7,8 +7,6 @@
   width: 100%;
   position: relative;
   @include flex-center;
-  gap: 30px;
-  flex-direction: column;
   background-color: $color-bg-gray;
 
   @include media-up(md) {
@@ -25,27 +23,34 @@
     object-fit: cover;
   }
 
-  & .title {
-    z-index: 1;
+  &__content {
+    position: relative;
+    @include flex-center;
+    flex-direction: column;
+    gap: 30px;
+  }
+
+  &__button {
+    @include media-up(md) {
+      display: none;
+    }
+  }
+
+  &__title {
+    display: inline-block;
+    width: min-content;
+    text-transform: uppercase;
     font-size: $size-title-1;
     font-weight: 700;
     line-height: 110%;
-    max-width: 80%;
 
-    &__main {
+    &_main {
       color: $color-text-green;
     }
 
-    &__default {
+    &_default {
       color: $color-text-black;
     }
-  }
-}
-
-.mobile {
-  @include media-up('md') {
-    opacity: 0;
-    position: absolute;
   }
 }
 
