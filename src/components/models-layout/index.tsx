@@ -4,7 +4,7 @@ import PrimitiveFactory from '@/lib/three/PrimitiveFactory';
 import { PrimitiveFactoryProps } from '@/lib/three/types';
 
 type TProps = PropsWithChildren & {
-  isShow: boolean;
+  isShow?: boolean;
   models: PrimitiveFactoryProps[];
 };
 
