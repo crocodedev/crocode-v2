@@ -1,8 +1,8 @@
 /* eslint-disable jsx-a11y/click-events-have-key-events */
 import Image from 'next/image';
 
-import { usePopup } from '@/components/context-popup';
 import { IconCross } from '@/components/icons';
+import { useMainContext } from '@/components/main-context';
 import { Button, Input } from '@/components/ui';
 
 import { TInput } from '@/types/Input';
@@ -25,7 +25,7 @@ type TProps = {
 };
 
 const PopupContactUs = ({ form, className }: TProps) => {
-  const { isOpen, closePopup } = usePopup();
+  const { isOpenPopup, closePopup } = useMainContext();
 
   const closePopupBeyond = (event: React.MouseEvent<HTMLDivElement>) => {
     const target = event.target as HTMLDivElement;
@@ -35,7 +35,7 @@ const PopupContactUs = ({ form, className }: TProps) => {
   return (
     // eslint-disable-next-line jsx-a11y/no-static-element-interactions
     <div
-      className={`${styles.popup} ${isOpen ? styles.popup_show : styles.popup_hidden} ${className}`}
+      className={`${styles.popup} ${isOpenPopup ? styles.popup_show : styles.popup_hidden} ${className}`}
       onClick={closePopupBeyond}
     >
       <div className={`${styles.popup__inner} popup`}>

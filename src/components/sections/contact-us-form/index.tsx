@@ -2,27 +2,24 @@ import Image from 'next/image';
 
 import { Button, Checkbox, Input } from '@/components/ui';
 
-import { TInput } from '@/types/types';
-
-import SectionLayout from '../section-layout';
-
+import { form } from './data';
 import styles from './styles.module.scss';
 
 type TProps = {
-  image: {
+  image?: {
     src: string;
     alt: string;
   };
-  form: {
-    title: string;
-    inputs: TInput[];
-    checkbox: TInput;
-  };
 };
 
-const ContactUsForm = ({ image, form }: TProps) => {
+const ContactUsForm = ({
+  image = {
+    src: '/background.png',
+    alt: 'background',
+  },
+}: TProps) => {
   return (
-    <SectionLayout className={styles.contact}>
+    <section className={styles.contact}>
       <div className={styles.contact__image_wrapper}>
         <Image
           className={styles.contact__image}
@@ -56,7 +53,7 @@ const ContactUsForm = ({ image, form }: TProps) => {
           </Button>
         </div>
       </form>
-    </SectionLayout>
+    </section>
   );
 };
 

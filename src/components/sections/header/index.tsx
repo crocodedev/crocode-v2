@@ -1,26 +1,17 @@
+import Link from 'next/link';
 import { useState } from 'react';
 
-import { usePopup } from '@/components/context-popup';
-import { SmartLink } from '@/components/ui';
+import { useMainContext } from '@/components/main-context';
 import { Button } from '@/components/ui';
 
-import { TImage, TLink } from '@/types/types';
-
+import { data } from './data';
 import styles from './styles.module.scss';
 
-type TProps = {
-  headerButton: TLink;
-  headerLinks: TLink[];
-  logoImage: TImage;
-};
-
-const Header = (props: TProps) => {
+const Header = () => {
   const [isMenusClosed, setIsMenuClosed] = useState(true);
-  const { openPopup } = usePopup();
+  const { openPopup } = useMainContext();
 
-  const handleToggleMenu = () => {
-    setIsMenuClosed((prev) => !prev);
-  };
+  const handleToggleMenu = () => setIsMenuClosed((prev) => !prev);
 
   return (
     <header
@@ -28,7 +19,7 @@ const Header = (props: TProps) => {
     >
       <div className={styles.header__inner}>
         <div className={`${styles.burger__wrapper} ${styles.mobile}`}>
-          <Button
+          <button
             className={`${styles.burger} ${!isMenusClosed ? styles.burger_active : ''}`}
             onClick={handleToggleMenu}
             aria-label='Toggle menu'
@@ -36,15 +27,19 @@ const Header = (props: TProps) => {
         </div>
         <nav className={`${styles.nav} ${isMenusClosed ? styles.closed : ''}`}>
           <ul className={styles.nav__list}>
-            {props.headerLinks.map((link: TLink) => (
-              <li key={link._key} className={styles.nav__list__item}>
-                <SmartLink data={link} className={styles.nav__link_mobile} />
-                <SmartLink data={link} className={styles.nav__link_desktop} />
+            {data.links.map((link, i) => (
+              <li key={i} className={styles.nav__list__item}>
+                <Link href={link.href} className={styles.nav__link_mobile}>
+                  {link.text}
+                </Link>
+                <Link href={link.href} className={styles.nav__link_desktop}>
+                  {link.text}
+                </Link>
               </li>
             ))}
             <li className={styles.nav__list__item}>
               <Button className={styles.nav__link_desktop} onClick={openPopup}>
-                Contact us
+                {data.button}
               </Button>
             </li>
           </ul>
@@ -53,7 +48,7 @@ const Header = (props: TProps) => {
               className={`${styles.nav__button} ${styles.mobile}`}
               onClick={openPopup}
             >
-              Contact us
+              {data.button}
             </Button>
           </div>
         </nav>

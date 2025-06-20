@@ -1,5 +1,7 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 /* eslint-disable @typescript-eslint/no-unused-vars */
+import Link from 'next/link';
+
 import { SectionLayout } from '@/components/sections';
 import { Card } from '@/components/ui';
 
@@ -29,8 +31,10 @@ const TechnologyStackSection = () => {
     <SectionLayout className={styles.section}>
       <div className={styles.container}>
         {DATA_ITEMS.map((item) => (
-          <Card key={item}>
-            <h2 className={styles.title}>{item.toUpperCase()}</h2>
+          <Card className={styles.card} key={item}>
+            <Link href={'#'} className={styles.card__link}>
+              <h2 className={styles.title}>{item.toUpperCase()}</h2>
+            </Link>
           </Card>
         ))}
       </div>

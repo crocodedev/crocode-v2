@@ -2,26 +2,25 @@ import Image from 'next/image';
 
 import { Card } from '@/components/ui';
 
+import { TImage } from '@/types/types';
+
 import SectionLayout from '../section-layout';
 
+import { cardData } from './data';
 import styles from './style.module.scss';
 
-type TCardImage = {
-  src: string;
-  alt: string;
-};
-
-type TInfo = {
-  title: string;
-  description: string;
-};
-
 type TProps = {
-  cards: TCardImage[];
-  info: TInfo[];
+  cards?: TImage[];
+  info?: {
+    title: string;
+    description: string;
+  }[];
 };
 
-const CardImageFive = ({ cards, info }: TProps) => {
+const CardImageFive = ({
+  cards = cardData.cards,
+  info = cardData.info,
+}: TProps) => {
   return (
     <SectionLayout className={styles.section}>
       <div className={styles.grid}>

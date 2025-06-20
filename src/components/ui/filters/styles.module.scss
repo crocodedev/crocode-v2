@@ -30,7 +30,18 @@
   font-size: 14px;
   text-wrap: nowrap;
   font-weight: 700;
+  border: none;
+  border-radius: 50px;
+  cursor: pointer;
+  transition: 0.2s;
   background: $color-bg-gray;
+
+  @include media-up(md) {
+    &:not(.selected):hover {
+      background-color: $color-bg-black;
+      color: $color-bg-white;
+    }
+  }
 
   &.selected {
     background-color: $color-bg-green;

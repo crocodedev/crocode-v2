@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 
-import { Button } from '@/components/ui';
+// import { Button } from '@/components/ui';
 
 import { IconArrowUp } from '../icons';
 import Portal, { createContainer } from '../portal';
@@ -45,12 +45,13 @@ const ArrowUpScroll = () => {
 
   return (
     <Portal id={ARROW_CONTAINER_ID}>
-      <Button
+      <button
+        type='button'
         className={`${styles.wrapper} ${isVisible ? styles.visible : ''}`}
         onClick={scrollToTop}
       >
         <IconArrowUp />
-      </Button>
+      </button>
     </Portal>
   );
 };

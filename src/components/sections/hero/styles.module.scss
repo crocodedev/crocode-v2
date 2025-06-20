@@ -13,8 +13,6 @@
   background-size: cover;
 
   @include flex-center;
-  gap: 30px;
-  flex-direction: column;
   background-color: $color-bg-gray;
 
   @include media-up(md) {
@@ -25,23 +23,39 @@
     height: 925px;
   }
 
-  & img {
+  &__background {
     top: 0;
     left: 0;
     object-fit: cover;
   }
 
-  & .title {
-    font-size: $size-title-1;
-    color: $color-text-green;
-    z-index: 1;
-    font-weight: 700;
+  &__content {
+    position: relative;
+    @include flex-center;
+    flex-direction: column;
+    gap: 30px;
   }
-}
 
-.mobile {
-  @include media-up('md') {
-    opacity: 0;
-    position: absolute;
+  &__button {
+    @include media-up(md) {
+      display: none;
+    }
+  }
+
+  &__title {
+    display: inline-block;
+    width: min-content;
+    text-transform: uppercase;
+    font-size: $size-title-1;
+    font-weight: 700;
+    line-height: 110%;
+
+    &_main {
+      color: $color-text-green;
+    }
+
+    &_default {
+      color: $color-text-black;
+    }
   }
 }

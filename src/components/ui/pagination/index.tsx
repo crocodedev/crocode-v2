@@ -1,6 +1,6 @@
 import { usePathname, useRouter, useSearchParams } from 'next/navigation';
 
-import Button from '@/components/ui/button';
+import { IconChevronLeft, IconChevronRight } from '@/components/icons';
 
 import styles from './styles.module.scss';
 
@@ -32,23 +32,25 @@ const Pagination = ({
 
   return (
     <div className={styles.pagination}>
-      <Button
+      <button
+        type='button'
         className={styles.arrow}
         onClick={() => handlePageChange(currentPage - 1)}
         disabled={currentPage <= 1}
         aria-label='Previous page'
       >
-        &lt;
-      </Button>
+        <IconChevronLeft />
+      </button>
 
-      <Button
+      <button
+        type='button'
         className={styles.arrow}
         onClick={() => handlePageChange(currentPage + 1)}
         disabled={currentPage >= totalPages}
         aria-label='Next page'
       >
-        &gt;
-      </Button>
+        <IconChevronRight />
+      </button>
     </div>
   );
 };

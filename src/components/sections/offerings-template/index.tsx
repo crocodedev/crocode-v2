@@ -1,30 +1,27 @@
+import Link from 'next/link';
+
 import { ModelsSectionTemplate, SectionLayout } from '@/components/sections';
 import { Title } from '@/components/ui';
-import { Card } from '@/components/ui';
 import { AnchorType } from '@/components/ui/title/types';
 
+import { items } from './data';
 import styles from './styles.module.scss';
 
 type TProps = {
   title: string;
-  items: string[];
-  positionOfTitle?: AnchorType;
+  anchor?: AnchorType;
 };
 
-const OfferingsTemplate = ({
-  title,
-  items,
-  positionOfTitle = 'left',
-}: TProps) => {
+const OfferingsTemplate = ({ title, anchor = 'left' }: TProps) => {
   return (
     <SectionLayout className={styles.section}>
+      <Title text={title} anchor={anchor} />
       <ModelsSectionTemplate />
-      <Title text={title} anchor={positionOfTitle} />
       <div className={styles.container}>
-        {items.map((item) => (
-          <Card key={item} className={styles.card}>
-            {item}
-          </Card>
+        {items?.map((item, index) => (
+          <Link className={styles.card} href={item.href} key={index}>
+            {item.text}
+          </Link>
         ))}
       </div>
     </SectionLayout>

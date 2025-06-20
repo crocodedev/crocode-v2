@@ -3,23 +3,14 @@ import { Fragment, PropsWithChildren } from 'react';
 
 import { Text } from '@/components/ui';
 
+import { TImage } from '@/types/types';
+
 import { MODELS } from '@/utils/const';
 
 import SectionLayout from '../section-layout';
 
 import styles from './styles.module.scss';
 import PrimitiveFactory from '@/lib/three/PrimitiveFactory';
-
-type TProps = {
-  image?: {
-    src: string;
-    alt: string;
-  };
-  title: string;
-  texts?: string[];
-  className?: string;
-  showModels?: boolean;
-};
 
 const ModelLayout = ({
   children,
@@ -73,6 +64,14 @@ const ModelLayout = ({
   );
 };
 
+type TProps = {
+  image?: TImage;
+  title: string;
+  texts?: string[];
+  className?: string;
+  showModels?: boolean;
+};
+
 const Banner = ({
   image,
   title,
@@ -85,9 +84,9 @@ const Banner = ({
       {image && (
         <Image
           className={styles.banner__image}
-          src={'/image.png'}
+          src={image.src}
           fill
-          alt={''}
+          alt={image.alt}
         />
       )}
       <ModelLayout showModels={showModels}>
