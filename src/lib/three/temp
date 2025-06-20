@@ -1,4 +1,3 @@
-/* eslint-disable react-hooks/rules-of-hooks */
 import { useCallback, useEffect, useMemo, useRef } from 'react';
 import {
   Camera,
@@ -14,16 +13,10 @@ import {
   Vector3,
   WebGLRenderer,
 } from 'three';
-import { DRACOLoader } from 'three/examples/jsm/loaders/DRACOLoader';
 import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader';
-
-import { Loader } from '@/components/ui';
-
-import { useCanLoad3D } from '@/hooks/threejs/useCanLoad3D';
 
 import { MODELS } from '@/utils/const';
 import { setupCamera, setupLight } from '@/utils/threejs';
-
 import styles from './styles.module.scss';
 import { ModelData, PrimitiveFactoryProps, QUALITY } from './types';
 import { useIsMobile } from '@/hooks';
@@ -39,7 +32,6 @@ export default function PrimitiveFactory({
   className,
   lightIntensity = 4,
 }: PrimitiveFactoryProps) {
-  return;
   const containerRef = useRef<HTMLDivElement>(null);
   const rendererRef = useRef<WebGLRenderer | null>(null);
   const animationId = useRef<number | null>(null);
@@ -52,25 +44,31 @@ export default function PrimitiveFactory({
   const isMouseInsideCanvas = useRef<boolean>(false);
   const cameraRef = useRef<Camera | null>(null);
   const { isMobile, isReady } = useIsMobile();
+
   const memoizedModels = useMemo(() => models, [JSON.stringify(models)]);
 
-  const canLoad3D = useCanLoad3D(containerRef);
-
   useEffect(() => {
-    if (!canLoad3D) return;
     const container = containerRef.current;
     if (!container || !window.WebGLRenderingContext) {
       console.error('WebGL or container not available');
       return;
     }
+
     const renderer = new WebGLRenderer({ antialias: true, alpha: true });
     renderer.setPixelRatio(QUALITY.LOW);
+
+    // setTimeout(() => {
+    //   renderer.setPixelRatio(QUALITY.MEDIUM);
+    // }, 3500);
+
     renderer.setSize(container.clientWidth, container.clientHeight);
     container.appendChild(renderer.domElement);
     rendererRef.current = renderer;
+
     const camera = setupCamera(container, [0, 0, 1]);
     cameraRef.current = camera;
     setupLight(sceneRef.current, lightIntensity);
+
     return () => {
       if (rendererRef.current) {
         container.removeChild(rendererRef.current.domElement);
@@ -79,26 +77,14 @@ export default function PrimitiveFactory({
       }
       sceneRef.current.clear();
     };
-  }, [canLoad3D]);
+  }, []);
 
   const loadModels = useCallback(() => {
-    let loadedCount = 0;
-    const totalModels = memoizedModels.length;
-
+    console.log('loadModels called', { isMobile, models: memoizedModels });
     modelDataRef.current.forEach(({ group }) => sceneRef.current.remove(group));
     modelDataRef.current = [];
 
-    const dracoLoader = new DRACOLoader();
-    dracoLoader.setDecoderPath('https://www.gstatic.com/draco/v1/decoders/');
-    dracoLoader.setDecoderConfig({ type: 'js' });
     const loader = new GLTFLoader();
-    loader.setDRACOLoader(dracoLoader);
-
-    const upgradeQuality = () => {
-      if (rendererRef.current) {
-        rendererRef.current.setPixelRatio(QUALITY.MEDIUM);
-      }
-    };
 
     memoizedModels.forEach(
       ({
@@ -108,17 +94,8 @@ export default function PrimitiveFactory({
         rotation = [-Math.PI / 1.3, 0, 0],
         isHaveTexture,
       }) => {
-        if (
-          !position.desktop ||
-          !position.mobile ||
-          !scale.desktop ||
-          !scale.mobile
-        ) {
+        if (!position.desktop || !position.mobile || !scale.desktop || !scale.mobile) {
           console.warn(`Invalid model data for prompt ${prompt}, skipping`);
-          loadedCount++;
-          if (loadedCount === totalModels) {
-            setTimeout(upgradeQuality, 100);
-          }
           return;
         }
 
@@ -166,18 +143,10 @@ export default function PrimitiveFactory({
               meshes,
               lastPosition: initialPosition.clone(),
             });
-            loadedCount++;
-            if (loadedCount === totalModels) {
-              setTimeout(upgradeQuality, 100);
-            }
           },
           undefined,
           (error) => {
             console.error(`Failed to load model: ${prompt}`, error);
-            loadedCount++;
-            if (loadedCount === totalModels) {
-              setTimeout(upgradeQuality, 100);
-            }
           },
         );
       },
@@ -206,14 +175,8 @@ export default function PrimitiveFactory({
         const modelA = modelDataRef.current[i];
         const modelB = modelDataRef.current[j];
 
-        const sphereB = computeBoundingSphere(
-          modelB.group,
-          modelB.meshes as Mesh[],
-        );
-        const sphereA = computeBoundingSphere(
-          modelA.group,
-          modelA.meshes as Mesh[],
-        );
+        const sphereB = computeBoundingSphere(modelB.group, modelB.meshes as Mesh[]);
+        const sphereA = computeBoundingSphere(modelA.group, modelA.meshes as Mesh[]);
 
         if (sphereA.intersectsSphere(sphereB)) {
           const direction = new Vector3()
@@ -233,8 +196,7 @@ export default function PrimitiveFactory({
       const { group, velocity, basePosition, initialPosition, meshes } = data;
 
       if (isMobile) {
-        const offset =
-          Math.sin(time * BOUNCE_FREQUENCY + index) * BOUNCE_AMPLITUDE;
+        const offset = Math.sin(time * BOUNCE_FREQUENCY + index) * BOUNCE_AMPLITUDE;
         basePosition.y = initialPosition.y + offset;
 
         group.rotation.y = Math.sin(time * ROTATION_SPEED + index) * 0.1;
@@ -266,8 +228,7 @@ export default function PrimitiveFactory({
       }
 
       const camera = cameraRef.current as PerspectiveCamera;
-      const aspect =
-        containerRef.current!.clientWidth / containerRef.current!.clientHeight;
+      const aspect = containerRef.current!.clientWidth / containerRef.current!.clientHeight;
       const fovRad = (camera.fov * Math.PI) / 180;
       const cameraZ = camera.position.z;
       const halfHeight = Math.tan(fovRad / 2) * cameraZ;
@@ -275,20 +236,11 @@ export default function PrimitiveFactory({
       const bounds = { x: halfWidth, y: halfHeight, z: 0.5 };
 
       if (basePosition.x < -bounds.x || basePosition.x > bounds.x) {
-        basePosition.x = Math.max(
-          Math.min(basePosition.x, bounds.x),
-          -bounds.x,
-        );
+        basePosition.x = Math.max(Math.min(basePosition.x, bounds.x), -bounds.x);
         velocity.x *= -0.7;
       }
-      if (
-        !isMobile &&
-        (basePosition.y < -bounds.y || basePosition.y > bounds.y)
-      ) {
-        basePosition.y = Math.max(
-          Math.min(basePosition.y, bounds.y),
-          -bounds.y,
-        );
+      if (!isMobile && (basePosition.y < -bounds.y || basePosition.y > bounds.y)) {
+        basePosition.y = Math.max(Math.min(basePosition.y, bounds.y), -bounds.y);
         velocity.y *= -0.7;
       }
       basePosition.z = initialPosition.z;
@@ -307,14 +259,12 @@ export default function PrimitiveFactory({
   }, []);
 
   useEffect(() => {
-    if (!canLoad3D) return;
     if (!rendererRef.current || !cameraRef.current || !isReady) return;
 
     loadModels();
 
     const animate = () => {
-      if (!sceneRef.current || !rendererRef.current || !cameraRef.current)
-        return;
+      if (!sceneRef.current || !rendererRef.current || !cameraRef.current) return;
 
       raycaster.current.setFromCamera(pointer.current, cameraRef.current);
       handleCollisions();
@@ -333,19 +283,10 @@ export default function PrimitiveFactory({
         cancelAnimationFrame(animationId.current);
         animationId.current = null;
       }
-      modelDataRef.current.forEach(({ group }) =>
-        sceneRef.current.remove(group),
-      );
+      modelDataRef.current.forEach(({ group }) => sceneRef.current.remove(group));
       modelDataRef.current = [];
     };
-  }, [
-    canLoad3D,
-    loadModels,
-    handleCollisions,
-    updatePositions,
-    renderScene,
-    isReady,
-  ]);
+  }, [loadModels, handleCollisions, updatePositions, renderScene, isReady]);
 
   const handleMouseMove = useCallback(
     debounce((e: MouseEvent) => {
@@ -396,13 +337,9 @@ export default function PrimitiveFactory({
     debounce(() => {
       const container = containerRef.current;
       if (!container || !rendererRef.current || !cameraRef.current) return;
-      rendererRef.current.setSize(
-        container.clientWidth,
-        container.clientHeight,
-      );
+      rendererRef.current.setSize(container.clientWidth, container.clientHeight);
       if (cameraRef.current instanceof PerspectiveCamera) {
-        cameraRef.current.aspect =
-          container.clientWidth / container.clientHeight;
+        cameraRef.current.aspect = container.clientWidth / container.clientHeight;
         cameraRef.current.updateProjectionMatrix();
       }
     }, 100),
@@ -428,12 +365,5 @@ export default function PrimitiveFactory({
     };
   }, [handleMouseMove, handleMouseLeave, handleResize, isMobile]);
 
-  if (!canLoad3D) {
-    return (
-      <div ref={containerRef} className={`${styles.canvas} ${className}`}>
-        <Loader />
-      </div>
-    );
-  }
   return <div ref={containerRef} className={`${styles.canvas} ${className}`} />;
 }

@@ -10,18 +10,13 @@ import styles from './styles.module.scss';
 type TProps = {
   title: string;
   anchor?: AnchorType;
-  modelsIsShow?: boolean;
 };
 
-const OfferingsTemplate = ({
-  title,
-  anchor = 'left',
-  modelsIsShow = true,
-}: TProps) => {
+const OfferingsTemplate = ({ title, anchor = 'left' }: TProps) => {
   return (
     <SectionLayout className={styles.section}>
       <Title text={title} anchor={anchor} />
-      <ModelsSectionTemplate modelsIsShow={modelsIsShow} />
+      <ModelsSectionTemplate />
       <div className={styles.container}>
         {items?.map((item, index) => (
           <Link className={styles.card} href={item.href} key={index}>

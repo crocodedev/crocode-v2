@@ -1,5 +1,3 @@
-import { Fragment, PropsWithChildren } from 'react';
-
 import { MODELS } from '@/utils/const';
 
 import styles from './styles.module.scss';
@@ -7,71 +5,27 @@ import PrimitiveFactory from '@/lib/three/PrimitiveFactory';
 
 const MODELS_LIST = [
   {
-    prompt: MODELS.ROGUE.url,
-    className: styles.rogue,
-    lightIntensity: 2,
-    rotation: [Math.PI / 10, 0, 0] as [number, number, number],
-    isHaveTexture: true,
+    prompt: MODELS.PLANET.url,
+    rotation: [Math.PI / 10, 0, 0],
+    scale: { desktop: 0.13, mobile: 0.1 },
+    position: { desktop: [-0.35, 0.12, 0], mobile: [-0.2, 0.15, 0] },
   },
   {
-    prompt: MODELS.HOLLOW_PLANET.url,
-    className: styles.hollow_planet_1,
-    isHaveTexture: true,
-    lightDirectionPosition: [40, 20, 20] as [number, number, number],
-    rotation: [Math.PI / 3.2, 0, -Math.PI * 0.25] as [number, number, number],
-    lightIntensity: 5,
+    prompt: MODELS.MARSHMALLOW.url,
+    rotation: [Math.PI * 0.45, Math.PI * 0.7, -Math.PI * 0.15],
+    scale: { desktop: 0.1, mobile: 0.1 },
+    position: { desktop: [-0.05, -0.15, 0], mobile: [0, -0.1, 0] },
   },
   {
-    prompt: MODELS.CROSS.url,
-    className: styles.cross,
-    isHaveTexture: true,
-    lightIntensity: 2.5,
-    rotateY: Math.PI / 6,
-    rotation: [-Math.PI * 0.55, Math.PI * 0.65, Math.PI * 0.45] as [
-      number,
-      number,
-      number,
-    ],
-  },
-  {
-    prompt: MODELS.HOLLOW_PLANET.url,
-    className: styles.hollow_planet_2,
-    isHaveTexture: true,
-    lightIntensity: 5,
-    cameraPosition: [1.5, 1.8, 1.8] as [number, number, number],
-    lightDirectionPosition: [10, 5, 5] as [number, number, number],
-    rotation: [Math.PI * 0.3, Math.PI * 0.18, Math.PI * 0.3] as [
-      number,
-      number,
-      number,
-    ],
-  },
-  {
-    prompt: MODELS.HOLLOW_PLANET.url,
-    className: styles.hollow_planet_3,
-    isHaveTexture: true,
-    lightIntensity: 5,
-    rotation: [Math.PI / 3, 0, 0] as [number, number, number],
+    prompt: MODELS.FLUTED_PIPE.url,
+    rotation: [-Math.PI * 1.4, Math.PI * 0.7, Math.PI * 0.45],
+    scale: { desktop: 0.12, mobile: 0.08 },
+    position: { desktop: [0.35, -0.135, 0], mobile: [0.18, -0.15, 0] },
   },
 ];
 
-type TProps = PropsWithChildren & {
-  modelsIsShow?: boolean;
-};
-
-const ModelsSectionTemplate = ({ modelsIsShow = true, children }: TProps) => {
-  if (modelsIsShow) {
-    return (
-      <Fragment>
-        {MODELS_LIST.map((model, index) => (
-          <PrimitiveFactory key={index} {...model} />
-        ))}
-        {children}
-      </Fragment>
-    );
-  } else {
-    return <>{children}</>;
-  }
+const ModelsSectionTemplate = () => {
+  return <PrimitiveFactory className={styles.models} models={MODELS_LIST} />;
 };
 
 export default ModelsSectionTemplate;

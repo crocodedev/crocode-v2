@@ -1,4 +1,3 @@
-/* eslint-disable @typescript-eslint/no-unused-vars */
 import { ModelsLayout, SectionLayout } from '@/components/sections';
 import { Card } from '@/components/ui';
 
@@ -25,59 +24,38 @@ const DATA_ITEMS = [
 const MODELS_LIST = [
   {
     prompt: MODELS.FLUTED_PIPE.url,
-    className: styles.fluted_pipe,
-    lightIntensity: 4,
-    rotation: [Math.PI / 10, 0, 0] as [number, number, number],
-    isHaveTexture: true,
-    scale: 0.8,
-  },
-  {
-    prompt: MODELS.HOLLOW_PLANET.url,
-    className: styles.hollow_planet,
-    isHaveTexture: true,
-    lightDirectionPosition: [40, 20, 20] as [number, number, number],
-    rotation: [Math.PI * 0.5, 0, Math.PI * 0.05] as [number, number, number],
-    lightIntensity: 5,
-    cameraPosition: [1.5, 2, 1.5],
+    rotation: [Math.PI / 6, Math.PI / 4, Math.PI / 4],
+    scale: { desktop: 0.08, mobile: 0.05 },
+    position: { desktop: [-0.22, 0.14, 0], mobile: [-0.15, 0.03, 0] },
   },
   {
     prompt: MODELS.PLANET.url,
-    className: styles.planet,
-    isHaveTexture: true,
-    lightIntensity: 4,
-    rotateY: Math.PI / 6,
-    rotation: [-Math.PI * 0.55, Math.PI * 0.65, Math.PI * 0.45] as [
-      number,
-      number,
-      number,
-    ],
+    rotation: [Math.PI * 0.5, 0, Math.PI * 0.05],
+    scale: { desktop: 0.1, mobile: 0.05 },
+    position: { desktop: [0.2, 0.18, 0], mobile: [0.15, 0.2, 0] },
+  },
+  {
+    prompt: MODELS.HOLLOW_PLANET.url,
+    rotation: [-Math.PI * 1.55, Math.PI * 0.45, Math.PI / 6],
+    scale: { desktop: 0.1, mobile: 0.05 },
+    position: { desktop: [-0.15, -0.15, 0], mobile: [-0.13, -0.14, 0] },
   },
 ];
-
-type TProps = {
-  cards: {
-    title?: string;
-    text: string;
-  };
-};
 
 const WhyCrocodeSection = () => {
   return (
     <div className={styles.wrapper}>
-      <ModelsLayout models={MODELS_LIST} isShow={false}>
-        <SectionLayout className={styles.section}>
-          {DATA_ITEMS.map((item) => (
-            <Card key={item.title} className={styles.card}>
-              {item.title && (
-                <h2 className={styles.card__title}>
-                  {item.title.toUpperCase()}
-                </h2>
-              )}
-              <p className={styles.card__text}>{item.text.toUpperCase()}</p>
-            </Card>
-          ))}
-        </SectionLayout>
-      </ModelsLayout>
+      <ModelsLayout models={MODELS_LIST} className={styles.models} />
+      <SectionLayout className={styles.section}>
+        {DATA_ITEMS.map((item) => (
+          <Card key={item.title} className={styles.card}>
+            {item.title && (
+              <h2 className={styles.card__title}>{item.title.toUpperCase()}</h2>
+            )}
+            <p className={styles.card__text}>{item.text.toUpperCase()}</p>
+          </Card>
+        ))}
+      </SectionLayout>
     </div>
   );
 };

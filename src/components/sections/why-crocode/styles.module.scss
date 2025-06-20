@@ -1,47 +1,58 @@
 .wrapper {
+  @include flex-center;
   position: relative;
+}
+
+.models {
+  @include media-down('lg') {
+    height: 130%;
+  }
 }
 
 .section {
   display: grid;
-  gap: 20px;
-  justify-items: center;
-  align-items: center;
+  grid-template-columns: repeat(30, 1fr);
+  grid-template-rows: repeat(30, minmax(0, 1fr));
+  gap: 12px;
+  max-width: 80%;
+  justify-items: stretch;
+  align-items: stretch;
   overflow: hidden;
 
   & > div:nth-child(1) {
-    grid-column: 1 / span 2;
-    grid-row: 1;
-    width: fluid-size(255, 1010);
-    height: fluid-size(140, 540);
-    @include color-scheme($color-bg-green, $color-text-black);
+    grid-column: 6 / span 20;
+    grid-row: 1 / span 15;
+    border-radius: 24px;
+    background: $color-bg-green;
+    color: $color-text-black;
+    padding: 32px 24px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
   }
 
   & > div:nth-child(2) {
-    grid-column: 1;
-    grid-row: 2;
-    transform: translateX(calc(-1 * fluid-size(-5, 75)))
-      translateY(fluid-size(-10, 0)) translateX(fluid-size(0, 150));
-    width: fluid-size(135, 685);
-    height: fluid-size(150, 505);
+    grid-column: 17 / span 20;
+    grid-row: 17 / span 10;
+    border-radius: 16px;
+    background: $color-bg-black;
+    color: $color-text-white;
+    padding: 24px 18px;
   }
 
   & > div:nth-child(3) {
-    grid-column: 2;
-    transform: translateY(fluid-size(-30, -140))
-      translateX(fluid-size(-35, -75));
-    grid-row: 2;
-    width: fluid-size(180, 750);
-    @include color-scheme($color-bg-black, $color-text-white);
+    grid-column: 1 / span 15;
+    grid-row: 17 / span 25;
+    border-radius: 16px;
+    padding: 24px 18px;
   }
 
   & > div:nth-child(4) {
-    grid-column: 2;
-    grid-row: 3;
-    transform: translateY(fluid-size(-55, -175))
-      translateX(fluid-size(-30, -75));
-    width: fluid-size(180, 750);
-    height: fluid-size(100, 400);
+    grid-column: 17 / span 20;
+    grid-row: 28 / span 30;
+    border-radius: 16px;
+    padding: 24px 18px;
   }
 
   & > div {
@@ -50,60 +61,30 @@
   }
 
   @include media-down('md') {
-    @include flex-center;
+    display: flex;
     flex-direction: column;
+    gap: 16px;
 
-    & div {
-      width: 80% !important;
-      transform: none !important;
+    & > div {
+      width: 100% !important;
+      text-align: left;
     }
   }
 }
 
 .card {
   padding: fluid-size(10, 30);
+
   &__title {
     font-size: $size-title-5;
     font-weight: 700;
     margin-bottom: 25px;
   }
+
   &__text {
     text-align: justify;
     font-size: $size-text-4;
+    max-width: 90%;
     line-height: fluid-size(10, 50);
   }
-}
-
-.fluted_pipe {
-  position: absolute;
-  left: 5%;
-  top: 10%;
-  width: fluid-size(75, 325);
-  height: fluid-size(75, 325);
-
-  @include media-down('md') {
-    top: 35%;
-    left: -2%;
-  }
-}
-
-.hollow_planet {
-  position: absolute;
-  bottom: -5%;
-  left: 20%;
-  width: fluid-size(175, 450);
-  height: fluid-size(175, 450);
-
-  @include media-down('md') {
-    bottom: -25%;
-    left: -2%;
-  }
-}
-
-.planet {
-  position: absolute;
-  right: 10%;
-  top: -15%;
-  width: fluid-size(150, 250);
-  height: fluid-size(150, 250);
 }

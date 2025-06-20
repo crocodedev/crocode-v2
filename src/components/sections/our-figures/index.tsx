@@ -23,31 +23,21 @@ const OUR_FIGURES = [
 const MODELS_LIST = [
   {
     prompt: MODELS.MARSHMALLOW.url,
-    className: styles.marshmallow,
-    lightIntensity: 4,
-    rotation: [Math.PI / 10, 0, 0] as [number, number, number],
-    isHaveTexture: true,
+    rotation: [Math.PI * 0.7, 0, 0],
+    scale: { desktop: 0.1, mobile: 0.1 },
+    position: { desktop: [-0.15, 0.18, 0], mobile: [-0.15, 0.1, 0] },
   },
   {
     prompt: MODELS.HOLLOW_PLANET.url,
-    className: styles.hollow_planet,
-    isHaveTexture: true,
-    lightDirectionPosition: [40, 20, 20] as [number, number, number],
-    rotation: [Math.PI * 0.5, 0, Math.PI * 0.05] as [number, number, number],
-    lightIntensity: 5,
-    cameraPosition: [1.7, 2, 1.7],
+    rotation: [Math.PI * 0.5, 0, Math.PI * 0.05],
+    scale: { desktop: 0.15, mobile: 0.1 },
+    position: { desktop: [-0.3, -0.05, 0], mobile: [-0.18, -0.1, 0] },
   },
   {
     prompt: MODELS.PLANET.url,
-    className: styles.planet,
-    isHaveTexture: true,
-    lightIntensity: 4,
-    rotateY: Math.PI / 6,
-    rotation: [-Math.PI * 0.55, Math.PI * 0.65, Math.PI * 0.45] as [
-      number,
-      number,
-      number,
-    ],
+    rotation: [-Math.PI * 0.55, Math.PI * 0.65, Math.PI * 0.45],
+    scale: { desktop: 0.15, mobile: 0.1 },
+    position: { desktop: [0.3, -0.1, 0], mobile: [0.15, -0.15, 0] },
   },
 ];
 

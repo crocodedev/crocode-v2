@@ -1,13 +1,9 @@
 .section {
-  display: grid;
-  grid-template-columns: repeat(12, 1fr);
   gap: clamp(0.25rem, 0.0073rem + 1.0356vw, 1.25rem);
-  padding: 0 clamp(0.3125rem, -2.3422rem + 11.3269vw, 11.25rem);
-}
-
-.wrapper {
+  padding: fluid-size(10, 200)
+    clamp(0.3125rem, -2.3422rem + 11.3269vw, 11.25rem);
   position: relative;
-  overflow: hidden;
+  margin-bottom: 0px;
 }
 
 .container {
@@ -76,52 +72,9 @@
 
   &__text {
     font-size: $size-text-1;
-
     padding: clamp(0.125rem, -0.1481rem + 1.165vw, 1.25rem);
-    line-height: fluid-size(15, 30);
+    line-height: fluid-size(20, 30);
     text-align: justify;
     font-weight: 400;
-  }
-}
-
-.fluted_pipe {
-  left: 5%;
-  top: 15%;
-  position: absolute;
-  width: fluid-size(150, 325);
-  height: fluid-size(150, 325);
-  z-index: $z-index-models;
-
-  @include media-down('lg') {
-    left: -60px;
-    top: 5%;
-  }
-}
-
-.hollow_planet {
-  z-index: $z-index-models;
-  position: absolute;
-  bottom: 30%;
-  right: -10%;
-  width: fluid-size(175, 450);
-  height: fluid-size(175, 450);
-
-  @include media-down('lg') {
-    right: -75px;
-    top: 45%;
-  }
-}
-
-.planet {
-  position: absolute;
-  z-index: $z-index-models;
-  bottom: 0%;
-  left: 40%;
-  width: fluid-size(150, 250);
-  height: fluid-size(150, 250);
-
-  @include media-down('lg') {
-    left: 15%;
-    bottom: 10px;
   }
 }
