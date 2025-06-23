@@ -5,14 +5,18 @@
   &__textarea {
     width: 100%;
     font-family: inherit;
+    min-height: 40px;
   }
 
   &__file_label {
     box-sizing: border-box;
     position: absolute;
+    display: flex;
+    align-items: center;
     bottom: 0;
     right: 0;
-    padding: 8px 10px;
+    padding: 0 10px;
+    height: 40px;
     cursor: pointer;
   }
 
