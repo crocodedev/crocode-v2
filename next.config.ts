@@ -5,7 +5,7 @@ const nextConfig: NextConfig = {
   reactStrictMode: true,
   transpilePackages: ['three', 'react-three'],
   images: {
-    domains: ['localhost:4000'],
+    domains: ['localhost:3000', 'cdn.sanity.io'],
   },
   sassOptions: {
     includePaths: [path.join(__dirname, 'styles/scss')],

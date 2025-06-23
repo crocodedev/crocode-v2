@@ -23,6 +23,10 @@
     object-fit: cover;
   }
 }
+.input {
+  width: 100% !important;
+  background: #000;
+}
 
 .form {
   display: flex;
@@ -100,6 +104,7 @@
 
   &__button {
     align-self: start;
+    color: $color-text-white;
 
     &_disabled {
       pointer-events: none;

@@ -5,12 +5,14 @@
   justify-content: center;
 
   .button {
+    text-decoration: none;
     font-weight: 700;
     color: $color-text-black;
     font-size: $size-text-1;
     display: flex;
     align-items: center;
     justify-content: center;
+
     &__md {
       display: none;
       width: 180px;
@@ -60,7 +62,7 @@
     grid-area: rightCol;
 
     display: grid;
-    grid-template-rows: 70% 20%;
+    grid-template-rows: 75% 20%;
     gap: 20px;
   }
 
@@ -104,5 +106,15 @@
         10rem + 18.75vw,
         32.5rem
       );
+  }
+}
+
+.card {
+  position: relative;
+  overflow: hidden;
+  border-radius: fluid-size(20, 64);
+
+  &__image {
+    object-fit: cover;
   }
 }

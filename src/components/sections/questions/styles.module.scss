@@ -20,6 +20,7 @@
   @include media-down('lg') {
     grid-template-columns: repeat(2, minmax(150, 400));
     grid-template-rows: repeat(4, minmax(150, 400));
+
     & > div {
       grid-area: auto !important;
     }
@@ -32,15 +33,16 @@
   font-weight: 700;
   transition: all 1.2s ease-in-out;
   @include flex-center;
-  text-align: start;
   overflow-wrap: break-word;
   padding: 30px;
+
   border-radius: fluid-size(20, 45);
   cursor: pointer;
 
   &__title {
     max-width: 100%;
     margin-bottom: 20px;
+
     font-weight: 700;
     font-size: $size-title-2;
   }
@@ -65,6 +67,10 @@
     color: $color-text-black;
     font-size: $size-title-2;
     font-weight: 700;
+
+    &:hover {
+      background-color: transparent;
+    }
   }
 
   &_active {
@@ -90,6 +96,7 @@
     grid-column: 5 / span 3;
     grid-row: span 3;
     @include color-scheme($color-bg-black, $color-text-white);
+
     & button {
       color: white;
     }
@@ -126,6 +133,7 @@
     grid-column: 1 / span 9;
     grid-row: 6 / span 2;
     @include color-scheme($color-bg-black, $color-text-white);
+
     & button {
       color: white;
     }
@@ -143,10 +151,12 @@
     opacity: 1;
     scale: 1;
   }
+
   50% {
     opacity: 0;
     scale: 0.1;
   }
+
   to {
     scale: 1;
     opacity: 1;

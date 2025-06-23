@@ -56,4 +56,43 @@
     justify-content: space-between;
     gap: 15px;
   }
+
+  &__input_tel_container {
+    outline: none;
+    padding: 11px 16px;
+    border: none;
+    border-radius: 10px;
+    background-color: $color-bg-black;
+
+    &_error {
+      outline: 3px solid $color-bg-black;
+      background-color: $color-bg-gray;
+    }
+  }
+
+  &__input_tel {
+    width: 100% !important;
+    height: auto !important;
+    padding: 0 0 0 40px !important;
+    color: $color-text-white !important;
+    background: $color-bg-black !important;
+    font-size: 16px !important;
+    line-height: normal !important;
+    border: none !important;
+
+    &_error {
+      color: $color-text-black !important;
+      background-color: $color-bg-gray !important;
+    }
+  }
+
+  &__input_tel_button {
+    background: $color-bg-black !important;
+    border-radius: 0 !important;
+    border: none !important;
+
+    &_error {
+      background-color: $color-bg-gray !important;
+    }
+  }
 }

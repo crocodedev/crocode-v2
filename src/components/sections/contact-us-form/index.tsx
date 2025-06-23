@@ -1,21 +1,15 @@
 import Image from 'next/image';
 import { FieldError, useForm } from 'react-hook-form';
-
+import 'react-phone-input-2/lib/style.css';
 import { Button, Checkbox, Input } from '@/components/ui';
 
-import { TImage, TInput } from '@/types/types';
-
-import SectionLayout from '../section-layout';
-
+import { form } from './data';
 import styles from './styles.module.scss';
 
 type TProps = {
-  image: TImage;
-  form: {
-    title: string;
-    inputs: TInput[];
-    file?: TInput[];
-    checkbox: TInput;
+  image?: {
+    src: string;
+    alt: string;
   };
 };
 
@@ -23,10 +17,16 @@ type FormValues = {
   [key: string]: string;
 };
 
-const ContactUsForm = ({ image, form }: TProps) => {
+const ContactUsForm = ({
+  image = {
+    src: '/background.png',
+    alt: 'background',
+  },
+}: TProps) => {
   const {
     register,
     handleSubmit,
+    control,
     formState: { errors, isValid },
   } = useForm({
     mode: 'onChange',
@@ -37,7 +37,7 @@ const ContactUsForm = ({ image, form }: TProps) => {
   };
 
   return (
-    <SectionLayout className={styles.contact}>
+    <section className={styles.contact}>
       <div className={styles.contact__image_wrapper}>
         <Image
           className={styles.contact__image}
@@ -50,19 +50,23 @@ const ContactUsForm = ({ image, form }: TProps) => {
         <div className={styles.form__inner}>
           <h3 className={styles.form__title}>{form.title}</h3>
           <div className={styles.form__inputs}>
-            {form.inputs.map((input, index) => (
-              <Input
-                className={styles.form__input}
-                label={input.label}
-                type={input.type}
-                placeholder={input.placeholder}
-                key={index}
-                error={
-                  (errors as Record<string, FieldError>)?.[input.name]?.message
-                }
-                {...register(input.name, input.rules)}
-              />
-            ))}
+            {form.inputs.map((input, index) => {
+              return (
+                <Input
+                  control={control}
+                  className={styles.form__input}
+                  label={input.label}
+                  type={input.type}
+                  placeholder={input.placeholder}
+                  key={index}
+                  error={
+                    (errors as Record<string, FieldError>)?.[input.name]
+                      ?.message
+                  }
+                  {...register(input.name, input.rules)}
+                />
+              );
+            })}
             {form.file && (
               <div className={styles.form__input_file_wrapper}>
                 {form.file.map((input, i) => (
@@ -94,6 +98,7 @@ const ContactUsForm = ({ image, form }: TProps) => {
             {...register(form.checkbox.name, form.checkbox.rules)}
           />
           <Button
+            type='submit'
             className={`${styles.form__button} ${!isValid ? styles.form__button_disabled : ''}`}
             view={'second'}
             disabled={!isValid}
@@ -102,7 +107,7 @@ const ContactUsForm = ({ image, form }: TProps) => {
           </Button>
         </div>
       </form>
-    </SectionLayout>
+    </section>
   );
 };
 

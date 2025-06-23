@@ -14,57 +14,78 @@
   );
   grid-template-rows: repeat(20, clamp(2rem, 1.3421rem + 2.6316vw, 4.5rem));
 
+  & > div {
+    @include flex-center;
+    border-radius: fluid-size(20, 64);
+  }
+
   & > div:nth-child(1) {
-    grid-area: 5 / 5 / 9 / 11;
-    background-color: $color-bg-green;
-    color: $color-text-black;
+    @include color-scheme($color-bg-green, $color-text-black);
+
+    @include media-up(md) {
+      grid-area: 5 / 5 / 9 / 11;
+    }
+
+    @include media-down(md) {
+      grid-area: 3 / 11 / 6 / 19;
+    }
   }
 
   & > div:nth-child(2) {
-    grid-area: 4 / 12 / 9 / 18;
-    background-color: $color-bg-black;
-    color: $color-text-white;
+    @include color-scheme($color-bg-black, $color-text-white);
+
+    @include media-up(md) {
+      grid-area: 4 / 12 / 9 / 18;
+    }
+
+    @include media-down(md) {
+      grid-area: 2 / 3 / 6 / 10;
+    }
   }
 
   & > div:nth-child(3) {
-    grid-area: 10 / 3 / 14 / 9;
     z-index: 5;
-  }
 
-  & > div {
-    @include flex-center;
-  }
+    @include media-up(md) {
+      grid-area: 10 / 3 / 14 / 9;
+    }
 
-  @include media-down('md') {
-    & > div {
-      border-radius: 20px;
+    @include media-down(md) {
+      grid-area: 14 / 8 / 17 / 16;
     }
   }
 }
 
 .mission {
-  grid-area: 10 / 10 / 16 / 18;
-  display: flex;
-  text-align: justify;
-  align-items: center;
-  line-height: clamp(0.3125rem, -0.25rem + 2.8125vw, 3.125rem);
-  font-weight: 400;
   z-index: 5;
+
+  @include media-up(md) {
+    grid-area: 10 / 10 / 16 / 18;
+  }
+
+  @include media-down(md) {
+    grid-area: 7 / 2 / 13 / 20;
+  }
 
   &__text {
     text-align: justify;
-    font-size: $size-text-3;
     max-width: 80%;
+
+    @include media-up(md) {
+      font-size: fluid-size(12, 24, 768);
+      line-height: 150%;
+    }
+
+    @include media-down(md) {
+      font-size: fluid-size(12, 20, 425, 768);
+      line-height: 150%;
+    }
   }
 }
 
 .card {
-  display: flex;
   flex-direction: column;
-  align-items: center;
-  text-align: center;
   text-wrap: nowrap;
-  border-radius: 64px;
 }
 
 .number {
@@ -75,28 +96,4 @@
 .label {
   font-size: clamp(0.625rem, 0rem + 2.5vw, 3rem);
   font-weight: 700;
-}
-
-.marshmallow {
-  left: 15%;
-  top: 5%;
-  position: absolute;
-  width: fluid-size(150, 325);
-  height: fluid-size(150, 325);
-}
-
-.hollow_planet {
-  position: absolute;
-  top: 50%;
-  left: -5%;
-  width: fluid-size(175, 450);
-  height: fluid-size(175, 450);
-}
-
-.planet {
-  position: absolute;
-  right: 0%;
-  bottom: 15%;
-  width: fluid-size(150, 550);
-  height: fluid-size(150, 550);
 }

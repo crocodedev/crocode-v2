@@ -49,6 +49,10 @@
     position: relative;
     width: 100%;
 
+    @include media-up(md) {
+      padding: fluid-size(55, 100, 768) fluid-size(35, 55, 768);
+    }
+
     @include media-down(md) {
       min-height: 150px;
       padding: 30px 20px;
@@ -56,28 +60,24 @@
 
     &:nth-child(1) {
       @include media-up(md) {
-        padding: fluid-size(55, 105, 768) fluid-size(40, 65, 768);
         grid-column: 1 / 2;
       }
     }
 
     &:nth-child(2) {
       @include media-up(md) {
-        padding: fluid-size(55, 105, 768) fluid-size(40, 75, 768);
         grid-column: 2 / 4;
       }
     }
 
     &:nth-child(3) {
       @include media-up(md) {
-        padding: fluid-size(55, 110, 768) fluid-size(40, 60, 768);
         grid-column: 3 / 4;
       }
     }
 
     &:nth-child(4) {
       @include media-up(md) {
-        padding: fluid-size(55, 110, 768) fluid-size(40, 45, 768);
         grid-row: 2;
         grid-column: 1 / 3;
       }
@@ -86,7 +86,7 @@
     &:nth-child(5) {
       @include media-up(md) {
         width: 58.5%;
-        padding: fluid-size(55, 130, 768) fluid-size(40, 115, 768);
+        // padding: fluid-size(55, 130, 768) fluid-size(40, 115, 768);
         grid-row: 3;
         grid-column: 1 / 4;
       }

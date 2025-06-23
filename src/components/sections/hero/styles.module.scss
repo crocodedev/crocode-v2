@@ -8,128 +8,48 @@
   height: 800px;
   background-color: $color-bg-gray;
   @include flex-center;
-  gap: 30px;
-  flex-direction: column;
 
-  & img {
-    width: 100%;
-    height: 100%;
+  @include media-up(md) {
+    height: 800px;
   }
 
-  & .title {
+  @include media-down(md) {
+    height: 925px;
+  }
+
+  &__background {
+    top: 0;
+    left: 0;
+    object-fit: cover;
+  }
+
+  &__content {
+    position: relative;
+    @include flex-center;
+    flex-direction: column;
+    gap: 30px;
+  }
+
+  &__button {
+    @include media-up(md) {
+      display: none;
+    }
+  }
+
+  &__title {
+    display: inline-block;
+    width: min-content;
+    text-transform: uppercase;
     font-size: $size-title-1;
-    color: $color-text-green;
-    z-index: 1;
     font-weight: 700;
-  }
-}
+    line-height: 110%;
 
-.mobile {
-  @include media-up('md') {
-    opacity: 0;
-    position: absolute;
-  }
-}
-
-.rogue {
-  position: absolute;
-  transform: translate(-50%, -50%);
-  width: fluid-size(45, 250);
-  height: fluid-size(45, 250);
-  top: -10%;
-  left: 0%;
-  z-index: $z-index-models;
-
-  @include media-down('md') {
-    top: 35%;
-    left: 10%;
-    width: fluid-size(200, 380);
-    height: fluid-size(200, 380);
-  }
-}
-
-.cross {
-  &_1 {
-    position: absolute;
-    transform: translate(-50%, -50%);
-    width: fluid-size(45, 380);
-    height: fluid-size(45, 380);
-    top: 45%;
-    left: 10%;
-  }
-  &_2 {
-    position: absolute;
-    transform: translate(-50%, -50%);
-    width: fluid-size(45, 380);
-    height: fluid-size(45, 380);
-    top: 10%;
-    right: -5%;
-  }
-
-  @include media-down('md') {
-    &_1 {
-      width: fluid-size(150, 380);
-      height: fluid-size(150, 380);
-      top: 25%;
-      left: 60%;
+    &_main {
+      color: $color-text-green;
     }
-    &_2 {
-      width: fluid-size(200, 380);
-      height: fluid-size(200, 380);
-      top: 80%;
-      left: 35%;
-    }
-  }
-}
 
-.hollow_planet {
-  &_1 {
-    position: absolute;
-    transform: translate(-50%, -50%);
-    width: fluid-size(45, 250);
-    height: fluid-size(45, 250);
-    top: 10%;
-    z-index: 1;
-    left: 5%;
-  }
-
-  &_2 {
-    position: absolute;
-    transform: translate(-50%, -50%);
-    bottom: -40%;
-    overflow: hidden;
-    left: -5%;
-    width: fluid-size(75, 450);
-    height: fluid-size(75, 450);
-  }
-
-  &_3 {
-    position: absolute;
-    transform: translate(-50%, -50%);
-    width: fluid-size(75, 400);
-    height: fluid-size(75, 400);
-    top: 55%;
-    right: -20%;
-  }
-
-  @include media-down('md') {
-    &_1 {
-      width: fluid-size(240, 380);
-      height: fluid-size(240, 380);
-      top: 100%;
-      left: 5%;
-    }
-    &_2 {
-      width: fluid-size(150, 380);
-      height: fluid-size(150, 380);
-      top: 5%;
-      left: 100%;
-    }
-    &_3 {
-      width: fluid-size(150, 380);
-      height: fluid-size(150, 380);
-      top: 30%;
-      left: 100%;
+    &_default {
+      color: $color-text-black;
     }
   }
 }

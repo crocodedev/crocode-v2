@@ -8,7 +8,8 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint --fix",
-    "prepare": "npx husky-init && husky install"
+    "prepare": "npx husky-init && husky install",
+    "test": "echo \"No tests yet\" && exit 0"
   },
   "dependencies": {
     "@react-three/drei": "^10.0.7",
@@ -21,6 +22,7 @@
     "react-dom": "19.1.0",
     "react-helmet": "^6.1.0",
     "react-hook-form": "^7.57.0",
+    "react-phone-input-2": "^2.15.1",
     "three": "^0.176.0"
   },
   "devDependencies": {

@@ -1,14 +1,17 @@
 import { Card, TitleSection } from '@/components/ui';
 
-import TCards from '@/types/cards';
-
 import SectionLayout from '../section-layout';
 
 import styles from './styles.module.scss';
 
 type TProps = {
   title?: string;
-  cards: TCards[];
+  cards: {
+    title?: string;
+    text: string;
+    number?: string;
+    color?: 'green' | 'grey' | 'black' | string;
+  }[];
 };
 
 const CardGrid = ({ title, cards }: TProps) => {

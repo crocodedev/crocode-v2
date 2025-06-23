@@ -6,11 +6,11 @@ export const emailRules = {
   },
 };
 
-export const telRules = {
+export const phoneRules = {
   required: 'This field is required',
-  pattern: {
-    value: /^\+?[0-9\s\-()]{10,}$/,
-    message: 'Invalid Phone number',
+  validate: (value: string) => {
+    const cleaned = value.replace(/\D/g, '');
+    return cleaned.length >= 10 || 'The phone length cannot be less than 10';
   },
 };
 
@@ -19,5 +19,12 @@ export const nameRules = {
   pattern: {
     value: /^[A-Za-zА-Яа-яЁё]{3,}$/,
     message: 'Invalid Name',
+  },
+};
+
+export const checkboxRules = {
+  required: {
+    value: true,
+    message: 'You must agree to proceed',
   },
 };

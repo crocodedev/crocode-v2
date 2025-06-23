@@ -86,7 +86,7 @@ const QuestionsSection = () => {
                 onClick={handleClickMore.bind(null, question.id)}
                 className={`${styles.question} 
                 ${styles[`question__${question.id}`]}
-                ${indexActiveCard && styles.hide}`}
+                ${isActive && styles.hide}`}
                 ref={(el: HTMLDivElement | null) => {
                   cardRefs.current[question.id] = el;
                 }}
@@ -100,10 +100,10 @@ const QuestionsSection = () => {
               {isActive && (
                 <Card
                   onClick={handleClickMore.bind(null, question.id)}
-                  className={`${styles.question__absolute} ${styles.question}__${question.id}`}
+                  className={` ${styles.question} ${styles.question__absolute} ${styles.question}__${question.id}`}
                   style={
                     {
-                      '--initial-top': `${clickPosition.top - 50}px`,
+                      '--initial-top': `${clickPosition.top - 100}px`,
                       '--initial-left': `${clickPosition.left - 100}px`,
                       '--initial-width': `${clickPosition.width}px`,
                       '--initial-height': `${clickPosition.height}px`,

@@ -15,7 +15,6 @@ const ContactUSModal = () => {
   }, []);
 
   const POPUP = {
-    isShow: true,
     form: {
       title: 'get in touch with us',
       inputs: [
@@ -46,7 +45,7 @@ const ContactUSModal = () => {
 
   return isMounted ? (
     <Portal id={MODAL_CONTAINER_ID}>
-      <PopupContactUs isShow={POPUP.isShow} form={POPUP.form} />
+      <PopupContactUs form={POPUP.form} />
     </Portal>
   ) : null;
 };

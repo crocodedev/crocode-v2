@@ -1,8 +1,6 @@
 import { usePathname, useRouter, useSearchParams } from 'next/navigation';
 import { useEffect, useState } from 'react';
 
-import Button from '@/components/ui/button';
-
 import styles from './styles.module.scss';
 
 type TProps = {
@@ -46,7 +44,7 @@ const Filters = ({ items, paramKey, className, title }: TProps) => {
       {title && <h3 className={styles.category}>{title}</h3>}
       <div className={styles.filters}>
         {items.map((item) => (
-          <Button
+          <button
             key={item}
             className={`${styles.button} ${
               selectedItems.includes(item) ? styles.selected : ''
@@ -54,7 +52,7 @@ const Filters = ({ items, paramKey, className, title }: TProps) => {
             onClick={() => toggleFilter(item)}
           >
             {item}
-          </Button>
+          </button>
         ))}
       </div>
     </div>

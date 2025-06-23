@@ -3,8 +3,8 @@ import bgColors from '../objects/bgColors'
 import fadeColors from '../objects/fadeColors'
 
 export default defineType({
-  name: 'textOne',
-  title: 'Text One',
+  name: 'about',
+  title: 'About',
   type: 'document',
   preview: {
     select: {
@@ -28,7 +28,7 @@ export default defineType({
       name: 'component',
       title: 'Component',
       type: 'string',
-      initialValue: 'TextOne',
+      initialValue: 'AboutUs',
       readOnly: true,
       hidden: true,
       validation: (Rule) => Rule.required(),

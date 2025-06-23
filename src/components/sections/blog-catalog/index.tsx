@@ -1,24 +1,41 @@
+import Image from 'next/image';
+import Link from 'next/link';
+
 import { SectionLayout } from '@/components/sections';
 import { Card, Filters, Pagination } from '@/components/ui';
 
+import { TImage } from '@/types/types';
+
 import styles from './styles.module.scss';
 
-const BLOG_CATEGORY = ['Latest', 'Technologies', 'UI/UX', 'Client guides'];
+type TProps = {
+  category: string[];
+  cards?: {
+    image: TImage;
+    link: string;
+  };
+};
 
-const BlogCatalogSection = () => {
+const BlogCatalogSection = ({ category }: TProps) => {
   return (
     <SectionLayout className={styles.section}>
       <Filters
-        items={BLOG_CATEGORY}
+        items={category}
         paramKey='category'
         className={styles.filters}
       />
       <div className={styles.container}>
         {Array.from({ length: 7 }).map((_, index) => (
           <Card key={index} className={styles.card}>
-            {index}
+            <Link className={styles.card__link} href='#'>
+              <Image
+                className={styles.card__image}
+                src={'/images/our-project.png'}
+                fill
+                alt='project'
+              />
+            </Link>
           </Card>
-          // TODO: AFTER DYNAMIC DATA FIX KEY
         ))}
       </div>
       <Pagination totalPages={10} currentPage={1} />

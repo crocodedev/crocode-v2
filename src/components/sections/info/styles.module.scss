@@ -5,11 +5,13 @@
   gap: fluid-size(40, 70);
 
   &__title {
-    line-height: 170%;
+    line-height: 150%;
     max-width: 78%;
   }
 
   &__text {
+    background-color: $color-bg-gray;
+
     @include media-up(xl) {
       padding: 88px 164px;
     }

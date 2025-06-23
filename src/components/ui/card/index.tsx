@@ -1,4 +1,4 @@
-import React, { PropsWithChildren, Ref } from 'react';
+import React, { PropsWithChildren, forwardRef } from 'react';
 
 import styles from './styles.module.scss';
 
@@ -6,27 +6,26 @@ type TProps = PropsWithChildren<unknown> & {
   className?: string;
   onClick?: () => void;
   id?: string;
-  style?: React.CSSProperties;
   color?: string;
-  ref?: Ref<HTMLDivElement>;
+  style?: React.CSSProperties;
 };
 
-const Card = ({
-  children,
-  id,
-  color = 'grey',
-  className,
-  ...props
-}: TProps) => {
-  return (
-    <div
-      id={id}
-      className={`${styles.card} ${className} ${styles[color && `card--${color}`]}`}
-      {...props}
-    >
-      {children}
-    </div>
-  );
-};
+const Card = forwardRef<HTMLDivElement, TProps>(
+  ({ children, id, color = 'grey', className, style, ...props }, ref) => {
+    return (
+      <div
+        id={id}
+        className={`${styles.card} ${className} ${styles[color && `card--${color}`]}`}
+        style={style}
+        ref={ref}
+        {...props}
+      >
+        {children}
+      </div>
+    );
+  },
+);
+
+Card.displayName = 'Card';
 
 export default Card;

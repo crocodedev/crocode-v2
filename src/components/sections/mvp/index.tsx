@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
 import { Card } from '@/components/ui';
 
 import SectionLayout from '../section-layout';
@@ -26,6 +27,14 @@ const DATA_ITEMS = [
       'JavaScript, the third essential tool, allows developers to modify websites according to user requirements.',
   },
 ];
+
+type TProps = {
+  title: string;
+  cards: {
+    title: string;
+    text: string;
+  };
+};
 
 const MVPSection = () => {
   return (
