@@ -53,10 +53,9 @@ const Banner = ({ children, title, className, showModels }: TProps) => {
         models={MODELS_LIST}
         className={styles.models}
         showModels={showModels}
-      >
+      />
         <h2 className={styles.banner__title}>{title}</h2>
         {children}
-      </ModelsLayout>
     </div>
   );
 };

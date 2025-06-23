@@ -1,7 +1,5 @@
 import { useEffect, useState } from 'react';
 
-// import { Button } from '@/components/ui';
-
 import { IconArrowUp } from '../icons';
 import Portal, { createContainer } from '../portal';
 

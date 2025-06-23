@@ -59,30 +59,28 @@ const Hero = ({
     src: '/images/background.jpg',
     alt: 'background',
   },
-  modelsIsShow = true,
   typeText = 'default',
 }: TProps) => {
   return (
     <SectionLayout className={styles.section}>
-      <ModelsLayout models={COMPONENT_MODELS} showModels={modelsIsShow}>
-        <div className={styles.hero}>
-          <Image
-            loading='eager'
-            className={styles.hero__background}
-            src={image.src}
-            fill
-            alt={image.alt}
-          />
-          <div className={styles.hero__content}>
-            <h1
-              className={`${styles.hero__title} ${styles[`hero__title_${typeText}`]}`}
-            >
-              {title}
-            </h1>
-            <Button className={styles.hero__button}>Contact us</Button>
-          </div>
+      <ModelsLayout models={COMPONENT_MODELS} lightIntensity={4} />
+      <div className={styles.hero}>
+        <Image
+          loading='eager'
+          className={styles.hero__background}
+          src={image.src}
+          fill
+          alt={image.alt}
+        />
+        <div className={styles.hero__content}>
+          <h1
+            className={`${styles.hero__title} ${styles[`hero__title_${typeText}`]}`}
+          >
+            {title}
+          </h1>
+          <Button className={styles.hero__button}>Contact us</Button>
         </div>
-      </ModelsLayout>
+      </div>
     </SectionLayout>
   );
 };

@@ -1,4 +1,3 @@
-/* eslint-disable react-hooks/rules-of-hooks */
 import { useCallback, useEffect, useMemo, useRef } from 'react';
 import {
   Camera,
@@ -39,7 +38,6 @@ export default function PrimitiveFactory({
   className,
   lightIntensity = 4,
 }: PrimitiveFactoryProps) {
-  // return;
   const containerRef = useRef<HTMLDivElement>(null);
   const rendererRef = useRef<WebGLRenderer | null>(null);
   const animationId = useRef<number | null>(null);
@@ -73,7 +71,9 @@ export default function PrimitiveFactory({
     setupLight(sceneRef.current, lightIntensity);
     return () => {
       if (rendererRef.current) {
-        container.removeChild(rendererRef.current.domElement);
+        if (container) {
+          container.removeChild(rendererRef.current.domElement);
+        }
         rendererRef.current.dispose();
         rendererRef.current = null;
       }
@@ -266,8 +266,9 @@ export default function PrimitiveFactory({
       }
 
       const camera = cameraRef.current as PerspectiveCamera;
-      const aspect =
-        containerRef.current!.clientWidth / containerRef.current!.clientHeight;
+      const container = containerRef.current;
+      if (!container) return;
+      const aspect = container.clientWidth / container.clientHeight;
       const fovRad = (camera.fov * Math.PI) / 180;
       const cameraZ = camera.position.z;
       const halfHeight = Math.tan(fovRad / 2) * cameraZ;

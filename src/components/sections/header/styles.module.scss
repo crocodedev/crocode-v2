@@ -6,7 +6,7 @@
     position: absolute;
     transform: translate(-50%, -50%);
     left: 50%;
-    top: 13%;
+    top: 15%;
     height: 200px;
   }
 
@@ -93,7 +93,7 @@
         width: 0;
         height: 3px;
         background-color: $color-bg-green;
-        transition: 0.3s;
+        transition: all 0.6s linear;
         transform: translate(-50%, -50%);
       }
 
@@ -132,9 +132,46 @@
           padding: 0px;
 
           &:last-child {
-            display: none;
+            padding: 0px;
           }
         }
+      }
+    }
+
+    &__actions {
+      width: 100%;
+      @include flex-center;
+
+      .mobile {
+        background-color: $color-bg-black;
+        color: $color-text-white;
+      }
+    }
+
+    &__button {
+      text-decoration: none;
+      text-wrap: nowrap;
+      font-weight: 700;
+    }
+  }
+
+  &__link {
+    &_mobile {
+      display: none;
+      padding: 5px 15px;
+      padding-left: 0px;
+
+      @include media-down('md') {
+        display: flex;
+      }
+    }
+
+    &_desktop {
+      display: none;
+      padding: 5px 15px;
+
+      @include media-up('md') {
+        display: flex;
       }
     }
   }
@@ -142,40 +179,6 @@
   &__actions {
     width: 100%;
     @include flex-center;
-
-    .mobile {
-      background-color: $color-bg-black;
-      color: $color-text-white;
-    }
-  }
-
-  &__button {
-    text-decoration: none;
-    color: $color-text-black;
-    font-size: $size-title-2;
-    font-weight: 700;
-    padding: 13px 25px;
-    border-radius: 60px;
-    background: $color-bg-green;
-  }
-
-  &__link_mobile {
-    display: none;
-    padding: 5px 15px;
-    padding-left: 0px;
-
-    @include media-down('md') {
-      display: flex;
-    }
-  }
-
-  &__link_desktop {
-    display: none;
-    padding: 5px 15px;
-
-    @include media-up('md') {
-      display: flex;
-    }
   }
 }
 
@@ -191,8 +194,10 @@
   padding: 0;
   cursor: pointer;
   z-index: $z-index-header;
-  background-color: $color-bg-green;
-  border-radius: 60px;
+
+  &:hover {
+    background-color: $color-bg-green;
+  }
 
   &__wrapper {
     width: 100%;
@@ -205,8 +210,8 @@
     width: 20px;
     height: 4.5px;
     left: 0;
-    border-radius: inherit;
-    background-color: inherit;
+    border-radius: 60px;
+    background-color: $color-bg-green;
     transition: 0.3s linear;
   }
 
