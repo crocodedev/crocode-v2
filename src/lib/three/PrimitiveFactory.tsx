@@ -39,7 +39,7 @@ export default function PrimitiveFactory({
   className,
   lightIntensity = 4,
 }: PrimitiveFactoryProps) {
-  return;
+  // return;
   const containerRef = useRef<HTMLDivElement>(null);
   const rendererRef = useRef<WebGLRenderer | null>(null);
   const animationId = useRef<number | null>(null);

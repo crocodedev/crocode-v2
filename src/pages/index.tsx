@@ -14,7 +14,6 @@ import { AnchorType } from '@/components/ui/title/types';
 
 const PROPS_SECTIONS = {
   hero: {
-    modelsIsShow: false,
     title: 'crocode',
     typeText: 'main',
   },

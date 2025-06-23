@@ -8,7 +8,6 @@ import {
 
 export const PROPS_SECTIONS = {
   hero: {
-    modelsIsShow: false,
     title: 'our services',
     image: {
       src: '/images/background.jpg',
