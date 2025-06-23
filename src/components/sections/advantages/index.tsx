@@ -52,7 +52,7 @@ const MODELS_LIST = [
 const AdvantagesSection = () => {
   return (
     <SectionLayout className={styles.section}>
-      <ModelsLayout models={MODELS_LIST}>
+      <ModelsLayout models={MODELS_LIST}/>
         <div className={styles.container}>
           {DATA_ITEMS.map((item) => (
             <Card key={item.title} className={styles.card}>
@@ -61,7 +61,6 @@ const AdvantagesSection = () => {
             </Card>
           ))}
         </div>
-      </ModelsLayout>
     </SectionLayout>
   );
 };
