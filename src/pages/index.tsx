@@ -11,6 +11,7 @@ import {
   Technologies,
 } from '@/components/sections';
 import { AnchorType } from '@/components/ui/title/types';
+import { TLink } from '@/types/link';
 
 const PROPS_SECTIONS = {
   hero: {
@@ -71,7 +72,7 @@ const PROPS_SECTIONS = {
     linkDetails: {
       text: 'Learn in detail',
       href: '/',
-    },
+    } as TLink,
   },
 };
 

@@ -269,8 +269,7 @@ export default function PrimitiveFactory({
       const camera = cameraRef.current as PerspectiveCamera;
       const container = containerRef.current;
       if (!container) return;
-      const aspect =
-        container.clientWidth / container.clientHeight;
+      const aspect = container.clientWidth / container.clientHeight;
       const fovRad = (camera.fov * Math.PI) / 180;
       const cameraZ = camera.position.z;
       const halfHeight = Math.tan(fovRad / 2) * cameraZ;

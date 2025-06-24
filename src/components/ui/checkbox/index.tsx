@@ -9,10 +9,11 @@ type TProps = TInput & {
     href: string;
     label: string;
   };
+  error?: string;
   className?: string;
 };
 
-const Checkbox = ({ type, label, link, className }: TProps) => {
+const Checkbox = ({ type, label, link, className, ...rest }: TProps) => {
   const [isChecked, setIsChecked] = useState(false);
 
   const toggle = () => {
@@ -21,7 +22,12 @@ const Checkbox = ({ type, label, link, className }: TProps) => {
 
   return (
     <label className={`${styles.checkbox} ${className}`}>
-      <input type={type} className={styles.checkbox__false} onInput={toggle} />
+      <input
+        type={type}
+        className={styles.checkbox__false}
+        onInput={toggle}
+        {...rest}
+      />
       <span
         className={`${styles.checkbox__true} ${isChecked && styles.checkbox__true_checked}`}
       />

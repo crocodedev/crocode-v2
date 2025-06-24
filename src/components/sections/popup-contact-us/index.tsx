@@ -1,5 +1,6 @@
 /* eslint-disable jsx-a11y/click-events-have-key-events */
 import Image from 'next/image';
+import { FieldError, useForm } from 'react-hook-form';
 
 import { IconCross } from '@/components/icons';
 import { useMainContext } from '@/components/main-context';
@@ -24,12 +25,28 @@ type TProps = {
   };
 };
 
+type FormValues = {
+  [key: string]: string;
+};
+
 const PopupContactUs = ({ form, className }: TProps) => {
   const { isOpenPopup, closePopup } = useMainContext();
 
   const closePopupBeyond = (event: React.MouseEvent<HTMLDivElement>) => {
     const target = event.target as HTMLDivElement;
     if (target.classList?.contains('popup')) closePopup();
+  };
+
+  const {
+    register,
+    handleSubmit,
+    formState: { errors, isValid },
+  } = useForm({
+    mode: 'onChange',
+  });
+
+  const onSubmit = (data: FormValues) => {
+    console.log('Form submitted:', data);
   };
 
   return (
@@ -57,16 +74,25 @@ const PopupContactUs = ({ form, className }: TProps) => {
               <IconCross />
             </button>
           </div>
-          <form className={styles.popup__form}>
+          <form
+            className={styles.popup__form}
+            onSubmit={handleSubmit(onSubmit)}
+          >
             <h3 className={styles.popup__title}>{form.title}</h3>
             <div className={styles.popup__inputs}>
               {form.inputs.map((input, index) => (
                 <Input
-                  className={styles.popup__input}
+                  key={index}
                   type={input.type}
                   label={input.label}
                   placeholder={input.placeholder}
-                  key={index}
+                  value={input.value}
+                  className={styles.popup__input}
+                  error={
+                    (errors as Record<string, FieldError>)?.[input.name || '']
+                      ?.message
+                  }
+                  {...register(input.name, input.rules)}
                 />
               ))}
             </div>
@@ -78,7 +104,12 @@ const PopupContactUs = ({ form, className }: TProps) => {
                 {form.link?.text}
               </a>
             </div>
-            <Button className={styles.popup__button} view={'second'}>
+            <Button
+              type='submit'
+              className={`${styles.popup__button} ${!isValid ? styles.popup__button_disabled : ''}`}
+              disabled={!isValid}
+              view={'second'}
+            >
               Send form
             </Button>
           </form>
