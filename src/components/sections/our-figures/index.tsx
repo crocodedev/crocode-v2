@@ -44,7 +44,7 @@ const MODELS_LIST = [
 const OurFiguresSection = () => {
   return (
     <div className={styles.wrapper}>
-      <ModelsLayout models={MODELS_LIST} showModels={false}/>
+      <ModelsLayout models={MODELS_LIST} lightIntensity={15}/>
         <SectionLayout className={styles.section}>
           {OUR_FIGURES.map(({ number, label }) => (
             <Card key={label} className={styles.card}>
