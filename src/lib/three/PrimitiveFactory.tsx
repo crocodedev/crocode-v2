@@ -1,11 +1,12 @@
 /* eslint-disable react-hooks/rules-of-hooks */
 import { useCallback, useEffect, useMemo, useRef } from 'react';
 import {
+  ACESFilmicToneMapping,
   Camera,
   Euler,
   Group,
   Mesh,
-  MeshStandardMaterial,
+  PCFSoftShadowMap,
   PerspectiveCamera,
   Raycaster,
   Scene,
@@ -57,19 +58,30 @@ export default function PrimitiveFactory({
 
   useEffect(() => {
     if (!canLoad3D) return;
+
     const container = containerRef.current;
+
     if (!container || !window.WebGLRenderingContext) {
       console.error('WebGL or container not available');
       return;
     }
+
     const renderer = new WebGLRenderer({ antialias: true, alpha: true });
     renderer.setPixelRatio(QUALITY.LOW);
     renderer.setSize(container.clientWidth, container.clientHeight);
+
+    renderer.shadowMap.enabled = true;
+    renderer.shadowMap.type = PCFSoftShadowMap;
+    renderer.toneMapping = ACESFilmicToneMapping;
+    renderer.toneMappingExposure = 1;
+
     container.appendChild(renderer.domElement);
     rendererRef.current = renderer;
     const camera = setupCamera(container, [0, 0, 1]);
     cameraRef.current = camera;
+
     setupLight(sceneRef.current, lightIntensity);
+
     return () => {
       if (rendererRef.current) {
         if (container) {
@@ -107,7 +119,6 @@ export default function PrimitiveFactory({
         position = { desktop: [0, 0, 0], mobile: [0, 0, 0] },
         scale = { desktop: 1, mobile: 1 },
         rotation = [-Math.PI / 1.3, 0, 0],
-        isHaveTexture,
       }) => {
         if (
           !position.desktop ||
@@ -144,13 +155,6 @@ export default function PrimitiveFactory({
                 const mesh = child as Mesh;
                 mesh.castShadow = true;
                 mesh.receiveShadow = true;
-                if (isHaveTexture) {
-                  mesh.material = new MeshStandardMaterial({
-                    color: 0xffffff,
-                    metalness: 0.65,
-                    roughness: 0,
-                  });
-                }
                 meshes.push(mesh);
               }
             });
@@ -229,6 +233,7 @@ export default function PrimitiveFactory({
 
   const updatePositions = useCallback(() => {
     const time = performance.now() * 0.001;
+
 
     modelDataRef.current.forEach((data, index) => {
       const { group, velocity, basePosition, initialPosition, meshes } = data;

@@ -36,7 +36,7 @@ const COMPONENT_MODELS = [
     prompt: MODELS.CROSS.url,
     scale: { desktop: 0.15, mobile: 0.08 },
     rotation: [0, Math.PI * -0.8, Math.PI / 8],
-    position: { desktop: [0.3, 0.2, 0], mobile: [-0.01, -0.12, 0] },
+    position: { desktop: [0.4, 0.15, 0], mobile: [-0.01, -0.12, 0] },
   },
   {
     prompt: MODELS.HOLLOW_PLANET.url,
