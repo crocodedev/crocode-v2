@@ -25,7 +25,13 @@ const MODELS_LIST = [
 ];
 
 const ModelsSectionTemplate = () => {
-  return <PrimitiveFactory lightIntensity={10} className={styles.models} models={MODELS_LIST} />;
+  return (
+    <PrimitiveFactory
+      lightIntensity={10}
+      className={styles.models}
+      models={MODELS_LIST}
+    />
+  );
 };
 
 export default ModelsSectionTemplate;

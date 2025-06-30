@@ -1,11 +1,13 @@
 import ModelsLayout from '../models-layout';
-import AuthorArticle from './author-article'
+
 import AboutUs from './about-us';
 import Advanteges from './advantages';
+import AuthorArticle from './author-article';
 import Banner from './banner';
 import Benefits from './benefits';
 import Blog from './blog';
 import BlogCatalog from './blog-catalog';
+import BlogContent from './blog-content';
 import CardImageFive from './card-image-five';
 import CardGrid from './cards-grid';
 import Cases from './cases';
@@ -33,7 +35,6 @@ import Subscribe from './subscribe';
 import Technologies from './technologies';
 import TechnologyStack from './technology-stack';
 import WhyCrocode from './why-crocode';
-import BlogContent from './blog-content';
 
 export {
   SectionLayout,

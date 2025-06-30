@@ -1,22 +1,23 @@
 import { GetServerSideProps } from 'next';
-import { fetchGraphQL } from '@/lib/graphql';
 import { useRouter } from 'next/router';
-import Image from 'next/image';
-import { getCaseItem } from '@/graphql/queries/cases';
-import { TCase } from '@/components/sections/cases/type';
-import { TSanityError } from '@/types/sanityError';
 import { Fragment } from 'react';
-import { AboutUs, ContactUsForm, Hero, SectionLayout } from '@/components/sections';
 
+import { AboutUs, ContactUsForm, Hero } from '@/components/sections';
+import { TCase } from '@/components/sections/cases/type';
+
+import { TSanityError } from '@/types/sanityError';
+
+import { getCaseItem } from '@/graphql/queries/cases';
+import { fetchGraphQL } from '@/lib/graphql';
 
 type TProps = {
   caseItem: TCase;
   errors: TSanityError[];
-}
+};
 
 const CasePage = ({ caseItem, errors }: TProps) => {
   const router = useRouter();
-  const { title, casesItemImage } = caseItem;
+  const { title } = caseItem;
 
   if (errors) {
     return <div>Error {errors[0].message}</div>;
@@ -35,7 +36,9 @@ const CasePage = ({ caseItem, errors }: TProps) => {
   );
 };
 
-export const getServerSideProps: GetServerSideProps<TProps> = (async (context) => {
+export const getServerSideProps: GetServerSideProps<TProps> = (async (
+  context,
+) => {
   const slug = context.params?.slug;
 
   const query = getCaseItem(slug as string);
@@ -44,11 +47,10 @@ export const getServerSideProps: GetServerSideProps<TProps> = (async (context) =
   const { data, errors } = await fetchGraphQL(query, variables);
   const caseItem = data?.allCasesItem?.[0] || null;
 
-
   return {
     props: {
       caseItem: caseItem ?? null,
-      errors: errors ?? null
+      errors: errors ?? null,
     },
   };
 }) satisfies GetServerSideProps<TProps>;

@@ -63,10 +63,9 @@ export const getBlogArticle = (slug: string) => `
 export const getBlogArticles = (
   limit: number = ITEMS_PER_PAGE,
   offset: number = 0,
-  category?: string
+  category?: string,
 ) => {
   let filter = '';
-
 
   if (category) {
     const categories = category.split(',').map((c) => c.trim());

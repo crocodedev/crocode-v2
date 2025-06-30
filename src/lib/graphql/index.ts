@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import { ApolloClient, InMemoryCache, gql } from '@apollo/client';
 
 const client = new ApolloClient({
@@ -8,7 +9,10 @@ const client = new ApolloClient({
   },
 });
 
-export async function fetchGraphQL<T = any>(query: string, variables?: Record<string, any>): Promise<{ data: T, errors: any }> {
+export async function fetchGraphQL<T = any>(
+  query: string,
+  variables?: Record<string, any>,
+): Promise<{ data: T; errors: any }> {
   try {
     const { data, errors } = await client.query({
       query: gql(query),

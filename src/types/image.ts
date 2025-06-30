@@ -3,11 +3,11 @@ export type TImage = {
   alt: string;
 };
 
-export type TSanityImage={
-  altText:string;
-  image:{
-    asset:{
-      url:string;
-    }
-  }
-}
+export type TSanityImage = {
+  altText: string;
+  image: {
+    asset: {
+      url: string;
+    };
+  };
+};

@@ -1,4 +1,3 @@
-/* eslint-disable prettier/prettier */
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import Head from 'next/head';
 

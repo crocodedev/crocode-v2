@@ -1,3 +1,3 @@
 export type TSanityError = {
-    message: string
-}
+  message: string;
+};

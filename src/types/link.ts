@@ -27,4 +27,4 @@ export type TLink = {
   _key: string | null;
   text: string;
   href: string;
-}
+};

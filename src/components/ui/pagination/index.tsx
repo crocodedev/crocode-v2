@@ -1,21 +1,18 @@
 import { usePathname, useRouter, useSearchParams } from 'next/navigation';
 
 import { IconChevronLeft, IconChevronRight } from '@/components/icons';
+import Button from '@/components/ui/button';
+
+import { TPagination } from '@/types/pagination';
 
 import styles from './styles.module.scss';
-import Button from '@/components/ui/button';
-import { TPagination } from '@/types/pagination';
 
 type TProps = {
   paginationData: TPagination;
   onPageChange?: (page: number) => void;
-}
+};
 
-
-const Pagination = ({
-  onPageChange,
-  paginationData,
-}: TProps) => {
+const Pagination = ({ onPageChange, paginationData }: TProps) => {
   const { currentPage, totalPages } = paginationData;
 
   const router = useRouter();

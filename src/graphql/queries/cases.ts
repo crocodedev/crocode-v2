@@ -39,12 +39,12 @@ export const getCaseItem = (slug: string) => `
       casesItemImage { altText image { asset { url } } }
     }
   }
-`
+`;
 
 export const getCasesItems = (
   limit: number = ITEMS_PER_PAGE,
   offset: number = 0,
-  country?: string
+  country?: string,
 ) => {
   let filter = '';
 
