@@ -20,11 +20,11 @@ export type TPdf = {
 };
 
 export type TLink = {
-  linkExternal: TLinkExternal | null;
-  linkInternal: TLinkInternal | null;
+  linkExternal?: TLinkExternal | null;
+  linkInternal?: TLinkInternal | null;
   pdf?: TPdf;
-  title: string;
-  _key: string | null;
+  title?: string;
+  _key?: string | null;
   text: string;
   href: string;
 };
