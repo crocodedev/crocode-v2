@@ -44,7 +44,6 @@ const CasesPage = ({ cases, errors, paginationData }: TProps) => {
 export const getServerSideProps = (async (context) => {
   try {
     const { tech, country, page } = context.query;
-
     const currentPage = page ? Math.max(1, parseInt(page as string)) : 1;
     const offset = (currentPage - 1) * ITEMS_PER_PAGE;
 
