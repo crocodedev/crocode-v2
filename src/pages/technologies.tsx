@@ -2,7 +2,7 @@ import { Hero, TechnologyStack } from '@/components/sections';
 
 const PROPS_SECTIONS = {
   hero: {
-    modelsIsShow: false,
+    modelsIsShow: true,
     title: 'OUR TECHNOLOGY STACK',
   },
 };

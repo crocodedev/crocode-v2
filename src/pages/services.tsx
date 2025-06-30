@@ -8,7 +8,7 @@ import {
 
 export const PROPS_SECTIONS = {
   hero: {
-    modelsIsShow: false,
+    modelsIsShow: true,
     title: 'our services',
     image: {
       src: '/images/background.jpg',
@@ -17,7 +17,7 @@ export const PROPS_SECTIONS = {
   },
   offeringsTemplate: {
     title: 'what we can',
-    modelsIsShow: false,
+    modelsIsShow: true,
   },
   aboutUs: {
     title: ' say about us',

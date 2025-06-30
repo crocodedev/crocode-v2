@@ -17,6 +17,7 @@
   gap: 70px;
   font-weight: 700;
   font-size: 14px;
+  margin-bottom: fluid-size(0, 30);
   width: 1000px;
   height: 300px;
   padding: 15px;
@@ -28,6 +29,8 @@
 
   &__background {
     z-index: -1;
+    border-radius: 16px;
+    box-shadow: 0 3px 5px 1px $color-bg-black ;
     object-fit: cover;
   }
 

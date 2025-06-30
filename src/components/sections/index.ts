@@ -1,5 +1,5 @@
 import ModelsLayout from '../models-layout';
-
+import AuthorArticle from './author-article'
 import AboutUs from './about-us';
 import Advanteges from './advantages';
 import Banner from './banner';
@@ -33,10 +33,12 @@ import Subscribe from './subscribe';
 import Technologies from './technologies';
 import TechnologyStack from './technology-stack';
 import WhyCrocode from './why-crocode';
+import BlogContent from './blog-content';
 
 export {
   SectionLayout,
   MVP,
+  BlogContent,
   AboutUs,
   OfferingsTemplate,
   DedicatedSoftware,
@@ -48,6 +50,7 @@ export {
   GetStarted,
   Cases,
   Footer,
+  AuthorArticle,
   Header,
   Benefits,
   ModelsLayout,

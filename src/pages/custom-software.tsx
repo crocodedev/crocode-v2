@@ -11,7 +11,7 @@ import {
 
 const PROPS_SECTIONS = {
   hero: {
-    modelsIsShow: false,
+    modelsIsShow: true,
     title: 'CUSTOM SOFTWARE DEVELOPMENT',
   },
 };

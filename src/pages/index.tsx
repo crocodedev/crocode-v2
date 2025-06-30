@@ -15,13 +15,13 @@ import { TLink } from '@/types/link';
 
 const PROPS_SECTIONS = {
   hero: {
-    modelsIsShow: false,
+    modelsIsShow: true,
     title: 'crocode',
     typeText: 'main',
   },
   offeringsTemplate: {
     title: 'Services',
-    modelsIsShow: false,
+    modelsIsShow: true,
     anchor: 'right' as AnchorType,
   },
   banner: {
