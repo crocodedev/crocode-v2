@@ -1,17 +1,28 @@
 import {
   AmbientLight,
   Camera,
-  SpotLight, 
   PerspectiveCamera,
   Scene,
+  SpotLight,
   Vector3,
 } from 'three';
 import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls';
 
 export const setupLight = (scene: Scene, lightIntensity = 1) => {
-
-  const createLight = (position: Vector3, target: Vector3, angle: number, penumbra: number) => {
-    const light = new SpotLight('#eff2e1', lightIntensity * 15, 5, angle, penumbra, 2);
+  const createLight = (
+    position: Vector3,
+    target: Vector3,
+    angle: number,
+    penumbra: number,
+  ) => {
+    const light = new SpotLight(
+      '#eff2e1',
+      lightIntensity * 15,
+      5,
+      angle,
+      penumbra,
+      2,
+    );
     light.position.set(position.x, position.y, position.z);
     light.target.position.set(target.x, target.y, target.z);
     light.castShadow = true;
@@ -20,7 +31,7 @@ export const setupLight = (scene: Scene, lightIntensity = 1) => {
     light.shadow.camera.near = 1;
     light.shadow.camera.far = 10;
     light.shadow.focus = 1;
-    light.shadow.bias = - .003;
+    light.shadow.bias = -0.003;
 
     scene.add(light);
     scene.add(light.target);
@@ -34,10 +45,9 @@ export const setupLight = (scene: Scene, lightIntensity = 1) => {
   createLight(new Vector3(-2, -2, 2), new Vector3(0, 2, -2), 0.2, 1);
   createLight(new Vector3(2, -2, 2), new Vector3(0, 2, -2), 0.2, 1);
 
-  
   createLight(new Vector3(0, 2, 2), new Vector3(0, -2, -2), 0.2, 1);
 
-  const ambient = new AmbientLight('white', .5);
+  const ambient = new AmbientLight('white', 0.5);
   scene.add(ambient);
 };
 

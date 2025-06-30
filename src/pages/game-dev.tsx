@@ -1,3 +1,5 @@
+import { GetServerSideProps } from 'next';
+
 import {
   AboutUs,
   CardGrid,
@@ -5,10 +7,17 @@ import {
   Hero,
   Info,
 } from '@/components/sections';
+import Seo from '@/components/seo';
+
+import { TPageProps } from '@/types/pageProps';
+
+import { getSeoProps } from '@/utils/seo';
+
+import { useRedirect } from '@/hooks';
 
 const PROPS_SECTIONS = {
   hero: {
-    modelsIsShow: false,
+    modelsIsShow: true,
     title: 'GAME DEVELOPMENT',
   },
   info: {
@@ -47,9 +56,12 @@ const PROPS_SECTIONS = {
   },
 };
 
-const GameDevPage = () => {
+const GameDevPage = ({ allRedirects, seo }: TPageProps) => {
+  useRedirect(allRedirects);
+
   return (
     <>
+      <Seo {...seo} />
       <Hero {...PROPS_SECTIONS.hero} />
       <Info {...PROPS_SECTIONS.info} />
       <CardGrid {...PROPS_SECTIONS.cardGrid} />
@@ -57,6 +69,16 @@ const GameDevPage = () => {
       <ContactUsForm />
     </>
   );
+};
+
+export const getServerSideProps: GetServerSideProps<TPageProps> = async (
+  context,
+) => {
+  const slug = context.resolvedUrl;
+
+  return {
+    props: await getSeoProps(slug),
+  };
 };
 
 export default GameDevPage;

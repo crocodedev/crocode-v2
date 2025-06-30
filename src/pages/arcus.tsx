@@ -9,7 +9,7 @@ import {
 
 const PROPS_SECTIONS = {
   hero: {
-    modelsIsShow: false,
+    modelsIsShow: true,
     title: 'ARCUS',
   },
   banner: {
