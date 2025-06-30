@@ -1,3 +1,5 @@
+import { GetServerSideProps } from 'next';
+
 import {
   AboutUs,
   ContactUsForm,
@@ -5,6 +7,13 @@ import {
   OfferingsTemplate,
   Questions,
 } from '@/components/sections';
+import Seo from '@/components/seo';
+
+import { TPageProps } from '@/types/pageProps';
+
+import { getSeoProps } from '@/utils/seo';
+
+import { useRedirect } from '@/hooks';
 
 export const PROPS_SECTIONS = {
   hero: {
@@ -62,9 +71,12 @@ export const PROPS_SECTIONS = {
   },
 };
 
-const ServicesPage = () => {
+const ServicesPage = ({ allRedirects, seo }: TPageProps) => {
+  useRedirect(allRedirects);
+
   return (
     <>
+      <Seo {...seo} />
       <Hero {...PROPS_SECTIONS.hero} />
       <OfferingsTemplate {...PROPS_SECTIONS.offeringsTemplate} />
       <Questions />
@@ -72,6 +84,16 @@ const ServicesPage = () => {
       <ContactUsForm />
     </>
   );
+};
+
+export const getServerSideProps: GetServerSideProps<TPageProps> = async (
+  context,
+) => {
+  const slug = context.resolvedUrl;
+
+  return {
+    props: await getSeoProps(slug),
+  };
 };
 
 export default ServicesPage;

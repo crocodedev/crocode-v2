@@ -11,6 +11,12 @@ const seo = `
       image {
         asset {
           url
+          metadata {
+            dimensions {
+              width
+              height
+            }
+          }
         }
       }
     }

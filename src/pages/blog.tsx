@@ -30,8 +30,6 @@ type TProps = {
 };
 
 const BlogPage = ({ artcles, errors, paginationData }: TProps) => {
-  console.log(errors);
-
   if (errors) {
     return <div>Error {errors[0].message}</div>;
   }

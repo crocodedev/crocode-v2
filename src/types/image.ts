@@ -8,6 +8,16 @@ export type TSanityImage = {
   image: {
     asset: {
       url: string;
+      metadata: {
+        dimensions: {
+          width: number;
+          height: number;
+        };
+      };
+    };
+    hotspot: {
+      width: number;
+      height: number;
     };
   };
 };

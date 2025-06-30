@@ -1,3 +1,5 @@
+import { GetServerSideProps } from 'next';
+
 import {
   AboutUs,
   Banner,
@@ -10,8 +12,15 @@ import {
   OurProject,
   Technologies,
 } from '@/components/sections';
+import Seo from '@/components/seo';
 import { AnchorType } from '@/components/ui/title/types';
+
+import useRedirect from '@/hooks/useRedirect';
+
 import { TLink } from '@/types/link';
+import { TPageProps } from '@/types/pageProps';
+
+import { getSeoProps } from '@/utils/seo';
 
 const PROPS_SECTIONS = {
   hero: {
@@ -76,9 +85,13 @@ const PROPS_SECTIONS = {
   },
 };
 
-const HomePage = () => {
+const HomePage = ({ seo, allRedirects }: TPageProps) => {
+  console.log(seo);
+  useRedirect(allRedirects);
+
   return (
     <>
+      <Seo {...seo} />
       <Hero {...PROPS_SECTIONS.hero} />
       <Industries />
       <OfferingsTemplate {...PROPS_SECTIONS.offeringsTemplate} />
@@ -91,6 +104,15 @@ const HomePage = () => {
       <ContactUsForm />
     </>
   );
+};
+
+export const getServerSideProps: GetServerSideProps<TPageProps> = async (
+  context,
+) => {
+  const slug = context.resolvedUrl;
+  return {
+    props: await getSeoProps(slug),
+  };
 };
 
 export default HomePage;

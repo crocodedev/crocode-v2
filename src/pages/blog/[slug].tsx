@@ -9,18 +9,25 @@ import {
   Subscribe,
 } from '@/components/sections';
 import { TArticle } from '@/components/sections/blog-catalog/types';
+import Seo from '@/components/seo';
 
+import { TPageProps } from '@/types/pageProps';
 import { TSanityError } from '@/types/sanityError';
 
+import { getSeoProps } from '@/utils/seo';
+
 import { getBlogArticle } from '@/graphql/queries/blog';
+import { useRedirect } from '@/hooks';
 import { fetchGraphQL } from '@/lib/graphql';
 
-type TProps = {
+type TProps = TPageProps & {
   article: TArticle | null;
   errors: TSanityError[];
 };
 
-const ArticlePage = ({ article, errors }: TProps) => {
+const ArticlePage = ({ article, errors, seo, allRedirects }: TProps) => {
+  useRedirect(allRedirects);
+
   const router = useRouter();
 
   if (errors) {
@@ -33,6 +40,7 @@ const ArticlePage = ({ article, errors }: TProps) => {
 
   return (
     <Fragment>
+      <Seo {...seo} />
       <Hero title={article.title} modelsIsShow={true} />
       <AuthorArticle text={article.author} />
       <BlogContent article={article} />
@@ -56,6 +64,8 @@ export const getServerSideProps: GetServerSideProps<TProps> = (async (
     props: {
       article: article ?? null,
       errors: errors ?? null,
+      seo: (await getSeoProps(slug)).seo,
+      allRedirects: (await getSeoProps(slug)).allRedirects,
     },
   };
 }) satisfies GetServerSideProps<TProps>;
