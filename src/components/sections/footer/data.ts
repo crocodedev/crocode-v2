@@ -53,7 +53,7 @@ export const data: TFooter = {
         },
         {
           text: 'MVP Development',
-          href: '/mwp',
+          href: '/mvp',
         },
         {
           text: 'Custom Software',

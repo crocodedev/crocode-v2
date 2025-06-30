@@ -7,3 +7,12 @@ main {
     flex: 1 0 auto;
   }
 }
+
+.flag-dropdown .open {
+  background: #000 !important;
+}
+
+.react-tel-input .selected-flag:hover,
+.react-tel-input .selected-flag:focus {
+  background: #000 !important;
+}

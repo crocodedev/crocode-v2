@@ -1,18 +1,20 @@
 import { usePathname, useRouter, useSearchParams } from 'next/navigation';
 
 import { IconChevronLeft, IconChevronRight } from '@/components/icons';
+import Button from '@/components/ui/button';
+
+import { TPagination } from '@/types/pagination';
 
 import styles from './styles.module.scss';
 
-const Pagination = ({
-  currentPage,
-  totalPages,
-  onPageChange,
-}: {
-  currentPage: number;
-  totalPages: number;
+type TProps = {
+  paginationData: TPagination;
   onPageChange?: (page: number) => void;
-}) => {
+};
+
+const Pagination = ({ onPageChange, paginationData }: TProps) => {
+  const { currentPage, totalPages } = paginationData;
+
   const router = useRouter();
   const pathname = usePathname();
   const searchParams = useSearchParams();
@@ -32,7 +34,7 @@ const Pagination = ({
 
   return (
     <div className={styles.pagination}>
-      <button
+      <Button
         type='button'
         className={styles.arrow}
         onClick={() => handlePageChange(currentPage - 1)}
@@ -40,9 +42,8 @@ const Pagination = ({
         aria-label='Previous page'
       >
         <IconChevronLeft />
-      </button>
-
-      <button
+      </Button>
+      <Button
         type='button'
         className={styles.arrow}
         onClick={() => handlePageChange(currentPage + 1)}
@@ -50,7 +51,7 @@ const Pagination = ({
         aria-label='Next page'
       >
         <IconChevronRight />
-      </button>
+      </Button>
     </div>
   );
 };

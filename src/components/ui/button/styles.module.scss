@@ -14,12 +14,6 @@
     background-color: $color-bg-black;
   }
 
-  &:disabled {
-    cursor: not-allowed;
-    color: $color-text-black;
-    background-color: $color-bg-gray;
-  }
-
   &__prime {
     color: $color-text-white;
     background-color: $color-text-green;
@@ -32,5 +26,11 @@
     &:hover {
       color: $color-text-green;
     }
+  }
+
+  &:disabled {
+    cursor: not-allowed;
+    color: $color-text-black;
+    background-color: $color-bg-gray;
   }
 }

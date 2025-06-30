@@ -1,14 +1,27 @@
 import Image from 'next/image';
+import { FieldError, useForm } from 'react-hook-form';
 
+import { Input } from '@/components/ui';
 import Button from '@/components/ui/button';
 
 import { data } from './data';
 import styles from './styles.module.scss';
 
+type FormValues = {
+  [key: string]: string;
+};
+
 const SubscribeSection = () => {
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    console.log('Subscribed!');
+  const {
+    register,
+    handleSubmit,
+    formState: { errors, isValid },
+  } = useForm({
+    mode: 'onChange',
+  });
+
+  const onSubmit = (data: FormValues) => {
+    console.log('Form submitted:', data);
   };
 
   return (
@@ -19,15 +32,25 @@ const SubscribeSection = () => {
         fill
         alt={data.background.alt}
       />
-      <form onSubmit={handleSubmit} className={styles.subscribe__form}>
+      <form
+        onSubmit={handleSubmit(onSubmit)}
+        className={styles.subscribe__form}
+      >
         <h2 className={styles.subscribe__title}>{data.title}</h2>
-        <input
+        <Input
           className={styles.subscribe__input}
           type='email'
           placeholder='Enter E-mail'
-          required
+          error={
+            (errors as Record<string, FieldError>)?.[data.input.name]?.message
+          }
+          {...register(data.input.name, data.input.rules)}
         />
-        <Button type='submit' className={styles.subscribe__button}>
+        <Button
+          type='submit'
+          className={styles.subscribe__button}
+          disabled={!isValid}
+        >
           Subscribe
         </Button>
       </form>

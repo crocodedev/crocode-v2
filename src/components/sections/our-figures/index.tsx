@@ -44,24 +44,24 @@ const MODELS_LIST = [
 const OurFiguresSection = () => {
   return (
     <div className={styles.wrapper}>
-      <ModelsLayout models={MODELS_LIST} showModels={false}/>
-        <SectionLayout className={styles.section}>
-          {OUR_FIGURES.map(({ number, label }) => (
-            <Card key={label} className={styles.card}>
-              <h2 className={styles.number}>{number}+</h2>
-              <h3 className={styles.label}>{label}</h3>
-            </Card>
-          ))}
+      <ModelsLayout models={MODELS_LIST} lightIntensity={15} />
+      <SectionLayout className={styles.section}>
+        {OUR_FIGURES.map(({ number, label }) => (
+          <Card key={label} className={styles.card}>
+            <h2 className={styles.number}>{number}+</h2>
+            <h3 className={styles.label}>{label}</h3>
+          </Card>
+        ))}
 
-          <Card className={styles.mission}>
-            <p className={styles.mission__text}>
-              {` Our mission is to turn ideas into impressive digital products that
+        <Card className={styles.mission}>
+          <p className={styles.mission__text}>
+            {` Our mission is to turn ideas into impressive digital products that
           change the world. Our vision is that our products will be used by
           millions of people around the world. Our Values: C - Continuous growth
           R - Reliability O - Open-minded`.toUpperCase()}
-            </p>
-          </Card>
-        </SectionLayout>
+          </p>
+        </Card>
+      </SectionLayout>
     </div>
   );
 };

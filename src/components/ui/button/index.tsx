@@ -9,6 +9,7 @@ type TProps = PropsWithChildren & {
   href?: string;
   view?: 'prime' | 'second' | string;
   onClick?: () => void;
+  disabled?: boolean;
 };
 
 const Button = ({
@@ -18,6 +19,7 @@ const Button = ({
   className = '',
   onClick,
   view = 'prime',
+  disabled,
   ...props
 }: TProps) => {
   if (type === 'link') {
@@ -35,6 +37,7 @@ const Button = ({
       <button
         type={type}
         onClick={onClick}
+        disabled={disabled}
         className={`${styles.button} ${className} ${view ? styles[`button__${view}`] : styles.button__prime}`}
         {...props}
       >
