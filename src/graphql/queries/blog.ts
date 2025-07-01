@@ -1,4 +1,5 @@
 export const ITEMS_PER_PAGE = 8;
+export const DEFAULT_VALUE_BLOG = 'Latest';
 
 export const ALL_BLOG_ARTICLES = `
    query {

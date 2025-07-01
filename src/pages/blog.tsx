@@ -108,6 +108,7 @@ export const getServerSideProps = (async (
     offset,
     category as string | undefined,
   );
+
   const { data: dataArticles, errors: errorsArticles } =
     await fetchGraphQL(queryCases);
 
