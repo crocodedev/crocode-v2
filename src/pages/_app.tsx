@@ -6,7 +6,6 @@ import ContactUSModal from '@/components/contactUsModal';
 import CookiesModal from '@/components/cookiesModal';
 import { MainProvider } from '@/components/main-context';
 import { Footer, Header } from '@/components/sections';
-import Seo from '@/components/seo';
 
 import '@/styles/_global.scss';
 import '@/styles/_reset.scss';
@@ -16,7 +15,6 @@ const font = Montserrat({ subsets: ['latin'] });
 export default function App({ Component, pageProps }: AppProps) {
   return (
     <>
-      <Seo />
       <MainProvider>
         <ContactUSModal />
         <CookiesModal />

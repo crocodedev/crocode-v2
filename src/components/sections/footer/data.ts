@@ -77,15 +77,15 @@ export const data: TFooter = {
         },
         {
           text: 'Front-end Development',
-          href: '/',
+          href: '/front-end-development',
         },
         {
           text: 'Back-end Development',
-          href: '/',
+          href: '/back-end-development',
         },
         {
           text: 'Mobile Development',
-          href: '/',
+          href: '/mobile-development',
         },
         {
           text: 'E-commerce Development',
@@ -105,7 +105,7 @@ export const data: TFooter = {
       items: [
         {
           text: 'Blog',
-          href: '/blog',
+          href: '/blog?category=Latest',
         },
         {
           text: 'Contacts',

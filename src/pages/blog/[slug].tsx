@@ -1,5 +1,4 @@
 import { GetServerSideProps } from 'next';
-import { useRouter } from 'next/router';
 import { Fragment } from 'react';
 
 import {
@@ -21,22 +20,16 @@ import { useRedirect } from '@/hooks';
 import { fetchGraphQL } from '@/lib/graphql';
 
 type TProps = TPageProps & {
-  article: TArticle | null;
+  article: TArticle;
   errors: TSanityError[];
 };
 
 const ArticlePage = ({ article, errors, seo, allRedirects }: TProps) => {
   useRedirect(allRedirects);
 
-  const router = useRouter();
-
   if (errors) {
-    return <div>Error {errors[0].message}</div>;
+    console.error(errors[0].message);
   }
-
-  if (router.isFallback) return <div>Loading...</div>;
-
-  if (!article) return <div>Not found</div>;
 
   return (
     <Fragment>
@@ -53,13 +46,11 @@ export const getServerSideProps: GetServerSideProps<TProps> = (async (
   context,
 ) => {
   const slug = context.params?.slug;
-
   const query = getBlogArticle(slug as string);
 
   const { data, errors } = await fetchGraphQL(query);
 
   const article = data?.allArticlesItem?.[0];
-
   return {
     props: {
       article: article ?? null,
