@@ -1,5 +1,4 @@
 import { GetServerSideProps } from 'next';
-import { useRouter } from 'next/router';
 import { Fragment } from 'react';
 
 import { AboutUs, ContactUsForm, Hero } from '@/components/sections';
@@ -23,15 +22,11 @@ type TProps = TPageProps & {
 const CasePage = ({ caseItem, errors, seo, allRedirects }: TProps) => {
   useRedirect(allRedirects);
 
-  const router = useRouter();
   const { title } = caseItem;
 
   if (errors) {
-    return <div>Error {errors[0].message}</div>;
+    console.error(errors[0].message);
   }
-
-  if (router.isFallback) return <div>Loading...</div>;
-  if (!caseItem) return <div>Not found</div>;
 
   return (
     <Fragment>

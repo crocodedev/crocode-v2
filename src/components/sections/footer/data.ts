@@ -105,7 +105,7 @@ export const data: TFooter = {
       items: [
         {
           text: 'Blog',
-          href: '/blog',
+          href: '/blog?category=Latest',
         },
         {
           text: 'Contacts',

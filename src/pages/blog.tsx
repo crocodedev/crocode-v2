@@ -2,15 +2,19 @@ import { GetServerSideProps, GetServerSidePropsContext } from 'next';
 
 import { BlogCatalog, Hero, Subscribe } from '@/components/sections';
 import { TArticle } from '@/components/sections/blog-catalog/types';
+import Seo from '@/components/seo';
 
+import { TPageProps } from '@/types/pageProps';
 import { TPagination } from '@/types/pagination';
 import { TSanityError } from '@/types/sanityError';
+import { TSeo } from '@/types/seo';
 
 import {
   ALL_BLOG_ARTICLES,
   ITEMS_PER_PAGE,
   getBlogArticles,
 } from '@/graphql/queries/blog';
+import { useRedirect } from '@/hooks';
 import { fetchGraphQL } from '@/lib/graphql';
 
 const PROPS_SECTIONS = {
@@ -23,19 +27,28 @@ const PROPS_SECTIONS = {
   },
 };
 
-type TProps = {
+type TProps = TPageProps & {
   artcles: TArticle[];
   errors: TSanityError[];
   paginationData: TPagination;
 };
 
-const BlogPage = ({ artcles, errors, paginationData }: TProps) => {
+const BlogPage = ({
+  artcles,
+  errors,
+  paginationData,
+  seo,
+  allRedirects,
+}: TProps) => {
+  useRedirect(allRedirects);
+
   if (errors) {
     return <div>Error {errors[0].message}</div>;
   }
 
   return (
     <>
+      <Seo {...seo} />
       <Hero {...PROPS_SECTIONS.hero} />
       <BlogCatalog
         {...PROPS_SECTIONS.blogCatalog}
@@ -58,6 +71,23 @@ export const getServerSideProps = (async (
   const { data: dataCount, errors: errorsCount } =
     await fetchGraphQL(ALL_BLOG_ARTICLES);
 
+  const seo = {
+    titleTemplate: false,
+    title: category,
+    description: `Description for ${category}`,
+    keywords: `${category}`,
+    image: {
+      altText: `${category} work technologies `,
+      image: {
+        asset: {
+          url: 'https://cdn.sanity.io/images/kx2cy1wz/production/f3b07df48aeb165cf91733613c71971a68717479-860x660.jpg',
+        },
+      },
+    },
+    ogType: 'og:type',
+    twitterCard: '',
+  } as TSeo;
+
   if (errorsCount) {
     return {
       props: {
@@ -67,6 +97,8 @@ export const getServerSideProps = (async (
           currentPage: 1,
           totalPages: 1,
         },
+        seo: seo,
+        allRedirects: [],
       },
     };
   }
@@ -83,6 +115,8 @@ export const getServerSideProps = (async (
     props: {
       artcles: dataArticles?.allArticlesItem,
       errors: errorsArticles || null,
+      seo: seo,
+      allRedirects: [],
       paginationData: {
         currentPage,
         totalPages: Math.ceil(

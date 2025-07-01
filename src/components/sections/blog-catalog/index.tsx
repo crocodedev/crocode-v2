@@ -13,6 +13,7 @@ const BlogCatalogSection = ({ category, artcles, paginationData }: TProps) => {
       <Filters
         items={category}
         paramKey='category'
+        onlyOnce={true}
         className={styles.filters}
       />
       <div className={styles.container}>
