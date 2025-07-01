@@ -9,6 +9,7 @@ type TProps = {
   className?: string;
   onlyOnce?: boolean;
   title?: string;
+  defaultValue?: string;
 };
 
 const Filters = ({
@@ -17,6 +18,7 @@ const Filters = ({
   className,
   title,
   onlyOnce = false,
+  defaultValue,
 }: TProps) => {
   const router = useRouter();
   const pathname = usePathname();
@@ -31,8 +33,14 @@ const Filters = ({
 
   const toggleFilter = (item: string) => {
     let newSelected: string[];
+    const newParam = new URLSearchParams(searchParams);
+
     if (onlyOnce) {
-      if (selectedItems[0] === item) return;
+      if (selectedItems[0] === item) {
+        newParam.set(paramKey, defaultValue || '');
+        router.replace(`${pathname}?${newParam.toString()}`, { scroll: false });
+        return;
+      }
       newSelected = [item];
     } else {
       newSelected = selectedItems.includes(item)
@@ -62,7 +70,6 @@ const Filters = ({
             className={`${styles.button} ${selectedItems.includes(item) ? styles.selected : ''}`}
             onClick={() => toggleFilter(item)}
             type='button'
-            disabled={onlyOnce && selectedItems[0] === item}
           >
             {item}
           </button>

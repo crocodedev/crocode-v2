@@ -1,4 +1,5 @@
 export const ITEMS_PER_PAGE = 6;
+export const DEFAULT_VALUE_ALL_COUNTRY = 'All Country';
 
 export const ALL_CASES_ITEMS = `
   query {
@@ -48,14 +49,8 @@ export const getCasesItems = (
 ) => {
   let filter = '';
 
-  if (country) {
-    const countries = country.split(',').map((c) => c.trim());
-    if (countries.length > 1) {
-      filter += `country: { title: { in: [${countries.map((c) => `"${c}"`).join(', ')}] } },`;
-    } else {
-      filter += `country: { title: { eq: "${countries[0]}" } },`;
-    }
-  }
+  if (country && country != DEFAULT_VALUE_ALL_COUNTRY)
+    filter += `country: { title: { eq: "${country}" } },`;
 
   const where = filter ? `where: { ${filter} }` : '';
 

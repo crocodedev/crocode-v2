@@ -11,6 +11,7 @@ import { TSeo } from '@/types/seo';
 
 import {
   ALL_CASES_ITEMS,
+  DEFAULT_VALUE_ALL_COUNTRY,
   ITEMS_PER_PAGE,
   getCasesItems,
 } from '@/graphql/queries/cases';
@@ -23,20 +24,49 @@ const PROPS_SECTIONS = {
   },
 };
 
+const DEFAULT_FILTERS_TECH = [
+  'Gatsby',
+  'React',
+  'CMS',
+  'Sanity',
+  'TypeScript',
+  'EmotionJS',
+  'NextJS',
+  'Canvas',
+  'JavaScript',
+  'HTML',
+  'CSS',
+  'Shopify Liquid',
+];
+
 type TProps = TPageProps & {
   cases: TCase[];
   errors: TSanityError[];
+  initialTech: string[];
   paginationData: TPagination;
 };
 
-const CasesPage = ({ cases, errors, paginationData, seo }: TProps) => {
+const CasesPage = ({
+  cases,
+  errors,
+  paginationData,
+  initialTech,
+  seo,
+}: TProps) => {
   if (errors?.length > 0) {
     console.error(`Error ${errors[0]?.message}`);
   }
 
-  const filteredCases = Array.from(
-    new Set(cases?.flatMap((item: TCase) => item.technologies) ?? []),
-  );
+  const filteredCases =
+    initialTech.length > 0
+      ? initialTech
+      : Array.from(
+          new Set(
+            cases
+              ?.flatMap((item: TCase) => item.technologies)
+              .filter(Boolean) ?? [],
+          ),
+        );
 
   return (
     <>
@@ -54,8 +84,8 @@ export const getServerSideProps = (async (context) => {
   const currentPage = page ? Math.max(1, parseInt(page as string)) : 1;
   const offset = (currentPage - 1) * ITEMS_PER_PAGE;
 
-  const seoTitle = country && country.length > 1 ? country : 'All Country';
-
+  const seoTitle =
+    country && country.length > 1 ? country : DEFAULT_VALUE_ALL_COUNTRY;
   const seo = {
     titleTemplate: false,
     title: seoTitle,
@@ -93,6 +123,7 @@ export const getServerSideProps = (async (context) => {
       offset,
       country as string | undefined,
     );
+
     const { data: dataCases, errors: errorsCases } =
       await fetchGraphQL(queryCases);
 
@@ -110,6 +141,10 @@ export const getServerSideProps = (async (context) => {
         allRedirects: [],
         cases: filteredCases,
         errors: errorsCases || null,
+        initialTech:
+          !techArr.length || filteredCases.length === 0
+            ? DEFAULT_FILTERS_TECH
+            : [],
         paginationData: {
           currentPage,
           totalPages: Math.ceil(dataCount.allCasesItem.length / ITEMS_PER_PAGE),
@@ -123,6 +158,7 @@ export const getServerSideProps = (async (context) => {
         seo: seo,
         allRedirects: [],
         cases: [],
+        initialTech: DEFAULT_FILTERS_TECH,
         errors: [
           { message: error instanceof Error ? error.message : 'Unknown error' },
         ],
