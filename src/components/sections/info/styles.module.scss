@@ -1,0 +1,27 @@
+.info {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: fluid-size(40, 70);
+
+  &__title {
+    line-height: 150%;
+    max-width: 78%;
+  }
+
+  &__text {
+    background-color: $color-bg-gray;
+
+    @include media-up(xl) {
+      padding: 88px 164px;
+    }
+
+    @include media-between(md, xl) {
+      padding: 60px 110px;
+    }
+
+    @include media-down(md) {
+      padding: 60px 30px;
+    }
+  }
+}

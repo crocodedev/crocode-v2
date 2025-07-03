@@ -1,0 +1,10 @@
+@function fluid-size($min-size, $max-size, $min-width: 415, $max-width: 1920) {
+  @return clamp(
+    #{$min-size / 16}rem,
+    calc(
+      #{$min-size / 16}rem + (#{$max-size} - #{$min-size}) *
+        (100vw - #{$min-width}px) / (#{$max-width} - #{$min-width})
+    ),
+    #{$max-size / 16}rem
+  );
+}

@@ -1,0 +1,117 @@
+import { IconFacebook, IconLinkedin, IconTwitter } from '@/components/icons';
+
+import { TImage, TLink } from '@/types/types';
+
+type TFooter = {
+  bottomLink: TLink;
+  columns: {
+    title: TLink;
+    items: TLink[];
+  }[];
+  copyrightText: string;
+  logoImage: TImage;
+  socialIcons: {
+    icon: () => JSX.Element;
+    href: string;
+  }[];
+};
+
+export const data: TFooter = {
+  bottomLink: {
+    href: '/',
+    text: 'Privacy policy',
+  },
+  logoImage: {
+    src: '/images/logo.png',
+    alt: 'Logo image Crocode',
+  },
+  socialIcons: [
+    {
+      icon: IconTwitter,
+      href: '/',
+    },
+    {
+      icon: IconLinkedin,
+      href: '/',
+    },
+    {
+      icon: IconFacebook,
+      href: '/',
+    },
+  ],
+  copyrightText: '© 2025 KROKOD Sp. z o.o. All Rights Reserved',
+  columns: [
+    {
+      title: {
+        href: '/',
+        text: 'Services',
+      },
+      items: [
+        {
+          text: 'Dedicated Teams',
+          href: '/dedicated-team',
+        },
+        {
+          text: 'MVP Development',
+          href: '/mwp',
+        },
+        {
+          text: 'Custom Software',
+          href: '/custom-software-development',
+        },
+        {
+          text: 'Consulting',
+          href: '/',
+        },
+      ],
+    },
+    {
+      title: {
+        href: '/technologies',
+        text: 'Technologies',
+      },
+      items: [
+        {
+          text: 'Game Development',
+          href: '/game-dev',
+        },
+        {
+          text: 'Front-end Development',
+          href: '/',
+        },
+        {
+          text: 'Back-end Development',
+          href: '/',
+        },
+        {
+          text: 'Mobile Development',
+          href: '/',
+        },
+        {
+          text: 'E-commerce Development',
+          href: '/',
+        },
+        {
+          text: 'Healdess CMS Development',
+          href: '/',
+        },
+      ],
+    },
+    {
+      title: {
+        text: 'About us',
+        href: '/about-us',
+      },
+      items: [
+        {
+          text: 'Blog',
+          href: '/blog',
+        },
+        {
+          text: 'Contacts',
+          href: '/contact-us',
+        },
+      ],
+    },
+  ],
+};

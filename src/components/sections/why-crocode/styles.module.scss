@@ -1,0 +1,90 @@
+.wrapper {
+  @include flex-center;
+  position: relative;
+}
+
+.models {
+  @include media-down('lg') {
+    height: 130%;
+  }
+}
+
+.section {
+  display: grid;
+  grid-template-columns: repeat(30, 1fr);
+  grid-template-rows: repeat(30, minmax(0, 1fr));
+  gap: 12px;
+  max-width: 80%;
+  justify-items: stretch;
+  align-items: stretch;
+  overflow: hidden;
+
+  & > div:nth-child(1) {
+    grid-column: 6 / span 20;
+    grid-row: 1 / span 15;
+    border-radius: 24px;
+    background: $color-bg-green;
+    color: $color-text-black;
+    padding: 32px 24px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  & > div:nth-child(2) {
+    grid-column: 17 / span 20;
+    grid-row: 17 / span 10;
+    border-radius: 16px;
+    background: $color-bg-black;
+    color: $color-text-white;
+    padding: 24px 18px;
+  }
+
+  & > div:nth-child(3) {
+    grid-column: 1 / span 15;
+    grid-row: 17 / span 25;
+    border-radius: 16px;
+    padding: 24px 18px;
+  }
+
+  & > div:nth-child(4) {
+    grid-column: 17 / span 20;
+    grid-row: 28 / span 30;
+    border-radius: 16px;
+    padding: 24px 18px;
+  }
+
+  & > div {
+    @include flex-center;
+    font-size: $size-text-1;
+  }
+
+  @include media-down('md') {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+
+    & > div {
+      width: 100% !important;
+      text-align: left;
+    }
+  }
+}
+
+.card {
+  padding: fluid-size(10, 30);
+
+  &__title {
+    font-size: $size-title-5;
+    font-weight: 700;
+    margin-bottom: 25px;
+  }
+
+  &__text {
+    text-align: justify;
+    font-size: $size-text-4;
+    max-width: 90%;
+    line-height: fluid-size(10, 50);
+  }
+}

@@ -1,0 +1,116 @@
+.contact {
+  display: flex;
+
+  @include media-down(lg) {
+    flex-direction: column-reverse;
+  }
+
+  &__image_wrapper {
+    position: relative;
+    flex: 50%;
+
+    @include media-down(lg) {
+      aspect-ratio: 412/565;
+    }
+  }
+
+  &__image {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+}
+.input {
+  width: 100% !important;
+  background: #000;
+}
+
+.form {
+  display: flex;
+  justify-content: center;
+  flex: 50%;
+  background-color: $color-bg-green;
+
+  @include media-up(xl) {
+    padding: 90px 100px 100px 90px;
+  }
+
+  @include media-between(lg, xl) {
+    padding: 60px 70px;
+  }
+
+  @include media-down(lg) {
+    padding: 32px 18px;
+  }
+
+  &__inner {
+    display: flex;
+    flex-direction: column;
+    max-width: 660px;
+
+    @include media-down(lg) {
+    }
+  }
+
+  &__title {
+    font-weight: 700;
+    font-size: fluid-size(48, 60);
+
+    @include media-up(xl) {
+      margin-bottom: 100px;
+    }
+
+    @include media-between(lg, xl) {
+      margin-bottom: 70px;
+    }
+
+    @include media-down(lg) {
+      align-self: center;
+      text-align: center;
+      max-width: 80%;
+      margin-bottom: 35px;
+    }
+  }
+
+  &__inputs {
+    display: flex;
+    flex-direction: column;
+    gap: fluid-size(15, 25);
+
+    @include media-up(xl) {
+      margin-bottom: 70px;
+    }
+
+    @include media-down(xl) {
+      margin-bottom: 50px;
+    }
+  }
+
+  &__input {
+    gap: 15px;
+  }
+
+  &__input_file_wrapper {
+    position: relative;
+    width: 100%;
+  }
+
+  &__checkbox {
+    margin-bottom: 25px;
+  }
+
+  &__button {
+    align-self: start;
+    color: $color-text-white;
+
+    &_disabled {
+      pointer-events: none;
+      cursor: auto;
+      color: $color-text-black;
+      background-color: $color-bg-gray;
+    }
+  }
+}

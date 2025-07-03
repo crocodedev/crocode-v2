@@ -1,0 +1,7 @@
+.models {
+    height: 120%;
+
+    @include media-down('lg') {
+        height: 130%;
+    }
+}

@@ -1,0 +1,93 @@
+.wrapper {
+  position: fixed;
+  bottom: 10%;
+  right: 5%;
+  border-radius: 100px;
+  width: fluid-size(40, 70);
+  padding: fluid-size(5, 10);
+  padding-top: fluid-size(10, 20);
+  height: fluid-size(40, 70);
+  @include flex-center;
+  font-size: $size-title-1;
+  opacity: 0;
+  transform: translateY(30px) scale(0.8);
+  transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  cursor: pointer;
+  z-index: 1000;
+  overflow: hidden;
+  background-color: $color-bg-green;
+  color: $color-bg-white;
+  border: none;
+
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+      45deg,
+      transparent,
+      rgba($color-bg-green, 0.2),
+      transparent
+    );
+    transform: translateX(-100%);
+    transition: transform 0.6s ease;
+  }
+
+  &:hover::before {
+    transform: translateX(100%);
+  }
+
+  &.visible {
+    opacity: 1;
+    animation:
+      pulse 2s ease-in-out infinite alternate;
+  }
+
+  span {
+    display: inline-block;
+    transition: transform 0.3s ease;
+  }
+
+  &:hover span {
+    transform: scale(1.2);
+  }
+}
+
+@keyframes float {
+  0%,
+  100% {
+    transform: translateY(0) rotate(0deg);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+  }
+  50% {
+    transform: translateY(-15px) rotate(5deg);
+    box-shadow: 0 15px 30px rgba($color-bg-green, 0.3);
+  }
+}
+
+@keyframes pulse {
+  0% {
+    box-shadow: 0 0 0 0 rgba($color-bg-green, 0.4);
+  }
+  70% {
+    box-shadow: 0 0 0 15px rgba($color-bg-green, 0);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba($color-bg-green, 0);
+  }
+}
+
+@keyframes border-glow {
+  0% {
+    border: 2px solid rgba($color-bg-green, 0.2);
+  }
+  50% {
+    border: 2px solid rgba($color-bg-green, 0.8);
+  }
+  100% {
+    border: 2px solid rgba($color-bg-green, 0.2);
+  }
+}

@@ -1,0 +1,128 @@
+.section {
+  padding: 0 fluid-size(49, 168);
+
+  &__title {
+    max-width: 1098px;
+
+    @include media-up(xl) {
+      line-height: 170%;
+      margin: 0 auto 103px;
+    }
+
+    @include media-between(md, xl) {
+      line-height: 150%;
+      margin: 0 auto 60px;
+    }
+
+    @include media-down(md) {
+      line-height: 115%;
+      margin: 0 auto 17px;
+    }
+  }
+
+  .cards {
+    @include media-up(xl) {
+      display: grid;
+      grid-template-columns: 44% 1fr 40%;
+      justify-items: center;
+    }
+
+    @include media-between(md, xl) {
+      display: grid;
+      grid-template-columns: minmax(100px, 420px) 1fr minmax(100px, 420px);
+      justify-items: center;
+    }
+
+    @include media-up(md) {
+      column-gap: fluid-size(20, 30, 768);
+      row-gap: fluid-size(25, 50, 768);
+    }
+
+    @include media-down(md) {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+  }
+
+  .card {
+    position: relative;
+    width: 100%;
+
+    @include media-up(md) {
+      padding: fluid-size(55, 100, 768) fluid-size(35, 55, 768);
+    }
+
+    @include media-down(md) {
+      min-height: 150px;
+      padding: 30px 20px;
+    }
+
+    &:nth-child(1) {
+      @include media-up(md) {
+        grid-column: 1 / 2;
+      }
+    }
+
+    &:nth-child(2) {
+      @include media-up(md) {
+        grid-column: 2 / 4;
+      }
+    }
+
+    &:nth-child(3) {
+      @include media-up(md) {
+        grid-column: 3 / 4;
+      }
+    }
+
+    &:nth-child(4) {
+      @include media-up(md) {
+        grid-row: 2;
+        grid-column: 1 / 3;
+      }
+    }
+
+    &:nth-child(5) {
+      @include media-up(md) {
+        width: 58.5%;
+        // padding: fluid-size(55, 130, 768) fluid-size(40, 115, 768);
+        grid-row: 3;
+        grid-column: 1 / 4;
+      }
+    }
+
+    &__title {
+      font-size: 32px;
+      font-weight: 700;
+      align-self: start;
+      margin-bottom: 25px;
+    }
+
+    &__text {
+      text-align: justify;
+      font-size: fluid-size(14, 20);
+      line-height: 170%;
+    }
+
+    &__number {
+      position: absolute;
+      font-size: fluid-size(20, 64);
+
+      @include media-up(xl) {
+        right: 40px;
+        bottom: 20px;
+      }
+
+      @include media-between(md, xl) {
+        right: 35px;
+        bottom: 20px;
+      }
+
+      @include media-down(md) {
+        right: 25px;
+        bottom: 10px;
+      }
+    }
+  }
+}

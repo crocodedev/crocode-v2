@@ -1,0 +1,18 @@
+.banner {
+  min-height: 385px;
+  background-color: $color-bg-black;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 50px;
+
+  &__title {
+    font-size: fluid-size(32, 42);
+    font-weight: 700;
+    color: $color-text-white;
+    text-align: center;
+    line-height: 130%;
+    max-width: 85%;
+  }
+}

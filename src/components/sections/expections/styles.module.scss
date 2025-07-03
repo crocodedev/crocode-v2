@@ -1,0 +1,56 @@
+.section {
+  @include flex-center;
+  text-align: center;
+  flex-direction: column;
+  gap: 100px;
+
+  &__title {
+    text-transform: uppercase;
+    font-size: $size-title-6;
+    font-weight: 700;
+  }
+}
+
+.container {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  max-width: 1600px;
+  gap: fluid-size(12, 85);
+
+  & > div:nth-child(3) {
+    @include color-scheme($color-bg-green, $color-text-black);
+  }
+
+  @include media-down('lg') {
+    flex-direction: column;
+    align-items: center;
+  }
+}
+
+.card {
+  position: relative;
+  width: fluid-size(315, 670);
+  height: fluid-size(150, 320);
+  padding: 20px;
+  justify-content: center;
+  align-items: center;
+
+  &__text {
+    text-transform: uppercase;
+    text-align: justify;
+    font-weight: 400;
+    max-width: 400px;
+    font-size: $size-text-4;
+    max-height: 270px;
+    line-height: fluid-size(18, 50);
+  }
+
+  &__num {
+    position: absolute;
+    font-weight: 400;
+    font-size: $size-title-4;
+    bottom: 10px;
+    right: 64px;
+  }
+}

@@ -1,0 +1,34 @@
+.subscribe {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: fluid-size(385, 446);
+
+  &__background {
+    z-index: -1;
+    object-fit: cover;
+  }
+
+  &__form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 18px;
+  }
+
+  &__title {
+    text-align: center;
+    font-size: $size-title-4;
+    font-weight: 700;
+    color: $color-bg-black;
+    text-wrap: wrap;
+  }
+
+  &__input {
+    width: 330px;
+    font-size: $size-text-1;
+    gap: 15px;
+  }
+}

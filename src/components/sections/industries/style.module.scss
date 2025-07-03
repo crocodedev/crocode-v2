@@ -1,0 +1,58 @@
+.container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  padding: 65px 0px;
+  gap: clamp(0.4375rem, -0.1rem + 2.6875vw, 3.125rem)
+    clamp(0.625rem, -0.125rem + 3.75vw, 4.375rem);
+  width: 100%;
+}
+
+.card {
+  @include flex-center;
+  width: clamp(10.3125rem, 3.625rem + 33.4375vw, 43.75rem);
+  height: clamp(4.0625rem, 1.875rem + 10.9375vw, 15rem);
+  padding: fluid-size(0, 10) fluid-size(7, 25);
+  border-radius: fluid-size(14, 64);
+  text-decoration: none;
+  font-size: fluid-size(24, 96);
+  font-weight: 700;
+  transition: 0.2s;
+
+  &:nth-child(1) {
+    background: $color-bg-gray;
+    color: $color-text-black;
+
+    &:hover {
+      color: $color-text-white;
+    }
+  }
+
+  &:nth-child(2) {
+    background: $color-bg-green;
+    color: $color-text-white;
+
+    &:hover {
+      color: $color-text-black;
+    }
+  }
+
+  &:nth-child(3) {
+    background: $color-bg-black;
+    color: $color-text-white;
+
+    &:hover {
+      color: $color-text-green;
+    }
+  }
+
+  &:nth-child(4) {
+    background: $color-bg-gray;
+    color: $color-text-black;
+
+    &:hover {
+      color: $color-text-white;
+    }
+  }
+}

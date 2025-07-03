@@ -1,0 +1,19 @@
+.card {
+  display: flex;
+  flex-direction: column;
+  transition: linear 0.3s;
+  border-radius: fluid-size(20, 64);
+
+  &--green {
+    background-color: $color-bg-green;
+  }
+
+  &--grey {
+    background-color: $color-bg-gray;
+  }
+
+  &--black {
+    background-color: $color-bg-black;
+    color: $color-text-white;
+  }
+}

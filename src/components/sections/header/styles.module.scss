@@ -1,0 +1,246 @@
+.header {
+  @include flex-center;
+  z-index: $z-index-header;
+
+  @include media-up(md) {
+    position: absolute;
+    transform: translate(-50%, -50%);
+    left: 50%;
+    top: 15%;
+    height: 200px;
+  }
+
+  @include media-down('md') {
+    height: 100vh;
+    width: 100vw;
+    top: 0;
+    background-color: $color-bg-green;
+    position: fixed;
+
+    &_closed {
+      height: 0;
+      background-color: $color-bg-white;
+    }
+  }
+
+  &__inner {
+    @include flex-center;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    height: 100%;
+
+    @include media-down('md') {
+      width: 90%;
+      align-items: flex-start;
+    }
+  }
+}
+
+.mobile {
+  @include media-up('md') {
+    opacity: 0;
+    position: absolute;
+    top: -500%;
+    left: -500%;
+  }
+}
+
+.title {
+  font-size: $size-title-1;
+  font-weight: 700;
+  text-align: center;
+  max-width: 1000px;
+}
+
+.nav {
+  @include flex-center;
+  padding: 0 20px;
+
+  @include media-down('md') {
+    flex-direction: column;
+    width: 90vw;
+    align-items: flex-start;
+    margin-top: 0;
+    padding: 0;
+  }
+
+  &__list {
+    @include flex-center;
+    justify-content: space-between;
+    color: $color-text-black;
+    font-size: $size-text-1;
+    font-weight: 400;
+
+    @include media-down('md') {
+      flex-direction: column;
+      align-items: flex-start;
+      margin: fluid-size(80, 120) 0;
+      font-size: $size-title-2;
+      font-weight: 700;
+      gap: fluid-size(30, 50);
+    }
+
+    &__item {
+      white-space: nowrap;
+      position: relative;
+
+      &:after {
+        content: '';
+        position: absolute;
+        bottom: -20%;
+        left: 50%;
+        width: 0;
+        height: 3px;
+        background-color: $color-bg-green;
+        transition: all 0.6s linear;
+        transform: translate(-50%, -50%);
+      }
+
+      &:hover:after {
+        width: 90%;
+      }
+
+      a {
+        text-decoration: none;
+        color: $color-text-black;
+      }
+
+      &:last-child {
+        transition: all 0.6s linear;
+        font-weight: 700;
+        background-color: $color-bg-green;
+        border-radius: 60px;
+
+        a {
+          padding: 13px 25px;
+        }
+
+        &:after {
+          opacity: 0;
+        }
+
+        &:hover {
+          background-color: $color-bg-black;
+
+          a {
+            color: $color-text-white;
+          }
+        }
+
+        @include media-down('md') {
+          padding: 0px;
+
+          &:last-child {
+            padding: 0px;
+          }
+        }
+      }
+    }
+
+    &__actions {
+      width: 100%;
+      @include flex-center;
+
+      .mobile {
+        background-color: $color-bg-black;
+        color: $color-text-white;
+      }
+    }
+
+    &__button {
+      text-decoration: none;
+      text-wrap: nowrap;
+      font-weight: 700;
+    }
+  }
+
+  &__link {
+    &_mobile {
+      display: none;
+      padding: 5px 15px;
+      padding-left: 0px;
+
+      @include media-down('md') {
+        display: flex;
+      }
+    }
+
+    &_desktop {
+      display: none;
+      padding: 5px 15px;
+
+      @include media-up('md') {
+        display: flex;
+      }
+    }
+  }
+
+  &__actions {
+    width: 100%;
+    @include flex-center;
+  }
+}
+
+.burger {
+  margin-top: 25px;
+  width: 20px;
+  padding: 5px;
+  height: 4.5px;
+  display: flex;
+  flex-direction: column;
+  border: none;
+  position: relative;
+  padding: 0;
+  cursor: pointer;
+  z-index: $z-index-header;
+
+  &:hover {
+    background-color: $color-bg-green;
+  }
+
+  &__wrapper {
+    width: 100%;
+  }
+
+  &::before,
+  &::after {
+    content: '';
+    position: absolute;
+    width: 20px;
+    height: 4.5px;
+    left: 0;
+    border-radius: 60px;
+    background-color: $color-bg-green;
+    transition: 0.3s linear;
+  }
+
+  &::before {
+    top: -10px;
+  }
+
+  &::after {
+    bottom: -10px;
+  }
+
+  &_active {
+    &::before {
+      top: 0;
+      transform: rotate(45deg);
+      background-color: $color-bg-black;
+    }
+
+    &::after {
+      bottom: 0;
+      transform: rotate(-45deg);
+      background-color: $color-bg-black;
+    }
+  }
+}
+
+.closed {
+  @include media-down('md') {
+    opacity: 0;
+    position: absolute;
+  }
+}

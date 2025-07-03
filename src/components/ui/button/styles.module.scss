@@ -1,6 +1,36 @@
 .button {
-  color: var(--color-text-green);
-  font-size: var(--size-text-1);
-  width: 500px;
-  height: 200px;
+  display: flex;
+  justify-content: center;
+  border: none;
+  cursor: pointer;
+  font-weight: 700;
+  border-radius: 100px;
+  transition: all 0.6s linear;
+  padding: 13px 25px;
+  font-size: $size-text-1;
+  text-decoration: none;
+
+  &:hover {
+    background-color: $color-bg-black;
+  }
+
+  &__prime {
+    color: $color-text-white;
+    background-color: $color-text-green;
+  }
+
+  &__second {
+    color: $color-text-white;
+    background-color: $color-bg-black;
+
+    &:hover {
+      color: $color-text-green;
+    }
+  }
+
+  &:disabled {
+    cursor: not-allowed;
+    color: $color-text-black;
+    background-color: $color-bg-gray;
+  }
 }

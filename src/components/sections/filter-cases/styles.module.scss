@@ -1,0 +1,6 @@
+.layout {
+  display: flex;
+  flex-direction: column;
+  gap: 64px;
+  padding: 0 clamp(0.625rem, -0.8553rem + 5.9211vw, 6.25rem);
+}
