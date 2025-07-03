@@ -2,21 +2,7 @@ import { SectionLayout } from '@/components/sections';
 import { Filters } from '@/components/ui';
 
 import styles from './styles.module.scss';
-
-const FILTERS_TECH_STACK = [
-  'Gatsby',
-  'React',
-  'CMS',
-  'Sanity',
-  'TypeScript',
-  'EmotionJS',
-  'NextJS',
-  'Canvas',
-  'JavaScript',
-  'HTML',
-  'CSS',
-  'Shopify Liquid',
-];
+import { DEFAULT_VALUE_ALL_COUNTRY } from '@/graphql/queries/cases';
 
 const FILTERS_COUNTRY = [
   'Germany',
@@ -26,11 +12,21 @@ const FILTERS_COUNTRY = [
   'Italy',
 ];
 
-const FiltersCases = () => {
+type TProps = {
+  tech: string[];
+};
+
+const FiltersCases = ({ tech }: TProps) => {
   return (
     <SectionLayout className={styles.layout}>
-      <Filters title='Tech stack:' items={FILTERS_TECH_STACK} paramKey='tech' />
-      <Filters title='Country:' items={FILTERS_COUNTRY} paramKey='country' />
+      <Filters title='Tech stack:' items={tech} paramKey='tech' />
+      <Filters
+        defaultValue={DEFAULT_VALUE_ALL_COUNTRY}
+        onlyOnce={true}
+        title='Country:'
+        items={FILTERS_COUNTRY}
+        paramKey='country'
+      />
     </SectionLayout>
   );
 };

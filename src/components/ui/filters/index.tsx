@@ -7,10 +7,19 @@ type TProps = {
   items: string[];
   paramKey: string;
   className?: string;
+  onlyOnce?: boolean;
   title?: string;
+  defaultValue?: string;
 };
 
-const Filters = ({ items, paramKey, className, title }: TProps) => {
+const Filters = ({
+  items,
+  paramKey,
+  className,
+  title,
+  onlyOnce = false,
+  defaultValue,
+}: TProps) => {
   const router = useRouter();
   const pathname = usePathname();
   const searchParams = useSearchParams();
@@ -23,9 +32,21 @@ const Filters = ({ items, paramKey, className, title }: TProps) => {
   }, [paramKey, searchParams]);
 
   const toggleFilter = (item: string) => {
-    const newSelected = selectedItems.includes(item)
-      ? selectedItems.filter((i) => i !== item)
-      : [...selectedItems, item];
+    let newSelected: string[];
+    const newParam = new URLSearchParams(searchParams);
+
+    if (onlyOnce) {
+      if (selectedItems[0] === item) {
+        newParam.set(paramKey, defaultValue || '');
+        router.replace(`${pathname}?${newParam.toString()}`, { scroll: false });
+        return;
+      }
+      newSelected = [item];
+    } else {
+      newSelected = selectedItems.includes(item)
+        ? selectedItems.filter((i) => i !== item)
+        : [...selectedItems, item];
+    }
 
     setSelectedItems(newSelected);
 
@@ -46,10 +67,9 @@ const Filters = ({ items, paramKey, className, title }: TProps) => {
         {items.map((item) => (
           <button
             key={item}
-            className={`${styles.button} ${
-              selectedItems.includes(item) ? styles.selected : ''
-            }`}
+            className={`${styles.button} ${selectedItems.includes(item) ? styles.selected : ''}`}
             onClick={() => toggleFilter(item)}
+            type='button'
           >
             {item}
           </button>

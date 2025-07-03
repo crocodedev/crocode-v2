@@ -6,7 +6,26 @@ export default defineType({
   type: 'array',
   of: [
     defineField({
-      type: 'technologiesItem',
+      type: 'object',
+      name: 'technologiesItem',
+      title: 'Technologies item',
+      preview: {
+        select: {
+          title: 'title',
+        },
+      },
+      fields: [
+        defineField({
+          title: 'Title',
+          name: 'title',
+          type: 'string',
+        }),
+        defineField({
+          title: 'Technology image',
+          name: 'technologyImage',
+          type: 'imageWithAlt',
+        }),
+      ],
     }),
   ],
 })

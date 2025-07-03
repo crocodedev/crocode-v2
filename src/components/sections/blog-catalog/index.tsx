@@ -6,6 +6,7 @@ import { Card, Filters, Pagination } from '@/components/ui';
 
 import styles from './styles.module.scss';
 import { TProps } from './types';
+import { DEFAULT_VALUE_BLOG } from '@/graphql/queries/blog';
 
 const BlogCatalogSection = ({ category, artcles, paginationData }: TProps) => {
   return (
@@ -13,6 +14,8 @@ const BlogCatalogSection = ({ category, artcles, paginationData }: TProps) => {
       <Filters
         items={category}
         paramKey='category'
+        defaultValue={DEFAULT_VALUE_BLOG}
+        onlyOnce={true}
         className={styles.filters}
       />
       <div className={styles.container}>

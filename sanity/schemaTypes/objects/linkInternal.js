@@ -17,12 +17,7 @@ export default defineType({
       title: 'Reference',
       name: 'reference',
       type: 'reference',
-      to: [
-        {type: 'page'},
-        {type: 'blogCategory'},
-        {type: 'casesCountry'},
-        {type: 'technologiesCaseItem'},
-      ],
+      to: [{type: 'page'}],
       options: {
         disableNew: true,
       },

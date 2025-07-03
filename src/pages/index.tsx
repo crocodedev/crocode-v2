@@ -86,7 +86,6 @@ const PROPS_SECTIONS = {
 };
 
 const HomePage = ({ seo, allRedirects }: TPageProps) => {
-  console.log(seo);
   useRedirect(allRedirects);
 
   return (
