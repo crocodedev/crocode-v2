@@ -9,23 +9,15 @@ export default defineType({
   preview: {
     select: {
       internalLabel: 'linkInternal.label',
-      internalTitle: 'linkInternal.reference.title',
       externalLabel: 'linkExternal.label',
-      externalHref: 'linkExternal.text',
     },
-    prepare({internalLabel, internalTitle, externalLabel, externalHref}) {
+    prepare({internalLabel, externalLabel}) {
       return {
-        title: internalLabel ?? internalTitle ?? externalLabel,
-        subtitle: internalTitle ?? externalHref,
+        title: internalLabel ?? externalLabel,
       }
     },
   },
   fields: [
-    defineField({
-      title: 'Title',
-      name: 'title',
-      type: 'string',
-    }),
     defineField({
       title: 'Link Internal',
       name: 'linkInternal',

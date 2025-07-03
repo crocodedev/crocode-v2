@@ -8,11 +8,6 @@ export default defineType({
   icon: MasterDetailIcon,
   fields: [
     defineField({
-      name: 'title',
-      title: 'Title',
-      type: 'string',
-    }),
-    defineField({
       name: 'slug',
       title: 'Slug',
       type: 'slug',
@@ -22,13 +17,13 @@ export default defineType({
       },
     }),
     defineField({
-      name: 'content',
-      title: 'Page sections',
-      type: 'pageContent',
-    }),
-    defineField({
       name: 'seo',
       type: 'seo',
+    }),
+    defineField({
+      name: 'title',
+      type: 'string',
+      title: 'Title',
     }),
   ],
 })
