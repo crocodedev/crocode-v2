@@ -8,52 +8,10 @@ export default defineType({
   icon: MasterDetailIcon,
   preview: {
     select: {
-      title: 'sectionTitle',
-    },
-  },
-  i18n: {
-    fieldNames: {
-      lang: 'i18n_lang',
-      baseReference: 'i18n_base',
-      references: 'i18n_refs',
+      title: 'title',
     },
   },
   fields: [
-    defineField({
-      name: 'i18n_lang',
-      type: 'string',
-      hidden: true,
-    }),
-    defineField({
-      name: 'i18n_base',
-      type: 'reference',
-      to: [
-        {
-          type: 'casesItem',
-        },
-      ],
-      hidden: true,
-    }),
-    defineField({
-      name: 'i18n_refs',
-      type: 'array',
-      hidden: true,
-      of: [
-        {
-          type: 'reference',
-          to: [
-            {
-              type: 'casesItem',
-            },
-          ],
-        },
-      ],
-    }),
-    defineField({
-      title: 'Section Title',
-      name: 'sectionTitle',
-      type: 'string',
-    }),
     defineField({
       title: 'Title',
       name: 'title',
@@ -71,36 +29,22 @@ export default defineType({
     defineField({
       title: 'Technologies',
       name: 'technologies',
-      type: 'array',
-      of: [
-        {
-          type: 'string',
-        },
-      ],
+      type: 'technologiesArray',
     }),
     defineField({
       title: 'Country',
       name: 'country',
-      type: 'reference',
-      to: [
-        {
-          type: 'casesCountry',
-        },
-      ],
-    }),
-    defineField({
-      title: 'Text',
-      name: 'text',
-      type: 'text',
-    }),
-    defineField({
-      title: 'Marker',
-      name: 'marker',
       type: 'string',
-    }),
-    defineField({
-      name: 'link',
-      type: 'link',
+      initialValue: 'United Kingdom',
+      options: {
+        list: [
+          {title: 'Germany', value: 'Germany'},
+          {title: 'United Kingdom', value: 'United Kingdom'},
+          {title: 'Denmark', value: 'Denmark'},
+          {title: 'USA', value: 'USA'},
+          {title: 'Italy', value: 'Italy'},
+        ],
+      },
     }),
     defineField({
       title: 'Cover image',
@@ -108,13 +52,77 @@ export default defineType({
       type: 'imageWithAlt',
     }),
     defineField({
-      title: 'Page sections',
-      name: 'content',
-      type: 'pageContent',
-    }),
-    defineField({
       name: 'seo',
       type: 'seo',
+    }),
+    defineField({
+      title: 'Breadcrumbs',
+      name: 'breadcrumbs',
+      type: 'array',
+      of: [
+        {
+          name: 'link',
+          type: 'link',
+        },
+      ],
+    }),
+    defineField({
+      name: 'images',
+      type: 'array',
+      of: [
+        {
+          type: 'imageWithAlt',
+        },
+      ],
+    }),
+    defineField({
+      name: 'industry',
+      title: 'Industry',
+      type: 'string',
+    }),
+    defineField({
+      name: 'service',
+      title: 'Service',
+      type: 'string',
+    }),
+    defineField({
+      name: 'duration',
+      title: 'Duration',
+      type: 'string',
+    }),
+    defineField({
+      title: 'Content',
+      name: 'content',
+      type: 'array',
+      of: [
+        {
+          type: 'block',
+          marks: {
+            decorators: [
+              {title: 'Strong', value: 'strong'},
+              {title: 'Emphasis', value: 'em'},
+              {title: 'Code', value: 'code'},
+            ],
+          },
+          styles: [
+            {title: 'Normal', value: 'normal'},
+            {title: 'H1', value: 'h1'},
+            {title: 'H2', value: 'h2'},
+            {title: 'H3', value: 'h3'},
+            {title: 'H4', value: 'h4'},
+            {title: 'H5', value: 'h5'},
+            {title: 'H6', value: 'h6'},
+            {title: 'Quote', value: 'blockquote'},
+          ],
+          lists: [
+            {title: 'Bullet', value: 'bullet'},
+            {title: 'Numbered', value: 'number'},
+          ],
+        },
+        {
+          type: 'image',
+        },
+      ],
     }),
   ],
 })
