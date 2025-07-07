@@ -3,4 +3,5 @@ module.exports.cases = `
     id
     path
   }
-`
+`;
+

@@ -4,6 +4,7 @@ import settings from './documents/settings'
 import casesItem from './documents/casesItem'
 import redirect from './documents/redirect'
 import articlesItem from './documents/articlesItem'
+import technologies from './documents/technologies'
 
 // objects
 import link from './objects/link'
@@ -24,6 +25,7 @@ export const schemaTypes = [
   settings,
   casesItem,
   redirect,
+  technologies,
 
   // objects
   link,
