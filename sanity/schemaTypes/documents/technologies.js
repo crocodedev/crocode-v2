@@ -2,8 +2,8 @@ import {MasterDetailIcon} from '@sanity/icons'
 import {defineField, defineType} from 'sanity'
 
 export default defineType({
-  name: 'casesItem',
-  title: 'Cases item',
+  name: 'technologies',
+  title: 'Technologies',
   type: 'document',
   icon: MasterDetailIcon,
   preview: {
@@ -27,31 +27,6 @@ export default defineType({
       },
     }),
     defineField({
-      title: 'Technologies',
-      name: 'technologiesList',
-      type: 'technologiesArray',
-    }),
-    defineField({
-      title: 'Country',
-      name: 'country',
-      type: 'string',
-      initialValue: 'United Kingdom',
-      options: {
-        list: [
-          {title: 'Germany', value: 'Germany'},
-          {title: 'United Kingdom', value: 'United Kingdom'},
-          {title: 'Denmark', value: 'Denmark'},
-          {title: 'USA', value: 'USA'},
-          {title: 'Italy', value: 'Italy'},
-        ],
-      },
-    }),
-    defineField({
-      title: 'Cover image',
-      name: 'casesItemImage',
-      type: 'imageWithAlt',
-    }),
-    defineField({
       name: 'seo',
       type: 'seo',
     }),
@@ -65,30 +40,6 @@ export default defineType({
           type: 'link',
         },
       ],
-    }),
-    defineField({
-      name: 'images',
-      type: 'array',
-      of: [
-        {
-          type: 'imageWithAlt',
-        },
-      ],
-    }),
-    defineField({
-      name: 'industry',
-      title: 'Industry',
-      type: 'string',
-    }),
-    defineField({
-      name: 'service',
-      title: 'Service',
-      type: 'string',
-    }),
-    defineField({
-      name: 'duration',
-      title: 'Duration',
-      type: 'string',
     }),
     defineField({
       title: 'Content',
@@ -121,6 +72,63 @@ export default defineType({
         },
         {
           type: 'image',
+        },
+      ],
+    }),
+    defineField({
+      title: 'Projects',
+      name: 'projects',
+      type: 'array',
+      of: [
+        {
+          type: 'reference',
+          to: [{type: 'casesItem'}],
+        },
+      ],
+    }),
+    defineField({
+      title: 'Questions',
+      name: 'questions',
+      type: 'array',
+      of: [
+        {
+          type: 'object',
+          name: 'questionItem',
+          fields: [
+            {
+              name: 'question',
+              title: 'Question',
+              type: 'string',
+            },
+            {
+              name: 'answer',
+              title: 'Answer',
+              type: 'string',
+            },
+          ],
+        },
+      ],
+    }),
+    defineField({
+      title: 'Process',
+      name: 'process',
+      type: 'array',
+      of: [
+        {
+          type: 'object',
+          name: 'processItem',
+          fields: [
+            {
+              name: 'titleItem',
+              title: 'Title',
+              type: 'string',
+            },
+            {
+              name: 'description',
+              title: 'Description',
+              type: 'string',
+            },
+          ],
         },
       ],
     }),

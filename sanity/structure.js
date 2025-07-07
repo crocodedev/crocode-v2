@@ -3,10 +3,9 @@ export const structure = (S) =>
     .title('Content')
     .items([
       S.documentTypeListItem('page').title('Pages'),
-
       S.documentTypeListItem('articlesItem').title('Articles'),
-
       S.documentTypeListItem('casesItem').title('Projects'),
+      S.documentTypeListItem('technologies').title('Technologies'),
 
       S.documentTypeListItem('redirect').title('Redirects'),
 
