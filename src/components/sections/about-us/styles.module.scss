@@ -129,14 +129,25 @@
 .navbar {
   display: flex;
   justify-content: space-between;
+  gap: fluid-size(12, 20);
   width: min-content;
   align-items: center;
   border-radius: 100px;
   background-color: $color-bg-green;
+
   &__button {
-    font-weight: 700;
-    font-size: $size-text-2;
-    color: $color-text-black;
+    display: flex;
+    align-items: center;
+    padding: fluid-size(10, 20) fluid-size(12, 25);
+    background: transparent;
+    border: none;
+    cursor: pointer;
+  }
+
+  &__button_icon {
+    display: inline-block;
+    width: fluid-size(20, 40);
+    height: fluid-size(20, 40);
   }
 }
 
