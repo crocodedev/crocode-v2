@@ -13,7 +13,6 @@ const OurProjectsSection = ({
   title = data.title || '',
   cards = data.cards,
 }: TProps) => {
-  console.log(cards);
   return (
     <SectionLayout className={styles.section}>
       <Title text={title} anchor={'right'} />

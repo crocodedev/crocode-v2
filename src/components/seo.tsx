@@ -71,11 +71,11 @@ const Seo = (props: TSeo) => {
         )}
       </Head>
 
-      <Script
+      {/* <Script
         id='googletagmanager'
         async
         src='https://www.googletagmanager.com/gtag/js?id=G-JRHLER8WXC'
-      />
+      /> */}
       <Script id='gtag' strategy='afterInteractive'>
         {`
            window.dataLayer = window.dataLayer || [];

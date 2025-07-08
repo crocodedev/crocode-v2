@@ -56,7 +56,7 @@ const TechnologyPage = ({ technology, errors, seo, allRedirects }: TProps) => {
           },
           href: project?.slug?.current || '#',
         }))
-        .slice(0, 3),
+        .splice(0, 3),
     },
   };
 
@@ -99,8 +99,8 @@ export const getServerSideProps: GetServerSideProps<TProps> = (async (
     props: {
       technology: technology || null,
       errors: errors || null,
-      seo: seo,
-      allRedirects: allRedirects,
+      seo,
+      allRedirects,
     },
   };
 }) satisfies GetServerSideProps<TProps>;

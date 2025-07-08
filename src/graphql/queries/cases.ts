@@ -7,15 +7,6 @@ export const ALL_CASES_ITEMS = `
       _id
       title
       slug { current }
-      technologies
-      text
-      marker
-      link {
-        _key
-        title
-        linkExternal { href label blank }
-        linkInternal { label reference { ... on Page { slug { current } } } }
-      }
       casesItemImage {
         altText
         image {asset {url} }
@@ -25,7 +16,7 @@ export const ALL_CASES_ITEMS = `
         title
         description
         keywords
-        
+
       }
     }
   }
@@ -36,8 +27,34 @@ export const getCaseItem = (slug: string) => `
     allCasesItem(where: { slug: { current: { matches: "${slug}" } } }) {
       _id
       title
-      text
-      casesItemImage { altText image { asset { url } } }
+      technologiesList {
+        title
+        icon {
+          asset {
+            url
+          }
+        }
+      }
+      duration
+      service
+      industry
+      casesItemImage {
+        image {
+          asset {
+            url
+            altText
+          }
+        }
+      }
+      images {
+        image {
+          asset {
+            url
+            altText
+          }
+        }
+      }
+      contentRaw
     }
   }
 `;
@@ -60,25 +77,16 @@ export const getCasesItems = (
         _id
         title
         slug { current }
-        technologies
-        text
-        marker
-        link {
-          _key
-          title
-          linkExternal { href label blank }
-          linkInternal { label reference { ... on Page { slug { current } } } }
-        }
         casesItemImage {
           altText
           image {asset {url} }
         }
-  
+
         seo {
           title
           description
           keywords
-          
+
         }
       }
     }
