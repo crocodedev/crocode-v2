@@ -31,7 +31,7 @@ const CasePage = ({ caseItem, errors, seo, allRedirects }: TProps) => {
   return (
     <Fragment>
       <Seo {...seo} />
-      <Hero title={title} modelsIsShow={true} />
+      <Hero title={title} />
       {/* TODO: Менять санити */}
       <AboutUs />
       <ContactUsForm />

@@ -50,7 +50,6 @@ const COMPONENT_MODELS = [
 
 type TProps = {
   typeText?: 'default' | 'main' | string;
-  modelsIsShow?: boolean;
   title: string;
   image?: TImage;
 };
