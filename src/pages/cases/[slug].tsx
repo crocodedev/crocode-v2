@@ -1,24 +1,23 @@
 import { GetServerSideProps } from 'next';
 import { Fragment } from 'react';
-
 import {
   AboutUs,
   ContactUsForm,
   Hero,
   CardImageFive,
-  // CardGrid,
+  CardGrid,
+  Info,
 } from '@/components/sections';
+import { TitleSection } from '@/components/ui';
 import { TCase } from '@/components/sections/cases/type';
 import Seo from '@/components/seo';
-
 import { TPageProps } from '@/types/pageProps';
 import { TSanityError } from '@/types/sanityError';
-
 import { getSeoProps } from '@/utils/seo';
-
 import { getCaseItem } from '@/graphql/queries/cases';
 import { useRedirect } from '@/hooks';
 import { fetchGraphQL } from '@/lib/graphql';
+import { parseHtmlToBlocks } from '@/utils/parseMarkdown';
 
 type TProps = TPageProps & {
   caseItem: TCase;
@@ -27,8 +26,6 @@ type TProps = TPageProps & {
 
 const CasePage = ({ caseItem, errors, seo, allRedirects }: TProps) => {
   useRedirect(allRedirects);
-
-  console.log(caseItem);
 
   const {
     title,
@@ -41,8 +38,6 @@ const CasePage = ({ caseItem, errors, seo, allRedirects }: TProps) => {
   } = caseItem;
 
   const html = contentRaw[0].children[0].text;
-
-  console.log(contentRaw);
 
   const PROPS_SECTIONS = {
     cardImageFive: {
@@ -72,8 +67,10 @@ const CasePage = ({ caseItem, errors, seo, allRedirects }: TProps) => {
         },
       ],
     },
-    content: html,
+    content: parseHtmlToBlocks(html),
   };
+
+  console.log(PROPS_SECTIONS.content);
 
   if (errors) {
     console.error(errors[0].message);
@@ -84,7 +81,18 @@ const CasePage = ({ caseItem, errors, seo, allRedirects }: TProps) => {
       <Seo {...seo} />
       <Hero title={title} />
       <CardImageFive {...PROPS_SECTIONS.cardImageFive} />
-      {/* <CardGrid /> */}
+      <div>
+        {PROPS_SECTIONS.content.length &&
+          PROPS_SECTIONS.content.map((block, i) =>
+            block.type === 'list' ? (
+              <CardGrid cards={block.content.cards} key={i} />
+            ) : block.type === 'title' ? (
+              <TitleSection label={block.content.title} />
+            ) : block.type === 'text' ? (
+              <Info texts={[block.content.text]} />
+            ) : null,
+          )}
+      </div>
       <AboutUs />
       <ContactUsForm />
     </Fragment>
