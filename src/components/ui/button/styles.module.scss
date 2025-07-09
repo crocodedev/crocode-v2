@@ -7,20 +7,31 @@
   border-radius: 100px;
   transition: all 0.6s linear;
   padding: 13px 25px;
-  font-size: $size-text-1;
   text-decoration: none;
 
   &__prime {
+    font-size: $size-text-1;
     color: $color-text-white;
     background-color: $color-text-green;
   }
 
   &__second {
+    font-size: $size-text-1;
     color: $color-text-white;
     background-color: $color-bg-black;
 
     &:hover {
       color: $color-text-green;
+    }
+  }
+
+  &__xl {
+    padding: fluid-size(13, 20) fluid-size(15, 27);
+    font-size: fluid-size(14, 36);
+    background-color: $color-text-green;
+
+    &:hover {
+      color: $color-text-white;
     }
   }
 
