@@ -35,6 +35,8 @@ import Subscribe from './subscribe';
 import Technologies from './technologies';
 import TechnologyStack from './technology-stack';
 import WhyCrocode from './why-crocode';
+import StyleGuide from './style-guide';
+import NotFound from './404';
 
 export {
   SectionLayout,
@@ -73,4 +75,6 @@ export {
   ContactUsMap,
   Banner,
   FiltersCases,
+  StyleGuide,
+  NotFound,
 };

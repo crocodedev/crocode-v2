@@ -1,5 +1,6 @@
 @mixin vertical-text {
   .title {
+    text-transform: uppercase;
     transform: rotate(270deg);
   }
 }

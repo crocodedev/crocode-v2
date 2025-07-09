@@ -1,6 +1,6 @@
 .container {
-  display: flex;
-  flex-wrap: wrap;
+  display: grid;
+  grid-template-columns: repeat(2, auto);
   justify-content: center;
   align-items: center;
   padding: 65px 0px;
@@ -11,8 +11,8 @@
 
 .card {
   @include flex-center;
-  width: clamp(10.3125rem, 3.625rem + 33.4375vw, 43.75rem);
-  height: clamp(4.0625rem, 1.875rem + 10.9375vw, 15rem);
+  width: fluid-size(180, 700);
+  height: fluid-size(65, 240);
   padding: fluid-size(0, 10) fluid-size(7, 25);
   border-radius: fluid-size(14, 64);
   text-decoration: none;

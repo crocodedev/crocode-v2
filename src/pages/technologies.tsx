@@ -11,7 +11,6 @@ import { useRedirect } from '@/hooks';
 
 const PROPS_SECTIONS = {
   hero: {
-    modelsIsShow: true,
     title: 'OUR TECHNOLOGY STACK',
   },
 };

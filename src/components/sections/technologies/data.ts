@@ -1,5 +1,50 @@
 import { TImage } from '@/types/types';
 
+export type TTechnologies = {
+  _id: string;
+  _key: string;
+  title: string;
+  slug: { current: string };
+  seo: {
+    title: string;
+    description: string;
+    keywords: string[];
+  };
+  breadcrumbs: {
+    _key: string;
+    title: string;
+    linkExternal?: { href: string; label: string; blank: boolean };
+    linkInternal?: { label: string; reference?: { slug: { current: string } } };
+  }[];
+  contentRaw: {
+    children: {
+      text: string;
+    }[];
+  }[];
+  projects: {
+    title: string;
+    slug: {
+      current: string;
+    };
+    casesItemImage: {
+      image: {
+        asset: {
+          url: string;
+        };
+      };
+      altText: string;
+    };
+  }[];
+  questions: {
+    question: string;
+    answer: string;
+  }[];
+  process: {
+    titleItem: string;
+    description: string;
+  }[];
+};
+
 type TData = {
   title: string;
   categories: {

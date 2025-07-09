@@ -1,11 +1,11 @@
 import Image from 'next/image';
-
-import Button from '@/components/ui/button';
 import { FieldError, useForm } from 'react-hook-form';
+
+import { Input } from '@/components/ui';
+import Button from '@/components/ui/button';
 
 import { data } from './data';
 import styles from './styles.module.scss';
-import { Input } from '@/components/ui';
 
 type FormValues = {
   [key: string]: string;

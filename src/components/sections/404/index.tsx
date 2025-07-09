@@ -1,6 +1,6 @@
 import Image from 'next/image';
 
-import { ModelsLayout, SectionLayout } from '@/components/sections';
+import { ModelsLayout } from '@/components/sections';
 import { Button } from '@/components/ui';
 
 import { TImage } from '@/types/types';
@@ -49,41 +49,50 @@ const COMPONENT_MODELS = [
 ];
 
 type TProps = {
-  typeText?: 'default' | 'main' | string;
-  title: string;
   image?: TImage;
 };
 
-const Hero = ({
-  title,
+const NotFound = ({
   image = {
     src: '/images/background.jpg',
     alt: 'background',
   },
-  typeText = 'default',
 }: TProps) => {
   return (
-    <SectionLayout className={styles.section}>
+    <section className={styles.section}>
       <ModelsLayout models={COMPONENT_MODELS} lightIntensity={4} />
-      <div className={styles.hero}>
+      <div className={styles.section__inner}>
         <Image
           loading='eager'
-          className={styles.hero__background}
+          className={styles.section__background}
           src={image.src}
           fill
           alt={image.alt}
         />
-        <div className={styles.hero__content}>
-          <h1
-            className={`${styles.hero__title} ${styles[`hero__title_${typeText}`]}`}
+        <div className={styles.section__content}>
+          <div className={styles.section__content_inner}>
+            <h1 className={styles.section__title}>404</h1>
+            <div className={styles.section__description}>
+              <span className={styles.section__description__text}>
+                Page Not Found
+              </span>
+              <span className={styles.section__description__text}>
+                The page you&apos;re looking for doesn&apos;t exist moved.
+              </span>
+            </div>
+          </div>
+          <Button
+            className={styles.section__button}
+            type='link'
+            href='/'
+            view='xl'
           >
-            {title}
-          </h1>
-          <Button className={styles.hero__button}>Contact us</Button>
+            Return to Home
+          </Button>
         </div>
       </div>
-    </SectionLayout>
+    </section>
   );
 };
 
-export default Hero;
+export default NotFound;

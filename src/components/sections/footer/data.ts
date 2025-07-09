@@ -89,11 +89,11 @@ export const data: TFooter = {
         },
         {
           text: 'E-commerce Development',
-          href: '/',
+          href: '/e-commerce-development',
         },
         {
           text: 'Healdess CMS Development',
-          href: '/',
+          href: '/headless-cms-development',
         },
       ],
     },

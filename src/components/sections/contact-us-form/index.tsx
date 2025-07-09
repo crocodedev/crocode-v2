@@ -1,6 +1,7 @@
 import Image from 'next/image';
 import { FieldError, useForm } from 'react-hook-form';
 import 'react-phone-input-2/lib/style.css';
+
 import { Button, Checkbox, Input } from '@/components/ui';
 
 import { form } from './data';

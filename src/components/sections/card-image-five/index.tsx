@@ -28,8 +28,8 @@ const CardImageFive = ({
           <Card className={styles.card} key={index}>
             <Image
               className={styles.card__image}
-              width={100}
-              height={100}
+              width={500}
+              height={350}
               src={card.src}
               alt={card.alt}
             />

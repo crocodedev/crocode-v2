@@ -1,11 +1,11 @@
 import { AnchorType } from '@/components/ui/title/types';
 
-import { TImage, TLink } from '@/types/types';
+import { TImage } from '@/types/types';
 
-type TData = {
-  title: string;
+export type TData = {
+  title?: string;
   anchor?: AnchorType;
-  cards: [{ image: TImage; link: TLink }, { image: TImage; link: TLink }];
+  cards?: { image: TImage; href: string }[];
 };
 
 export const data: TData = {
@@ -16,20 +16,14 @@ export const data: TData = {
         src: '/images/our-project.png',
         alt: 'Show More',
       },
-      link: {
-        href: '/',
-        text: '',
-      },
+      href: '/',
     },
     {
       image: {
         src: '/images/our-project-2.png',
         alt: 'Show More',
       },
-      link: {
-        href: '/',
-        text: '',
-      },
+      href: '/',
     },
   ],
 };

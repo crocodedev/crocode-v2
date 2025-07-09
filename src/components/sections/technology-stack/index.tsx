@@ -1,39 +1,22 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
-/* eslint-disable @typescript-eslint/no-unused-vars */
 import Link from 'next/link';
 
 import { SectionLayout } from '@/components/sections';
 import { Card } from '@/components/ui';
 
 import styles from './styles.module.scss';
-
-const DATA_ITEMS = [
-  'Mobile',
-  'E-Commerce Platform',
-  'Back-end Development',
-  'Headless CMS',
-  'Other',
-  'Game Engine',
-  'Industries',
-  'Front-end Development',
-  'Services',
-];
-
-type TProps = {
-  cards: {
-    link: any;
-    text: string;
-  }[];
-};
+import { data } from './data';
 
 const TechnologyStackSection = () => {
   return (
     <SectionLayout className={styles.section}>
       <div className={styles.container}>
-        {DATA_ITEMS.map((item) => (
-          <Card className={styles.card} key={item}>
-            <Link href={'#'} className={styles.card__link}>
-              <h2 className={styles.title}>{item.toUpperCase()}</h2>
+        {data.map((item, index) => (
+          <Card className={styles.card} key={index}>
+            <Link
+              href={`/technologies/${item.href}`}
+              className={styles.card__link}
+            >
+              <h2 className={styles.title}>{item.text}</h2>
             </Link>
           </Card>
         ))}

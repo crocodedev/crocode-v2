@@ -19,7 +19,6 @@ import { fetchGraphQL } from '@/lib/graphql';
 
 const PROPS_SECTIONS = {
   hero: {
-    modelsIsShow: true,
     title: 'cases',
   },
 };
@@ -56,6 +55,8 @@ const CasesPage = ({
   if (errors?.length > 0) {
     console.error(`Error ${errors[0]?.message}`);
   }
+
+  console.log(cases);
 
   const filteredCases =
     initialTech.length > 0
@@ -115,7 +116,7 @@ export const getServerSideProps = (async (context) => {
       await fetchGraphQL(ALL_CASES_ITEMS);
 
     if (errorsCount) {
-      throw new Error(errorsCount[0].message);
+      throw new Error(errorsCount);
     }
 
     const queryCases = getCasesItems(
@@ -126,6 +127,8 @@ export const getServerSideProps = (async (context) => {
 
     const { data: dataCases, errors: errorsCases } =
       await fetchGraphQL(queryCases);
+
+    console.log(dataCases);
 
     let filteredCases = dataCases?.allCasesItem || [];
 
