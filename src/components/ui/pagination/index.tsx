@@ -1,18 +1,23 @@
 import { usePathname, useRouter, useSearchParams } from 'next/navigation';
 
 import { IconChevronLeft, IconChevronRight } from '@/components/icons';
-import Button from '@/components/ui/button';
 
 import { TPagination } from '@/types/pagination';
+import { getPaginationRange } from './utils';
 
 import styles from './styles.module.scss';
 
 type TProps = {
   paginationData: TPagination;
   onPageChange?: (page: number) => void;
+  showPaginationRange?: boolean;
 };
 
-const Pagination = ({ onPageChange, paginationData }: TProps) => {
+const Pagination = ({
+  onPageChange,
+  paginationData,
+  showPaginationRange = false,
+}: TProps) => {
   const { currentPage, totalPages } = paginationData;
 
   const router = useRouter();
@@ -32,9 +37,13 @@ const Pagination = ({ onPageChange, paginationData }: TProps) => {
     router.push(`${pathname}?${params.toString()}`);
   };
 
+  // getPaginationRange(4, 10);
+
+  const paginationRange = getPaginationRange(currentPage, totalPages);
+
   return (
     <div className={styles.pagination}>
-      <Button
+      <button
         type='button'
         className={styles.arrow}
         onClick={() => handlePageChange(currentPage - 1)}
@@ -42,8 +51,26 @@ const Pagination = ({ onPageChange, paginationData }: TProps) => {
         aria-label='Previous page'
       >
         <IconChevronLeft />
-      </Button>
-      <Button
+      </button>
+      {showPaginationRange && (
+        <div className={styles.pagination__range}>
+          {paginationRange.map((el, i) => (
+            <button
+              className={`
+                ${styles.pagination__range__btn}
+                ${el == currentPage ? styles.pagination__range__btn_active : ''}
+                ${typeof el !== 'number' ? styles.pagination__range__btn_disabled : ''}
+                `}
+              type='button'
+              onClick={() => typeof el === 'number' && handlePageChange(el)}
+              key={i}
+            >
+              {el}
+            </button>
+          ))}
+        </div>
+      )}
+      <button
         type='button'
         className={styles.arrow}
         onClick={() => handlePageChange(currentPage + 1)}
@@ -51,7 +78,7 @@ const Pagination = ({ onPageChange, paginationData }: TProps) => {
         aria-label='Next page'
       >
         <IconChevronRight />
-      </Button>
+      </button>
     </div>
   );
 };

@@ -34,7 +34,7 @@ const CasesSection = ({ cases, paginationData }: TProps) => {
           <p>No cases found</p>
         )}
       </div>
-      <Pagination paginationData={paginationData} />
+      <Pagination paginationData={paginationData} showPaginationRange={true} />
     </SectionLayout>
   );
 };
