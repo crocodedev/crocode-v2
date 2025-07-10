@@ -34,7 +34,7 @@ const ArticlePage = ({ article, errors, seo, allRedirects }: TProps) => {
   return (
     <Fragment>
       <Seo {...seo} />
-      <Hero title={article.title} modelsIsShow={true} />
+      <Hero title={article.title} />
       <AuthorArticle text={article.author} />
       <BlogContent article={article} />
       <Subscribe />
