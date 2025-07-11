@@ -1,14 +1,17 @@
+export type TTechnology = {
+  title: string;
+  icon: {
+    asset: {
+      url: string;
+    };
+  };
+};
+
 export type TCase = {
   _id: string;
   title: string;
-  technologiesList: {
-    title: string;
-    icon: {
-      asset: {
-        url: string;
-      };
-    };
-  }[];
+  slug: { current: string };
+  technologiesList: TTechnology[];
   contentRaw: {
     children: { text: string }[];
   }[];

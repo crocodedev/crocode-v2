@@ -37,14 +37,10 @@ const CasePage = ({ caseItem, errors, seo, allRedirects }: TProps) => {
     contentRaw,
   } = caseItem;
 
-  console.log(caseItem);
-
   const html = contentRaw?.reduce(
     (acc, elem) => acc + (elem?.children?.[0]?.text || ''),
     '',
   );
-
-  console.log(html);
 
   const PROPS_SECTIONS = {
     cardImageFive: {
@@ -115,7 +111,6 @@ export const getServerSideProps: GetServerSideProps<TProps> = (async (
   const { data, errors } = await fetchGraphQL(query, variables);
   const { seo, allRedirects } = await getSeoProps(slug);
   const caseItem = data?.allCasesItem?.[0] || null;
-  console.log(caseItem);
 
   if (!caseItem) {
     return {

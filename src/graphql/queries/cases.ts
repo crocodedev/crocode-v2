@@ -6,7 +6,24 @@ export const ALL_CASES_ITEMS = `
     allCasesItem {
       _id
       title
+      country
+      technologiesList {
+        title
+        icon {
+          asset {
+            url
+          }
+        }
+      }
       slug { current }
+      technologiesList {
+        title
+        icon {
+          asset {
+            url
+          }
+        }
+      }
       casesItemImage {
         altText
         image {asset {url} }
@@ -27,6 +44,7 @@ export const getCaseItem = (slug: string) => `
     allCasesItem(where: { slug: { current: { matches: "${slug}" } } }) {
       _id
       title
+      country
       technologiesList {
         title
         icon {
@@ -67,7 +85,7 @@ export const getCasesItems = (
   let filter = '';
 
   if (country && country != DEFAULT_VALUE_ALL_COUNTRY)
-    filter += `country: { title: { eq: "${country}" } },`;
+    filter += `country: { eq: "${country}" },`;
 
   const where = filter ? `where: { ${filter} }` : '';
 
@@ -76,6 +94,15 @@ export const getCasesItems = (
       allCasesItem(${where} limit: ${limit}, offset: ${offset}) {
         _id
         title
+        country
+        technologiesList {
+        title
+        icon {
+          asset {
+            url
+          }
+        }
+      }
         slug { current }
         casesItemImage {
           altText

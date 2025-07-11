@@ -37,9 +37,7 @@ const Pagination = ({
     router.push(`${pathname}?${params.toString()}`);
   };
 
-  // getPaginationRange(4, 10);
-
-  const paginationRange = getPaginationRange(currentPage, totalPages);
+  const paginationRange = getPaginationRange({ currentPage, totalPages });
 
   return (
     <div className={styles.pagination}>

@@ -30,6 +30,10 @@ const AboutUsSection = ({
     setActiveIndex((prev) => (prev - 1 + users.length) % users.length);
   };
 
+  const handleClickAvatar = (index: number) => {
+    setActiveIndex(index);
+  };
+
   return (
     <SectionLayout className={styles.section}>
       <Title text={title} />
@@ -56,8 +60,13 @@ const AboutUsSection = ({
           </button>
         </div>
         <div className={styles.container__avatars}>
-          {users.map((avatar, index) => (
-            <Avatar key={index} index={index} activeIndex={activeIndex} />
+          {users.map((_, index) => (
+            <Avatar
+              key={index}
+              active={activeIndex === index}
+              className={styles.avatar}
+              onClick={() => handleClickAvatar(index)}
+            />
           ))}
 
           <div className={styles.container__comment}>
