@@ -24,24 +24,24 @@ const PROPS_SECTIONS = {
 };
 
 const DEFAULT_FILTERS_TECH = [
-  'Gatsby',
-  'React',
-  'CMS',
-  'Sanity',
-  'TypeScript',
-  'EmotionJS',
-  'NextJS',
-  'Canvas',
-  'JavaScript',
-  'HTML',
-  'CSS',
-  'Shopify Liquid',
+  { title: 'Gatsby' },
+  { title: 'React' },
+  { title: 'CMS' },
+  { title: 'Sanity' },
+  { title: 'TypeScript' },
+  { title: 'EmotionJS' },
+  { title: 'NextJS' },
+  { title: 'Canvas' },
+  { title: 'JavaScript' },
+  { title: 'HTML' },
+  { title: 'CSS' },
+  { title: 'Shopify Liquid' },
 ];
 
 type TProps = TPageProps & {
   cases: TCase[];
   errors: TSanityError[];
-  initialTech: string[];
+  initialTech: { title: string }[];
   paginationData: TPagination;
 };
 
@@ -63,8 +63,7 @@ const CasesPage = ({
           new Set(
             cases
               ?.flatMap((item: TCase) => item.technologiesList)
-              .filter(Boolean)
-              .map((tech) => tech.title) ?? [],
+              .filter(Boolean) ?? [],
           ),
         );
 

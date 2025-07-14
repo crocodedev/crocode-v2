@@ -1,6 +1,6 @@
 export type TTechnology = {
   title: string;
-  icon: {
+  icon?: {
     asset: {
       url: string;
     };
@@ -10,8 +10,9 @@ export type TTechnology = {
 export type TCase = {
   _id: string;
   title: string;
-  slug: { current: string };
-  technologiesList: TTechnology[];
+  technologiesList: {
+    title: string;
+  }[];
   contentRaw: {
     children: { text: string }[];
   }[];

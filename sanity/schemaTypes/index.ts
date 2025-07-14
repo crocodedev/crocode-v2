@@ -18,6 +18,11 @@ import cookies from './objects/cookies'
 // blocks
 import imageWithAlt from './blocks/imageWithAlt'
 
+//other
+import {technologiesItem} from './objects/technologiesArray'
+import {questionItem} from './documents/technologies'
+import {processItem} from './documents/technologies'
+
 export const schemaTypes = [
   // documents
   page,
@@ -38,4 +43,9 @@ export const schemaTypes = [
 
   // blocks
   imageWithAlt,
+
+  //other
+  technologiesItem,
+  questionItem,
+  processItem,
 ]

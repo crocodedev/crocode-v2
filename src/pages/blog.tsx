@@ -28,13 +28,13 @@ const PROPS_SECTIONS = {
 };
 
 type TProps = TPageProps & {
-  artcles: TArticle[];
+  articles: TArticle[];
   errors: TSanityError[];
   paginationData: TPagination;
 };
 
 const BlogPage = ({
-  artcles,
+  articles,
   errors,
   paginationData,
   seo,
@@ -52,7 +52,7 @@ const BlogPage = ({
       <Hero {...PROPS_SECTIONS.hero} />
       <BlogCatalog
         {...PROPS_SECTIONS.blogCatalog}
-        artcles={artcles}
+        articles={articles}
         paginationData={paginationData}
       />
       <Subscribe />
@@ -64,7 +64,6 @@ export const getServerSideProps = (async (
   context: GetServerSidePropsContext,
 ) => {
   const { category, page } = context.query;
-
   const currentPage = page ? Math.max(1, parseInt(page as string)) : 1;
   const offset = (currentPage - 1) * ITEMS_PER_PAGE;
 
@@ -73,7 +72,7 @@ export const getServerSideProps = (async (
 
   const seo = {
     titleTemplate: false,
-    title: category,
+    title: category || null,
     description: `Description for ${category}`,
     keywords: `${category}`,
     image: {
@@ -91,7 +90,7 @@ export const getServerSideProps = (async (
   if (errorsCount) {
     return {
       props: {
-        artcles: [],
+        articles: [],
         errors: errorsCount,
         paginationData: {
           currentPage: 1,
@@ -111,10 +110,11 @@ export const getServerSideProps = (async (
 
   const { data: dataArticles, errors: errorsArticles } =
     await fetchGraphQL(queryCases);
+  console.log({ data: dataArticles?.allArticlesItem });
 
   return {
     props: {
-      artcles: dataArticles?.allArticlesItem,
+      articles: dataArticles?.allArticlesItem || null,
       errors: errorsArticles || null,
       seo: seo,
       allRedirects: [],
