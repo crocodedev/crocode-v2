@@ -37,19 +37,22 @@ const CasePage = ({ caseItem, errors, seo, allRedirects }: TProps) => {
     contentRaw,
   } = caseItem;
 
-  const html = contentRaw[0].children[0].text;
+  const html = contentRaw?.reduce(
+    (acc, elem) => acc + (elem?.children?.[0]?.text || ''),
+    '',
+  );
 
   const PROPS_SECTIONS = {
     cardImageFive: {
-      cards: images.map((el) => ({
-        src: el.image.asset.url,
-        alt: el.altText,
+      cards: images?.map((el) => ({
+        src: el?.image?.asset.url ?? '',
+        alt: el?.altText ?? '',
       })),
       info: [
         {
           title: 'Tech',
           description: technologiesList
-            .map((item) => item.title)
+            ?.map((item) => item.title)
             .filter(Boolean)
             .join(', '),
         },
@@ -67,10 +70,8 @@ const CasePage = ({ caseItem, errors, seo, allRedirects }: TProps) => {
         },
       ],
     },
-    content: parseHtmlToBlocks(html),
+    content: html ? parseHtmlToBlocks(html) : null,
   };
-
-  console.log(PROPS_SECTIONS.content);
 
   if (errors) {
     console.error(errors[0].message);
@@ -81,18 +82,20 @@ const CasePage = ({ caseItem, errors, seo, allRedirects }: TProps) => {
       <Seo {...seo} />
       <Hero title={title} />
       <CardImageFive {...PROPS_SECTIONS.cardImageFive} />
-      <div>
-        {PROPS_SECTIONS.content.length &&
-          PROPS_SECTIONS.content.map((block, i) =>
-            block.type === 'list' ? (
-              <CardGrid cards={block.content.cards} key={i} />
-            ) : block.type === 'title' ? (
-              <TitleSection label={block.content.title} />
-            ) : block.type === 'text' ? (
-              <Info texts={[block.content.text]} />
-            ) : null,
-          )}
-      </div>
+      {PROPS_SECTIONS.content && (
+        <div>
+          {PROPS_SECTIONS.content.length &&
+            PROPS_SECTIONS.content.map((block, i) =>
+              block.type === 'list' ? (
+                <CardGrid cards={block.content.cards} key={i} />
+              ) : block.type === 'title' ? (
+                <TitleSection label={block.content.title} />
+              ) : block.type === 'text' ? (
+                <Info texts={[block.content.text]} />
+              ) : null,
+            )}
+        </div>
+      )}
       <AboutUs />
       <ContactUsForm />
     </Fragment>
@@ -103,14 +106,17 @@ export const getServerSideProps: GetServerSideProps<TProps> = (async (
   context,
 ) => {
   const slug = context.params?.slug;
-
   const query = getCaseItem(slug as string);
-
   const variables = { slug };
   const { data, errors } = await fetchGraphQL(query, variables);
-  console.log(data.allCasesItem);
-  const caseItem = data?.allCasesItem?.[0] || null;
   const { seo, allRedirects } = await getSeoProps(slug);
+  const caseItem = data?.allCasesItem?.[0] || null;
+
+  if (!caseItem) {
+    return {
+      notFound: true,
+    };
+  }
 
   return {
     props: {

@@ -1,7 +1,7 @@
 import { GetServerSideProps } from 'next';
 
 import { Cases, FiltersCases, Hero, Subscribe } from '@/components/sections';
-import { TCase } from '@/components/sections/cases/type';
+import { TCase, TTechnology } from '@/components/sections/cases/type';
 import Seo from '@/components/seo';
 
 import { TPageProps } from '@/types/pageProps';
@@ -56,16 +56,15 @@ const CasesPage = ({
     console.error(`Error ${errors[0]?.message}`);
   }
 
-  console.log(cases);
-
   const filteredCases =
     initialTech.length > 0
       ? initialTech
       : Array.from(
           new Set(
             cases
-              ?.flatMap((item: TCase) => item.technologies)
-              .filter(Boolean) ?? [],
+              ?.flatMap((item: TCase) => item.technologiesList)
+              .filter(Boolean)
+              .map((tech) => tech.title) ?? [],
           ),
         );
 
@@ -80,8 +79,14 @@ const CasesPage = ({
   );
 };
 
+type TQuery = {
+  tech?: string;
+  country?: string;
+  page?: string;
+};
+
 export const getServerSideProps = (async (context) => {
-  const { tech, country, page } = context.query;
+  const { tech, country, page }: TQuery = context.query;
   const currentPage = page ? Math.max(1, parseInt(page as string)) : 1;
   const offset = (currentPage - 1) * ITEMS_PER_PAGE;
 
@@ -128,13 +133,13 @@ export const getServerSideProps = (async (context) => {
     const { data: dataCases, errors: errorsCases } =
       await fetchGraphQL(queryCases);
 
-    console.log(dataCases);
-
     let filteredCases = dataCases?.allCasesItem || [];
 
     if (techArr.length > 0) {
       filteredCases = filteredCases.filter((item: TCase) =>
-        item.technologies?.some((t: string) => techArr.includes(t)),
+        item.technologiesList?.some((t: TTechnology) =>
+          techArr.includes(t.title),
+        ),
       );
     }
 

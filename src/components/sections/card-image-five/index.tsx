@@ -40,7 +40,9 @@ const CardImageFive = ({
         {info.map((info, index) => (
           <div className={styles.info__item} key={index}>
             <p className={styles.info__title}>{info.title}</p>
-            <p className={styles.info__description}>{info.description}</p>
+            <p className={styles.info__description}>
+              {info.description || 'null'}
+            </p>
           </div>
         ))}
       </div>
