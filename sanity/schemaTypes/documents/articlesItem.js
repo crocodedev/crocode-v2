@@ -65,15 +65,6 @@ export default defineType({
       type: 'seo',
     }),
     defineField({
-      title: 'Component',
-      name: 'component',
-      type: 'string',
-      initialValue: 'ArticlesItem',
-      hidden: true,
-      readOnly: true,
-      validation: (Rule) => Rule.required(),
-    }),
-    defineField({
       title: 'Category',
       name: 'category',
       type: 'string',

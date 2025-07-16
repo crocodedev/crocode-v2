@@ -1,23 +1,27 @@
 import { GetServerSideProps } from 'next';
 import { Fragment } from 'react';
+
 import {
   AboutUs,
+  CardGrid,
+  CardImageFive,
   ContactUsForm,
   Hero,
-  CardImageFive,
-  CardGrid,
   Info,
 } from '@/components/sections';
-import { TitleSection } from '@/components/ui';
 import { TCase } from '@/components/sections/cases/type';
 import Seo from '@/components/seo';
+import { TitleSection } from '@/components/ui';
+
 import { TPageProps } from '@/types/pageProps';
 import { TSanityError } from '@/types/sanityError';
+
+import { parseHtmlToBlocks } from '@/utils/parseMarkdown';
 import { getSeoProps } from '@/utils/seo';
+
 import { getCaseItem } from '@/graphql/queries/cases';
 import { useRedirect } from '@/hooks';
 import { fetchGraphQL } from '@/lib/graphql';
-import { parseHtmlToBlocks } from '@/utils/parseMarkdown';
 
 type TProps = TPageProps & {
   caseItem: TCase;

@@ -1,6 +1,42 @@
 import {MasterDetailIcon} from '@sanity/icons'
 import {defineField, defineType} from 'sanity'
 
+export const questionItem = defineType({
+  name: 'questionItem',
+  title: 'Question Item',
+  type: 'object',
+  fields: [
+    {
+      name: 'question',
+      title: 'Question',
+      type: 'string',
+    },
+    {
+      name: 'answer',
+      title: 'Answer',
+      type: 'string',
+    },
+  ],
+})
+
+export const processItem = defineType({
+  name: 'processItem',
+  title: 'Process Item',
+  type: 'object',
+  fields: [
+    {
+      name: 'titleItem',
+      title: 'Title',
+      type: 'string',
+    },
+    {
+      name: 'description',
+      title: 'Description',
+      type: 'string',
+    },
+  ],
+})
+
 export default defineType({
   name: 'technologies',
   title: 'Technologies',
@@ -90,47 +126,13 @@ export default defineType({
       title: 'Questions',
       name: 'questions',
       type: 'array',
-      of: [
-        {
-          type: 'object',
-          name: 'questionItem',
-          fields: [
-            {
-              name: 'question',
-              title: 'Question',
-              type: 'string',
-            },
-            {
-              name: 'answer',
-              title: 'Answer',
-              type: 'string',
-            },
-          ],
-        },
-      ],
+      of: [{type: 'questionItem'}],
     }),
     defineField({
       title: 'Process',
       name: 'process',
       type: 'array',
-      of: [
-        {
-          type: 'object',
-          name: 'processItem',
-          fields: [
-            {
-              name: 'titleItem',
-              title: 'Title',
-              type: 'string',
-            },
-            {
-              name: 'description',
-              title: 'Description',
-              type: 'string',
-            },
-          ],
-        },
-      ],
+      of: [{type: 'processItem'}],
     }),
   ],
 })

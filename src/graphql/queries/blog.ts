@@ -1,3 +1,5 @@
+import seo from '../objects/seo';
+
 export const ITEMS_PER_PAGE = 8;
 export const DEFAULT_VALUE_BLOG = 'Latest';
 
@@ -15,12 +17,6 @@ export const ALL_BLOG_ARTICLES = `
           }
         }
       }
-
-      seo {
-        title
-        description
-        keywords
-      }
     }
   }
 `;
@@ -28,33 +24,62 @@ export const ALL_BLOG_ARTICLES = `
 export const getBlogArticle = (slug: string) => `
   query {
     allArticlesItem(where: { slug: { current: { matches: "${slug}" } } }) {
-       _id
-        title
-        slug { current }
-	    		coverImage{
-          altText
-          image{
-            asset{
-              url
+    ${seo}
+      _id
+      title
+      slug { current }
+      breadcrumbs {
+        _key
+      	linkInternal {
+          label
+          reference {
+            slug {
+              current
             }
           }
         }
-        seo {
-          title
-          description
-          keywords
+        linkExternal {
+          label
+          href
+          blank
         }
+      }
+			coverImage{
+        altText
+        image{
+          asset{
+            url
+          }
+        }
+      }
     	author
-    	content{
-        title
-        text
-        contentImage{
-          altText
-          image{
-            asset{
+    	date
+    	desc
+    	category
+    	contentRaw
+    	socials {
+        iconImage {
+					image {
+            asset {
               url
             }
           }
+          altText
+        }
+        link {
+          linkInternal {
+          label
+          reference {
+            slug {
+              current
+            }
+          }
+        }
+        	linkExternal {
+          label
+          href
+          blank
+        }
         }
       }
     }
@@ -67,23 +92,24 @@ export const getBlogArticles = (
   category?: string,
 ) => {
   let filter = '';
-
   if (category) {
     const categories = category.split(',').map((c) => c.trim());
     if (categories.length > 1) {
-      filter += `categoryReference: { title: { in: [${categories.map((c) => `"${c}"`).join(', ')}] } },`;
+      filter += `{ category: { in: [${categories.map((c) => `"${c}"`).join(', ')}] } }`;
     } else {
-      filter += `categoryReference: { title: { eq: "${categories[0]}" } },`;
+      filter += `{ category: { eq: "${categories[0]}" } }`;
     }
   }
 
-  const where = filter ? `where: { ${filter} }` : '';
+  const where = filter ? `where: ${filter},` : '';
+
+  console.log(`(${where} limit: ${limit}, offset: ${offset})`);
 
   return `
     query {
       allArticlesItem(${where} limit: ${limit}, offset: ${offset}) {
         _id
-        title
+        category
         slug { current }
 	    coverImage{
           altText
@@ -92,11 +118,6 @@ export const getBlogArticles = (
               url
             }
           }
-        }
-        seo {
-          title
-          description
-          keywords
         }
     }
 }

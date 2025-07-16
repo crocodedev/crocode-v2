@@ -1,6 +1,6 @@
 export type TTechnology = {
   title: string;
-  icon: {
+  icon?: {
     asset: {
       url: string;
     };

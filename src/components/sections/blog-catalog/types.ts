@@ -29,5 +29,5 @@ export type TProps = {
     link: string;
   };
   paginationData: TPagination;
-  artcles: TArticle[];
+  articles: TArticle[];
 };

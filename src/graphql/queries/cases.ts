@@ -1,3 +1,5 @@
+import seo from '../objects/seo';
+
 export const ITEMS_PER_PAGE = 6;
 export const DEFAULT_VALUE_ALL_COUNTRY = 'All Country';
 
@@ -28,13 +30,7 @@ export const ALL_CASES_ITEMS = `
         altText
         image {asset {url} }
       }
-
-      seo {
-        title
-        description
-        keywords
-
-      }
+      ${seo}
     }
   }
 `;
@@ -45,6 +41,7 @@ export const getCaseItem = (slug: string) => `
       _id
       title
       country
+      ${seo}
       technologiesList {
         title
         icon {
@@ -108,13 +105,7 @@ export const getCasesItems = (
           altText
           image {asset {url} }
         }
-
-        seo {
-          title
-          description
-          keywords
-
-        }
+        ${seo}
       }
     }
   `;
