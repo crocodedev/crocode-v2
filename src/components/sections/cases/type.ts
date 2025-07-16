@@ -10,6 +10,7 @@ export type TTechnology = {
 export type TCase = {
   _id: string;
   title: string;
+  country: string;
   slug: { current: string };
   technologiesList: TTechnology[];
   contentRaw: {

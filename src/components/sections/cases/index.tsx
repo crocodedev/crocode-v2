@@ -12,9 +12,10 @@ import { TCase } from './type';
 type TProps = {
   cases: TCase[];
   paginationData: TPagination;
+  paginationEvent?: (page: number) => void;
 };
 
-const CasesSection = ({ cases, paginationData }: TProps) => {
+const CasesSection = ({ cases, paginationData, paginationEvent }: TProps) => {
   return (
     <SectionLayout className={styles.section}>
       <div className={styles.container}>
@@ -34,7 +35,11 @@ const CasesSection = ({ cases, paginationData }: TProps) => {
           <p>No cases found</p>
         )}
       </div>
-      <Pagination paginationData={paginationData} showPaginationRange={true} />
+      <Pagination
+        paginationData={paginationData}
+        showPaginationRange={true}
+        onPageChange={paginationEvent}
+      />
     </SectionLayout>
   );
 };
