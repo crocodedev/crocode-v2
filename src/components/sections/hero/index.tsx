@@ -1,6 +1,7 @@
 import Image from 'next/image';
 
 import { ModelsLayout, SectionLayout } from '@/components/sections';
+import { Breadcrumbs } from '@/components/ui';
 import { Button } from '@/components/ui';
 
 import { TImage } from '@/types/types';
@@ -66,6 +67,7 @@ const Hero = ({
     <SectionLayout className={styles.section}>
       <ModelsLayout models={COMPONENT_MODELS} lightIntensity={4} />
       <div className={styles.hero}>
+        <Breadcrumbs />
         <Image
           loading='eager'
           className={styles.hero__background}

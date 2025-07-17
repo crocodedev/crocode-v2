@@ -1,9 +1,14 @@
 import Link from 'next/link';
 
-import { TLink } from '@/types/link';
+import { TLinkExternal, TLinkInternal, TPdf } from '@/types/link';
 
 type TProps = {
-  data: TLink;
+  data: {
+    title?: string;
+    pdf?: TPdf;
+    linkExternal: TLinkExternal;
+    linkInternal: TLinkInternal;
+  };
   className?: string;
 };
 
@@ -11,7 +16,7 @@ const SmartLink = ({ data, className }: TProps) => {
   if (data.pdf) {
     return (
       <a href={data.pdf.asset.url} target='_blank' className={className}>
-        {data.title}
+        {data?.title}
       </a>
     );
   } else {
