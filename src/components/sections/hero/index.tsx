@@ -1,4 +1,5 @@
 import Image from 'next/image';
+import { useLayoutEffect, useState } from 'react';
 
 import { ModelsLayout, SectionLayout } from '@/components/sections';
 import { Breadcrumbs } from '@/components/ui';
@@ -63,6 +64,16 @@ const Hero = ({
   },
   typeText = 'default',
 }: TProps) => {
+  const [size, setSize] = useState<'big' | 'small'>('small');
+
+  useLayoutEffect(() => {
+    if (title?.length > 20) {
+      setSize('small');
+    } else {
+      setSize('big');
+    }
+  }, [title]);
+
   return (
     <SectionLayout className={styles.section}>
       <ModelsLayout models={COMPONENT_MODELS} lightIntensity={4} />
@@ -77,7 +88,7 @@ const Hero = ({
         />
         <div className={styles.hero__content}>
           <h1
-            className={`${styles.hero__title} ${styles[`hero__title_${typeText}`]}`}
+            className={`${styles.hero__title} ${styles[`hero__title_${typeText}`]} ${styles[size]}`}
           >
             {title}
           </h1>

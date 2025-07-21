@@ -1,6 +1,7 @@
+import { TBreadcrumbs } from '@/types/breadcrumbs';
 import { TSanityImage } from '@/types/image';
 import { TPagination } from '@/types/pagination';
-import { TImage } from '@/types/types';
+import { TImage, TLink, TSeo } from '@/types/types';
 
 export type TArticleContentBlock = {
   title?: string;
@@ -9,17 +10,18 @@ export type TArticleContentBlock = {
 };
 
 export type TArticle = {
+  author: string;
+  category: string;
+  date: string;
+  desc: string;
   _id: string;
   title: string;
   slug: { current: string };
   coverImage: TSanityImage;
-  seo: {
-    title: string;
-    description: string;
-    keywords: string | null;
-  };
-  author: string;
-  content: TArticleContentBlock[] | null;
+  breadcrumbs: TBreadcrumbs[];
+  contentRaw: any;
+  seo: TSeo;
+  socials: { link: TLink }[];
 };
 
 export type TProps = {

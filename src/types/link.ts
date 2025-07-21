@@ -25,6 +25,6 @@ export type TLink = {
   pdf?: TPdf;
   title?: string;
   _key?: string | null;
-  text: string;
-  href: string;
+  text?: string;
+  href?: string;
 };
