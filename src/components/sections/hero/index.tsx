@@ -1,6 +1,8 @@
+import Image from 'next/image';
+
 import { ModelsLayout, SectionLayout } from '@/components/sections';
 import { Button } from '@/components/ui';
-import Image from 'next/image';
+
 import { TImage } from '@/types/types';
 
 import { MODELS } from '@/utils/const';
@@ -48,7 +50,6 @@ const COMPONENT_MODELS = [
 
 type TProps = {
   typeText?: 'default' | 'main' | string;
-  modelsIsShow: boolean;
   title: string;
   image?: TImage;
 };

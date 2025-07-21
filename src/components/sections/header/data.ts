@@ -32,7 +32,7 @@ export const data: THeader = {
     },
     {
       text: 'Blog',
-      href: '/blog?category=Latest',
+      href: '/blog',
     },
   ],
 };

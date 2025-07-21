@@ -12,8 +12,8 @@
 .container {
   position: relative;
   display: grid;
-  grid-template-columns: repeat(6, fluid-size(30, 225));
-  grid-template-rows: repeat(9, fluid-size(30, 80));
+  grid-template-columns: repeat(3, fluid-size(30, 225));
+  grid-template-rows: repeat(8, fluid-size(30, 140));
   gap: fluid-size(10, 20);
   grid-template-areas:
     'mobile e-commerce e-commerce back-end back-end back-end'
@@ -93,23 +93,12 @@
     width: 100%;
     height: 100%;
 
-    transform: translate(-50%, -50%);
-
-    transform: translate(-1500px, 0px);
-    // animation: scale-active-card .5s ease-in-out;
+    animation: scale-active-card .5s ease-in-out;
 
     .card__title {
       transform: rotate(0deg) !important;
     }
 
-    animation:
-      fly-clip 5s linear 0s infinite alternate,
-      strobe 5s linear 5s infinite alternate;
-    // animation-delay для второй анимации — чтобы она начиналась после первой
-    // infinite alternate — чтобы анимация шла туда-обратно
-    clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
-    background: white;
-    transition: none;
   }
 
   &__1 {
@@ -167,17 +156,11 @@
 
 @keyframes scale-active-card {
   from {
-    transform: translate(-50%, -50%);
     scale: 0;
-    top: 50%;
-    left: 50%;
   }
 
   to {
-    transform: translate(-50%, -50%);
     scale: 1;
-    top: 50%;
-    left: 50%;
   }
 }
 

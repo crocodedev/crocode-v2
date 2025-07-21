@@ -1,9 +1,10 @@
 import { TInput } from '@/types/types';
+
 import {
-  nameRules,
-  emailRules,
-  phoneRules,
   checkboxRules,
+  emailRules,
+  nameRules,
+  phoneRules,
 } from '@/utils/validation';
 
 type TForm = {

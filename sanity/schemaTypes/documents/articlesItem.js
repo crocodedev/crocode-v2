@@ -6,13 +6,6 @@ export default defineType({
   title: 'Articles item',
   type: 'document',
   icon: MasterDetailIcon,
-  i18n: {
-    fieldNames: {
-      lang: 'i18n_lang',
-      baseReference: 'i18n_base',
-      references: 'i18n_refs',
-    },
-  },
   preview: {
     select: {
       title: 'title',
@@ -20,32 +13,23 @@ export default defineType({
   },
   fields: [
     defineField({
-      name: 'i18n_lang',
-      type: 'string',
-      hidden: true,
-    }),
-    defineField({
-      name: 'i18n_base',
-      type: 'reference',
-      to: [{type: 'articlesItem'}],
-      hidden: true,
-    }),
-    defineField({
-      name: 'i18n_refs',
+      title: 'Breadcrumbs',
+      name: 'breadcrumbs',
       type: 'array',
-      hidden: true,
       of: [
         {
-          type: 'reference',
-          to: [{type: 'articlesItem'}],
+          name: 'link',
+          type: 'link',
         },
       ],
     }),
     defineField({
-      title: 'Section Title',
-      name: 'sectionTitle',
-      type: 'string',
-      validation: (Rule) => Rule.required(),
+      title: 'Date',
+      name: 'date',
+      type: 'date',
+      options: {
+        dateFormat: 'DD-MMM-YYYY',
+      },
     }),
     defineField({
       title: 'Title',
@@ -62,56 +46,9 @@ export default defineType({
       },
     }),
     defineField({
-      title: 'Category reference',
-      name: 'categoryReference',
-      type: 'reference',
-      to: [{type: 'blogCategory'}],
-    }),
-    defineField({
-      title: 'Position',
-      name: 'position',
-      type: 'string',
-    }),
-    defineField({
-      title: 'Component',
-      name: 'component',
-      type: 'string',
-      initialValue: 'ArticlesItem',
-      hidden: true,
-      readOnly: true,
-      validation: (Rule) => Rule.required(),
-    }),
-    defineField({
-      title: 'Breadcrumbs',
-      name: 'breadcrumbs',
-      type: 'array',
-      of: [
-        {
-          name: 'link',
-          type: 'link',
-        },
-      ],
-    }),
-    defineField({
-      title: 'Article separator',
-      name: 'articleSeparator',
-      type: 'reference',
-      to: [
-        {
-          type: 'ctaForm',
-        },
-      ],
-    }),
-    defineField({
-      title: 'Sections',
-      name: 'sections',
-      type: 'blogContent',
-    }),
-    defineField({
-      title: 'Content',
-      name: 'content',
-      type: 'array',
-      of: [{type: 'contentItem'}],
+      title: 'Description',
+      name: 'desc',
+      type: 'text',
     }),
     defineField({
       title: 'Cover image',
@@ -119,36 +56,67 @@ export default defineType({
       type: 'imageWithAlt',
     }),
     defineField({
-      title: 'Date',
-      name: 'date',
-      type: 'date',
-      options: {
-        dateFormat: 'DD-MMM-YYYY',
-      },
-    }),
-    defineField({
       title: 'Author name',
       name: 'author',
       type: 'string',
     }),
     defineField({
-      title: 'Share button text',
-      name: 'sharedText',
-      type: 'string',
-    }),
-    defineField({
-      title: 'Button title',
-      name: 'buttonTitle',
-      type: 'string',
-    }),
-    defineField({
-      title: 'Description',
-      name: 'desc',
-      type: 'text',
-    }),
-    defineField({
       name: 'seo',
       type: 'seo',
+    }),
+    defineField({
+      title: 'Category',
+      name: 'category',
+      type: 'string',
+      initialValue: 'Latest',
+      options: {
+        list: [
+          {title: 'Latest', value: 'Latest'},
+          {title: 'Technologies', value: 'Technologies'},
+          {title: 'UI/UX', value: 'UI/UX'},
+          {title: 'Client guides', value: 'Client guides'},
+        ],
+      },
+    }),
+    defineField({
+      title: 'Content',
+      name: 'content',
+      type: 'array',
+      of: [
+        {
+          type: 'block',
+          marks: {
+            decorators: [
+              {title: 'Strong', value: 'strong'},
+              {title: 'Emphasis', value: 'em'},
+              {title: 'Code', value: 'code'},
+            ],
+          },
+          styles: [
+            {title: 'Normal', value: 'normal'},
+            {title: 'H1', value: 'h1'},
+            {title: 'H2', value: 'h2'},
+            {title: 'H3', value: 'h3'},
+            {title: 'H4', value: 'h4'},
+            {title: 'H5', value: 'h5'},
+            {title: 'H6', value: 'h6'},
+            {title: 'Quote', value: 'blockquote'},
+          ],
+          lists: [
+            {title: 'Bullet', value: 'bullet'},
+            {title: 'Numbered', value: 'number'},
+          ],
+        },
+        {
+          type: 'image',
+        },
+      ],
+    }),
+    defineField({
+      title: 'Socials',
+      name: 'socials',
+      type: 'array',
+      of: [{type: 'socialIconsItem'}],
     }),
   ],
 })

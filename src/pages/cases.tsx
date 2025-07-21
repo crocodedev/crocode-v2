@@ -1,7 +1,7 @@
 import { GetServerSideProps } from 'next';
 
 import { Cases, FiltersCases, Hero, Subscribe } from '@/components/sections';
-import { TCase } from '@/components/sections/cases/type';
+import { TCase, TTechnology } from '@/components/sections/cases/type';
 import Seo from '@/components/seo';
 
 import { TPageProps } from '@/types/pageProps';
@@ -19,30 +19,29 @@ import { fetchGraphQL } from '@/lib/graphql';
 
 const PROPS_SECTIONS = {
   hero: {
-    modelsIsShow: true,
     title: 'cases',
   },
 };
 
 const DEFAULT_FILTERS_TECH = [
-  'Gatsby',
-  'React',
-  'CMS',
-  'Sanity',
-  'TypeScript',
-  'EmotionJS',
-  'NextJS',
-  'Canvas',
-  'JavaScript',
-  'HTML',
-  'CSS',
-  'Shopify Liquid',
+  { title: 'Gatsby' },
+  { title: 'React' },
+  { title: 'CMS' },
+  { title: 'Sanity' },
+  { title: 'TypeScript' },
+  { title: 'EmotionJS' },
+  { title: 'NextJS' },
+  { title: 'Canvas' },
+  { title: 'JavaScript' },
+  { title: 'HTML' },
+  { title: 'CSS' },
+  { title: 'Shopify Liquid' },
 ];
 
 type TProps = TPageProps & {
   cases: TCase[];
   errors: TSanityError[];
-  initialTech: string[];
+  initialTech: { title: string }[];
   paginationData: TPagination;
 };
 
@@ -63,7 +62,7 @@ const CasesPage = ({
       : Array.from(
           new Set(
             cases
-              ?.flatMap((item: TCase) => item.technologies)
+              ?.flatMap((item: TCase) => item.technologiesList)
               .filter(Boolean) ?? [],
           ),
         );
@@ -79,8 +78,14 @@ const CasesPage = ({
   );
 };
 
+type TQuery = {
+  tech?: string;
+  country?: string;
+  page?: string;
+};
+
 export const getServerSideProps = (async (context) => {
-  const { tech, country, page } = context.query;
+  const { tech, country, page }: TQuery = context.query;
   const currentPage = page ? Math.max(1, parseInt(page as string)) : 1;
   const offset = (currentPage - 1) * ITEMS_PER_PAGE;
 
@@ -115,7 +120,7 @@ export const getServerSideProps = (async (context) => {
       await fetchGraphQL(ALL_CASES_ITEMS);
 
     if (errorsCount) {
-      throw new Error(errorsCount[0].message);
+      throw new Error(errorsCount);
     }
 
     const queryCases = getCasesItems(
@@ -131,7 +136,9 @@ export const getServerSideProps = (async (context) => {
 
     if (techArr.length > 0) {
       filteredCases = filteredCases.filter((item: TCase) =>
-        item.technologies?.some((t: string) => techArr.includes(t)),
+        item.technologiesList?.some((t: TTechnology) =>
+          techArr.includes(t.title),
+        ),
       );
     }
 

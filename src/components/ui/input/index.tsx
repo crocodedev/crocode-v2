@@ -1,12 +1,13 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
+import { Controller } from 'react-hook-form';
+import PhoneInput from 'react-phone-input-2';
+import 'react-phone-input-2/lib/style.css';
+
 import { IconClip } from '@/components/icons';
 
 import { TInput } from '@/types/Input';
 
 import styles from './styles.module.scss';
-import { Controller } from 'react-hook-form';
-import PhoneInput from 'react-phone-input-2';
-import 'react-phone-input-2/lib/style.css';
 
 type TProps = TInput & {
   className?: string;

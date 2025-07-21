@@ -1,32 +1,32 @@
-import { TSanityImage } from '@/types/image';
-
 export type TTechnologieCard = {
   title: string;
-  slug: string;
   technologiesList: TTechnlogy[];
 };
 
 export type TTechnlogy = {
   title: string;
-  technologyImage: TSanityImage;
+  slug: string;
+  image: TTechologyImage;
 };
+
+
+export type TTechologyImage = {
+  icon: string;
+  altText: string;
+}
 
 export type TContainerImagesProps = {
-  icons: TTechnlogy[];
-  slug: string;
+  items: TTechnlogy[];
 };
 
-export type TTechnologiesSanity = {
-  categories: TTechnologieCard[];
-};
 
 export type TProps = {
   categories: TTechnologieCard[];
 };
 
 export type TIconCardProps = {
-  slug: string;
   title: string;
-  url: string;
+  icon: string;
+  slug: string;
   altText: string;
 };

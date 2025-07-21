@@ -1,22 +1,71 @@
 export const ALL_TECHNOLOGIES = `
-query { 
-		allTechnologies {
-				categories{
-          title
-          slug
-          technologiesList{
-            title
-            technologyImage{
-              image{
-                asset{
-                  url
-                }
-              }
-              altText
-            }
-          }
+  query {
+    allTechnologies {
+      _id
+      title
+      slug {
+        current
+        source
+      }
+      seo {
+        title
+        description
+        keywords
+      }
+      breadcrumbs {
+        linkInternal {
+          label
         }
-  			sectionTitle
+        linkExternal {
+          label
+          href
+          blank
+        }
+      }
+      contentRaw
+      questions {
+        question
+        answer
+      }
+      process {
+        titleItem
+        description
       }
     }
+  }
+`;
+
+export const getTechnology = (slug: string) => `
+  query {
+    allTechnologies(where: { slug: { current: { eq: "${slug}" } } }) {
+      _id
+      title
+      slug {
+        current
+      }
+      contentRaw
+      questions {
+        question
+        answer
+      }
+      process {
+        titleItem
+        description
+      }
+      projects {
+        title
+        slug {
+          current
+        }
+        casesItemImage {
+          image {
+            asset {
+              url
+            }
+          }
+          altText
+        }
+      }
+    }
+  }
 `;

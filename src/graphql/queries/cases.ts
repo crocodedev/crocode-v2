@@ -1,3 +1,5 @@
+import seo from '../objects/seo';
+
 export const ITEMS_PER_PAGE = 6;
 export const DEFAULT_VALUE_ALL_COUNTRY = 'All Country';
 
@@ -6,27 +8,29 @@ export const ALL_CASES_ITEMS = `
     allCasesItem {
       _id
       title
-      slug { current }
-      technologies
-      text
-      marker
-      link {
-        _key
+      country
+      technologiesList {
         title
-        linkExternal { href label blank }
-        linkInternal { label reference { ... on Page { slug { current } } } }
+        icon {
+          asset {
+            url
+          }
+        }
+      }
+      slug { current }
+      technologiesList {
+        title
+        icon {
+          asset {
+            url
+          }
+        }
       }
       casesItemImage {
         altText
         image {asset {url} }
       }
-
-      seo {
-        title
-        description
-        keywords
-        
-      }
+      ${seo}
     }
   }
 `;
@@ -36,8 +40,36 @@ export const getCaseItem = (slug: string) => `
     allCasesItem(where: { slug: { current: { matches: "${slug}" } } }) {
       _id
       title
-      text
-      casesItemImage { altText image { asset { url } } }
+      country
+      ${seo}
+      technologiesList {
+        title
+        icon {
+          asset {
+            url
+          }
+        }
+      }
+      duration
+      service
+      industry
+      casesItemImage {
+        image {
+          asset {
+            url
+            altText
+          }
+        }
+      }
+      images {
+        image {
+          asset {
+            url
+            altText
+          }
+        }
+      }
+      contentRaw
     }
   }
 `;
@@ -50,7 +82,7 @@ export const getCasesItems = (
   let filter = '';
 
   if (country && country != DEFAULT_VALUE_ALL_COUNTRY)
-    filter += `country: { title: { eq: "${country}" } },`;
+    filter += `country: { eq: "${country}" },`;
 
   const where = filter ? `where: { ${filter} }` : '';
 
@@ -59,27 +91,21 @@ export const getCasesItems = (
       allCasesItem(${where} limit: ${limit}, offset: ${offset}) {
         _id
         title
-        slug { current }
-        technologies
-        text
-        marker
-        link {
-          _key
-          title
-          linkExternal { href label blank }
-          linkInternal { label reference { ... on Page { slug { current } } } }
+        country
+        technologiesList {
+        title
+        icon {
+          asset {
+            url
+          }
         }
+      }
+        slug { current }
         casesItemImage {
           altText
           image {asset {url} }
         }
-  
-        seo {
-          title
-          description
-          keywords
-          
-        }
+        ${seo}
       }
     }
   `;

@@ -28,8 +28,8 @@ const CardImageFive = ({
           <Card className={styles.card} key={index}>
             <Image
               className={styles.card__image}
-              width={100}
-              height={100}
+              width={500}
+              height={350}
               src={card.src}
               alt={card.alt}
             />
@@ -40,7 +40,9 @@ const CardImageFive = ({
         {info.map((info, index) => (
           <div className={styles.info__item} key={index}>
             <p className={styles.info__title}>{info.title}</p>
-            <p className={styles.info__description}>{info.description}</p>
+            <p className={styles.info__description}>
+              {info.description || 'null'}
+            </p>
           </div>
         ))}
       </div>

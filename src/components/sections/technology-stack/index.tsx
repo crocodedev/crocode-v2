@@ -6,11 +6,12 @@ import { SectionLayout } from '@/components/sections';
 import { Card } from '@/components/ui';
 
 import styles from './styles.module.scss';
-import { TContainerImagesProps, TIconCardProps, TProps } from './types';
+import { TContainerImagesProps, TIconCardProps } from './types';
+import { data } from './data';
 
 const PAGE_URL = '/technologies';
 
-const IconCard = ({ slug, title, url, altText }: TIconCardProps) => {
+const IconCard = ({ title, icon, slug, altText }: TIconCardProps) => {
   return (
     <Link className={styles.card__icon} href={PAGE_URL + slug}>
       <Image
@@ -18,28 +19,29 @@ const IconCard = ({ slug, title, url, altText }: TIconCardProps) => {
         width={110}
         height={110}
         alt={altText}
-        src={url}
+        src={icon}
       />
       <span className={styles.card__icon__title}>{title}</span>
     </Link>
   );
 };
 
-const ContainerImages = ({ icons, slug }: TContainerImagesProps) => {
+const ContainerItems = ({ items }: TContainerImagesProps) => {
   return (
     <div className={styles.card__icon__container}>
-      {icons?.map((icon) => {
-        const url = icon?.technologyImage?.image?.asset?.url;
-        const altText = icon.technologyImage.altText;
-        const title = icon.title;
+      {items?.map((item) => {
+        const slug = item.slug;
+        const icon = item.image.icon
+        const altText = item.image.altText;
+        const title = item.title;
 
         return (
           <IconCard
+            slug={slug}
             key={title}
-            url={url}
+            icon={icon}
             title={title}
             altText={altText}
-            slug={slug}
           />
         );
       })}
@@ -47,7 +49,7 @@ const ContainerImages = ({ icons, slug }: TContainerImagesProps) => {
   );
 };
 
-const TechnologyStackSection = ({ categories }: TProps) => {
+const TechnologyStackSection = () => {
   const [indexActiveCard, setIndexActiveCard] = useState<string | null>(null);
 
   const handleClickMore = (index: string) => {
@@ -56,7 +58,7 @@ const TechnologyStackSection = ({ categories }: TProps) => {
   return (
     <SectionLayout className={styles.section}>
       <div className={`${styles.container}`}>
-        {categories?.map((item, index) => {
+        {data?.map((item, index) => {
           const isActive = indexActiveCard === item.title;
 
           return (
@@ -80,9 +82,8 @@ const TechnologyStackSection = ({ categories }: TProps) => {
                   onClick={handleClickMore.bind(null, item.title)}
                   className={`${styles.card} ${styles.card__absolute} ${styles.card}__${index + 1} `}
                 >
-                  <ContainerImages
-                    slug={item.slug}
-                    icons={item.technologiesList.slice(
+                  <ContainerItems
+                    items={item.technologiesList.slice(
                       0,
                       item.technologiesList.length / 2,
                     )}
@@ -90,9 +91,8 @@ const TechnologyStackSection = ({ categories }: TProps) => {
                   <h2 className={styles.card__title_active}>
                     {item.title.toUpperCase()}
                   </h2>
-                  <ContainerImages
-                    slug={item.slug}
-                    icons={item.technologiesList.slice(
+                  <ContainerItems
+                    items={item.technologiesList.slice(
                       item.technologiesList.length / 2,
                       item.technologiesList.length,
                     )}

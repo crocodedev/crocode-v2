@@ -8,7 +8,7 @@ import styles from './styles.module.scss';
 import { TProps } from './types';
 import { DEFAULT_VALUE_BLOG } from '@/graphql/queries/blog';
 
-const BlogCatalogSection = ({ category, artcles, paginationData }: TProps) => {
+const BlogCatalogSection = ({ category, articles, paginationData }: TProps) => {
   return (
     <SectionLayout className={styles.section}>
       <Filters
@@ -19,8 +19,8 @@ const BlogCatalogSection = ({ category, artcles, paginationData }: TProps) => {
         className={styles.filters}
       />
       <div className={styles.container}>
-        {artcles.length > 0 &&
-          artcles.map((article, index) => (
+        {articles.length > 0 &&
+          articles.map((article, index) => (
             <Card key={index} className={styles.card}>
               <Link className={styles.card__link} href={article.slug.current}>
                 <Image

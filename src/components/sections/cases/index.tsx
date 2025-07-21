@@ -18,7 +18,7 @@ const CasesSection = ({ cases, paginationData }: TProps) => {
   return (
     <SectionLayout className={styles.section}>
       <div className={styles.container}>
-        {cases.length > 0 &&
+        {cases.length > 0 ? (
           cases.map((card: TCase, index: number) => (
             <Link href={card.slug.current} className={styles.card} key={index}>
               <Image
@@ -29,9 +29,12 @@ const CasesSection = ({ cases, paginationData }: TProps) => {
                 alt={card.casesItemImage.altText}
               />
             </Link>
-          ))}
+          ))
+        ) : (
+          <p>No cases found</p>
+        )}
       </div>
-      <Pagination paginationData={paginationData} />
+      <Pagination paginationData={paginationData} showPaginationRange={true} />
     </SectionLayout>
   );
 };

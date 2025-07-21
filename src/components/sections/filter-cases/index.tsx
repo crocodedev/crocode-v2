@@ -13,7 +13,9 @@ const FILTERS_COUNTRY = [
 ];
 
 type TProps = {
-  tech: string[];
+  tech: {
+    title: string;
+  }[];
 };
 
 const FiltersCases = ({ tech }: TProps) => {

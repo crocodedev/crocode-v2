@@ -3,7 +3,13 @@ import {defineField, defineType} from 'sanity'
 export default defineType({
   preview: {
     select: {
-      title: 'title',
+      internalLabel: 'link.linkInternal.label',
+      externalLabel: 'link.linkExternal.label',
+    },
+    prepare({internalLabel, externalLabel}) {
+      return {
+        title: internalLabel ?? externalLabel,
+      }
     },
   },
 
@@ -11,11 +17,6 @@ export default defineType({
   name: 'socialIconsItem',
   type: 'object',
   fields: [
-    defineField({
-      title: 'Title',
-      name: 'title',
-      type: 'string',
-    }),
     defineField({
       title: 'Icon image',
       name: 'iconImage',

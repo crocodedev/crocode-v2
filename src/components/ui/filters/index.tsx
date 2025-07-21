@@ -4,7 +4,7 @@ import { useEffect, useState } from 'react';
 import styles from './styles.module.scss';
 
 type TProps = {
-  items: string[];
+  items: string[] | { title: string }[];
   paramKey: string;
   className?: string;
   onlyOnce?: boolean;
@@ -64,16 +64,19 @@ const Filters = ({
     <div className={`${styles.container} ${className}`}>
       {title && <h3 className={styles.category}>{title}</h3>}
       <div className={styles.filters}>
-        {items.map((item) => (
-          <button
-            key={item}
-            className={`${styles.button} ${selectedItems.includes(item) ? styles.selected : ''}`}
-            onClick={() => toggleFilter(item)}
-            type='button'
-          >
-            {item}
-          </button>
-        ))}
+        {items.map((item: string | { title: string }) => {
+          const value = typeof item === 'string' ? item : item.title;
+          return (
+            <button
+              key={value}
+              className={`${styles.button} ${selectedItems.includes(value) ? styles.selected : ''}`}
+              onClick={() => toggleFilter(value)}
+              type='button'
+            >
+              {value}
+            </button>
+          );
+        })}
       </div>
     </div>
   );

@@ -14,7 +14,6 @@ import { fetchGraphQL } from '@/lib/graphql';
 
 const PROPS_SECTIONS = {
   hero: {
-    modelsIsShow: true,
     title: 'OUR TECHNOLOGY STACK',
   },
 };
@@ -30,7 +29,7 @@ const TechnologiesPage = ({ allRedirects, seo, categories }: TProps) => {
     <>
       <Seo {...seo} />
       <Hero {...PROPS_SECTIONS.hero} />
-      <TechnologyStack categories={categories} />
+      <TechnologyStack />
     </>
   );
 };
@@ -39,32 +38,9 @@ export const getServerSideProps: GetServerSideProps<TPageProps> = async (
   context,
 ) => {
   const slug = context.resolvedUrl;
-  const { data, errors } = await fetchGraphQL(ALL_TECHNOLOGIES);
-  const categories = data?.allTechnologies[0].categories;
-
-  const DATA_ITEMS = [
-    'Mobile',
-    'E-Commerce Platform',
-    'Back-end Development',
-    'Headless CMS',
-    'Other',
-    'Game Engine ',
-    'Industries',
-    'Front-end Development',
-    'Services',
-  ];
-
-  const sortedCategories = DATA_ITEMS.map((title) =>
-    categories.find(
-      (cat: { title: string }) =>
-        cat.title.toLowerCase() === title.toLowerCase(),
-    ),
-  ).filter(Boolean);
 
   return {
     props: {
-      categories: sortedCategories ?? null,
-      errors: errors ?? null,
       seo: (await getSeoProps(slug)).seo,
       allRedirects: (await getSeoProps(slug)).allRedirects,
     },

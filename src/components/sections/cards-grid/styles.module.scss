@@ -61,6 +61,7 @@
     &:nth-child(1) {
       @include media-up(md) {
         grid-column: 1 / 2;
+        background-color: $color-bg-green;
       }
     }
 
@@ -73,6 +74,7 @@
     &:nth-child(3) {
       @include media-up(md) {
         grid-column: 3 / 4;
+        background-color: $color-bg-green;
       }
     }
 
@@ -86,9 +88,10 @@
     &:nth-child(5) {
       @include media-up(md) {
         width: 58.5%;
-        // padding: fluid-size(55, 130, 768) fluid-size(40, 115, 768);
         grid-row: 3;
         grid-column: 1 / 4;
+        background-color: $color-bg-black;
+        color: $color-text-white;
       }
     }
 

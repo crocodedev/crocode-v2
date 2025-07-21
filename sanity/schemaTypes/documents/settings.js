@@ -31,10 +31,5 @@ export default {
       name: 'cookies',
       type: 'cookies',
     },
-    {
-      name: 'touchUsModal',
-      title: 'Touch Us',
-      type: 'touchUs',
-    },
   ],
 }
