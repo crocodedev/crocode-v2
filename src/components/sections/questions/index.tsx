@@ -9,42 +9,50 @@ const QUESTIONS = [
   {
     id: '01',
     text: 'What does the cost consist of?',
-    answer: 'Tralalero tralala',
+    answer:
+      'Lorem ipsum dolor sit amet consectetur adipisicing elit.Reiciendis voluptas quas magnam quam! Voluptatibus laboriosam laborum explicabo quasi cupiditate nihil atque corrupti fugit temporibus repellat officia magni, a dolor porro! Lorem ipsum dolor sit amet consectetur adipisicing elit.Reiciendis voluptas quas magnam quam! Voluptatibus laboriosam laborum explicabo quasi cupiditate nihil atque corrupti fugit temporibus repellat officia magni, a dolor porro!',
   },
   {
     id: '02',
     text: 'What models of cooperation do you have?',
-    answer: 'Tralalero tralala',
+    answer:
+      'Lorem ipsum dolor sit amet consectetur adipisicing elit.Reiciendis voluptas quas magnam quam! Voluptatibus laboriosam laborum explicabo quasi cupiditate nihil atque corrupti fugit temporibus repellat officia magni, a dolor porro! Lorem ipsum dolor sit amet consectetur adipisicing elit.Reiciendis voluptas quas magnam quam! Voluptatibus laboriosam laborum explicabo quasi cupiditate nihil atque corrupti fugit temporibus repellat officia magni, a dolor porro!',
   },
   {
     id: '03',
     text: 'How is the work organized in the Crocode Team?',
-    answer: 'Tralalero tralala',
+    answer:
+      'Lorem ipsum dolor sit amet consectetur adipisicing elit.Reiciendis voluptas quas magnam quam! Voluptatibus laboriosam laborum explicabo quasi cupiditate nihil atque corrupti fugit temporibus repellat officia magni, a dolor porro! Lorem ipsum dolor sit amet consectetur adipisicing elit.Reiciendis voluptas quas magnam quam! Voluptatibus laboriosam laborum explicabo quasi cupiditate nihil atque corrupti fugit temporibus repellat officia magni, a dolor porro!',
   },
   {
     id: '04',
     text: 'What service do I need?',
-    answer: 'Tralalero tralala',
+    answer:
+      'Lorem ipsum dolor sit amet consectetur adipisicing elit.Reiciendis voluptas quas magnam quam! Voluptatibus laboriosam laborum explicabo quasi cupiditate nihil atque corrupti fugit temporibus repellat officia magni, a dolor porro! Lorem ipsum dolor sit amet consectetur adipisicing elit.Reiciendis voluptas quas magnam quam! Voluptatibus laboriosam laborum explicabo quasi cupiditate nihil atque corrupti fugit temporibus repellat officia magni, a dolor porro!',
   },
   {
     id: '05',
     text: 'What will I get as a result?',
-    answer: 'Tralalero tralala',
+    answer:
+      'Lorem ipsum dolor sit amet consectetur adipisicing elit.Reiciendis voluptas quas magnam quam! Voluptatibus laboriosam laborum explicabo quasi cupiditate nihil atque corrupti fugit temporibus repellat officia magni, a dolor porro! Lorem ipsum dolor sit amet consectetur adipisicing elit.Reiciendis voluptas quas magnam quam! Voluptatibus laboriosam laborum explicabo quasi cupiditate nihil atque corrupti fugit temporibus repellat officia magni, a dolor porro!',
   },
   {
     id: '06',
     text: 'What the sages of work?',
-    answer: 'Tralalero tralala',
+    answer:
+      'Lorem ipsum dolor sit amet consectetur adipisicing elit.Reiciendis voluptas quas magnam quam! Voluptatibus laboriosam laborum explicabo quasi cupiditate nihil atque corrupti fugit temporibus repellat officia magni, a dolor porro! Lorem ipsum dolor sit amet consectetur adipisicing elit.Reiciendis voluptas quas magnam quam! Voluptatibus laboriosam laborum explicabo quasi cupiditate nihil atque corrupti fugit temporibus repellat officia magni, a dolor porro!',
   },
   {
     id: '07',
     text: 'I dont have the documentation ready. What to do?',
-    answer: 'Tralalero tralala',
+    answer:
+      'Lorem ipsum dolor sit amet consectetur adipisicing elit.Reiciendis voluptas quas magnam quam! Voluptatibus laboriosam laborum explicabo quasi cupiditate nihil atque corrupti fugit temporibus repellat officia magni, a dolor porro! Lorem ipsum dolor sit amet consectetur adipisicing elit.Reiciendis voluptas quas magnam quam! Voluptatibus laboriosam laborum explicabo quasi cupiditate nihil atque corrupti fugit temporibus repellat officia magni, a dolor porro!',
   },
   {
     id: '08',
     text: 'How do you ensure the quality of your work?',
-    answer: 'Tralalero tralala',
+    answer:
+      'Lorem ipsum dolor sit amet consectetur adipisicing elit.Reiciendis voluptas quas magnam quam! Voluptatibus laboriosam laborum explicabo quasi cupiditate nihil atque corrupti fugit temporibus repellat officia magni, a dolor porro! Lorem ipsum dolor sit amet consectetur adipisicing elit.Reiciendis voluptas quas magnam quam! Voluptatibus laboriosam laborum explicabo quasi cupiditate nihil atque corrupti fugit temporibus repellat officia magni, a dolor porro!',
   },
 ];
 const QuestionsSection = () => {
@@ -74,9 +82,7 @@ const QuestionsSection = () => {
   return (
     <SectionLayout className={styles.section}>
       <Title text='QUESTIONS' anchor='right' />
-      <div
-        className={`${styles.container} ${indexActiveCard !== null ? styles.container_active : ''}`}
-      >
+      <div className={`${styles.container} `}>
         {QUESTIONS.map((question) => {
           const isActive = indexActiveCard === question.id;
 
