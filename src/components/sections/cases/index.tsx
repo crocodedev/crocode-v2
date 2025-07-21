@@ -15,6 +15,7 @@ type TProps = {
 };
 
 const CasesSection = ({ cases, paginationData }: TProps) => {
+  console.log({ cases });
   return (
     <SectionLayout className={styles.section}>
       <div className={styles.container}>

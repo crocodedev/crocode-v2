@@ -46,7 +46,6 @@
     width: min-content;
     width: 100%;
     text-transform: uppercase;
-    font-size: $size-title-1;
     font-weight: 700;
     line-height: 110%;
 
@@ -56,6 +55,14 @@
 
     &_default {
       color: $color-text-black;
+    }
+
+    &.big {
+      font-size: $size-title-1;
+    }
+
+    &.small {
+      font-size: $size-title-2;
     }
   }
 }
