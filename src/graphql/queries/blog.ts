@@ -58,6 +58,7 @@ export const getBlogArticle = (slug: string) => `
     	category
     	contentRaw
     	socials {
+        _key
         iconImage {
 					image {
             asset {
@@ -68,18 +69,18 @@ export const getBlogArticle = (slug: string) => `
         }
         link {
           linkInternal {
-          label
-          reference {
-            slug {
-              current
+            label
+            reference {
+              slug {
+                current
+              }
             }
           }
-        }
         	linkExternal {
-          label
-          href
-          blank
-        }
+            label
+            href
+            blank
+          }
         }
       }
     }

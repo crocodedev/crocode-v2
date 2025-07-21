@@ -26,17 +26,27 @@ type TProps = TPageProps & {
 
 const ArticlePage = ({ article, errors, seo, allRedirects }: TProps) => {
   useRedirect(allRedirects);
+  console.log({ article });
 
   if (errors) {
     console.error(errors[0].message);
   }
 
+  const { author, date, title } = article;
+
+  const formatDate = (dateStr: string) =>
+    new Date(dateStr).toLocaleString('en-US', {
+      month: 'short',
+      day: 'numeric',
+      year: 'numeric',
+    });
+
   return (
     <Fragment>
       <Seo {...seo} />
-      <Hero title={article.title} />
-      <AuthorArticle text={article.author} />
-      <BlogContent article={article} />
+      <Hero title={title} />
+      <AuthorArticle text={`${author}, ${formatDate(date)}`} />
+      <BlogContent {...article} />
       <Subscribe />
     </Fragment>
   );
@@ -55,7 +65,7 @@ export const getServerSideProps: GetServerSideProps<TProps> = (async (
     props: {
       article: article ?? null,
       errors: errors ?? null,
-      seo: (await getSeoProps(slug)).seo,
+      seo: article?.seo,
       allRedirects: (await getSeoProps(slug)).allRedirects,
     },
   };

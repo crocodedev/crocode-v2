@@ -2,32 +2,57 @@ import Image from 'next/image';
 
 import { SectionLayout } from '@/components/sections';
 
-import { TArticle } from '../blog-catalog/types';
+import { TSanityImage } from '@/types/image';
+import { TLink } from '@/types/link';
 
+import { parseHtmlToBlocks } from '@/utils/parseMarkdown';
+
+import SocialsBlock from './socials-block';
 import styles from './styles.module.scss';
 
-type TBlogContentSectionProps = {
-  article: TArticle | null;
+type TProps = {
+  desc: string;
+  socials: { link: TLink; _key: string }[];
+  title: string;
+  contentRaw: any;
+  coverImage: TSanityImage;
 };
 
-const BlogContentSection = ({ article }: TBlogContentSectionProps) => {
-  if (!article) return;
+const BlogContentSection = ({
+  desc,
+  socials,
+  title,
+  contentRaw,
+  coverImage,
+}: TProps) => {
+  const html = contentRaw?.reduce(
+    (acc, elem) => acc + (elem?.children?.[0]?.text || ''),
+    '',
+  );
+
+  console.log(parseHtmlToBlocks(html));
 
   return (
     <SectionLayout className={styles.blog__wrapper}>
-      <h2 className={styles.blog__title}>{article.title}</h2>
+      <h2 className={styles.blog__title}>{title}</h2>
       <div className={styles.blog__image__wrapper}>
         <Image
-          src={article.coverImage.image.asset.url}
-          alt={article.coverImage.altText || ''}
+          src={coverImage.image.asset.url}
+          alt={coverImage.altText || ''}
           className={styles.blog__image}
           width={1200}
           height={600}
         />
       </div>
-      {article.content && (
+
+      <div className={styles.blog__content}>
+        <h2>{desc}</h2>
+        <div>contentRaw</div>
+        <SocialsBlock socials={socials} />
+      </div>
+      {/* {data.content && (
         <div className={styles.blog__content}>
-          {article.content.map((_, index) => (
+          {data.content.map((_, index) => (
             <span key={index}>
               Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quos hic
               quas cupiditate dolorem ad sequi. Error, ad. Aut cum distinctio
@@ -36,7 +61,7 @@ const BlogContentSection = ({ article }: TBlogContentSectionProps) => {
             </span>
           ))}
         </div> // TODO: менять sanity
-      )}
+      )} */}
     </SectionLayout>
   );
 };

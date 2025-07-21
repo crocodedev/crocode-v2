@@ -31,6 +31,15 @@
     display: flex;
     flex-direction: column;
     gap: 32px;
+    font-size: fluid-size(18, 32);
+    text-align: start;
+
+    & h2 {
+      font-weight: 700;
+    }
+
+    p {
+    }
   }
 
   &__block {
