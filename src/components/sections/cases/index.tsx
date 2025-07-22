@@ -27,7 +27,7 @@ const CasesSection = ({ cases, paginationData, paginationEvent }: TProps) => {
                 src={card.casesItemImage.image.asset.url}
                 width={700}
                 height={350}
-                alt={card.casesItemImage.altText}
+                alt={card.casesItemImage?.altText || 'image'}
               />
             </Link>
           ))

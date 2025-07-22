@@ -6,18 +6,11 @@ import { Card, Filters, Pagination } from '@/components/ui';
 
 import styles from './styles.module.scss';
 import { TProps } from './types';
-import { DEFAULT_VALUE_BLOG } from '@/graphql/queries/blog';
 
 const BlogCatalogSection = ({ category, articles, paginationData }: TProps) => {
   return (
     <SectionLayout className={styles.section}>
-      <Filters
-        items={category}
-        paramKey='category'
-        defaultValue={DEFAULT_VALUE_BLOG}
-        onlyOnce={true}
-        className={styles.filters}
-      />
+      <Filters items={category} className={styles.filters} />
       <div className={styles.container}>
         {articles.length > 0 &&
           articles.map((article, index) => (
@@ -27,7 +20,7 @@ const BlogCatalogSection = ({ category, articles, paginationData }: TProps) => {
                   className={styles.card__image}
                   src={article.coverImage.image.asset.url}
                   fill
-                  alt={article.coverImage.altText}
+                  alt={article.coverImage.altText ?? 'image'}
                 />
               </Link>
             </Card>

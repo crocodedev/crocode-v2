@@ -4,6 +4,7 @@ import { Fragment } from 'react';
 import {
   AuthorArticle,
   BlogContent,
+  Breadcrumbs,
   Hero,
   Subscribe,
 } from '@/components/sections';
@@ -45,6 +46,7 @@ const ArticlePage = ({ article, errors, seo, allRedirects }: TProps) => {
     <Fragment>
       <Seo {...seo} />
       <Hero title={title} />
+      <Breadcrumbs />
       <AuthorArticle text={`${author}, ${formatDate(date)}`} />
       <BlogContent {...article} />
       <Subscribe />

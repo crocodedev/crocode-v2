@@ -6,8 +6,8 @@ type TProps = {
   data: {
     title?: string;
     pdf?: TPdf;
-    linkExternal: TLinkExternal;
-    linkInternal: TLinkInternal;
+    linkExternal?: TLinkExternal | null;
+    linkInternal: TLinkInternal | null;
   };
   className?: string;
 };
@@ -22,7 +22,7 @@ const SmartLink = ({ data, className }: TProps) => {
   } else {
     return (
       <>
-        {data.linkExternal ? (
+        {data?.linkExternal ? (
           <a
             href={data.linkExternal.href}
             target={data.linkExternal.blank ? '_blank' : '_self'}
@@ -30,9 +30,9 @@ const SmartLink = ({ data, className }: TProps) => {
           >
             {data.linkExternal.label}
           </a>
-        ) : data.linkInternal ? (
+        ) : data?.linkInternal ? (
           <Link
-            href={data.linkInternal.reference.slug.current}
+            href={data.linkInternal?.reference?.slug?.current || '#'}
             className={className}
           >
             {data.linkInternal.label}

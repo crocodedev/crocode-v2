@@ -2,6 +2,7 @@ import { GetServerSideProps } from 'next';
 
 import {
   AboutUs,
+  Breadcrumbs,
   CardGrid,
   ContactUsForm,
   Hero,
@@ -14,6 +15,9 @@ import { TPageProps } from '@/types/pageProps';
 import { getSeoProps } from '@/utils/seo';
 
 import { useRedirect } from '@/hooks';
+import { getBreadcrumbs } from '@/graphql/queries/breadcrumbs';
+import { fetchGraphQL } from '@/lib/graphql';
+import { TBreadcrumbs } from '@/components/sections/breadcrumbs/type';
 
 const PROPS_SECTIONS = {
   hero: {
@@ -56,13 +60,21 @@ const PROPS_SECTIONS = {
   },
 };
 
-const GameDevPage = ({ allRedirects, seo }: TPageProps) => {
+type TProps = TPageProps & {
+  breadcrumbs: {
+    data: TBreadcrumbs;
+    error: string;
+  };
+};
+
+const GameDevPage = ({ allRedirects, seo, breadcrumbs }: TProps) => {
   useRedirect(allRedirects);
 
   return (
     <>
       <Seo {...seo} />
       <Hero {...PROPS_SECTIONS.hero} />
+      <Breadcrumbs sanityData={breadcrumbs?.data} />
       <Info {...PROPS_SECTIONS.info} />
       <CardGrid {...PROPS_SECTIONS.cardGrid} />
       <AboutUs />
@@ -76,8 +88,21 @@ export const getServerSideProps: GetServerSideProps<TPageProps> = async (
 ) => {
   const slug = context.resolvedUrl;
 
+  const { allRedirects, seo } = await getSeoProps(slug);
+  const { data: dataBreadcrumbs, errors: errorsBreadcrumbs } =
+    await fetchGraphQL(getBreadcrumbs(slug));
+
+  console.log(slug);
+
   return {
-    props: await getSeoProps(slug),
+    props: {
+      allRedirects,
+      seo,
+      breadcrumbs: {
+        data: dataBreadcrumbs?.allPage?.[0]?.breadcrumbs ?? null,
+        error: errorsBreadcrumbs ?? null,
+      },
+    },
   };
 };
 

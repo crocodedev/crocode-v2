@@ -3,6 +3,7 @@ import { Fragment } from 'react';
 
 import {
   AboutUs,
+  Breadcrumbs,
   CardGrid,
   CardImageFive,
   ContactUsForm,
@@ -22,13 +23,25 @@ import { getSeoProps } from '@/utils/seo';
 import { getCaseItem } from '@/graphql/queries/cases';
 import { useRedirect } from '@/hooks';
 import { fetchGraphQL } from '@/lib/graphql';
+import { getBreadcrumbs } from '@/graphql/queries/breadcrumbs';
+import { TBreadcrumbs } from '@/components/sections/breadcrumbs/type';
 
 type TProps = TPageProps & {
   caseItem: TCase;
   errors: TSanityError[];
+  breadcrumbs: {
+    data: TBreadcrumbs;
+    error: string;
+  };
 };
 
-const CasePage = ({ caseItem, errors, seo, allRedirects }: TProps) => {
+const CasePage = ({
+  caseItem,
+  errors,
+  seo,
+  allRedirects,
+  breadcrumbs,
+}: TProps) => {
   useRedirect(allRedirects);
 
   const {
@@ -85,19 +98,22 @@ const CasePage = ({ caseItem, errors, seo, allRedirects }: TProps) => {
     <Fragment>
       <Seo {...seo} />
       <Hero title={title} />
+      <Breadcrumbs sanityData={breadcrumbs?.data} />
       <CardImageFive {...PROPS_SECTIONS.cardImageFive} />
       {PROPS_SECTIONS.content && (
         <div>
           {PROPS_SECTIONS.content.length &&
-            PROPS_SECTIONS.content.map((block, i) =>
-              block.type === 'list' ? (
-                <CardGrid cards={block.content.cards} key={i} />
-              ) : block.type === 'title' ? (
-                <TitleSection label={block.content.title} />
-              ) : block.type === 'text' ? (
-                <Info texts={[block.content.text]} />
-              ) : null,
-            )}
+            PROPS_SECTIONS.content.map((block, i) => (
+              <Fragment key={i}>
+                {block.type === 'list' ? (
+                  <CardGrid cards={block.content.cards} />
+                ) : block.type === 'title' ? (
+                  <TitleSection label={block.content.title} />
+                ) : block.type === 'text' ? (
+                  <Info texts={[block.content.text]} />
+                ) : null}
+              </Fragment>
+            ))}
         </div>
       )}
       <AboutUs />
@@ -110,11 +126,15 @@ export const getServerSideProps: GetServerSideProps<TProps> = (async (
   context,
 ) => {
   const slug = context.params?.slug;
+  const slugUrl = context.resolvedUrl;
   const query = getCaseItem(slug as string);
   const variables = { slug };
   const { data, errors } = await fetchGraphQL(query, variables);
   const { seo, allRedirects } = await getSeoProps(slug);
+  const { data: dataBreadcrumbs, errors: errorsBreadcrumbs } =
+    await fetchGraphQL(getBreadcrumbs(slugUrl, 'case'));
   const caseItem = data?.allCasesItem?.[0] || null;
+  const breadcrumbsArray = dataBreadcrumbs?.allCasesItem?.[0]?.breadcrumbs;
 
   if (!caseItem) {
     return {
@@ -128,6 +148,10 @@ export const getServerSideProps: GetServerSideProps<TProps> = (async (
       errors: errors ?? null,
       seo,
       allRedirects,
+      breadcrumbs: {
+        data: breadcrumbsArray ?? null,
+        error: errorsBreadcrumbs ?? null,
+      },
     },
   };
 }) satisfies GetServerSideProps<TProps>;

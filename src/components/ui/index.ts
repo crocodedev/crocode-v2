@@ -13,7 +13,6 @@ import SmartLink from './smart-link';
 import Text from './text';
 import Title from './title';
 import TitleSection from './title-section';
-import Breadcrumbs from './breadcrumbs';
 
 export {
   Avatar,
@@ -30,5 +29,4 @@ export {
   Checkbox,
   MapboxMap,
   SmartLink,
-  Breadcrumbs,
 };

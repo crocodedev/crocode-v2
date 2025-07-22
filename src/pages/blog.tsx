@@ -1,6 +1,11 @@
 import { GetServerSideProps, GetServerSidePropsContext } from 'next';
 
-import { BlogCatalog, Hero, Subscribe } from '@/components/sections';
+import {
+  BlogCatalog,
+  Breadcrumbs,
+  Hero,
+  Subscribe,
+} from '@/components/sections';
 import { TArticle } from '@/components/sections/blog-catalog/types';
 import Seo from '@/components/seo';
 
@@ -22,6 +27,16 @@ const PROPS_SECTIONS = {
     modelsIsShow: true,
     title: 'BLOG',
   },
+  breadcrumbs: [
+    {
+      title: 'Home',
+      path: '/',
+    },
+    {
+      title: 'Blog',
+      path: '/blog',
+    },
+  ],
   blogCatalog: {
     category: ['Latest', 'Technologies', 'UA/UX', 'Client guides'],
   },
@@ -50,6 +65,7 @@ const BlogPage = ({
     <>
       <Seo {...seo} />
       <Hero {...PROPS_SECTIONS.hero} />
+      <Breadcrumbs data={PROPS_SECTIONS.breadcrumbs} />
       <BlogCatalog
         {...PROPS_SECTIONS.blogCatalog}
         articles={articles}

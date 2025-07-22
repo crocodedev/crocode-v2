@@ -2,7 +2,13 @@
 
 import { useState, useEffect, useCallback, useMemo, useRef } from 'react';
 import { useStoreContext } from '@/components/store-context';
-import { Cases, FiltersCases, Hero, Subscribe } from '@/components/sections';
+import {
+  Breadcrumbs,
+  Cases,
+  FiltersCases,
+  Hero,
+  Subscribe,
+} from '@/components/sections';
 import Seo from '@/components/seo';
 import { TCase } from '@/components/sections/cases/type';
 import { TSeo } from '@/types/seo';
@@ -14,9 +20,22 @@ import {
   ITEMS_PER_PAGE,
 } from '@/graphql/queries/cases';
 import { fetchGraphQL } from '@/lib/graphql';
+import { GetServerSideProps } from 'next';
+import { getBreadcrumbs } from '@/graphql/queries/breadcrumbs';
+import { TBreadcrumbs } from '@/components/sections/breadcrumbs/type';
 
 const PROPS_SECTIONS = {
   hero: { title: 'cases' },
+  breadcrumbs: [
+    {
+      title: 'Home',
+      path: '/',
+    },
+    {
+      title: 'Portfolio',
+      path: '/cases',
+    },
+  ],
 };
 
 type TProps = TPageProps & {
@@ -24,9 +43,20 @@ type TProps = TPageProps & {
   errors: TSanityError[];
   initialTech: string[];
   countries: string[];
+  breadcrumbs: {
+    data: TBreadcrumbs;
+    error: string;
+  };
 };
 
-const CasesPage = ({ cases, errors, initialTech, countries, seo }: TProps) => {
+const CasesPage = ({
+  cases,
+  errors,
+  initialTech,
+  countries,
+  seo,
+  breadcrumbs,
+}: TProps) => {
   const { casesData, setCasesData } = useStoreContext();
   const [currentPage, setCurrentPage] = useState(1);
   const [selectCountry, setSelectCountry] = useState<string[]>([]);
@@ -115,6 +145,7 @@ const CasesPage = ({ cases, errors, initialTech, countries, seo }: TProps) => {
     <>
       <Seo {...seo} />
       <Hero {...PROPS_SECTIONS.hero} />
+      <Breadcrumbs sanityData={breadcrumbs?.data} />
       <div id='cases-top'>
         <FiltersCases
           tech={effectiveTech}
@@ -135,7 +166,9 @@ const CasesPage = ({ cases, errors, initialTech, countries, seo }: TProps) => {
   );
 };
 
-export const getStaticProps = async () => {
+export const getServerSideProps: GetServerSideProps = async (context) => {
+  const slug = context.resolvedUrl;
+
   const defaultSeo = {
     titleTemplate: false,
     title: DEFAULT_VALUE_ALL_COUNTRY,
@@ -151,13 +184,21 @@ export const getStaticProps = async () => {
   } as TSeo;
 
   try {
-    const { data, errors } = await fetchGraphQL(ALL_CASES_ITEMS);
+    const { data: casesData, errors: errorsCases } =
+      await fetchGraphQL(ALL_CASES_ITEMS);
 
-    if (errors) throw new Error(errors[0]?.message);
+    const { data: dataBreadcrumbs, errors: errorsBreadcrumbs } =
+      await fetchGraphQL(getBreadcrumbs(slug));
+
+    if (errorsCases) throw new Error(errorsCases[0]?.message);
+    else if (errorsBreadcrumbs) throw new Error(errorsCases[0]?.message);
+
+    console.log(slug);
+    console.log(dataBreadcrumbs?.allPage?.[0]?.breadcrumbs);
 
     const technologiesAll = Array.from(
       new Set(
-        data.allCasesItem?.flatMap(
+        casesData.allCasesItem?.flatMap(
           (item: TCase) =>
             item.technologiesList?.map((tech) => tech?.title).filter(Boolean) ||
             [],
@@ -167,20 +208,24 @@ export const getStaticProps = async () => {
 
     const countries = Array.from(
       new Set(
-        data.allCasesItem?.map((item: TCase) => item.country).filter(Boolean) ||
-          [],
+        casesData.allCasesItem
+          ?.map((item: TCase) => item.country)
+          .filter(Boolean) || [],
       ),
     );
 
     return {
       props: {
         seo: defaultSeo,
-        cases: data.allCasesItem || [],
+        cases: casesData.allCasesItem || [],
         errors: null,
         initialTech: technologiesAll,
         countries,
+        breadcrumbs: {
+          data: dataBreadcrumbs?.allPage?.[0]?.breadcrumbs ?? null,
+          error: errorsBreadcrumbs ?? null,
+        },
       },
-      revalidate: 60,
     };
   } catch (error) {
     console.error('Failed to load cases:', error);
@@ -193,6 +238,10 @@ export const getStaticProps = async () => {
         ],
         initialTech: [],
         countries: [],
+        breadcrumbs: {
+          data: null,
+          error: null,
+        },
       },
     };
   }
