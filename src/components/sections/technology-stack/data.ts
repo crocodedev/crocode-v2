@@ -112,7 +112,7 @@ export const data: TTechnologieCard[] = [
       },
       {
         title: 'Node.Js',
-        slug: '/node-js-developmentt',
+        slug: '/node-js-development',
         image: {
           altText: 'Node.Js Image',
           icon: '/images/technologies/back-end/Node.js.svg',
@@ -234,7 +234,7 @@ export const data: TTechnologieCard[] = [
       },
       {
         title: 'GraphQL',
-        slug: '/graphq-developmentl',
+        slug: '/graphql-development',
         image: {
           altText: 'GraphQL image',
           icon: '/images/technologies/other/GraphQL.svg',
@@ -363,10 +363,10 @@ export const data: TTechnologieCard[] = [
         },
       },
       {
-        title: 'Helthcare',
-        slug: '/helthcare-development',
+        title: 'Healthcare',
+        slug: '/healthcare-development',
         image: {
-          altText: 'Helthcare image',
+          altText: 'Healthcare image',
           icon: '/images/technologies/industries/Helthcare.svg',
         },
       },
@@ -412,7 +412,7 @@ export const data: TTechnologieCard[] = [
       },
       {
         title: 'AI',
-        slug: '/ai',
+        slug: '/ai-development',
         image: {
           altText: 'AI image',
           icon: '/images/technologies/industries/AI.svg',
@@ -473,7 +473,7 @@ export const data: TTechnologieCard[] = [
       },
       {
         title: 'Vue',
-        slug: '/vue-development',
+        slug: '/vue-js-development',
         image: {
           altText: 'Vue image',
           icon: '/images/technologies/front-end/vue.svg',
