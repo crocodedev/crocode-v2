@@ -1,5 +1,3 @@
-import { IconFacebook, IconLinkedin, IconTwitter } from '@/components/icons';
-
 import { TLink } from '@/types/link';
 
 // import Link from 'next/link';
@@ -13,30 +11,18 @@ type TProps = {
 };
 
 const SocialsBlock = ({ socials }: TProps) => {
-  const socialIcon = (name: string | undefined) => {
-    switch (name) {
-      case 'Twitter':
-        return <IconTwitter />;
-      case 'Linkedin':
-        return <IconLinkedin />;
-      case 'Facebook':
-        return <IconFacebook />;
-      default:
-        return;
-    }
-  };
-
   console.log({ socials });
   return (
-    <ul className={styles.socials}>
-      {socials.map((item) => (
-        <li key={item._key} className={styles.socials__item}>
-          <a href={item.link.linkExternal?.href}>
-            {socialIcon(item.link.linkExternal?.label)}
-          </a>
-        </li>
-      ))}
-    </ul>
+    <div className={styles.socials}>
+      <ul>
+        {socials.map((item) => (
+          <li key={item._key}>
+            {/* <Link href={item.link.}></Link> */}
+            {item._key}
+          </li>
+        ))}
+      </ul>
+    </div>
   );
 };
 

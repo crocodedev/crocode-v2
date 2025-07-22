@@ -50,6 +50,18 @@ const BlogContentSection = ({
         <div>contentRaw</div>
         <SocialsBlock socials={socials} />
       </div>
+      {/* {data.content && (
+        <div className={styles.blog__content}>
+          {data.content.map((_, index) => (
+            <span key={index}>
+              Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quos hic
+              quas cupiditate dolorem ad sequi. Error, ad. Aut cum distinctio
+              hic recusandae doloribus? Sit repudiandae excepturi eaque deserunt
+              in cumque.
+            </span>
+          ))}
+        </div> // TODO: менять sanity
+      )} */}
     </SectionLayout>
   );
 };
