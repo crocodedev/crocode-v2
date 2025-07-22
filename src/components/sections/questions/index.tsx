@@ -8,6 +8,7 @@ import styles from './styles.module.scss';
 
 type TProps = {
   questions?: TData[];
+  isDynamicPage?: boolean;
 };
 
 const QuestionsSection = ({ questions = data }: TProps) => {
