@@ -6,7 +6,7 @@ export const data: TTechnologieCard[] = [
     technologiesList: [
       {
         title: 'React Native',
-        slug: '/react-native',
+        slug: '/react-native-development',
         image: {
           altText: 'React Native image',
           icon: '/images/technologies/mobile/react.svg',
@@ -14,7 +14,7 @@ export const data: TTechnologieCard[] = [
       },
       {
         title: 'Pixi.js',
-        slug: '/pixi-js',
+        slug: '/pixi-js-development',
         image: {
           altText: 'Pixi.js image',
           icon: '/images/technologies/mobile/pixiJs.svg',
@@ -22,7 +22,7 @@ export const data: TTechnologieCard[] = [
       },
       {
         title: 'Haxe',
-        slug: '/haxe',
+        slug: '/haxe-development',
         image: {
           altText: 'Haxe image',
           icon: '/images/technologies/mobile/Haxe.svg',
@@ -30,7 +30,7 @@ export const data: TTechnologieCard[] = [
       },
       {
         title: 'Electron.js',
-        slug: '/electron-js',
+        slug: '/electron-js-development',
         image: {
           altText: 'Electron.js image',
           icon: '/images/technologies/mobile/Electron.js.svg',
@@ -43,7 +43,7 @@ export const data: TTechnologieCard[] = [
     technologiesList: [
       {
         title: 'Shopify',
-        slug: '/shopify',
+        slug: '/shopify-development',
         image: {
           altText: 'Shopify image',
           icon: '/images/technologies/e-commerce/Shopify.svg',
@@ -51,7 +51,7 @@ export const data: TTechnologieCard[] = [
       },
       {
         title: 'Shopify plus',
-        slug: '/shopify-plus',
+        slug: '/shopify-plus-development',
         image: {
           altText: 'Shopify plus image',
           icon: '/images/technologies/e-commerce/Shopify-plus.svg',
@@ -59,7 +59,7 @@ export const data: TTechnologieCard[] = [
       },
       {
         title: 'Hydrogen',
-        slug: '/hydrogen',
+        slug: '/hydrogen-development',
         image: {
           altText: 'Hydrogen image',
           icon: '/images/technologies/e-commerce/Hydrogen.svg',
@@ -67,7 +67,7 @@ export const data: TTechnologieCard[] = [
       },
       {
         title: 'Medusa.js',
-        slug: '/medusa-js',
+        slug: '/medusa-js-development',
         image: {
           altText: 'Medusa.js image',
           icon: '/images/technologies/e-commerce/Medusa.js.svg',
@@ -75,7 +75,7 @@ export const data: TTechnologieCard[] = [
       },
       {
         title: 'Commercetools',
-        slug: '/commercetools',
+        slug: '/commercetools-development',
         image: {
           altText: 'Commercetools image',
           icon: '/images/technologies/e-commerce/Commercetools.svg',
@@ -88,7 +88,7 @@ export const data: TTechnologieCard[] = [
     technologiesList: [
       {
         title: 'PHP',
-        slug: '/php',
+        slug: '/php-development',
         image: {
           altText: 'PHP image',
           icon: '/images/technologies/back-end/php.svg',
@@ -96,7 +96,7 @@ export const data: TTechnologieCard[] = [
       },
       {
         title: 'Symfony',
-        slug: '/symfony',
+        slug: '/symfony-development',
         image: {
           altText: 'Symfony image',
           icon: '/images/technologies/back-end/Symfony.svg',
@@ -104,15 +104,23 @@ export const data: TTechnologieCard[] = [
       },
       {
         title: 'Laravel',
-        slug: '/laravel',
+        slug: '/laravel-development',
         image: {
           altText: 'Laravel image',
           icon: '/images/technologies/back-end/laravel.svg',
         },
       },
       {
+        title: 'Node.Js',
+        slug: '/node-js-developmentt',
+        image: {
+          altText: 'Node.Js Image',
+          icon: '/images/technologies/back-end/Node.js.svg',
+        },
+      },
+      {
         title: 'Express',
-        slug: '/express',
+        slug: '/express-js-development',
         image: {
           altText: 'Express image',
           icon: '/images/technologies/back-end/Express.svg',
@@ -120,7 +128,7 @@ export const data: TTechnologieCard[] = [
       },
       {
         title: 'NestJS',
-        slug: '/nest-js',
+        slug: '/nest-js-development',
         image: {
           altText: 'NestJS image',
           icon: '/images/technologies/back-end/NestJS.svg',
@@ -128,7 +136,7 @@ export const data: TTechnologieCard[] = [
       },
       {
         title: 'Python',
-        slug: '/python',
+        slug: '/python-development',
         image: {
           altText: 'Python image',
           icon: '/images/technologies/back-end/Python.svg',
@@ -136,7 +144,7 @@ export const data: TTechnologieCard[] = [
       },
       {
         title: 'C++',
-        slug: '/c-plus-plus',
+        slug: '/c-plus-plus-development',
         image: {
           altText: 'C++ image',
           icon: '/images/technologies/back-end/c-plus-plus.svg',
@@ -144,7 +152,7 @@ export const data: TTechnologieCard[] = [
       },
       {
         title: 'Liquid',
-        slug: '/liquid',
+        slug: '/liquid-development',
         image: {
           altText: 'Liquid image',
           icon: '/images/technologies/back-end/Liquid.svg',
@@ -157,7 +165,7 @@ export const data: TTechnologieCard[] = [
     technologiesList: [
       {
         title: 'Contentful',
-        slug: '/contentful',
+        slug: '/contentful-development',
         image: {
           altText: 'Contentful image',
           icon: '/images/technologies/headless-cms/Contentful.svg',
@@ -165,7 +173,7 @@ export const data: TTechnologieCard[] = [
       },
       {
         title: 'Strapi',
-        slug: '/strapi',
+        slug: '/strapi-development',
         image: {
           altText: 'Strapi image',
           icon: '/images/technologies/headless-cms/Strapi.svg',
@@ -173,7 +181,7 @@ export const data: TTechnologieCard[] = [
       },
       {
         title: 'Sanity',
-        slug: '/sanity',
+        slug: '/sanity-development',
         image: {
           altText: 'Sanity image',
           icon: '/images/technologies/headless-cms/Sanity.svg',
@@ -181,7 +189,7 @@ export const data: TTechnologieCard[] = [
       },
       {
         title: 'Netlify',
-        slug: '/netlify',
+        slug: '/netlify-development',
         image: {
           altText: 'Netlify image',
           icon: '/images/technologies/headless-cms/Netlify.svg',
@@ -189,7 +197,7 @@ export const data: TTechnologieCard[] = [
       },
       {
         title: 'Dato',
-        slug: '/dato',
+        slug: '/dato-development',
         image: {
           altText: 'Dato image',
           icon: '/images/technologies/headless-cms/Dato.svg',
@@ -197,7 +205,7 @@ export const data: TTechnologieCard[] = [
       },
       {
         title: 'WordPress (Atlas)',
-        slug: '/wordpress-atlas',
+        slug: '/wordpress-atlas-development',
         image: {
           altText: 'WordPress (Atlas) image',
           icon: '/images/technologies/headless-cms/WordPress.svg',
@@ -205,7 +213,7 @@ export const data: TTechnologieCard[] = [
       },
       {
         title: 'Shopify',
-        slug: '/shopify',
+        slug: '/shopify-development',
         image: {
           altText: 'Shopify image',
           icon: '/images/technologies/headless-cms/Shopify.svg',
@@ -218,7 +226,7 @@ export const data: TTechnologieCard[] = [
     technologiesList: [
       {
         title: 'Rest API',
-        slug: '/rest-api',
+        slug: '/rest-api-development',
         image: {
           altText: 'Rest API image',
           icon: '/images/technologies/other/RestAPI.svg',
@@ -226,7 +234,7 @@ export const data: TTechnologieCard[] = [
       },
       {
         title: 'GraphQL',
-        slug: '/graphql',
+        slug: '/graphq-developmentl',
         image: {
           altText: 'GraphQL image',
           icon: '/images/technologies/other/GraphQL.svg',
@@ -234,7 +242,7 @@ export const data: TTechnologieCard[] = [
       },
       {
         title: 'GROQ',
-        slug: '/groq',
+        slug: '/groq-development',
         image: {
           altText: 'GROQ image',
           icon: '/images/technologies/other/GROQ.svg',
@@ -242,7 +250,7 @@ export const data: TTechnologieCard[] = [
       },
       {
         title: 'Docker',
-        slug: '/docker',
+        slug: '/docker-development',
         image: {
           altText: 'Docker image',
           icon: '/images/technologies/other/Docker.svg',
@@ -250,7 +258,7 @@ export const data: TTechnologieCard[] = [
       },
       {
         title: 'Kubernetes',
-        slug: '/kubernetes',
+        slug: '/kubernetes-development',
         image: {
           altText: 'Kubernetes image',
           icon: '/images/technologies/other/Kubernetes.svg',
@@ -258,7 +266,7 @@ export const data: TTechnologieCard[] = [
       },
       {
         title: 'Apollo',
-        slug: '/apollo',
+        slug: '/apollo-development',
         image: {
           altText: 'Apollo image',
           icon: '/images/technologies/other/Apollo.svg',
@@ -266,7 +274,7 @@ export const data: TTechnologieCard[] = [
       },
       {
         title: 'Webpack',
-        slug: '/webpack',
+        slug: '/webpack-development',
         image: {
           altText: 'Webpack image',
           icon: '/images/technologies/other/Webpack.svg',
@@ -274,7 +282,7 @@ export const data: TTechnologieCard[] = [
       },
       {
         title: 'Gulp',
-        slug: '/gulp',
+        slug: '/gulp-development',
         image: {
           altText: 'Gulp image',
           icon: '/images/technologies/other/Gulp.svg',
@@ -282,7 +290,7 @@ export const data: TTechnologieCard[] = [
       },
       {
         title: 'npm',
-        slug: '/npm',
+        slug: '/npm-development',
         image: {
           altText: 'npm image',
           icon: '/images/technologies/other/npm.svg',
@@ -290,7 +298,7 @@ export const data: TTechnologieCard[] = [
       },
       {
         title: 'yarn',
-        slug: '/yarn',
+        slug: '/yarn-development',
         image: {
           altText: 'yarn image',
           icon: '/images/technologies/other/yarn.svg',
@@ -298,7 +306,7 @@ export const data: TTechnologieCard[] = [
       },
       {
         title: 'Babel',
-        slug: '/babel',
+        slug: '/babel-development',
         image: {
           altText: 'Babel image',
           icon: '/images/technologies/other/babel.svg',
@@ -306,7 +314,7 @@ export const data: TTechnologieCard[] = [
       },
       {
         title: 'Storybook',
-        slug: '/storybook',
+        slug: '/storybook-development',
         image: {
           altText: 'Storybook image',
           icon: '/images/technologies/other/Storybook.svg',
@@ -319,7 +327,7 @@ export const data: TTechnologieCard[] = [
     technologiesList: [
       {
         title: 'Unreal engine',
-        slug: '/unreal-engine',
+        slug: '/unreal-engine-development',
         image: {
           altText: 'Unreal engine image',
           icon: '/images/technologies/game-engine/unreal.svg',
@@ -327,7 +335,7 @@ export const data: TTechnologieCard[] = [
       },
       {
         title: 'Unity',
-        slug: '/unity',
+        slug: '/unity-development',
         image: {
           altText: 'Unity image',
           icon: '/images/technologies/game-engine/unity.svg',
@@ -340,7 +348,7 @@ export const data: TTechnologieCard[] = [
     technologiesList: [
       {
         title: 'e-Commerce',
-        slug: '/e-commerce-industry',
+        slug: '/e-commerce-development',
         image: {
           altText: 'e-Commerce image',
           icon: '/images/technologies/industries/e-Commerce.svg',
@@ -348,7 +356,7 @@ export const data: TTechnologieCard[] = [
       },
       {
         title: 'e-Learning',
-        slug: '/e-learning',
+        slug: '/e-learning-development',
         image: {
           altText: 'e-Learning image',
           icon: '/images/technologies/industries/e-Learning.svg',
@@ -356,7 +364,7 @@ export const data: TTechnologieCard[] = [
       },
       {
         title: 'Helthcare',
-        slug: '/helthcare',
+        slug: '/helthcare-development',
         image: {
           altText: 'Helthcare image',
           icon: '/images/technologies/industries/Helthcare.svg',
@@ -364,7 +372,7 @@ export const data: TTechnologieCard[] = [
       },
       {
         title: 'Financial',
-        slug: '/financial',
+        slug: '/financial-development',
         image: {
           altText: 'Financial image',
           icon: '/images/technologies/industries/Financial.svg',
@@ -372,7 +380,7 @@ export const data: TTechnologieCard[] = [
       },
       {
         title: 'Logistics & Transportation',
-        slug: '/logistics-transportation',
+        slug: '/logistics-and-transportation-development',
         image: {
           altText: 'Logistics & Transportation image',
           icon: '/images/technologies/industries/LogisticsAndTransportation.svg',
@@ -380,7 +388,7 @@ export const data: TTechnologieCard[] = [
       },
       {
         title: 'IoT',
-        slug: '/iot',
+        slug: '/iot-development',
         image: {
           altText: 'IoT image',
           icon: '/images/technologies/industries/IoT.svg',
@@ -388,7 +396,7 @@ export const data: TTechnologieCard[] = [
       },
       {
         title: 'Digital marketing',
-        slug: '/digital-marketing',
+        slug: '/digital-development',
         image: {
           altText: 'Digital marketing image',
           icon: '/images/technologies/industries/Digital-marketing.svg',
@@ -396,7 +404,7 @@ export const data: TTechnologieCard[] = [
       },
       {
         title: 'Game development',
-        slug: '/game-development-industry',
+        slug: '/game-development',
         image: {
           altText: 'Game development image',
           icon: '/images/technologies/industries/Game-development.svg',
@@ -417,7 +425,7 @@ export const data: TTechnologieCard[] = [
     technologiesList: [
       {
         title: 'JavaScript',
-        slug: '/javascript',
+        slug: '/javascript-development',
         image: {
           altText: 'JavaScript image',
           icon: '/images/technologies/front-end/js.svg',
@@ -425,7 +433,7 @@ export const data: TTechnologieCard[] = [
       },
       {
         title: 'Typescript',
-        slug: '/typescript',
+        slug: '/typescript-development',
         image: {
           altText: 'Typescript image',
           icon: '/images/technologies/front-end/ts.svg',
@@ -433,7 +441,7 @@ export const data: TTechnologieCard[] = [
       },
       {
         title: 'Gatsby',
-        slug: '/gatsby',
+        slug: '/gatsby-development',
         image: {
           altText: 'Gatsby image',
           icon: '/images/technologies/front-end/gatsby.svg',
@@ -441,7 +449,7 @@ export const data: TTechnologieCard[] = [
       },
       {
         title: 'React',
-        slug: '/react',
+        slug: '/react-development',
         image: {
           altText: 'React image',
           icon: '/images/technologies/front-end/react.svg',
@@ -449,7 +457,7 @@ export const data: TTechnologieCard[] = [
       },
       {
         title: 'Next.js',
-        slug: '/next-js',
+        slug: '/next-js-development',
         image: {
           altText: 'Next.js image',
           icon: '/images/technologies/front-end/next.svg',
@@ -457,7 +465,7 @@ export const data: TTechnologieCard[] = [
       },
       {
         title: 'Svelte',
-        slug: '/svelte',
+        slug: '/svelte-development',
         image: {
           altText: 'Svelte image',
           icon: '/images/technologies/front-end/svelte.svg',
@@ -465,7 +473,7 @@ export const data: TTechnologieCard[] = [
       },
       {
         title: 'Vue',
-        slug: '/vue',
+        slug: '/vue-development',
         image: {
           altText: 'Vue image',
           icon: '/images/technologies/front-end/vue.svg',
@@ -473,7 +481,7 @@ export const data: TTechnologieCard[] = [
       },
       {
         title: 'Nuxt.js',
-        slug: '/nuxt-js',
+        slug: '/nuxt-js-development',
         image: {
           altText: 'Nuxt.js image',
           icon: '/images/technologies/front-end/nuxt.svg',
@@ -481,7 +489,7 @@ export const data: TTechnologieCard[] = [
       },
       {
         title: 'Pixi.js',
-        slug: '/pixi-js',
+        slug: '/pixi-js-development',
         image: {
           altText: 'Pixi.js image',
           icon: '/images/technologies/front-end/pixiJs.svg',
@@ -489,7 +497,7 @@ export const data: TTechnologieCard[] = [
       },
       {
         title: 'Haxe',
-        slug: '/haxe',
+        slug: '/haxe-development',
         image: {
           altText: 'Haxe image',
           icon: '/images/technologies/front-end/Haxe.svg',
@@ -497,7 +505,7 @@ export const data: TTechnologieCard[] = [
       },
       {
         title: 'HTML',
-        slug: '/html',
+        slug: '/html-development',
         image: {
           altText: 'HTML image',
           icon: '/images/technologies/front-end/html.svg',
@@ -505,7 +513,7 @@ export const data: TTechnologieCard[] = [
       },
       {
         title: 'CSS',
-        slug: '/css',
+        slug: '/css-development',
         image: {
           altText: 'CSS image',
           icon: '/images/technologies/front-end/css.svg',
@@ -513,23 +521,23 @@ export const data: TTechnologieCard[] = [
       },
       {
         title: 'Emotion',
-        slug: '/emotion',
+        slug: '/emotion-development',
         image: {
           altText: 'Emotion image',
-          icon: '/images/technologies/front-end/emotion.png',
+          icon: '/images/technologies/front-end/emotion.svg',
         },
       },
       {
         title: 'Linaria',
-        slug: '/linaria',
+        slug: '/linaria-development',
         image: {
           altText: 'Linaria image',
-          icon: '/images/technologies/front-end/linaria.png',
+          icon: '/images/technologies/front-end/linaria.svg',
         },
       },
       {
         title: 'MaterialUI',
-        slug: '/material-ui',
+        slug: '/material-ui-development',
         image: {
           altText: 'MaterialUI image',
           icon: '/images/technologies/front-end/MaterialUI.svg',
@@ -537,7 +545,7 @@ export const data: TTechnologieCard[] = [
       },
       {
         title: 'Bootstrap',
-        slug: '/bootstrap',
+        slug: '/bootstrap-development',
         image: {
           altText: 'Bootstrap image',
           icon: '/images/technologies/front-end/Bootstrap.svg',
@@ -545,7 +553,7 @@ export const data: TTechnologieCard[] = [
       },
       {
         title: 'ChakraUI',
-        slug: '/chakra-ui',
+        slug: '/chakra-ui-development',
         image: {
           altText: 'ChakraUI image',
           icon: '/images/technologies/front-end/chakraUI.svg',
@@ -553,7 +561,7 @@ export const data: TTechnologieCard[] = [
       },
       {
         title: 'Angular',
-        slug: '/angular',
+        slug: '/angular-development',
         image: {
           altText: 'Angular image',
           icon: '/images/technologies/front-end/angular.svg',
@@ -566,7 +574,7 @@ export const data: TTechnologieCard[] = [
     technologiesList: [
       {
         title: 'E-Commerce',
-        slug: '/e-commerce-service',
+        slug: '/e-commerce-development',
         image: {
           altText: 'E-Commerce service image',
           icon: '/images/technologies/services/e-Commerce.svg',
@@ -577,12 +585,12 @@ export const data: TTechnologieCard[] = [
         slug: '/shopify-development',
         image: {
           altText: 'Shopify development image',
-          icon: '/images/technologies/services/Shopify.svg',
+          icon: '/images/technologies/services/Shopify plus.svg',
         },
       },
       {
         title: 'Jamstack',
-        slug: '/jamstack',
+        slug: '/jamstack-development',
         image: {
           altText: 'Jamstack image',
           icon: '/images/technologies/services/Jamstack.svg',
@@ -598,7 +606,7 @@ export const data: TTechnologieCard[] = [
       },
       {
         title: 'Mobile',
-        slug: '/mobile-service',
+        slug: '/mobile-development',
         image: {
           altText: 'Mobile service image',
           icon: '/images/technologies/services/Mobile.svg',
@@ -614,7 +622,7 @@ export const data: TTechnologieCard[] = [
       },
       {
         title: 'Game development',
-        slug: '/game-development-service',
+        slug: '/game-development',
         image: {
           altText: 'Game development service image',
           icon: '/images/technologies/services/Game-development.svg',
@@ -622,7 +630,7 @@ export const data: TTechnologieCard[] = [
       },
       {
         title: 'UI/UX design',
-        slug: '/ui-ux-design',
+        slug: '/ui-ux-design-services',
         image: {
           altText: 'UI/UX design image',
           icon: '/images/technologies/services/UI-UX.svg',
@@ -630,7 +638,7 @@ export const data: TTechnologieCard[] = [
       },
       {
         title: 'Project management',
-        slug: '/project-management',
+        slug: '/project-management-services',
         image: {
           altText: 'Project management image',
           icon: '/images/technologies/services/Project-management.svg',
@@ -646,7 +654,7 @@ export const data: TTechnologieCard[] = [
       },
       {
         title: 'Startup and MVP Services',
-        slug: '/startup-mvp-services',
+        slug: '/mvp-development-services',
         image: {
           altText: 'Startup and MVP Services image',
           icon: '/images/technologies/services/Startup-and-MVP-Services.svg',
@@ -663,4 +671,3 @@ export const data: TTechnologieCard[] = [
     ],
   },
 ];
-
