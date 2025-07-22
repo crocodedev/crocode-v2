@@ -19,9 +19,6 @@ export type TCase = {
   duration: string;
   service: string;
   industry: string;
-  slug: {
-    current: string;
-  };
   casesItemImage: {
     altText: string;
     image: { asset: { url: string } };

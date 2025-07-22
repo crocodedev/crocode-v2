@@ -150,7 +150,7 @@ const CasesPage = ({
         <FiltersCases
           tech={effectiveTech}
           countries={effectiveCountries}
-          setSelect={handleSelectCountry}
+          setSelectCountry={handleSelectCountry}
           selectCountry={selectCountry}
           setSelectTech={handleSelectTechnologies}
           selectTechnology={selectTechnology}
@@ -192,9 +192,6 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
 
     if (errorsCases) throw new Error(errorsCases[0]?.message);
     else if (errorsBreadcrumbs) throw new Error(errorsCases[0]?.message);
-
-    console.log(slug);
-    console.log(dataBreadcrumbs?.allPage?.[0]?.breadcrumbs);
 
     const technologiesAll = Array.from(
       new Set(

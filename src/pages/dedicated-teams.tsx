@@ -62,8 +62,6 @@ export const getServerSideProps: GetServerSideProps<TPageProps> = async (
   const { data: dataBreadcrumbs, errors: errorsBreadcrumbs } =
     await fetchGraphQL(getBreadcrumbs(slug));
 
-  console.log(slug);
-
   return {
     props: {
       allRedirects,

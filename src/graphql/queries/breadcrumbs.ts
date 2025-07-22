@@ -7,9 +7,9 @@ export const getBreadcrumbs = (
       ? 'allPage'
       : variables === 'case'
         ? 'allCasesItem'
-        : variables;
-
-  console.log(slug, variant);
+        : variables === 'blog'
+          ? 'allArticlesItem'
+          : variables;
 
   return `
     query {

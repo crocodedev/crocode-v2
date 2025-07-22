@@ -1,20 +1,21 @@
 import Image from 'next/image';
-
-import { SectionLayout } from '@/components/sections';
-
+import { CardGrid, Info, SectionLayout } from '@/components/sections';
 import { TSanityImage } from '@/types/image';
 import { TLink } from '@/types/link';
-
-import { parseHtmlToBlocks } from '@/utils/parseMarkdown';
-
 import SocialsBlock from './socials-block';
+import { parseHtmlToBlocks } from '@/utils/parseMarkdown';
+import { Fragment } from 'react';
+import { TitleSection } from '@/components/ui';
+
 import styles from './styles.module.scss';
 
 type TProps = {
   desc: string;
-  socials: { link: TLink; _key: string }[];
+  socials: { link: TLink }[];
   title: string;
-  contentRaw: any;
+  contentRaw: {
+    children: { text: string }[];
+  }[];
   coverImage: TSanityImage;
 };
 
@@ -30,7 +31,7 @@ const BlogContentSection = ({
     '',
   );
 
-  console.log(parseHtmlToBlocks(html));
+  const blocksContent = parseHtmlToBlocks(html);
 
   return (
     <SectionLayout className={styles.blog__wrapper}>
@@ -44,10 +45,24 @@ const BlogContentSection = ({
           height={600}
         />
       </div>
-
       <div className={styles.blog__content}>
         <h2>{desc}</h2>
-        <div>contentRaw</div>
+        {blocksContent && (
+          <div>
+            {blocksContent.length &&
+              blocksContent.map((block, i) => (
+                <Fragment key={i}>
+                  {block.type === 'list' ? (
+                    <CardGrid cards={block.content.cards} />
+                  ) : block.type === 'title' ? (
+                    <TitleSection label={block.content.title} />
+                  ) : block.type === 'text' ? (
+                    <Info texts={[block.content.text]} />
+                  ) : null}
+                </Fragment>
+              ))}
+          </div>
+        )}
         <SocialsBlock socials={socials} />
       </div>
       {/* {data.content && (

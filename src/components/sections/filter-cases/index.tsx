@@ -6,7 +6,7 @@ import styles from './styles.module.scss';
 type TProps = {
   tech: string[];
   countries: string[];
-  setSelect: (country: string) => void;
+  setSelectCountry: (country: string) => void;
   selectCountry: string[];
   setSelectTech: (tech: string) => void;
   selectTechnology: string[];
@@ -15,7 +15,7 @@ type TProps = {
 const FiltersCases = ({
   tech,
   countries,
-  setSelect,
+  setSelectCountry,
   selectCountry,
   setSelectTech,
   selectTechnology,
@@ -29,7 +29,7 @@ const FiltersCases = ({
         items={tech}
       />
       <Filters
-        setSelect={setSelect}
+        setSelect={setSelectCountry}
         select={selectCountry}
         title='Country:'
         items={countries}

@@ -19,15 +19,22 @@ import { getSeoProps } from '@/utils/seo';
 import { getBlogArticle } from '@/graphql/queries/blog';
 import { useRedirect } from '@/hooks';
 import { fetchGraphQL } from '@/lib/graphql';
+import { TBreadcrumbs } from '@/components/sections/breadcrumbs/type';
 
 type TProps = TPageProps & {
   article: TArticle;
   errors: TSanityError[];
+  breadcrumbs: TBreadcrumbs;
 };
 
-const ArticlePage = ({ article, errors, seo, allRedirects }: TProps) => {
+const ArticlePage = ({
+  article,
+  errors,
+  seo,
+  allRedirects,
+  breadcrumbs,
+}: TProps) => {
   useRedirect(allRedirects);
-  console.log({ article });
 
   if (errors) {
     console.error(errors[0].message);
@@ -46,7 +53,7 @@ const ArticlePage = ({ article, errors, seo, allRedirects }: TProps) => {
     <Fragment>
       <Seo {...seo} />
       <Hero title={title} />
-      <Breadcrumbs />
+      <Breadcrumbs sanityData={breadcrumbs} />
       <AuthorArticle text={`${author}, ${formatDate(date)}`} />
       <BlogContent {...article} />
       <Subscribe />
@@ -69,6 +76,7 @@ export const getServerSideProps: GetServerSideProps<TProps> = (async (
       errors: errors ?? null,
       seo: article?.seo,
       allRedirects: (await getSeoProps(slug)).allRedirects,
+      breadcrumbs: article?.breadcrumbs || null,
     },
   };
 }) satisfies GetServerSideProps<TProps>;

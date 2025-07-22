@@ -1,12 +1,10 @@
 import { TLink } from '@/types/link';
 
-// import Link from 'next/link';
 import styles from './styles.module.scss';
 
 type TProps = {
   socials: {
     link: TLink;
-    _key: string;
   }[];
 };
 
@@ -15,10 +13,10 @@ const SocialsBlock = ({ socials }: TProps) => {
   return (
     <div className={styles.socials}>
       <ul>
-        {socials.map((item) => (
-          <li key={item._key}>
+        {socials.map((item, i) => (
+          <li key={i}>
             {/* <Link href={item.link.}></Link> */}
-            {item._key}
+            {i}
           </li>
         ))}
       </ul>
