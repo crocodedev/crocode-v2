@@ -5,6 +5,7 @@ import Button from './button';
 import Card from './card';
 import Checkbox from './checkbox';
 import Filters from './filters';
+import Icon from './icon';
 import Input from './input';
 import Loader from './loader';
 import MapboxMap from './map';
@@ -15,6 +16,7 @@ import Title from './title';
 import TitleSection from './title-section';
 
 export {
+  Icon,
   Avatar,
   ArrowUpScroll,
   Button,

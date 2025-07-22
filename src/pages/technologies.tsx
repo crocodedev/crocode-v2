@@ -1,13 +1,16 @@
 import { GetServerSideProps } from 'next';
 
 import { Hero, TechnologyStack } from '@/components/sections';
+import { TTechnologieCard } from '@/components/sections/technology-stack/types';
 import Seo from '@/components/seo';
 
 import { TPageProps } from '@/types/pageProps';
 
 import { getSeoProps } from '@/utils/seo';
 
+import { ALL_TECHNOLOGIES } from '@/graphql/queries/technologies';
 import { useRedirect } from '@/hooks';
+import { fetchGraphQL } from '@/lib/graphql';
 
 const PROPS_SECTIONS = {
   hero: {
@@ -15,7 +18,11 @@ const PROPS_SECTIONS = {
   },
 };
 
-const TechnologiesPage = ({ allRedirects, seo }: TPageProps) => {
+type TProps = TPageProps & {
+  categories: TTechnologieCard[];
+};
+
+const TechnologiesPage = ({ allRedirects, seo, categories }: TProps) => {
   useRedirect(allRedirects);
 
   return (
@@ -33,7 +40,10 @@ export const getServerSideProps: GetServerSideProps<TPageProps> = async (
   const slug = context.resolvedUrl;
 
   return {
-    props: await getSeoProps(slug),
+    props: {
+      seo: (await getSeoProps(slug)).seo,
+      allRedirects: (await getSeoProps(slug)).allRedirects,
+    },
   };
 };
 
