@@ -6,8 +6,6 @@ export const DEFAULT_VALUE_BLOG = 'Latest';
 export const ALL_BLOG_ARTICLES = `
   query {
     allArticlesItem {
-      _id
-      title
       slug { current }
       breadcrumbs {
         _key
@@ -19,11 +17,6 @@ export const ALL_BLOG_ARTICLES = `
             }
           }
         }
-        linkExternal {
-          label
-          href
-          blank
-        }
       }
 			coverImage{
         altText
@@ -33,37 +26,7 @@ export const ALL_BLOG_ARTICLES = `
           }
         }
       }
-    	author
-    	date
-    	desc
-    	category
-    	contentRaw
-    	socials {
-        _key
-        iconImage {
-					image {
-            asset {
-              url
-            }
-          }
-          altText
-        }
-        link {
-          linkInternal {
-            label
-            reference {
-              slug {
-                current
-              }
-            }
-          }
-        	linkExternal {
-            label
-            href
-            blank
-          }
-        }
-      }
+      category
     }
   }
 `;
@@ -85,11 +48,6 @@ export const getBlogArticle = (slug: string) => `
             }
           }
         }
-        linkExternal {
-          label
-          href
-          blank
-        }
       }
 			coverImage{
         altText
@@ -102,7 +60,6 @@ export const getBlogArticle = (slug: string) => `
       author
       date
       desc
-      category
       contentRaw
       socials {
         _key
@@ -157,7 +114,7 @@ export const getBlogArticles = (
         _id
         category
         slug { current }
-	    coverImage{
+        coverImage{
           altText
           image{
             asset{
