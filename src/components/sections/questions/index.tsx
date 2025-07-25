@@ -8,6 +8,7 @@ import { data, TData } from './data';
 
 type TProps = {
   questions?: TData[];
+  isDynamicPage?: boolean;
 };
 
 const QuestionsSection = ({ questions = data }: TProps) => {
