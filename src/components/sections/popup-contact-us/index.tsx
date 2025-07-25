@@ -59,12 +59,7 @@ const PopupContactUs = ({ form, className }: TProps) => {
         <div className={styles.popup__main}>
           <div className={styles.popup__background}>
             <div className={styles.popup__background_image}>
-              <Image
-                fill
-                objectFit='cover'
-                src={'/background.png'}
-                alt={'background'}
-              />
+              <Image fill src={'/background.png'} alt={'background'} />
             </div>
             <button
               type='button'

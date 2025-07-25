@@ -1,7 +1,7 @@
 import Image from 'next/image';
 import { useLayoutEffect, useState } from 'react';
 
-import { ModelsLayout, SectionLayout } from '@/components/sections';
+import { ModelsLayout } from '@/components/sections';
 import { Button } from '@/components/ui';
 
 import { TImage } from '@/types/types';
@@ -74,7 +74,7 @@ const Hero = ({
   }, [title]);
 
   return (
-    <SectionLayout className={styles.section}>
+    <section className={styles.section}>
       <ModelsLayout models={COMPONENT_MODELS} lightIntensity={4} />
       <div className={styles.hero}>
         <Image
@@ -93,7 +93,7 @@ const Hero = ({
           <Button className={styles.hero__button}>Contact us</Button>
         </div>
       </div>
-    </SectionLayout>
+    </section>
   );
 };
 

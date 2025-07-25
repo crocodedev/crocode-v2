@@ -3,8 +3,8 @@ import { Fragment, useRef, useState } from 'react';
 import { SectionLayout } from '@/components/sections';
 import { Button, Card, Title } from '@/components/ui';
 
-import { TData, data } from './data';
 import styles from './styles.module.scss';
+import { data, TData } from './data';
 
 type TProps = {
   questions?: TData[];
@@ -41,49 +41,48 @@ const QuestionsSection = ({ questions = data }: TProps) => {
       <div
         className={`${styles.container} ${indexActiveCard !== null ? styles.container_active : ''}`}
       >
-        {questions &&
-          questions?.map((question) => {
-            const id = question.id;
-            const isActive = indexActiveCard === question.id;
+        {questions.map((question) => {
+          const id = question.id;
+          const isActive = indexActiveCard === question.id;
 
-            return (
-              <Fragment key={question.id}>
-                <Card
-                  onClick={handleClickMore.bind(null, id)}
-                  className={`${styles.question}
+          return (
+            <Fragment key={question.id}>
+              <Card
+                onClick={handleClickMore.bind(null, id)}
+                className={`${styles.question}
                 ${styles[`question__${id}`]}
                 ${isActive && styles.hide}`}
-                  ref={(el: HTMLDivElement | null) => {
-                    cardRefs.current[id] = el;
-                  }}
+                ref={(el: HTMLDivElement | null) => {
+                  cardRefs.current[id] = el;
+                }}
+              >
+                <h2 className={styles.question__title}>{question.text}</h2>
+                <Button className={styles.question__button}>
+                  {isActive ? '-' : '+'}
+                </Button>
+              </Card>
+
+              {isActive && (
+                <Card
+                  onClick={handleClickMore.bind(null, id)}
+                  className={` ${styles.question} ${styles.question__absolute} ${styles.question}__${question.id}`}
+                  style={
+                    {
+                      '--initial-top': `${clickPosition.top - 100}px`,
+                      '--initial-left': `${clickPosition.left - 100}px`,
+                      '--initial-width': `${clickPosition.width}px`,
+                      '--initial-height': `${clickPosition.height}px`,
+                    } as React.CSSProperties
+                  }
                 >
                   <h2 className={styles.question__title}>{question.text}</h2>
-                  <Button className={styles.question__button}>
-                    {isActive ? '-' : '+'}
-                  </Button>
+                  <p className={styles.question__answer}>{question.answer}</p>
+                  <Button className={styles.question__button}>-</Button>
                 </Card>
-
-                {isActive && (
-                  <Card
-                    onClick={handleClickMore.bind(null, id)}
-                    className={` ${styles.question} ${styles.question__absolute} ${styles.question}__${question.id}`}
-                    style={
-                      {
-                        '--initial-top': `${clickPosition.top - 100}px`,
-                        '--initial-left': `${clickPosition.left - 100}px`,
-                        '--initial-width': `${clickPosition.width}px`,
-                        '--initial-height': `${clickPosition.height}px`,
-                      } as React.CSSProperties
-                    }
-                  >
-                    <h2 className={styles.question__title}>{question.text}</h2>
-                    <p className={styles.question__answer}>{question.answer}</p>
-                    <Button className={styles.question__button}>-</Button>
-                  </Card>
-                )}
-              </Fragment>
-            );
-          })}
+              )}
+            </Fragment>
+          );
+        })}
       </div>
     </SectionLayout>
   );

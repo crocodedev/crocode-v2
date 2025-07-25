@@ -43,10 +43,12 @@ const Pagination = ({
     <div className={styles.pagination}>
       <button
         type='button'
-        className={styles.arrow}
         onClick={() => handlePageChange(currentPage - 1)}
-        disabled={currentPage <= 1}
         aria-label='Previous page'
+        className={`
+          ${styles.arrow}
+          ${currentPage <= 1 ? styles.arrow_disabled : ''}
+        `}
       >
         <IconChevronLeft />
       </button>
@@ -70,10 +72,12 @@ const Pagination = ({
       )}
       <button
         type='button'
-        className={styles.arrow}
         onClick={() => handlePageChange(currentPage + 1)}
-        disabled={currentPage >= totalPages}
         aria-label='Next page'
+        className={`
+          ${styles.arrow}
+          ${currentPage >= totalPages ? styles.arrow_disabled : ''}
+        `}
       >
         <IconChevronRight />
       </button>

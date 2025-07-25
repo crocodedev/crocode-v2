@@ -4,6 +4,7 @@ import {
   AboutUs,
   Banner,
   Blog,
+  Breadcrumbs,
   ContactUsForm,
   GetStarted,
   Hero,
@@ -92,6 +93,7 @@ const HomePage = ({ seo, allRedirects }: TPageProps) => {
     <>
       <Seo {...seo} />
       <Hero {...PROPS_SECTIONS.hero} />
+      <Breadcrumbs />
       <Industries />
       <OfferingsTemplate {...PROPS_SECTIONS.offeringsTemplate} />
       <Banner {...PROPS_SECTIONS.banner} />

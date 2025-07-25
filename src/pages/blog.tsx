@@ -1,6 +1,11 @@
-import { GetServerSideProps, GetServerSidePropsContext } from 'next';
+import { GetServerSideProps } from 'next';
 
-import { BlogCatalog, Hero, Subscribe } from '@/components/sections';
+import {
+  BlogCatalog,
+  Breadcrumbs,
+  Hero,
+  Subscribe,
+} from '@/components/sections';
 import { TArticle } from '@/components/sections/blog-catalog/types';
 import Seo from '@/components/seo';
 
@@ -9,36 +14,36 @@ import { TPagination } from '@/types/pagination';
 import { TSanityError } from '@/types/sanityError';
 import { TSeo } from '@/types/seo';
 
-import {
-  ALL_BLOG_ARTICLES,
-  ITEMS_PER_PAGE,
-  getBlogArticles,
-} from '@/graphql/queries/blog';
+import { ALL_BLOG_ARTICLES } from '@/graphql/queries/blog';
 import { useRedirect } from '@/hooks';
 import { fetchGraphQL } from '@/lib/graphql';
+import { getBreadcrumbs } from '@/graphql/queries/breadcrumbs';
+import { TBreadcrumbs } from '@/components/sections/breadcrumbs/type';
 
 const PROPS_SECTIONS = {
   hero: {
-    modelsIsShow: true,
     title: 'BLOG',
-  },
-  blogCatalog: {
-    category: ['Latest', 'Technologies', 'UA/UX', 'Client guides'],
   },
 };
 
 type TProps = TPageProps & {
   articles: TArticle[];
+  category: string[];
   errors: TSanityError[];
   paginationData: TPagination;
+  breadcrumbs: {
+    data: TBreadcrumbs;
+    error: string;
+  };
 };
 
 const BlogPage = ({
   articles,
+  category,
   errors,
-  paginationData,
   seo,
   allRedirects,
+  breadcrumbs,
 }: TProps) => {
   useRedirect(allRedirects);
 
@@ -50,33 +55,37 @@ const BlogPage = ({
     <>
       <Seo {...seo} />
       <Hero {...PROPS_SECTIONS.hero} />
-      <BlogCatalog
-        {...PROPS_SECTIONS.blogCatalog}
-        articles={articles}
-        paginationData={paginationData}
-      />
+      <Breadcrumbs sanityData={breadcrumbs.data} />
+      <BlogCatalog {...{ category, articles }} />
       <Subscribe />
     </>
   );
 };
 
-export const getServerSideProps = (async (
-  context: GetServerSidePropsContext,
-) => {
-  const { category, page } = context.query;
-  const currentPage = page ? Math.max(1, parseInt(page as string)) : 1;
-  const offset = (currentPage - 1) * ITEMS_PER_PAGE;
+export const getServerSideProps: GetServerSideProps = async (context) => {
+  const slug = context.resolvedUrl;
 
   const { data: dataCount, errors: errorsCount } =
     await fetchGraphQL(ALL_BLOG_ARTICLES);
 
+  const { data: dataBreadcrumbs, errors: errorsBreadcrumbs } =
+    await fetchGraphQL(getBreadcrumbs(slug));
+
+  const category = Array.from(
+    new Set(
+      dataCount?.allArticlesItem
+        ?.map((item: TArticle) => item.category)
+        .filter(Boolean) || [],
+    ),
+  );
+
   const seo = {
     titleTemplate: false,
-    title: category || null,
-    description: `Description for ${category}`,
-    keywords: `${category}`,
+    title: 'Blogs',
+    description: `Description for blogs`,
+    keywords: `blogs`,
     image: {
-      altText: `${category} work technologies `,
+      altText: `blogs work technologies `,
       image: {
         asset: {
           url: 'https://cdn.sanity.io/images/kx2cy1wz/production/f3b07df48aeb165cf91733613c71971a68717479-860x660.jpg',
@@ -91,41 +100,31 @@ export const getServerSideProps = (async (
     return {
       props: {
         articles: [],
+        category: [],
         errors: errorsCount,
-        paginationData: {
-          currentPage: 1,
-          totalPages: 1,
-        },
         seo: seo,
         allRedirects: [],
+        breadcrumbs: {
+          data: [],
+          error: null,
+        },
       },
     };
   }
 
-  const queryCases = getBlogArticles(
-    ITEMS_PER_PAGE,
-    offset,
-    category as string | undefined,
-  );
-
-  const { data: dataArticles, errors: errorsArticles } =
-    await fetchGraphQL(queryCases);
-  console.log({ data: dataArticles?.allArticlesItem });
-
   return {
     props: {
-      articles: dataArticles?.allArticlesItem || null,
-      errors: errorsArticles || null,
+      articles: dataCount?.allArticlesItem || null,
+      category,
+      errors: errorsCount || null,
       seo: seo,
       allRedirects: [],
-      paginationData: {
-        currentPage,
-        totalPages: Math.ceil(
-          dataCount.allArticlesItem.length / ITEMS_PER_PAGE,
-        ),
+      breadcrumbs: {
+        data: dataBreadcrumbs?.allPage?.[0]?.breadcrumbs ?? null,
+        error: errorsBreadcrumbs ?? null,
       },
     },
   };
-}) satisfies GetServerSideProps<TProps>;
+};
 
 export default BlogPage;
