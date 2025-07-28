@@ -11,7 +11,7 @@ type TProps = {
 const Filters = ({ items, className, title, setSelect, select }: TProps) => {
   return (
     <div className={`${styles.container} ${className}`}>
-      {title && <h3 className={styles.category}>{title}</h3>}
+      {title && <span className={styles.category}>{title}</span>}
       <div className={styles.filters}>
         {items.map((item) => (
           <button
