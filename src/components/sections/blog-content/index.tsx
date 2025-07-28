@@ -1,11 +1,8 @@
-import Image from 'next/image';
-import { CardGrid, Info, SectionLayout } from '@/components/sections';
+import { SectionLayout } from '@/components/sections';
 import { TSanityImage } from '@/types/image';
 import { TLink } from '@/types/link';
 import SocialsBlock from './socials-block';
-import { parseHtmlToBlocks } from '@/utils/parseMarkdown';
-import { Fragment } from 'react';
-import { TitleSection } from '@/components/ui';
+import Image from 'next/image';
 
 import styles from './styles.module.scss';
 
@@ -22,47 +19,32 @@ type TProps = {
 const BlogContentSection = ({
   desc,
   socials,
-  title,
   contentRaw,
   coverImage,
 }: TProps) => {
+  console.log({ desc, socials });
   const html = contentRaw?.reduce(
     (acc, elem) => acc + (elem?.children?.[0]?.text || ''),
     '',
   );
 
-  const blocksContent = parseHtmlToBlocks(html);
-
   return (
     <SectionLayout className={styles.blog__wrapper}>
-      <h2 className={styles.blog__title}>{title}</h2>
-      <div className={styles.blog__image__wrapper}>
-        <Image
-          src={coverImage.image.asset.url}
-          alt={coverImage.altText || ''}
-          className={styles.blog__image}
-          width={1200}
-          height={600}
-        />
-      </div>
-      <div className={styles.blog__content}>
-        <h2>{desc}</h2>
-        {blocksContent && (
-          <div>
-            {blocksContent.length &&
-              blocksContent.map((block, i) => (
-                <Fragment key={i}>
-                  {block.type === 'list' ? (
-                    <CardGrid cards={block.content.cards} />
-                  ) : block.type === 'title' ? (
-                    <TitleSection label={block.content.title} />
-                  ) : block.type === 'text' ? (
-                    <Info texts={[block.content.text]} />
-                  ) : null}
-                </Fragment>
-              ))}
-          </div>
-        )}
+      <div className={styles.blog__inner}>
+        <div className={styles.blog__image__wrapper}>
+          <Image
+            src={coverImage.image.asset.url}
+            alt={coverImage.altText || ''}
+            className={styles.blog__image}
+            width={1200}
+            height={600}
+          />
+        </div>
+        <h2 className={styles.blog__description}>{desc}</h2>
+        <div
+          className={styles.blog__content}
+          dangerouslySetInnerHTML={{ __html: html }}
+        ></div>
         <SocialsBlock socials={socials} />
       </div>
       {/* {data.content && (
