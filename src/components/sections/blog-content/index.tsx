@@ -22,7 +22,6 @@ const BlogContentSection = ({
   contentRaw,
   coverImage,
 }: TProps) => {
-  console.log({ desc, socials });
   const html = contentRaw?.reduce(
     (acc, elem) => acc + (elem?.children?.[0]?.text || ''),
     '',

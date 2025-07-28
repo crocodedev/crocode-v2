@@ -33,7 +33,7 @@ export const ALL_BLOG_ARTICLES = `
 
 export const getBlogArticle = (slug: string) => `
   query {
-    allArticlesItem(where: { slug: { current: { matches: "${slug}" } } }) {
+    allArticlesItem(where: { slug: { current: { eq: "${slug}" } } }) {
     ${seo}
       _id
       title

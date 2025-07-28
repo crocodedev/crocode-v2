@@ -64,7 +64,7 @@ const ArticlePage = ({
 export const getServerSideProps: GetServerSideProps<TProps> = (async (
   context,
 ) => {
-  const slug = context.params?.slug;
+  const slug = context.resolvedUrl;
   const query = getBlogArticle(slug as string);
 
   const { data, errors } = await fetchGraphQL(query);
