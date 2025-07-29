@@ -9,11 +9,10 @@ type TProps = {
 };
 
 const SocialsBlock = ({ socials }: TProps) => {
-  console.log({ socials });
   return (
     <div className={styles.socials}>
       <ul>
-        {socials.map((item, i) => (
+        {socials?.map((item, i) => (
           <li key={i}>
             {/* <Link href={item.link.}></Link> */}
             {i}

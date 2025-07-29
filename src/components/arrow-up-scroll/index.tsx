@@ -47,6 +47,9 @@ const ArrowUpScroll = () => {
         type='button'
         className={`${styles.wrapper} ${isVisible ? styles.visible : ''}`}
         onClick={scrollToTop}
+        aria-label='Scroll to top'
+        aria-hidden={!isVisible}
+        tabIndex={isVisible ? 0 : -1}
       >
         <IconArrowUp />
       </button>

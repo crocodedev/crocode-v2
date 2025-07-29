@@ -14,11 +14,7 @@ import { TCase } from '@/components/sections/cases/type';
 import { TSeo } from '@/types/seo';
 import { TSanityError } from '@/types/sanityError';
 import { TPageProps } from '@/types/pageProps';
-import {
-  ALL_CASES_ITEMS,
-  DEFAULT_VALUE_ALL_COUNTRY,
-  ITEMS_PER_PAGE,
-} from '@/graphql/queries/cases';
+import { ALL_CASES_ITEMS, ITEMS_PER_PAGE } from '@/graphql/queries/cases';
 import { fetchGraphQL } from '@/lib/graphql';
 import { GetServerSideProps } from 'next';
 import { getBreadcrumbs } from '@/graphql/queries/breadcrumbs';
@@ -171,7 +167,7 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
 
   const defaultSeo = {
     titleTemplate: false,
-    title: DEFAULT_VALUE_ALL_COUNTRY,
+    title: 'Cases',
     description: 'Description for cases page',
     image: {
       altText: 'Cases',
