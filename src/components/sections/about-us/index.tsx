@@ -1,7 +1,8 @@
 import { useState } from 'react';
 
 import { SectionLayout } from '@/components/sections';
-import { Avatar, Button, Title } from '@/components/ui';
+import { Avatar, Title } from '@/components/ui';
+import { IconChevronLeft, IconChevronRight } from '@/components/icons';
 
 import { usersData } from './mockData';
 import styles from './styles.module.scss';
@@ -29,22 +30,43 @@ const AboutUsSection = ({
     setActiveIndex((prev) => (prev - 1 + users.length) % users.length);
   };
 
+  const handleClickAvatar = (index: number) => {
+    setActiveIndex(index);
+  };
+
   return (
     <SectionLayout className={styles.section}>
       <Title text={title} />
       <div className={styles.container}>
         <div className={styles.navbar}>
-          <Button className={styles.navbar__button} onClick={handlePrev}>
-            {'<'}
-          </Button>
+          <button
+            type='button'
+            className={styles.navbar__button}
+            onClick={handlePrev}
+          >
+            <span className={styles.navbar__button_icon}>
+              <IconChevronLeft />
+            </span>
+          </button>
 
-          <Button className={styles.navbar__button} onClick={handleNext}>
-            {'>'}
-          </Button>
+          <button
+            type='button'
+            className={styles.navbar__button}
+            onClick={handleNext}
+          >
+            <span className={styles.navbar__button_icon}>
+              <IconChevronRight />
+            </span>
+          </button>
         </div>
         <div className={styles.container__avatars}>
-          {users.map((avatar, index) => (
-            <Avatar key={index} index={index} activeIndex={activeIndex} />
+          {users.map((_, index) => (
+            <Avatar
+              key={index}
+              active={activeIndex === index}
+              className={styles.avatar}
+              onClick={() => handleClickAvatar(index)}
+            />
           ))}
 
           <div className={styles.container__comment}>

@@ -1,6 +1,8 @@
 .avatar {
   background-color: $color-bg-white;
   border-radius: 50%;
+  border: none;
+  cursor: pointer;
 }
 
 .active {

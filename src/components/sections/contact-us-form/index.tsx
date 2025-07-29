@@ -1,6 +1,7 @@
 import Image from 'next/image';
 import { FieldError, useForm } from 'react-hook-form';
 import 'react-phone-input-2/lib/style.css';
+
 import { Button, Checkbox, Input } from '@/components/ui';
 
 import { form } from './data';
@@ -41,7 +42,7 @@ const ContactUsForm = ({
       <div className={styles.contact__image_wrapper}>
         <Image
           className={styles.contact__image}
-          fill={true}
+          fill
           src={image.src}
           alt={image.alt}
         />

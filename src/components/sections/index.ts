@@ -2,10 +2,12 @@ import ModelsLayout from '../models-layout';
 
 import AboutUs from './about-us';
 import Advanteges from './advantages';
+import AuthorArticle from './author-article';
 import Banner from './banner';
 import Benefits from './benefits';
 import Blog from './blog';
 import BlogCatalog from './blog-catalog';
+import BlogContent from './blog-content';
 import CardImageFive from './card-image-five';
 import CardGrid from './cards-grid';
 import Cases from './cases';
@@ -33,10 +35,14 @@ import Subscribe from './subscribe';
 import Technologies from './technologies';
 import TechnologyStack from './technology-stack';
 import WhyCrocode from './why-crocode';
+import StyleGuide from './style-guide';
+import NotFound from './404';
+import Breadcrumbs from './breadcrumbs';
 
 export {
   SectionLayout,
   MVP,
+  BlogContent,
   AboutUs,
   OfferingsTemplate,
   DedicatedSoftware,
@@ -48,6 +54,7 @@ export {
   GetStarted,
   Cases,
   Footer,
+  AuthorArticle,
   Header,
   Benefits,
   ModelsLayout,
@@ -69,4 +76,7 @@ export {
   ContactUsMap,
   Banner,
   FiltersCases,
+  StyleGuide,
+  NotFound,
+  Breadcrumbs,
 };

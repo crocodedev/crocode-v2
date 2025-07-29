@@ -1,5 +1,7 @@
 import { ReactNode, createContext, useContext, useState } from 'react';
 
+import { COOKIE, cookieStore } from '@/utils/cookies';
+
 type TPopupContext = {
   isOpenPopup: boolean;
   openPopup: () => void;
@@ -19,8 +21,10 @@ export const MainProvider = ({ children }: { children: ReactNode }) => {
   const closePopup = () => setIsOpenPopup(false);
   const togglePopup = () => setIsOpenPopup((prev) => !prev);
 
-  const closeCookies = () => setIsOpenCookies(false);
-
+  const closeCookies = () => {
+    setIsOpenCookies(false);
+    cookieStore.set(COOKIE.ACCESS, 'confirmed');
+  };
   return (
     <MainContext
       value={{

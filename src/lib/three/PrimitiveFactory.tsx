@@ -1,4 +1,3 @@
-/* eslint-disable react-hooks/rules-of-hooks */
 import { useCallback, useEffect, useMemo, useRef } from 'react';
 import {
   ACESFilmicToneMapping,
@@ -233,7 +232,6 @@ export default function PrimitiveFactory({
 
   const updatePositions = useCallback(() => {
     const time = performance.now() * 0.001;
-
 
     modelDataRef.current.forEach((data, index) => {
       const { group, velocity, basePosition, initialPosition, meshes } = data;

@@ -25,5 +25,16 @@ export default defineType({
       type: 'string',
       title: 'Title',
     }),
+    defineField({
+      title: 'Breadcrumbs',
+      name: 'breadcrumbs',
+      type: 'array',
+      of: [
+        {
+          name: 'link',
+          type: 'link',
+        },
+      ],
+    }),
   ],
 })

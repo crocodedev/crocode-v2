@@ -3,34 +3,37 @@ import { Filters } from '@/components/ui';
 
 import styles from './styles.module.scss';
 
-const FILTERS_TECH_STACK = [
-  'Gatsby',
-  'React',
-  'CMS',
-  'Sanity',
-  'TypeScript',
-  'EmotionJS',
-  'NextJS',
-  'Canvas',
-  'JavaScript',
-  'HTML',
-  'CSS',
-  'Shopify Liquid',
-];
+type TProps = {
+  tech: string[];
+  countries: string[];
+  setSelectCountry: (country: string) => void;
+  selectCountry: string[];
+  setSelectTech: (tech: string) => void;
+  selectTechnology: string[];
+};
 
-const FILTERS_COUNTRY = [
-  'Germany',
-  'United Kingdom',
-  'Denmark',
-  'USA',
-  'Italy',
-];
-
-const FiltersCases = () => {
+const FiltersCases = ({
+  tech,
+  countries,
+  setSelectCountry,
+  selectCountry,
+  setSelectTech,
+  selectTechnology,
+}: TProps) => {
   return (
     <SectionLayout className={styles.layout}>
-      <Filters title='Tech stack:' items={FILTERS_TECH_STACK} paramKey='tech' />
-      <Filters title='Country:' items={FILTERS_COUNTRY} paramKey='country' />
+      <Filters
+        setSelect={setSelectTech}
+        select={selectTechnology}
+        title='Tech stack:'
+        items={tech}
+      />
+      <Filters
+        setSelect={setSelectCountry}
+        select={selectCountry}
+        title='Country:'
+        items={countries}
+      />
     </SectionLayout>
   );
 };

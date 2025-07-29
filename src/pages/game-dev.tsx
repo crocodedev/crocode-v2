@@ -1,14 +1,27 @@
+import { GetServerSideProps } from 'next';
+
 import {
   AboutUs,
+  Breadcrumbs,
   CardGrid,
   ContactUsForm,
   Hero,
   Info,
 } from '@/components/sections';
+import Seo from '@/components/seo';
+
+import { TPageProps } from '@/types/pageProps';
+
+import { getSeoProps } from '@/utils/seo';
+
+import { useRedirect } from '@/hooks';
+import { getBreadcrumbs } from '@/graphql/queries/breadcrumbs';
+import { fetchGraphQL } from '@/lib/graphql';
+import { TBreadcrumbs } from '@/components/sections/breadcrumbs/type';
 
 const PROPS_SECTIONS = {
   hero: {
-    modelsIsShow: false,
+    modelsIsShow: true,
     title: 'GAME DEVELOPMENT',
   },
   info: {
@@ -47,16 +60,48 @@ const PROPS_SECTIONS = {
   },
 };
 
-const GameDevPage = () => {
+type TProps = TPageProps & {
+  breadcrumbs: {
+    data: TBreadcrumbs;
+    error: string;
+  };
+};
+
+const GameDevPage = ({ allRedirects, seo, breadcrumbs }: TProps) => {
+  useRedirect(allRedirects);
+
   return (
     <>
+      <Seo {...seo} />
       <Hero {...PROPS_SECTIONS.hero} />
+      <Breadcrumbs sanityData={breadcrumbs?.data} />
       <Info {...PROPS_SECTIONS.info} />
       <CardGrid {...PROPS_SECTIONS.cardGrid} />
       <AboutUs />
       <ContactUsForm />
     </>
   );
+};
+
+export const getServerSideProps: GetServerSideProps<TPageProps> = async (
+  context,
+) => {
+  const slug = context.resolvedUrl;
+
+  const { allRedirects, seo } = await getSeoProps(slug);
+  const { data: dataBreadcrumbs, errors: errorsBreadcrumbs } =
+    await fetchGraphQL(getBreadcrumbs(slug));
+
+  return {
+    props: {
+      allRedirects,
+      seo,
+      breadcrumbs: {
+        data: dataBreadcrumbs?.allPage?.[0]?.breadcrumbs ?? null,
+        error: errorsBreadcrumbs ?? null,
+      },
+    },
+  };
 };
 
 export default GameDevPage;

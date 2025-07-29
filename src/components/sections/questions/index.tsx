@@ -4,50 +4,14 @@ import { SectionLayout } from '@/components/sections';
 import { Button, Card, Title } from '@/components/ui';
 
 import styles from './styles.module.scss';
+import { data, TData } from './data';
 
-const QUESTIONS = [
-  {
-    id: '01',
-    text: 'What does the cost consist of?',
-    answer: 'Tralalero tralala',
-  },
-  {
-    id: '02',
-    text: 'What models of cooperation do you have?',
-    answer: 'Tralalero tralala',
-  },
-  {
-    id: '03',
-    text: 'How is the work organized in the Crocode Team?',
-    answer: 'Tralalero tralala',
-  },
-  {
-    id: '04',
-    text: 'What service do I need?',
-    answer: 'Tralalero tralala',
-  },
-  {
-    id: '05',
-    text: 'What will I get as a result?',
-    answer: 'Tralalero tralala',
-  },
-  {
-    id: '06',
-    text: 'What the sages of work?',
-    answer: 'Tralalero tralala',
-  },
-  {
-    id: '07',
-    text: 'I dont have the documentation ready. What to do?',
-    answer: 'Tralalero tralala',
-  },
-  {
-    id: '08',
-    text: 'How do you ensure the quality of your work?',
-    answer: 'Tralalero tralala',
-  },
-];
-const QuestionsSection = () => {
+type TProps = {
+  questions?: TData[];
+  isDynamicPage?: boolean;
+};
+
+const QuestionsSection = ({ questions = data }: TProps) => {
   const [indexActiveCard, setIndexActiveCard] = useState<string | null>(null);
   const [clickPosition, setClickPosition] = useState({
     top: 0,
@@ -77,18 +41,19 @@ const QuestionsSection = () => {
       <div
         className={`${styles.container} ${indexActiveCard !== null ? styles.container_active : ''}`}
       >
-        {QUESTIONS.map((question) => {
+        {questions.map((question) => {
+          const id = question.id;
           const isActive = indexActiveCard === question.id;
 
           return (
             <Fragment key={question.id}>
               <Card
-                onClick={handleClickMore.bind(null, question.id)}
-                className={`${styles.question} 
-                ${styles[`question__${question.id}`]}
+                onClick={handleClickMore.bind(null, id)}
+                className={`${styles.question}
+                ${styles[`question__${id}`]}
                 ${isActive && styles.hide}`}
                 ref={(el: HTMLDivElement | null) => {
-                  cardRefs.current[question.id] = el;
+                  cardRefs.current[id] = el;
                 }}
               >
                 <h2 className={styles.question__title}>{question.text}</h2>
@@ -99,7 +64,7 @@ const QuestionsSection = () => {
 
               {isActive && (
                 <Card
-                  onClick={handleClickMore.bind(null, question.id)}
+                  onClick={handleClickMore.bind(null, id)}
                   className={` ${styles.question} ${styles.question__absolute} ${styles.question}__${question.id}`}
                   style={
                     {

@@ -1,15 +1,28 @@
+import { GetServerSideProps } from 'next';
+
 import {
   AboutUs,
   Blog,
+  Breadcrumbs,
   ContactUsForm,
   GetStarted,
   Hero,
   OurFigures,
 } from '@/components/sections';
+import Seo from '@/components/seo';
+
+import { TPageProps } from '@/types/pageProps';
+
+import { getSeoProps } from '@/utils/seo';
+
+import { useRedirect } from '@/hooks';
+import { fetchGraphQL } from '@/lib/graphql';
+import { getBreadcrumbs } from '@/graphql/queries/breadcrumbs';
+import { TBreadcrumbs } from '@/components/sections/breadcrumbs/type';
 
 const PROPS_SECTIONS = {
   hero: {
-    modelsIsShow: false,
+    modelsIsShow: true,
     title: 'ABOUT US',
   },
   blog: {
@@ -21,10 +34,21 @@ const PROPS_SECTIONS = {
   },
 };
 
-const AboutUsPage = () => {
+type TProps = TPageProps & {
+  breadcrumbs: {
+    data: TBreadcrumbs;
+    error: string;
+  };
+};
+
+const AboutUsPage = ({ allRedirects, seo, breadcrumbs }: TProps) => {
+  useRedirect(allRedirects);
+
   return (
     <>
+      <Seo {...seo} />
       <Hero {...PROPS_SECTIONS.hero} />
+      <Breadcrumbs sanityData={breadcrumbs?.data} />
       <OurFigures />
       <GetStarted />
       <Blog {...PROPS_SECTIONS.blog} />
@@ -32,6 +56,26 @@ const AboutUsPage = () => {
       <ContactUsForm />
     </>
   );
+};
+
+export const getServerSideProps: GetServerSideProps<TPageProps> = async (
+  context,
+) => {
+  const slug = context.resolvedUrl;
+  const { allRedirects, seo } = await getSeoProps(slug);
+  const { data: dataBreadcrumbs, errors: errorsBreadcrumbs } =
+    await fetchGraphQL(getBreadcrumbs(slug));
+
+  return {
+    props: {
+      allRedirects,
+      seo,
+      breadcrumbs: {
+        data: dataBreadcrumbs?.allPage?.[0]?.breadcrumbs ?? null,
+        error: errorsBreadcrumbs ?? null,
+      },
+    },
+  };
 };
 
 export default AboutUsPage;

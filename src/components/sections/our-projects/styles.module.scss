@@ -59,6 +59,8 @@
   }
 
   &__more {
+    grid-column: 2/3;
+
     @include flex-center;
     flex-direction: column;
     gap: 40px;

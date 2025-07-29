@@ -14,11 +14,11 @@ export const data: THeader = {
     },
     {
       text: 'Services',
-      href: '/services',
+      href: '/our-services',
     },
     {
       text: 'Portfolio',
-      href: '/cases',
+      href: `/cases`,
     },
     {
       text: 'Technologies',

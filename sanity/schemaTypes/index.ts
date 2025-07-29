@@ -4,6 +4,7 @@ import settings from './documents/settings'
 import casesItem from './documents/casesItem'
 import redirect from './documents/redirect'
 import articlesItem from './documents/articlesItem'
+import technologies from './documents/technologies'
 
 // objects
 import link from './objects/link'
@@ -17,6 +18,11 @@ import cookies from './objects/cookies'
 // blocks
 import imageWithAlt from './blocks/imageWithAlt'
 
+//other
+import {technologiesItem} from './objects/technologiesArray'
+import {questionItem} from './documents/technologies'
+import {processItem} from './documents/technologies'
+
 export const schemaTypes = [
   // documents
   page,
@@ -24,6 +30,7 @@ export const schemaTypes = [
   settings,
   casesItem,
   redirect,
+  technologies,
 
   // objects
   link,
@@ -36,4 +43,9 @@ export const schemaTypes = [
 
   // blocks
   imageWithAlt,
+
+  //other
+  technologiesItem,
+  questionItem,
+  processItem,
 ]

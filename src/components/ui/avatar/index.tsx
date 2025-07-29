@@ -1,15 +1,18 @@
 import styles from './styles.module.scss';
 
 type TProps = {
-  index?: number;
-  activeIndex?: number;
+  active: boolean;
+  onClick: () => void;
+  className?: string;
 };
 
-const Avatar = ({ index, activeIndex }: TProps) => {
+const Avatar = ({ active, onClick, className }: TProps) => {
   return (
-    <div
-      className={`${styles.avatar} ${index === activeIndex ? styles.active : ''}`}
-    />
+    <button
+      type='button'
+      className={`${styles.avatar} ${active ? styles.active : ''} ${className}`}
+      onClick={onClick}
+    ></button>
   );
 };
 

@@ -193,11 +193,9 @@
   position: relative;
   padding: 0;
   cursor: pointer;
+  border-radius: 60px;
   z-index: $z-index-header;
-
-  &:hover {
-    background-color: $color-bg-green;
-  }
+  background-color: $color-bg-green;
 
   &__wrapper {
     width: 100%;

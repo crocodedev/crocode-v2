@@ -4,6 +4,8 @@ import { useEffect, useState } from 'react';
 
 import { Button } from '@/components/ui';
 
+import { COOKIE, cookieStore } from '@/utils/cookies';
+
 import { useMainContext } from '../main-context';
 import Portal, { createContainer } from '../portal';
 
@@ -11,6 +13,7 @@ import { cookiesData } from './data';
 import styles from './styles.module.scss';
 
 const CookiesModal = () => {
+  const isCookieAproved = cookieStore.get(COOKIE.ACCESS);
   const [isMounted, setMounted] = useState(false);
   const { isOpenCookies, closeCookies } = useMainContext();
 
@@ -19,7 +22,7 @@ const CookiesModal = () => {
     setMounted(true);
   }, []);
 
-  return isMounted ? (
+  return isMounted && !isCookieAproved ? (
     <Portal id={cookiesData.modalContainerId}>
       <div
         className={`
@@ -38,7 +41,10 @@ const CookiesModal = () => {
             <h3>{cookiesData.title.toUpperCase()}</h3>
             <p className={styles.modal__text}>
               {cookiesData.text}
-              <Link className={styles.modal__link} href={cookiesData.link.href}>
+              <Link
+                className={styles.modal__link}
+                href={cookiesData.link.href || '#'}
+              >
                 {cookiesData.link.text}
               </Link>
             </p>

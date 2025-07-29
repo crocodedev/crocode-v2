@@ -1,6 +1,9 @@
-import { ModelsLayout, SectionLayout } from '@/components/sections';
-import { Button } from '@/components/ui';
 import Image from 'next/image';
+import { useLayoutEffect, useState } from 'react';
+
+import { ModelsLayout } from '@/components/sections';
+import { Button } from '@/components/ui';
+
 import { TImage } from '@/types/types';
 
 import { MODELS } from '@/utils/const';
@@ -48,7 +51,6 @@ const COMPONENT_MODELS = [
 
 type TProps = {
   typeText?: 'default' | 'main' | string;
-  modelsIsShow: boolean;
   title: string;
   image?: TImage;
 };
@@ -61,8 +63,18 @@ const Hero = ({
   },
   typeText = 'default',
 }: TProps) => {
+  const [size, setSize] = useState<'big' | 'small'>('small');
+
+  useLayoutEffect(() => {
+    if (title?.length > 20) {
+      setSize('small');
+    } else {
+      setSize('big');
+    }
+  }, [title]);
+
   return (
-    <SectionLayout className={styles.section}>
+    <section className={styles.section}>
       <ModelsLayout models={COMPONENT_MODELS} lightIntensity={4} />
       <div className={styles.hero}>
         <Image
@@ -74,14 +86,14 @@ const Hero = ({
         />
         <div className={styles.hero__content}>
           <h1
-            className={`${styles.hero__title} ${styles[`hero__title_${typeText}`]}`}
+            className={`${styles.hero__title} ${styles[`hero__title_${typeText}`]} ${styles[size]}`}
           >
             {title}
           </h1>
           <Button className={styles.hero__button}>Contact us</Button>
         </div>
       </div>
-    </SectionLayout>
+    </section>
   );
 };
 

@@ -1,4 +1,5 @@
 import { TInput } from '@/types/Input';
+
 import { emailRules } from '@/utils/validation';
 
 type TData = {

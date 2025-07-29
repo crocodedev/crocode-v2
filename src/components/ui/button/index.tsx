@@ -1,4 +1,3 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
 import Link from 'next/link';
 import { PropsWithChildren } from 'react';
 
@@ -8,7 +7,7 @@ type TProps = PropsWithChildren & {
   className?: string;
   type?: 'link' | 'button' | 'submit' | 'reset';
   href?: string;
-  view?: 'prime' | 'second' | string;
+  view?: 'prime' | 'second' | 'xl' | string;
   onClick?: () => void;
   disabled?: boolean;
 };

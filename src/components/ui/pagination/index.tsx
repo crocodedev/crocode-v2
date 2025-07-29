@@ -2,17 +2,24 @@ import { usePathname, useRouter, useSearchParams } from 'next/navigation';
 
 import { IconChevronLeft, IconChevronRight } from '@/components/icons';
 
+import { TPagination } from '@/types/pagination';
+import { getPaginationRange } from './utils';
+
 import styles from './styles.module.scss';
 
-const Pagination = ({
-  currentPage,
-  totalPages,
-  onPageChange,
-}: {
-  currentPage: number;
-  totalPages: number;
+type TProps = {
+  paginationData: TPagination;
   onPageChange?: (page: number) => void;
-}) => {
+  showPaginationRange?: boolean;
+};
+
+const Pagination = ({
+  onPageChange,
+  paginationData,
+  showPaginationRange = false,
+}: TProps) => {
+  const { currentPage, totalPages } = paginationData;
+
   const router = useRouter();
   const pathname = usePathname();
   const searchParams = useSearchParams();
@@ -30,24 +37,47 @@ const Pagination = ({
     router.push(`${pathname}?${params.toString()}`);
   };
 
+  const paginationRange = getPaginationRange({ currentPage, totalPages });
+
   return (
     <div className={styles.pagination}>
       <button
         type='button'
-        className={styles.arrow}
         onClick={() => handlePageChange(currentPage - 1)}
-        disabled={currentPage <= 1}
         aria-label='Previous page'
+        className={`
+          ${styles.arrow}
+          ${currentPage <= 1 ? styles.arrow_disabled : ''}
+        `}
       >
         <IconChevronLeft />
       </button>
-
+      {showPaginationRange && (
+        <div className={styles.pagination__range}>
+          {paginationRange.map((el, i) => (
+            <button
+              className={`
+                ${styles.pagination__range__btn}
+                ${el == currentPage ? styles.pagination__range__btn_active : ''}
+                ${typeof el !== 'number' ? styles.pagination__range__btn_disabled : ''}
+                `}
+              type='button'
+              onClick={() => typeof el === 'number' && handlePageChange(el)}
+              key={i}
+            >
+              {el}
+            </button>
+          ))}
+        </div>
+      )}
       <button
         type='button'
-        className={styles.arrow}
         onClick={() => handlePageChange(currentPage + 1)}
-        disabled={currentPage >= totalPages}
         aria-label='Next page'
+        className={`
+          ${styles.arrow}
+          ${currentPage >= totalPages ? styles.arrow_disabled : ''}
+        `}
       >
         <IconChevronRight />
       </button>

@@ -1,7 +1,10 @@
+import { GetServerSideProps } from 'next';
+
 import {
   AboutUs,
   Banner,
   Blog,
+  Breadcrumbs,
   ContactUsForm,
   GetStarted,
   Hero,
@@ -10,18 +13,25 @@ import {
   OurProject,
   Technologies,
 } from '@/components/sections';
+import Seo from '@/components/seo';
 import { AnchorType } from '@/components/ui/title/types';
+
+import useRedirect from '@/hooks/useRedirect';
+
 import { TLink } from '@/types/link';
+import { TPageProps } from '@/types/pageProps';
+
+import { getSeoProps } from '@/utils/seo';
 
 const PROPS_SECTIONS = {
   hero: {
-    modelsIsShow: false,
+    modelsIsShow: true,
     title: 'crocode',
     typeText: 'main',
   },
   offeringsTemplate: {
     title: 'Services',
-    modelsIsShow: false,
+    modelsIsShow: true,
     anchor: 'right' as AnchorType,
   },
   banner: {
@@ -76,10 +86,14 @@ const PROPS_SECTIONS = {
   },
 };
 
-const HomePage = () => {
+const HomePage = ({ seo, allRedirects }: TPageProps) => {
+  useRedirect(allRedirects);
+
   return (
     <>
+      <Seo {...seo} />
       <Hero {...PROPS_SECTIONS.hero} />
+      <Breadcrumbs />
       <Industries />
       <OfferingsTemplate {...PROPS_SECTIONS.offeringsTemplate} />
       <Banner {...PROPS_SECTIONS.banner} />
@@ -91,6 +105,15 @@ const HomePage = () => {
       <ContactUsForm />
     </>
   );
+};
+
+export const getServerSideProps: GetServerSideProps<TPageProps> = async (
+  context,
+) => {
+  const slug = context.resolvedUrl;
+  return {
+    props: await getSeoProps(slug),
+  };
 };
 
 export default HomePage;

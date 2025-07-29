@@ -28,7 +28,7 @@ export default defineType({
     }),
     defineField({
       title: 'Technologies',
-      name: 'technologies',
+      name: 'technologiesList',
       type: 'technologiesArray',
     }),
     defineField({

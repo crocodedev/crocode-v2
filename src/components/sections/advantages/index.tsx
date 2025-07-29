@@ -52,15 +52,15 @@ const MODELS_LIST = [
 const AdvantagesSection = () => {
   return (
     <SectionLayout className={styles.section}>
-      <ModelsLayout models={MODELS_LIST}/>
-        <div className={styles.container}>
-          {DATA_ITEMS.map((item) => (
-            <Card key={item.title} className={styles.card}>
-              <h2 className={styles.card__title}>{item.title.toUpperCase()}</h2>
-              <p className={styles.card__text}>{item.text.toUpperCase()}</p>
-            </Card>
-          ))}
-        </div>
+      <ModelsLayout models={MODELS_LIST} />
+      <div className={styles.container}>
+        {DATA_ITEMS.map((item) => (
+          <Card key={item.title} className={styles.card}>
+            <h2 className={styles.card__title}>{item.title.toUpperCase()}</h2>
+            <p className={styles.card__text}>{item.text.toUpperCase()}</p>
+          </Card>
+        ))}
+      </div>
     </SectionLayout>
   );
 };
