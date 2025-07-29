@@ -45,7 +45,7 @@ const ArrowUpScroll = () => {
     <Portal id={ARROW_CONTAINER_ID}>
       <button
         type='button'
-        className={`${styles.wrapper} ${isVisible ? styles.visible : ''}`}
+        className={`${styles.wrapper} ${isVisible ? styles.visible : styles.hidden}`}
         onClick={scrollToTop}
         aria-label='Scroll to top'
         aria-hidden={!isVisible}
