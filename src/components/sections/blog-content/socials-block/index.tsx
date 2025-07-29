@@ -8,7 +8,6 @@ import styles from './styles.module.scss';
 type TProps = {
   socials: {
     link: TLink;
-    _key: string;
   }[];
 };
 
@@ -28,8 +27,8 @@ const SocialsBlock = ({ socials }: TProps) => {
 
   return (
     <ul className={styles.socials}>
-      {socials.map((item) => (
-        <li key={item._key} className={styles.socials__item}>
+      {socials.map((item, i) => (
+        <li key={i} className={styles.socials__item}>
           <a href={item.link?.linkExternal?.href}>
             {socialIcon(item.link?.linkExternal?.label)}
           </a>

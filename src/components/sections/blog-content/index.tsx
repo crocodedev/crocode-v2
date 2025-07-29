@@ -1,9 +1,11 @@
-import { SectionLayout } from '@/components/sections';
-import { TSanityImage } from '@/types/image';
-import { TLink } from '@/types/link';
-import SocialsBlock from './socials-block';
 import Image from 'next/image';
 
+import { SectionLayout } from '@/components/sections';
+
+import { TSanityImage } from '@/types/image';
+import { TLink } from '@/types/link';
+
+import SocialsBlock from './socials-block';
 import styles from './styles.module.scss';
 
 type TProps = {
@@ -46,18 +48,6 @@ const BlogContentSection = ({
         ></div>
         <SocialsBlock socials={socials} />
       </div>
-      {/* {data.content && (
-        <div className={styles.blog__content}>
-          {data.content.map((_, index) => (
-            <span key={index}>
-              Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quos hic
-              quas cupiditate dolorem ad sequi. Error, ad. Aut cum distinctio
-              hic recusandae doloribus? Sit repudiandae excepturi eaque deserunt
-              in cumque.
-            </span>
-          ))}
-        </div> // TODO: менять sanity
-      )} */}
     </SectionLayout>
   );
 };
