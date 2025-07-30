@@ -1,11 +1,10 @@
 import Image from 'next/image';
+import { PortableTextBlock } from '@portabletext/react';
 
-import { SectionLayout } from '@/components/sections';
+import { SectionLayout, StyleGuide } from '@/components/sections';
 
 import { TSanityImage } from '@/types/image';
 import { TLink } from '@/types/link';
-
-// import { parseHtmlToBlocks } from '@/utils/parseMarkdown';
 
 import SocialsBlock from './socials-block';
 import styles from './styles.module.scss';
@@ -14,29 +13,18 @@ type TProps = {
   desc: string;
   socials: { link: TLink; _key?: string }[];
   title: string;
-  // contentRaw: any;
-  socials: { link: TLink }[];
-  title: string;
-  contentRaw: {
-    children: { text: string }[];
-  }[];
+  contentRaw: PortableTextBlock;
   coverImage: TSanityImage;
 };
 
 const BlogContentSection = ({
   desc,
   socials,
-  title,
-  // contentRaw,
+  contentRaw,
   coverImage,
 }: TProps) => {
-  // const html = contentRaw?.reduce(
-  //   //@ts-expect-error
-  //   (acc, elem) => acc + (elem?.children?.[0]?.text || ''),
-  //   '',
-  // );
 
-  // console.log(parseHtmlToBlocks(html));
+
   return (
     <SectionLayout className={styles.blog__wrapper}>
       <div className={styles.blog__inner}>
@@ -50,10 +38,7 @@ const BlogContentSection = ({
           />
         </div>
         <h2 className={styles.blog__description}>{desc}</h2>
-        <div
-          className={styles.blog__content}
-          dangerouslySetInnerHTML={{ __html: html }}
-        ></div>
+        <StyleGuide value={contentRaw} className={styles.blog__content} />
         <SocialsBlock socials={socials} />
       </div>
     </SectionLayout>

@@ -1,16 +1,14 @@
 import { GetServerSideProps } from 'next';
 
-import { Breadcrumbs, Hero, TechnologyStack } from '@/components/sections';
+import { Hero, TechnologyStack } from '@/components/sections';
+import { TTechnologieCard } from '@/components/sections/technology-stack/types';
 import Seo from '@/components/seo';
 
 import { TPageProps } from '@/types/pageProps';
 
 import { getSeoProps } from '@/utils/seo';
-import { getBreadcrumbs } from '@/graphql/queries/breadcrumbs';
 
 import { useRedirect } from '@/hooks';
-import { fetchGraphQL } from '@/lib/graphql';
-import { TBreadcrumbs } from '@/components/sections/breadcrumbs/type';
 
 const PROPS_SECTIONS = {
   hero: {
@@ -19,42 +17,30 @@ const PROPS_SECTIONS = {
 };
 
 type TProps = TPageProps & {
-  breadcrumbs: {
-    data: TBreadcrumbs;
-    error: string;
-  };
+  categories: TTechnologieCard[];
 };
 
-const TechnologiesPage = ({ allRedirects, seo, breadcrumbs }: TProps) => {
+const TechnologiesPage = ({ allRedirects, seo, categories }: TProps) => {
   useRedirect(allRedirects);
 
   return (
     <>
       <Seo {...seo} />
       <Hero {...PROPS_SECTIONS.hero} />
-      <Breadcrumbs sanityData={breadcrumbs?.data} />
       <TechnologyStack />
     </>
   );
 };
 
-export const getServerSideProps: GetServerSideProps<TProps> = async (
+export const getServerSideProps: GetServerSideProps<TPageProps> = async (
   context,
 ) => {
   const slug = context.resolvedUrl;
 
-  const { allRedirects, seo } = await getSeoProps(slug);
-  const { data: dataBreadcrumbs, errors: errorsBreadcrumbs } =
-    await fetchGraphQL(getBreadcrumbs(slug));
-
   return {
     props: {
-      allRedirects,
-      seo,
-      breadcrumbs: {
-        data: dataBreadcrumbs?.allPage?.[0]?.breadcrumbs ?? null,
-        error: errorsBreadcrumbs ?? null,
-      },
+      seo: (await getSeoProps(slug)).seo,
+      allRedirects: (await getSeoProps(slug)).allRedirects,
     },
   };
 };
