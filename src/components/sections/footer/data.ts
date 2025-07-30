@@ -1,6 +1,12 @@
 import { IconFacebook, IconLinkedin, IconTwitter } from '@/components/icons';
 
-import { TImage, TLink } from '@/types/types';
+import { TImage } from '@/types/types';
+import { JSX } from 'react';
+
+type TLink = {
+  text: string;
+  href: string;
+};
 
 type TFooter = {
   bottomLink: TLink;

@@ -1,9 +1,10 @@
-import { TLink } from '@/types/types';
-
 type TData = {
   title: string;
   items: {
-    link: TLink;
+    link: {
+      text: string;
+      href: string;
+    };
   }[];
   color?: `green` | `black` | `grey`;
 };

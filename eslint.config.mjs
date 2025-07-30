@@ -12,9 +12,12 @@ const eslintConfig = [
       'next/typescript',
       'plugin:prettier/recommended',
       'plugin:jsx-a11y/recommended',
+      'plugin:react-hooks/recommended',
     ],
-    plugins: ['prettier', 'jsx-a11y'],
+    plugins: ['prettier', 'jsx-a11y', 'react-hooks'],
     rules: {
+      'react-hooks/rules-of-hooks': 'error', // Проверяет правильность использования хуков
+      'react-hooks/exhaustive-deps': 'off', // Отключает проверку зависимостей хуков
       'prettier/prettier': [
         'error',
         {
