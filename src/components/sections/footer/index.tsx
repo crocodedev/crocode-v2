@@ -5,6 +5,8 @@ import { data } from './data';
 import styles from './styles.module.scss';
 
 const Footer = () => {
+  if (!data) return null;
+
   return (
     <footer className={styles.footer}>
       <div className={styles.container}>
@@ -18,6 +20,7 @@ const Footer = () => {
                 href={item.href}
                 target='_blank'
                 className={styles.social__link}
+                aria-label={item.alt}
                 key={i}
               >
                 {item.icon()}

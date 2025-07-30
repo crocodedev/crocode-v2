@@ -75,7 +75,7 @@ const TechnologyPage = ({ technology, errors, seo, allRedirects }: TProps) => {
         <StyleGuide value={PROPS_SECTIONS.description} />
       )}
       <OurProject {...PROPS_SECTIONS.ourProject} />
-      <Questions questions={PROPS_SECTIONS.questions} isDynamicPage={true} />
+      <Questions questions={PROPS_SECTIONS.questions} />
       <CardGrid {...PROPS_SECTIONS.cardGrid} />
       <WhyCrocode />
       <AboutUs />

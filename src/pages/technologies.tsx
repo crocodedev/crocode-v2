@@ -8,9 +8,7 @@ import { TPageProps } from '@/types/pageProps';
 
 import { getSeoProps } from '@/utils/seo';
 
-import { ALL_TECHNOLOGIES } from '@/graphql/queries/technologies';
 import { useRedirect } from '@/hooks';
-import { fetchGraphQL } from '@/lib/graphql';
 
 const PROPS_SECTIONS = {
   hero: {
@@ -22,7 +20,7 @@ type TProps = TPageProps & {
   categories: TTechnologieCard[];
 };
 
-const TechnologiesPage = ({ allRedirects, seo, categories }: TProps) => {
+const TechnologiesPage = ({ allRedirects, seo }: TProps) => {
   useRedirect(allRedirects);
 
   return (

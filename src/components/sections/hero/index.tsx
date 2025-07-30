@@ -1,7 +1,7 @@
 import Image from 'next/image';
 import { useLayoutEffect, useState } from 'react';
 
-import { ModelsLayout, SectionLayout } from '@/components/sections';
+import { ModelsLayout } from '@/components/sections';
 import { Button } from '@/components/ui';
 
 import { TImage } from '@/types/types';
@@ -9,6 +9,8 @@ import { TImage } from '@/types/types';
 import { MODELS } from '@/utils/const';
 
 import styles from './styles.module.scss';
+import ContactUSModal from '@/components/contactUsModal';
+import { useMainContext } from '@/components/main-context';
 
 const COMPONENT_MODELS = [
   {
@@ -64,6 +66,8 @@ const Hero = ({
   typeText = 'default',
 }: TProps) => {
   const [size, setSize] = useState<'big' | 'small'>('small');
+  const { openPopup } = useMainContext();
+
 
   useLayoutEffect(() => {
     if (title?.length > 20) {
@@ -73,8 +77,13 @@ const Hero = ({
     }
   }, [title]);
 
+
+  const handleClickContact = () => {
+    openPopup();
+  }
+
   return (
-    <SectionLayout className={styles.section}>
+    <section className={styles.section}>
       <ModelsLayout models={COMPONENT_MODELS} lightIntensity={4} />
       <div className={styles.hero}>
         <Image
@@ -90,10 +99,10 @@ const Hero = ({
           >
             {title}
           </h1>
-          <Button className={styles.hero__button}>Contact us</Button>
+          <Button onClick={handleClickContact} className={styles.hero__button}>Contact us</Button>
         </div>
       </div>
-    </SectionLayout>
+    </section>
   );
 };
 

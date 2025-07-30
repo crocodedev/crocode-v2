@@ -1,10 +1,9 @@
-import { TLink } from '@/types/types';
-
-import { DEFAULT_VALUE_ALL_COUNTRY } from '@/graphql/queries/cases';
-
 type THeader = {
   button: string;
-  links: TLink[];
+  links: {
+    text: string;
+    href: string;
+  }[];
 };
 
 export const data: THeader = {
@@ -20,7 +19,7 @@ export const data: THeader = {
     },
     {
       text: 'Portfolio',
-      href: `/cases?country=${DEFAULT_VALUE_ALL_COUNTRY}`,
+      href: `/cases`,
     },
     {
       text: 'Technologies',

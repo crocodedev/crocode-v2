@@ -9,16 +9,14 @@ export type TTechnlogy = {
   image: TTechologyImage;
 };
 
-
 export type TTechologyImage = {
   icon: string;
   altText: string;
-}
+};
 
 export type TContainerImagesProps = {
   items: TTechnlogy[];
 };
-
 
 export type TProps = {
   categories: TTechnologieCard[];

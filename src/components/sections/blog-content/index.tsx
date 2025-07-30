@@ -1,11 +1,10 @@
+import { PortableTextBlock } from '@portabletext/react';
 import Image from 'next/image';
 
-import { SectionLayout } from '@/components/sections';
+import { SectionLayout, StyleGuide } from '@/components/sections';
 
 import { TSanityImage } from '@/types/image';
 import { TLink } from '@/types/link';
-
-// import { parseHtmlToBlocks } from '@/utils/parseMarkdown';
 
 import SocialsBlock from './socials-block';
 import styles from './styles.module.scss';
@@ -14,41 +13,30 @@ type TProps = {
   desc: string;
   socials: { link: TLink; _key?: string }[];
   title: string;
-  // contentRaw: any;
+  contentRaw: PortableTextBlock;
   coverImage: TSanityImage;
 };
 
 const BlogContentSection = ({
   desc,
   socials,
-  title,
-  // contentRaw,
+  contentRaw,
   coverImage,
 }: TProps) => {
-  // const html = contentRaw?.reduce(
-  //   //@ts-expect-error
-  //   (acc, elem) => acc + (elem?.children?.[0]?.text || ''),
-  //   '',
-  // );
-
-  // console.log(parseHtmlToBlocks(html));
-
   return (
     <SectionLayout className={styles.blog__wrapper}>
-      <h2 className={styles.blog__title}>{title}</h2>
-      <div className={styles.blog__image__wrapper}>
-        <Image
-          src={coverImage.image.asset.url}
-          alt={coverImage.altText || ''}
-          className={styles.blog__image}
-          width={1200}
-          height={600}
-        />
-      </div>
-
-      <div className={styles.blog__content}>
-        <h2>{desc}</h2>
-        <div>contentRaw</div>
+      <div className={styles.blog__inner}>
+        <div className={styles.blog__image__wrapper}>
+          <Image
+            src={coverImage.image.asset.url}
+            alt={coverImage.altText || ''}
+            className={styles.blog__image}
+            width={1200}
+            height={600}
+          />
+        </div>
+        <h2 className={styles.blog__description}>{desc}</h2>
+        <StyleGuide value={contentRaw} className={styles.blog__content} />
         <SocialsBlock socials={socials} />
       </div>
     </SectionLayout>

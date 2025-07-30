@@ -8,6 +8,7 @@ import styles from './styles.module.scss';
 
 type TProps = {
   value: PortableTextBlock;
+  className?: string;
 };
 
 const ptComponents: PortableTextComponents = {
@@ -49,9 +50,9 @@ const ptComponents: PortableTextComponents = {
   },
 };
 
-const StyleGuide = ({ value }: TProps) => {
+const StyleGuide = ({ value, className }: TProps) => {
   return (
-    <div className={styles.section}>
+    <div className={`${styles.section} ${className}`}>
       <PortableText value={value} components={ptComponents} />
     </div>
   );

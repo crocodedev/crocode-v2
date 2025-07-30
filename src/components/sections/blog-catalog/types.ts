@@ -1,6 +1,6 @@
-import { TBreadcrumbs } from '@/types/breadcrumbs';
+import { TBreadcrumbs } from '../breadcrumbs/type';
 import { TSanityImage } from '@/types/image';
-import { TPagination } from '@/types/pagination';
+import { PortableTextBlock } from '@portabletext/react';
 import { TImage, TLink, TSeo } from '@/types/types';
 
 export type TArticleContentBlock = {
@@ -19,7 +19,7 @@ export type TArticle = {
   slug: { current: string };
   coverImage: TSanityImage;
   breadcrumbs: TBreadcrumbs[];
-  contentRaw: any;
+  contentRaw: PortableTextBlock;
   seo: TSeo;
   socials: { link: TLink }[];
 };
@@ -30,6 +30,5 @@ export type TProps = {
     image: TImage;
     link: string;
   };
-  paginationData: TPagination;
   articles: TArticle[];
 };

@@ -42,7 +42,7 @@ const ContactUsForm = ({
       <div className={styles.contact__image_wrapper}>
         <Image
           className={styles.contact__image}
-          fill={true}
+          fill
           src={image.src}
           alt={image.alt}
         />

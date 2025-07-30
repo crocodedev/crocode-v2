@@ -5,9 +5,9 @@ import { Fragment, useState } from 'react';
 import { SectionLayout } from '@/components/sections';
 import { Card } from '@/components/ui';
 
-import { data } from './data';
 import styles from './styles.module.scss';
 import { TContainerImagesProps, TIconCardProps } from './types';
+import { data } from './data';
 
 const PAGE_URL = '/technologies';
 
@@ -16,8 +16,8 @@ const IconCard = ({ title, icon, slug, altText }: TIconCardProps) => {
     <Link className={styles.card__icon} href={PAGE_URL + slug}>
       <Image
         className={styles.card__icon__image}
-        width={100}
-        height={100}
+        width={110}
+        height={110}
         alt={altText}
         src={icon}
       />

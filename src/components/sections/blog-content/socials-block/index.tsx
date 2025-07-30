@@ -26,13 +26,12 @@ const SocialsBlock = ({ socials }: TProps) => {
     }
   };
 
-  console.log({ socials });
   return (
     <ul className={styles.socials}>
-      {socials.map((item) => (
-        <li key={item._key} className={styles.socials__item}>
-          <a href={item.link.linkExternal?.href}>
-            {socialIcon(item.link.linkExternal?.label)}
+      {socials.map((item, i) => (
+        <li key={i} className={styles.socials__item}>
+          <a href={item.link?.linkExternal?.href}>
+            {socialIcon(item.link?.linkExternal?.label)}
           </a>
         </li>
       ))}
