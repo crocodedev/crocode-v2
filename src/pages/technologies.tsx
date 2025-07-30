@@ -20,7 +20,7 @@ type TProps = TPageProps & {
   categories: TTechnologieCard[];
 };
 
-const TechnologiesPage = ({ allRedirects, seo, categories }: TProps) => {
+const TechnologiesPage = ({ allRedirects, seo }: TProps) => {
   useRedirect(allRedirects);
 
   return (

@@ -1,5 +1,5 @@
-import Image from 'next/image';
 import { PortableTextBlock } from '@portabletext/react';
+import Image from 'next/image';
 
 import { SectionLayout, StyleGuide } from '@/components/sections';
 
@@ -23,8 +23,6 @@ const BlogContentSection = ({
   contentRaw,
   coverImage,
 }: TProps) => {
-
-
   return (
     <SectionLayout className={styles.blog__wrapper}>
       <div className={styles.blog__inner}>
