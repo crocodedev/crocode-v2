@@ -1,4 +1,7 @@
-import { TLink } from '@/types/types';
+type TLink = {
+  text: string;
+  href: string;
+};
 
 type TItems = [TLink, TLink, TLink, TLink];
 

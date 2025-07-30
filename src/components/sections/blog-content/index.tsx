@@ -1,5 +1,5 @@
-import Image from 'next/image';
 import { PortableTextBlock } from '@portabletext/react';
+import Image from 'next/image';
 
 import { SectionLayout, StyleGuide } from '@/components/sections';
 
