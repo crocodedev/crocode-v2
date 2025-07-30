@@ -12,10 +12,10 @@ import { TCase } from './type';
 type TProps = {
   cases: TCase[];
   paginationData: TPagination;
+  paginationEvent?: (page: number) => void;
 };
 
-const CasesSection = ({ cases, paginationData }: TProps) => {
-  console.log({ cases });
+const CasesSection = ({ cases, paginationData, paginationEvent }: TProps) => {
   return (
     <SectionLayout className={styles.section}>
       <div className={styles.container}>
@@ -27,7 +27,7 @@ const CasesSection = ({ cases, paginationData }: TProps) => {
                 src={card.casesItemImage.image.asset.url}
                 width={700}
                 height={350}
-                alt={card.casesItemImage.altText}
+                alt={card.casesItemImage?.altText || 'image'}
               />
             </Link>
           ))
@@ -35,7 +35,11 @@ const CasesSection = ({ cases, paginationData }: TProps) => {
           <p>No cases found</p>
         )}
       </div>
-      <Pagination paginationData={paginationData} showPaginationRange={true} />
+      <Pagination
+        paginationData={paginationData}
+        showPaginationRange={true}
+        onPageChange={paginationEvent}
+      />
     </SectionLayout>
   );
 };

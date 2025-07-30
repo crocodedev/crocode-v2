@@ -41,7 +41,10 @@ const CookiesModal = () => {
             <h3>{cookiesData.title.toUpperCase()}</h3>
             <p className={styles.modal__text}>
               {cookiesData.text}
-              <Link className={styles.modal__link} href={cookiesData.link.href}>
+              <Link
+                className={styles.modal__link}
+                href={cookiesData.link.href || '#'}
+              >
                 {cookiesData.link.text}
               </Link>
             </p>

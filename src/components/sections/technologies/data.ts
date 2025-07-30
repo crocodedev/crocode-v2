@@ -1,5 +1,3 @@
-import { PortableTextBlock } from '@portabletext/react';
-
 import { TImage } from '@/types/types';
 
 export type TTechnologies = {
@@ -18,7 +16,11 @@ export type TTechnologies = {
     linkExternal?: { href: string; label: string; blank: boolean };
     linkInternal?: { label: string; reference?: { slug: { current: string } } };
   }[];
-  contentRaw: PortableTextBlock;
+  contentRaw: {
+    children: {
+      text: string;
+    }[];
+  }[];
   projects: {
     title: string;
     slug: {

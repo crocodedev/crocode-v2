@@ -88,7 +88,7 @@ export const getCasesItems = (
 
   return `
     query {
-      allCasesItem(${where} limit: ${limit}, offset: ${offset}) {
+      allCasesItem(${where}, limit: ${limit}, offset: ${offset}) {
         _id
         title
         country

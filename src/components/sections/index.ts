@@ -37,6 +37,7 @@ import TechnologyStack from './technology-stack';
 import WhyCrocode from './why-crocode';
 import StyleGuide from './style-guide';
 import NotFound from './404';
+import Breadcrumbs from './breadcrumbs';
 
 export {
   SectionLayout,
@@ -77,4 +78,5 @@ export {
   FiltersCases,
   StyleGuide,
   NotFound,
+  Breadcrumbs,
 };

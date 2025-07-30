@@ -1,101 +1,174 @@
-import { GetServerSideProps } from 'next';
+'use client';
 
-import { Cases, FiltersCases, Hero, Subscribe } from '@/components/sections';
-import { TCase, TTechnology } from '@/components/sections/cases/type';
-import Seo from '@/components/seo';
-
-import { TPageProps } from '@/types/pageProps';
-import { TPagination } from '@/types/pagination';
-import { TSanityError } from '@/types/sanityError';
-import { TSeo } from '@/types/seo';
-
+import { useState, useEffect, useCallback, useMemo, useRef } from 'react';
+import { useStoreContext } from '@/components/store-context';
 import {
-  ALL_CASES_ITEMS,
-  DEFAULT_VALUE_ALL_COUNTRY,
-  ITEMS_PER_PAGE,
-  getCasesItems,
-} from '@/graphql/queries/cases';
+  Breadcrumbs,
+  Cases,
+  FiltersCases,
+  Hero,
+  Subscribe,
+} from '@/components/sections';
+import Seo from '@/components/seo';
+import { TCase } from '@/components/sections/cases/type';
+import { TSeo } from '@/types/seo';
+import { TSanityError } from '@/types/sanityError';
+import { TPageProps } from '@/types/pageProps';
+import { ALL_CASES_ITEMS, ITEMS_PER_PAGE } from '@/graphql/queries/cases';
 import { fetchGraphQL } from '@/lib/graphql';
+import { GetServerSideProps } from 'next';
+import { getBreadcrumbs } from '@/graphql/queries/breadcrumbs';
+import { TBreadcrumbs } from '@/components/sections/breadcrumbs/type';
 
 const PROPS_SECTIONS = {
-  hero: {
-    title: 'cases',
-  },
+  hero: { title: 'cases' },
+  breadcrumbs: [
+    {
+      title: 'Home',
+      path: '/',
+    },
+    {
+      title: 'Portfolio',
+      path: '/cases',
+    },
+  ],
 };
-
-const DEFAULT_FILTERS_TECH = [
-  { title: 'Gatsby' },
-  { title: 'React' },
-  { title: 'CMS' },
-  { title: 'Sanity' },
-  { title: 'TypeScript' },
-  { title: 'EmotionJS' },
-  { title: 'NextJS' },
-  { title: 'Canvas' },
-  { title: 'JavaScript' },
-  { title: 'HTML' },
-  { title: 'CSS' },
-  { title: 'Shopify Liquid' },
-];
 
 type TProps = TPageProps & {
   cases: TCase[];
   errors: TSanityError[];
-  initialTech: { title: string }[];
-  paginationData: TPagination;
+  initialTech: string[];
+  countries: string[];
+  breadcrumbs: {
+    data: TBreadcrumbs;
+    error: string;
+  };
 };
 
 const CasesPage = ({
   cases,
   errors,
-  paginationData,
   initialTech,
+  countries,
   seo,
+  breadcrumbs,
 }: TProps) => {
-  if (errors?.length > 0) {
-    console.error(`Error ${errors[0]?.message}`);
-  }
+  const { casesData, setCasesData } = useStoreContext();
+  const [currentPage, setCurrentPage] = useState(1);
+  const [selectCountry, setSelectCountry] = useState<string[]>([]);
+  const [selectTechnology, setSelectTechnology] = useState<string[]>([]);
+  const initialized = useRef(false);
 
-  const filteredCases =
-    initialTech.length > 0
-      ? initialTech
-      : Array.from(
-          new Set(
-            cases
-              ?.flatMap((item: TCase) => item.technologiesList)
-              .filter(Boolean) ?? [],
-          ),
+  useEffect(() => {
+    if (
+      !initialized.current &&
+      cases.length > 0 &&
+      casesData.casesAll.length === 0
+    ) {
+      initialized.current = true;
+      setCasesData({
+        casesAll: cases,
+        technologies: initialTech,
+        countries: countries,
+      });
+    }
+  }, [cases, initialTech, countries]);
+
+  const { effectiveCases, effectiveTech, effectiveCountries } = useMemo(
+    () => ({
+      effectiveCases:
+        casesData.casesAll.length > 0 ? casesData.casesAll : cases,
+      effectiveTech:
+        casesData.technologies.length > 0
+          ? casesData.technologies
+          : initialTech,
+      effectiveCountries:
+        casesData.countries.length > 0 ? casesData.countries : countries,
+    }),
+    [casesData, cases, initialTech, countries],
+  );
+
+  const filteredCases = useMemo(() => {
+    setCurrentPage(1);
+    return effectiveCases.filter((item) => {
+      const countryMatch =
+        selectCountry.length === 0 ||
+        selectCountry.includes(item.country || '');
+
+      const techMatch =
+        selectTechnology.length === 0 ||
+        (item.technologiesList || []).some(
+          (tech) => tech?.title && selectTechnology.includes(tech.title),
         );
+      return countryMatch && techMatch;
+    });
+  }, [effectiveCases, selectCountry, selectTechnology]);
+
+  const totalPages = Math.ceil(filteredCases.length / ITEMS_PER_PAGE);
+  const paginatedCases = useMemo(() => {
+    const page = Math.min(currentPage, totalPages || 1);
+    return filteredCases.slice(
+      (page - 1) * ITEMS_PER_PAGE,
+      page * ITEMS_PER_PAGE,
+    );
+  }, [filteredCases, currentPage, totalPages]);
+
+  const handleSelectCountry = useCallback((country: string) => {
+    setSelectCountry((prev) => (prev[0] === country ? [] : [country]));
+  }, []);
+
+  const handleSelectTechnologies = useCallback((tech: string) => {
+    setSelectTechnology((prev) =>
+      prev.includes(tech) ? prev.filter((el) => el !== tech) : [...prev, tech],
+    );
+  }, []);
+
+  const handleChangePage = useCallback((page: number) => {
+    setCurrentPage(page);
+    window.requestAnimationFrame(() => {
+      document
+        .getElementById('cases-top')
+        ?.scrollIntoView({ behavior: 'smooth' });
+    });
+  }, []);
+
+  if (errors?.length > 0) {
+    console.error(`Error: ${errors[0]?.message}`);
+    return <div>Error loading cases</div>;
+  }
 
   return (
     <>
       <Seo {...seo} />
       <Hero {...PROPS_SECTIONS.hero} />
-      <FiltersCases tech={filteredCases} />
-      <Cases cases={cases} paginationData={paginationData} />
+      <Breadcrumbs sanityData={breadcrumbs?.data} />
+      <div id='cases-top'>
+        <FiltersCases
+          tech={effectiveTech}
+          countries={effectiveCountries}
+          setSelectCountry={handleSelectCountry}
+          selectCountry={selectCountry}
+          setSelectTech={handleSelectTechnologies}
+          selectTechnology={selectTechnology}
+        />
+        <Cases
+          cases={paginatedCases}
+          paginationData={{ currentPage, totalPages }}
+          paginationEvent={handleChangePage}
+        />
+      </div>
       <Subscribe />
     </>
   );
 };
 
-type TQuery = {
-  tech?: string;
-  country?: string;
-  page?: string;
-};
+export const getServerSideProps: GetServerSideProps = async (context) => {
+  const slug = context.resolvedUrl;
 
-export const getServerSideProps = (async (context) => {
-  const { tech, country, page }: TQuery = context.query;
-  const currentPage = page ? Math.max(1, parseInt(page as string)) : 1;
-  const offset = (currentPage - 1) * ITEMS_PER_PAGE;
-
-  const seoTitle =
-    country && country.length > 1 ? country : DEFAULT_VALUE_ALL_COUNTRY;
-  const seo = {
+  const defaultSeo = {
     titleTemplate: false,
-    title: seoTitle,
-    description: `Description for ${country}`,
-    keywords: `${country}`,
+    title: 'Cases',
+    description: 'Description for cases page',
     image: {
       altText: 'Cases',
       image: {
@@ -104,78 +177,67 @@ export const getServerSideProps = (async (context) => {
         },
       },
     },
-    ogType: 'og:type',
-    twitterCard: '',
   } as TSeo;
 
   try {
-    const techArr =
-      typeof tech === 'string'
-        ? tech.split(',')
-        : Array.isArray(tech)
-          ? tech
-          : [];
-
-    const { data: dataCount, errors: errorsCount } =
+    const { data: casesData, errors: errorsCases } =
       await fetchGraphQL(ALL_CASES_ITEMS);
 
-    if (errorsCount) {
-      throw new Error(errorsCount);
-    }
+    const { data: dataBreadcrumbs, errors: errorsBreadcrumbs } =
+      await fetchGraphQL(getBreadcrumbs(slug));
 
-    const queryCases = getCasesItems(
-      ITEMS_PER_PAGE,
-      offset,
-      country as string | undefined,
+    if (errorsCases) throw new Error(errorsCases[0]?.message);
+    else if (errorsBreadcrumbs) throw new Error(errorsCases[0]?.message);
+
+    const technologiesAll = Array.from(
+      new Set(
+        casesData.allCasesItem?.flatMap(
+          (item: TCase) =>
+            item.technologiesList?.map((tech) => tech?.title).filter(Boolean) ||
+            [],
+        ),
+      ),
     );
 
-    const { data: dataCases, errors: errorsCases } =
-      await fetchGraphQL(queryCases);
-
-    let filteredCases = dataCases?.allCasesItem || [];
-
-    if (techArr.length > 0) {
-      filteredCases = filteredCases.filter((item: TCase) =>
-        item.technologiesList?.some((t: TTechnology) =>
-          techArr.includes(t.title),
-        ),
-      );
-    }
+    const countries = Array.from(
+      new Set(
+        casesData.allCasesItem
+          ?.map((item: TCase) => item.country)
+          .filter(Boolean) || [],
+      ),
+    );
 
     return {
       props: {
-        seo: seo,
-        allRedirects: [],
-        cases: filteredCases,
-        errors: errorsCases || null,
-        initialTech:
-          !techArr.length || filteredCases.length === 0
-            ? DEFAULT_FILTERS_TECH
-            : [],
-        paginationData: {
-          currentPage,
-          totalPages: Math.ceil(dataCount.allCasesItem.length / ITEMS_PER_PAGE),
+        seo: defaultSeo,
+        cases: casesData.allCasesItem || [],
+        errors: null,
+        initialTech: technologiesAll,
+        countries,
+        breadcrumbs: {
+          data: dataBreadcrumbs?.allPage?.[0]?.breadcrumbs ?? null,
+          error: errorsBreadcrumbs ?? null,
         },
       },
     };
-  } catch (error: unknown) {
-    console.error(error);
+  } catch (error) {
+    console.error('Failed to load cases:', error);
     return {
       props: {
-        seo: seo,
-        allRedirects: [],
+        seo: defaultSeo,
         cases: [],
-        initialTech: DEFAULT_FILTERS_TECH,
         errors: [
           { message: error instanceof Error ? error.message : 'Unknown error' },
         ],
-        paginationData: {
-          currentPage: 1,
-          totalPages: 1,
+        initialTech: [],
+        countries: [],
+        breadcrumbs: {
+          data: null,
+          error: null,
         },
       },
     };
   }
-}) satisfies GetServerSideProps<TProps>;
+};
 
 export default CasesPage;

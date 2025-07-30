@@ -31,7 +31,7 @@ const CardImageFive = ({
               width={500}
               height={350}
               src={card.src}
-              alt={card.alt}
+              alt={card.alt || 'image'}
             />
           </Card>
         ))}

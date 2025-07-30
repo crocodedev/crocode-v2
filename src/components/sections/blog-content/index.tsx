@@ -15,6 +15,11 @@ type TProps = {
   socials: { link: TLink; _key?: string }[];
   title: string;
   // contentRaw: any;
+  socials: { link: TLink }[];
+  title: string;
+  contentRaw: {
+    children: { text: string }[];
+  }[];
   coverImage: TSanityImage;
 };
 
@@ -32,23 +37,23 @@ const BlogContentSection = ({
   // );
 
   // console.log(parseHtmlToBlocks(html));
-
   return (
     <SectionLayout className={styles.blog__wrapper}>
-      <h2 className={styles.blog__title}>{title}</h2>
-      <div className={styles.blog__image__wrapper}>
-        <Image
-          src={coverImage.image.asset.url}
-          alt={coverImage.altText || ''}
-          className={styles.blog__image}
-          width={1200}
-          height={600}
-        />
-      </div>
-
-      <div className={styles.blog__content}>
-        <h2>{desc}</h2>
-        <div>contentRaw</div>
+      <div className={styles.blog__inner}>
+        <div className={styles.blog__image__wrapper}>
+          <Image
+            src={coverImage.image.asset.url}
+            alt={coverImage.altText || ''}
+            className={styles.blog__image}
+            width={1200}
+            height={600}
+          />
+        </div>
+        <h2 className={styles.blog__description}>{desc}</h2>
+        <div
+          className={styles.blog__content}
+          dangerouslySetInnerHTML={{ __html: html }}
+        ></div>
         <SocialsBlock socials={socials} />
       </div>
     </SectionLayout>

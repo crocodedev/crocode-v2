@@ -1,6 +1,4 @@
-import Image from 'next/image';
 import Link from 'next/link';
-import { Fragment, useState } from 'react';
 
 import { SectionLayout } from '@/components/sections';
 import { Card } from '@/components/ui';
@@ -49,59 +47,22 @@ const ContainerItems = ({ items }: TContainerImagesProps) => {
   );
 };
 
-const TechnologyStackSection = () => {
-  const [indexActiveCard, setIndexActiveCard] = useState<string | null>(null);
+import { data } from './data';
 
-  const handleClickMore = (index: string) => {
-    setIndexActiveCard((prev) => (prev === index ? null : index));
-  };
+const TechnologyStackSection = () => {
   return (
     <SectionLayout className={styles.section}>
-      <div className={`${styles.container}`}>
-        {data?.map((item, index) => {
-          const isActive = indexActiveCard === item.title;
-
-          return (
-            <Fragment key={item.title}>
-              <Card
-                onClick={handleClickMore.bind(null, item.title)}
-                className={`
-                ${styles.card}  
-                ${styles.card}__${index + 1}
-                ${indexActiveCard && styles.hide}
-                `}
-                key={item.title}
-              >
-                <h2 className={styles.card__title}>
-                  {item.title.toUpperCase()}
-                </h2>
-              </Card>
-
-              {isActive && (
-                <Card
-                  onClick={handleClickMore.bind(null, item.title)}
-                  className={`${styles.card} ${styles.card__absolute} ${styles.card}__${index + 1} `}
-                >
-                  <ContainerItems
-                    items={item.technologiesList.slice(
-                      0,
-                      item.technologiesList.length / 2,
-                    )}
-                  />
-                  <h2 className={styles.card__title_active}>
-                    {item.title.toUpperCase()}
-                  </h2>
-                  <ContainerItems
-                    items={item.technologiesList.slice(
-                      item.technologiesList.length / 2,
-                      item.technologiesList.length,
-                    )}
-                  />
-                </Card>
-              )}
-            </Fragment>
-          );
-        })}
+      <div className={styles.container}>
+        {data.map((item, index) => (
+          <Card className={styles.card} key={index}>
+            <Link
+              href={`/technologies/${item.href}`}
+              className={styles.card__link}
+            >
+              <h2 className={styles.title}>{item.text}</h2>
+            </Link>
+          </Card>
+        ))}
       </div>
     </SectionLayout>
   );

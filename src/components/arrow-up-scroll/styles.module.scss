@@ -18,6 +18,7 @@
   background-color: $color-bg-green;
   color: $color-bg-white;
   border: none;
+  pointer-events: none;
 
   &::before {
     content: '';

@@ -1,10 +1,11 @@
 .author {
   color: $color-text-transparent;
-  font-size: $size-text-1;
+  font-size: 16px;
   font-weight: 400;
 
   &__wrapper {
     width: 100%;
     @include flex-center;
+    margin-bottom: 90px;
   }
 }
