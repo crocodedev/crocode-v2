@@ -76,14 +76,13 @@ const QuestionsSection = ({ questions = data, isDynamicPage }: TProps) => {
                   }
                 >
                   <h2
-                    className={`${styles.question__title} ${isDynamicPage && styles.question__title_dynamic}`}
+                    className={`${styles.question__title__absolute} ${isDynamicPage && styles.question__title_dynamic}`}
                   >
                     {question.text}
                   </h2>
                   <Button className={styles.question__button}>
                     {isActive ? '-' : '+'}
                   </Button>
-                  <h2 className={styles.question__title}>{question.text}</h2>
                   <p className={styles.question__answer}>{question.answer}</p>
                   <Button className={styles.question__button}>-</Button>
                 </Card>
