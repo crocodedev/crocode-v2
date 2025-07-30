@@ -19,7 +19,10 @@
 
   @include media-down('lg') {
     grid-template-columns: repeat(2, minmax(150, 400));
-    grid-template-rows: repeat(4, minmax(150, 400));
+    grid-template-rows: repeat(
+      4,
+      minmax(fluid-size(50, 150), fluid-size(200, 400))
+    );
 
     & > div {
       grid-area: auto !important;
@@ -45,6 +48,20 @@
 
     font-weight: 700;
     font-size: $size-title-2;
+    opacity: 0;
+    animation: fade-in-answer 1.5s ease-in-out 0.2s forwards;
+
+    &_dynamic {
+      font-size: fluid-size(14, 38);
+
+      @include media-down('md') {
+        font-size: 24px;
+      }
+
+      @include media-down('sm') {
+        font-size: 18px;
+      }
+    }
   }
 
   &__answer {

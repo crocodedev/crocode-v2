@@ -4,8 +4,9 @@ import { TImage } from '@/types/types';
 import { JSX } from 'react';
 
 type TLink = {
-  text: string;
   href: string;
+  alt?: string;
+  text?: string;
 };
 
 type TFooter = {
@@ -19,6 +20,7 @@ type TFooter = {
   socialIcons: {
     icon: () => JSX.Element;
     href: string;
+    alt: string;
   }[];
 };
 
@@ -35,14 +37,17 @@ export const data: TFooter = {
     {
       icon: IconTwitter,
       href: '/',
+      alt: 'Twitter icon',
     },
     {
       icon: IconLinkedin,
       href: '/',
+      alt: 'LinkedIn icon',
     },
     {
       icon: IconFacebook,
       href: '/',
+      alt: 'Facebook icon',
     },
   ],
   copyrightText: '© 2025 KROKOD Sp. z o.o. All Rights Reserved',
