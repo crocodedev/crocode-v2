@@ -19,12 +19,10 @@
 
   @include media-down('lg') {
     grid-template-columns: repeat(2, minmax(150, 400));
-    grid-template-rows: repeat(
-      4,
-      minmax(fluid-size(50, 150), fluid-size(200, 400))
-    );
+    grid-template-rows: repeat(4,
+        minmax(fluid-size(50, 150), fluid-size(200, 400)));
 
-    & > div {
+    &>div {
       grid-area: auto !important;
     }
   }
@@ -46,10 +44,14 @@
     max-width: 100%;
     margin-bottom: 20px;
 
+    &__absolute {
+      margin-bottom: 20px;
+      opacity: 0;
+      animation: fade-in-answer .8s ease-in-out 0.2s forwards;
+    }
+
     font-weight: 700;
     font-size: $size-title-2;
-    opacity: 0;
-    animation: fade-in-answer 1.5s ease-in-out 0.2s forwards;
 
     &_dynamic {
       font-size: fluid-size(14, 38);
@@ -68,12 +70,14 @@
     text-align: justify;
     font-size: $size-text-2;
     max-width: 80%;
-    opacity: 1;
+    opacity: 0;
     height: auto;
     width: 100%;
     position: relative;
     pointer-events: auto;
     margin-top: 15px;
+    animation: fade-in-answer .8s ease-in-out 0.2s forwards;
+
   }
 
   &__button {
@@ -92,7 +96,7 @@
 
   &_active {
     z-index: 25;
-    animation: scale-active-card 1.2s ease-in-out;
+    animation: scale-active-card .65s ease-in-out;
   }
 
   &__absolute {
@@ -101,7 +105,7 @@
     grid-area: auto !important;
     width: 100%;
     height: 100%;
-    animation: scale-active-card 1.2s ease-in-out;
+    animation: scale-active-card .65s ease-in-out;
   }
 
   &__01 {
@@ -158,7 +162,7 @@
 }
 
 .hide {
-  animation: hide-card 2s ease-in-out;
+  animation: hide-card 0.6s ease-in-out;
   scale: 0.3;
   opacity: 0.3;
 }
@@ -176,6 +180,16 @@
 
   to {
     scale: 1;
+    opacity: 1;
+  }
+}
+
+@keyframes fade-in-answer {
+  from {
+    opacity: 0;
+  }
+
+  to {
     opacity: 1;
   }
 }

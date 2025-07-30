@@ -15,29 +15,29 @@ const nextConfig: NextConfig = {
       @use "@/styles/_functions" as *;
     `,
   },
-  // async headers() {
-  //   return [
-  //     {
-  //       source: '/(.*)',
-  //       headers: [
-  //         {
-  //           key: 'Content-Security-Policy',
-  //           value: `
-  //             default-src 'self';
-  //             script-src 'self' 'wasm-unsafe-eval' https://www.googletagmanager.com 'unsafe-inline';
-  //             style-src 'self' 'unsafe-inline';
-  //             img-src 'self' https: blob: data:;
-  //             font-src 'self';
-  //             connect-src 'self' https: https://www.gstatic.com/;
-  //             frame-src https://www.youtube.com https://www.google.com;
-  //           `
-  //             .replace(/\s{2,}/g, ' ')
-  //             .trim(),
-  //         },
-  //       ],
-  //     },
-  //   ];
-  // },
+  async headers() {
+    return [
+      {
+        source: '/(.*)',
+        headers: [
+          {
+            key: 'Content-Security-Policy',
+            value: `
+              default-src 'self';
+              script-src 'self' 'wasm-unsafe-eval' https://www.googletagmanager.com https://www.google.com https://www.gstatic.com 'unsafe-inline';
+              style-src 'self' 'unsafe-inline';
+              img-src 'self' https: blob: data:;
+              font-src 'self';
+              connect-src 'self' https: https://www.gstatic.com/;
+              frame-src https://www.youtube.com https://www.google.com https://www.gstatic.com;
+            `
+              .replace(/\s{2,}/g, ' ')
+              .trim(),
+          },
+        ],
+      },
+    ];
+  },
   webpack(config) {
     config.experiments = {
       ...config.experiments,

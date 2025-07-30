@@ -23,8 +23,6 @@ const BlogContentSection = ({
   contentRaw,
   coverImage,
 }: TProps) => {
-
-
   return (
     <SectionLayout className={styles.blog__wrapper}>
       <div className={styles.blog__inner}>
