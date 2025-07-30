@@ -36,6 +36,7 @@
   }
 
   &__button {
+    z-index: $z-index-up-models;
     @include media-up(md) {
       display: none;
     }

@@ -9,6 +9,8 @@ import { TImage } from '@/types/types';
 import { MODELS } from '@/utils/const';
 
 import styles from './styles.module.scss';
+import ContactUSModal from '@/components/contactUsModal';
+import { useMainContext } from '@/components/main-context';
 
 const COMPONENT_MODELS = [
   {
@@ -64,6 +66,8 @@ const Hero = ({
   typeText = 'default',
 }: TProps) => {
   const [size, setSize] = useState<'big' | 'small'>('small');
+  const { openPopup } = useMainContext();
+
 
   useLayoutEffect(() => {
     if (title?.length > 20) {
@@ -72,6 +76,11 @@ const Hero = ({
       setSize('big');
     }
   }, [title]);
+
+
+  const handleClickContact = () => {
+    openPopup();
+  }
 
   return (
     <section className={styles.section}>
@@ -90,7 +99,7 @@ const Hero = ({
           >
             {title}
           </h1>
-          <Button className={styles.hero__button}>Contact us</Button>
+          <Button onClick={handleClickContact} className={styles.hero__button}>Contact us</Button>
         </div>
       </div>
     </section>
