@@ -13,6 +13,8 @@ const Header = () => {
 
   const handleToggleMenu = () => setIsMenuClosed((prev) => !prev);
 
+  const handleMenuLinkClick = () => setIsMenuClosed(true);
+
   return (
     <header
       className={`${styles.header} ${isMenusClosed ? styles.header_closed : ''}`}
@@ -29,10 +31,17 @@ const Header = () => {
           <ul className={styles.nav__list}>
             {data.links.map((link, i) => (
               <li key={i} className={styles.nav__list__item}>
-                <Link href={link.href} className={styles.nav__link_mobile}>
+                <Link
+                  href={link.href || ''}
+                  className={styles.nav__link_mobile}
+                  onClick={handleMenuLinkClick}
+                >
                   {link.text}
                 </Link>
-                <Link href={link.href} className={styles.nav__link_desktop}>
+                <Link
+                  href={link.href || ''}
+                  className={styles.nav__link_desktop}
+                >
                   {link.text}
                 </Link>
               </li>

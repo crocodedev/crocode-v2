@@ -5,11 +5,16 @@ import { SectionLayout } from '@/components/sections';
 import { TSanityImage } from '@/types/image';
 import { TLink } from '@/types/link';
 
+// import { parseHtmlToBlocks } from '@/utils/parseMarkdown';
+
 import SocialsBlock from './socials-block';
 import styles from './styles.module.scss';
 
 type TProps = {
   desc: string;
+  socials: { link: TLink; _key?: string }[];
+  title: string;
+  // contentRaw: any;
   socials: { link: TLink }[];
   title: string;
   contentRaw: {
@@ -21,14 +26,17 @@ type TProps = {
 const BlogContentSection = ({
   desc,
   socials,
-  contentRaw,
+  title,
+  // contentRaw,
   coverImage,
 }: TProps) => {
-  const html = contentRaw?.reduce(
-    (acc, elem) => acc + (elem?.children?.[0]?.text || ''),
-    '',
-  );
+  // const html = contentRaw?.reduce(
+  //   //@ts-expect-error
+  //   (acc, elem) => acc + (elem?.children?.[0]?.text || ''),
+  //   '',
+  // );
 
+  // console.log(parseHtmlToBlocks(html));
   return (
     <SectionLayout className={styles.blog__wrapper}>
       <div className={styles.blog__inner}>

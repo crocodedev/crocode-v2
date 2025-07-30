@@ -1,8 +1,9 @@
 .section {
   @include flex-center;
   flex-direction: column;
+
   &__title {
-    font-size: $size-title-6;
+    font-size: fluid-size(48, 120);
     max-width: 1600px;
     margin-bottom: fluid-size(50, 120);
     font-weight: 700;
@@ -15,6 +16,20 @@
   grid-template-rows: repeat(3, fluid-size(180, 280));
   gap: fluid-size(10, 35);
 
+  @include media-down('md') {
+    display: flex;
+    flex-direction: column;
+    max-width: 90%;
+
+    & > div {
+      height: 180px;
+    }
+
+    & > div:nth-child(1) {
+      height: 320px;
+    }
+  }
+
   & > div:nth-child(1) {
     grid-row: 1 / span 3;
     text-align: center;
@@ -24,14 +39,17 @@
       margin-bottom: fluid-size(10, 50);
     }
   }
+
   & > div:nth-child(2) {
     grid-row: 1;
     grid-column: 2;
   }
+
   & > div:nth-child(3) {
     grid-row: 2;
     grid-column: 2;
   }
+
   & > div:nth-child(4) {
     grid-row: 3;
     grid-column: 2;
@@ -54,6 +72,6 @@
     max-width: 80%;
     max-height: 80%;
     text-align: justify;
-    line-height: fluid-size(10, 50);
+    line-height: fluid-size(16, 50);
   }
 }

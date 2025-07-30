@@ -3,7 +3,7 @@
   grid-template-columns: repeat(2, auto);
   justify-content: center;
   align-items: center;
-  padding: 65px 0px;
+  padding: fluid-size(50, 65) 0px;
   gap: clamp(0.4375rem, -0.1rem + 2.6875vw, 3.125rem)
     clamp(0.625rem, -0.125rem + 3.75vw, 4.375rem);
   width: 100%;
@@ -16,7 +16,7 @@
   padding: fluid-size(0, 10) fluid-size(7, 25);
   border-radius: fluid-size(14, 64);
   text-decoration: none;
-  font-size: fluid-size(24, 96);
+  font-size: $size-title-6;
   font-weight: 700;
   transition: 0.2s;
 
