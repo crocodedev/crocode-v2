@@ -49,6 +49,7 @@ const BlogSection = ({ title, anchor = 'right', linkDetails }: TProps) => {
           <Card />
           <Button
             type='link'
+            href={linkDetails.href}
             className={`${styles.button} ${styles.button__lg}`}
           >
             {linkDetails.text}

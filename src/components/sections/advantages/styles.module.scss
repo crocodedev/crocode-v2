@@ -3,7 +3,6 @@
   padding: fluid-size(10, 200)
     clamp(0.3125rem, -2.3422rem + 11.3269vw, 11.25rem);
   position: relative;
-  margin-bottom: 0px;
 }
 
 .container {
@@ -51,7 +50,8 @@
     flex-direction: column;
     gap: 30px;
 
-    & div {
+    & > div {
+      max-width: 90%;
       height: auto !important;
       transform: none !important;
       width: 100% !important;

@@ -6,14 +6,15 @@
 }
 
 .section {
+  overflow: hidden;
   @include flex-center;
 }
 
 .container {
   position: relative;
   display: grid;
-  grid-template-columns: repeat(3, fluid-size(30, 225));
-  grid-template-rows: repeat(8, fluid-size(30, 140));
+  grid-template-columns: repeat(3, fluid-size(40, 225));
+  grid-template-rows: repeat(8, fluid-size(50, 140));
   gap: fluid-size(10, 20);
   grid-template-areas:
     'mobile e-commerce e-commerce back-end back-end back-end'
@@ -49,6 +50,14 @@
     &__title {
       font-size: $size-text-1;
       font-weight: 300;
+      text-wrap: wrap;
+      max-width: fluid-size(110, 150);
+    }
+
+    &__image {
+      width: fluid-size(30, 100);
+      height: fluid-size(30, 100);
+      object-fit: contain;
     }
 
     &__container {
@@ -56,6 +65,10 @@
       gap: fluid-size(10, 30);
       flex-wrap: wrap;
       max-width: 80%;
+
+      @include media-down('md') {
+        max-width: 100%;
+      }
     }
 
     &:hover {
@@ -75,9 +88,11 @@
     @include flex-center;
     width: 100%;
     height: 100%;
+    font-size: $size-title-3;
 
     &_active {
       opacity: 0;
+      font-size: $size-title-3;
       animation: fade-in-answer 0.5s ease-in-out forwards;
     }
   }
@@ -93,12 +108,15 @@
     width: 100%;
     height: 100%;
 
-    animation: scale-active-card .5s ease-in-out;
+    animation: scale-active-card 0.5s ease-in-out;
 
     .card__title {
       transform: rotate(0deg) !important;
     }
+  }
 
+  @include media-down('md') {
+    border-radius: 10px;
   }
 
   &__1 {

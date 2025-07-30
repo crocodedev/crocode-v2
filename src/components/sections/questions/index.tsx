@@ -11,7 +11,7 @@ type TProps = {
   isDynamicPage?: boolean;
 };
 
-const QuestionsSection = ({ questions = data }: TProps) => {
+const QuestionsSection = ({ questions = data, isDynamicPage }: TProps) => {
   const [indexActiveCard, setIndexActiveCard] = useState<string | null>(null);
   const [clickPosition, setClickPosition] = useState({
     top: 0,
@@ -57,7 +57,11 @@ const QuestionsSection = ({ questions = data }: TProps) => {
                     cardRefs.current[id] = el;
                   }}
                 >
-                  <h2 className={styles.question__title}>{question.text}</h2>
+                  <h2
+                    className={`${styles.question__title} ${isDynamicPage && styles.question__title_dynamic}`}
+                  >
+                    {question.text}
+                  </h2>
                   <Button className={styles.question__button}>
                     {isActive ? '-' : '+'}
                   </Button>

@@ -80,7 +80,7 @@ const PROPS_SECTIONS = {
     cards: ['1', '2', '3', '4'],
     linkDetails: {
       text: 'Learn in detail',
-      href: '/',
+      href: '/blog?category=Latest',
     } as TLink,
   },
 };

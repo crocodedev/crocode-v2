@@ -8,7 +8,7 @@ import styles from './styles.module.scss';
 type TProps = {
   socials: {
     link: TLink;
-    _key: string;
+    _key?: string;
   }[];
 };
 
