@@ -1,8 +1,9 @@
-import { TLink } from '@/types/types';
-
 type THeader = {
   button: string;
-  links: TLink[];
+  links: {
+    text: string;
+    href: string;
+  }[];
 };
 
 export const data: THeader = {
