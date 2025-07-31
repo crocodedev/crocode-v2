@@ -88,7 +88,6 @@ const QuestionsSection = ({ questions = data, isDynamicPage }: TProps) => {
               </Fragment>
             );
           })}
-        SectionLayout{' '}
       </div>
     </SectionLayout>
   );
