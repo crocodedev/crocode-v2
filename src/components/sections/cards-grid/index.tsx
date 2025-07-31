@@ -21,7 +21,7 @@ const CardGrid = ({ title, cards }: TProps) => {
         <TitleSection label={title} className={styles.section__title} />
       )}
       <div className={styles.cards}>
-        {cards.map((card, index) => (
+        {cards?.map((card, index) => (
           <Card className={styles.card} color={card.color} key={index}>
             {card.title && <h2 className={styles.card__title}>{card.title}</h2>}
             <p className={styles.card__text}>{card.text}</p>

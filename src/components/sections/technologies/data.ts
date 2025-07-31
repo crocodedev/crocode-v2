@@ -80,7 +80,7 @@ export const data: TData = {
         {
           title: 'Gatsby',
           image: {
-            src: '/images/technologies/front-end/Gatsby.svg',
+            src: '/images/technologies/front-end/gatsby.svg',
             alt: 'Gatsby image',
           },
         },
@@ -108,7 +108,7 @@ export const data: TData = {
         {
           title: 'Vue',
           image: {
-            src: '/images/technologies/front-end/Vue.svg',
+            src: '/images/technologies/front-end/vue.svg',
             alt: 'Vue image',
           },
         },
@@ -150,7 +150,7 @@ export const data: TData = {
         {
           title: 'ChakraUI',
           image: {
-            src: '/images/technologies/front-end/ChakraUI.svg',
+            src: '/images/technologies/front-end/chakraUI.svg',
             alt: 'ChakraUI image',
           },
         },
@@ -183,7 +183,7 @@ export const data: TData = {
         {
           title: 'Laravel',
           image: {
-            src: '/images/technologies/back-end/Laravel.svg',
+            src: '/images/technologies/back-end/laravel.svg',
             alt: 'Laravel image',
           },
         },
@@ -204,7 +204,7 @@ export const data: TData = {
         {
           title: 'C++',
           image: {
-            src: '/images/technologies/back-end/C-plus-plus.svg',
+            src: '/images/technologies/back-end/c-plus-plus.svg',
             alt: 'C++ image',
           },
         },
@@ -310,14 +310,14 @@ export const data: TData = {
         {
           title: 'Unreal engine',
           image: {
-            src: '/images/technologies/game-engine/Unreal.svg',
+            src: '/images/technologies/game-engine/unreal.svg',
             alt: 'Unreal engine image',
           },
         },
         {
           title: 'Unity',
           image: {
-            src: '/images/technologies/game-engine/Unity.svg',
+            src: '/images/technologies/game-engine/unity.svg',
             alt: 'Unity image',
           },
         },
@@ -336,7 +336,7 @@ export const data: TData = {
         {
           title: 'Shopify plus',
           image: {
-            src: '/images/technologies/e-commerce/Shopify-plus.svg',
+            src: '/images/technologies/e-commerce/Shopify plus.svg',
             alt: 'Shopify plus image',
           },
         },
@@ -404,7 +404,7 @@ export const data: TData = {
         {
           title: 'Iot',
           image: {
-            src: '/images/technologies/industries/Iot.svg',
+            src: '/images/technologies/industries/IoT.svg',
             alt: 'Iot image',
           },
         },
@@ -425,7 +425,7 @@ export const data: TData = {
         {
           title: 'AL',
           image: {
-            src: '/images/technologies/industries/Ai.svg',
+            src: '/images/technologies/industries/AI.svg',
             alt: 'AL image',
           },
         },
@@ -442,13 +442,6 @@ export const data: TData = {
           },
         },
         {
-          title: 'Shopify/Shopify plus development',
-          image: {
-            src: '/images/technologies/services/Shopify plus.svg',
-            alt: 'Shopify/Shopify plus development image',
-          },
-        },
-        {
           title: 'Jamstack',
           image: {
             src: '/images/technologies/services/Jamstack.svg',
@@ -456,7 +449,7 @@ export const data: TData = {
           },
         },
         {
-          title: 'Custom Software development   ',
+          title: 'Custom Software development',
           image: {
             src: '/images/technologies/services/Custom-Software.svg',
             alt: 'Custom Software development   image',
@@ -467,13 +460,6 @@ export const data: TData = {
           image: {
             src: '/images/technologies/services/Mobile.svg',
             alt: 'Mobile image',
-          },
-        },
-        {
-          title: 'Cross-Platform development',
-          image: {
-            src: '/images/technologies/services/Cross-Platform.svg',
-            alt: 'Cross-Platform development image',
           },
         },
         {
@@ -495,27 +481,6 @@ export const data: TData = {
           image: {
             src: '/images/technologies/services/Project-management.svg',
             alt: 'Project management image',
-          },
-        },
-        {
-          title: 'Computer Vision Development',
-          image: {
-            src: '/images/technologies/services/Computer-Vision-Development.svg',
-            alt: 'Computer Vision Development image',
-          },
-        },
-        {
-          title: 'Startup and MVP Services',
-          image: {
-            src: '/images/technologies/services/Startup-and-MVP-Services.svg',
-            alt: 'Startup and MVP Services image',
-          },
-        },
-        {
-          title: 'PWA Development Services',
-          image: {
-            src: '/images/technologies/services/PWA-Development-Services.svg',
-            alt: 'PWA Development Services image',
           },
         },
       ],
@@ -589,14 +554,14 @@ export const data: TData = {
         {
           title: 'Yarn',
           image: {
-            src: '/images/technologies/other/Yarn.svg',
+            src: '/images/technologies/other/yarn.svg',
             alt: 'yarn image',
           },
         },
         {
           title: 'Babel',
           image: {
-            src: '/images/technologies/other/Babel.svg',
+            src: '/images/technologies/other/babel.svg',
             alt: 'Babel image',
           },
         },

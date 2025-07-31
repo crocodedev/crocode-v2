@@ -25,6 +25,10 @@
   @include media-down('lg') {
     flex-direction: column;
     align-items: center;
+
+    & > div {
+      height: 240px;
+    }
   }
 }
 

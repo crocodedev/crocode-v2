@@ -9,19 +9,21 @@ type TData = {
     alt: string;
   };
   input: TInput;
+  button: string;
 };
 
 export const data: TData = {
-  title: 'Subscribe to our blog',
+  title: 'Zapisz się do naszego bloga',
   background: {
     src: '/images/background.jpg',
-    alt: 'background',
+    alt: 'tło',
   },
   input: {
     name: 'email',
     type: 'email',
-    label: 'Corporate E-mail',
-    placeholder: 'Enter E-mail',
+    label: 'E-mail firmowy',
+    placeholder: 'Wprowadź e-mail',
     rules: emailRules,
   },
+  button: 'Subskrybować',
 };

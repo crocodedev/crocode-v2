@@ -1,18 +1,19 @@
-import { SectionLayout } from '@/components/sections';
-import { TSanityImage } from '@/types/image';
-import { TLink } from '@/types/link';
-import SocialsBlock from './socials-block';
+import { PortableTextBlock } from '@portabletext/react';
 import Image from 'next/image';
 
+import { SectionLayout, StyleGuide } from '@/components/sections';
+
+import { TSanityImage } from '@/types/image';
+import { TLink } from '@/types/link';
+
+import SocialsBlock from './socials-block';
 import styles from './styles.module.scss';
 
 type TProps = {
   desc: string;
-  socials: { link: TLink }[];
+  socials: { link: TLink; _key?: string }[];
   title: string;
-  contentRaw: {
-    children: { text: string }[];
-  }[];
+  contentRaw: PortableTextBlock;
   coverImage: TSanityImage;
 };
 
@@ -22,11 +23,6 @@ const BlogContentSection = ({
   contentRaw,
   coverImage,
 }: TProps) => {
-  const html = contentRaw?.reduce(
-    (acc, elem) => acc + (elem?.children?.[0]?.text || ''),
-    '',
-  );
-
   return (
     <SectionLayout className={styles.blog__wrapper}>
       <div className={styles.blog__inner}>
@@ -40,24 +36,9 @@ const BlogContentSection = ({
           />
         </div>
         <h2 className={styles.blog__description}>{desc}</h2>
-        <div
-          className={styles.blog__content}
-          dangerouslySetInnerHTML={{ __html: html }}
-        ></div>
+        <StyleGuide value={contentRaw} className={styles.blog__content} />
         <SocialsBlock socials={socials} />
       </div>
-      {/* {data.content && (
-        <div className={styles.blog__content}>
-          {data.content.map((_, index) => (
-            <span key={index}>
-              Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quos hic
-              quas cupiditate dolorem ad sequi. Error, ad. Aut cum distinctio
-              hic recusandae doloribus? Sit repudiandae excepturi eaque deserunt
-              in cumque.
-            </span>
-          ))}
-        </div> // TODO: менять sanity
-      )} */}
     </SectionLayout>
   );
 };

@@ -1,31 +1,32 @@
-import { TLink } from '@/types/types';
-
 type THeader = {
   button: string;
-  links: TLink[];
+  links: {
+    text: string;
+    href: string;
+  }[];
 };
 
 export const data: THeader = {
-  button: 'Contact us',
+  button: 'Kontakt',
   links: [
     {
-      text: 'Home',
+      text: 'Główna',
       href: '/',
     },
     {
-      text: 'Services',
+      text: 'Usługi',
       href: '/our-services',
     },
     {
-      text: 'Portfolio',
+      text: 'Projekty',
       href: `/cases`,
     },
     {
-      text: 'Technologies',
+      text: 'Technologie',
       href: '/technologies',
     },
     {
-      text: 'About us',
+      text: 'O nas',
       href: '/about-us',
     },
     {

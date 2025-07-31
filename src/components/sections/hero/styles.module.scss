@@ -36,6 +36,7 @@
   }
 
   &__button {
+    z-index: $z-index-up-models;
     @include media-up(md) {
       display: none;
     }
@@ -59,10 +60,18 @@
 
     &.big {
       font-size: $size-title-1;
+
+      @include media-down(md) {
+        font-size: fluid-size(38, 180);
+      }
     }
 
     &.small {
       font-size: $size-title-2;
+
+      @include media-down(md) {
+        font-size: fluid-size(38, 180);
+      }
     }
   }
 }

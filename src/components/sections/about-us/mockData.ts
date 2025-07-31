@@ -6,33 +6,36 @@ type User = {
 
 export const usersData: User[] = [
   {
-    name: 'Анна Петрова',
+    name: 'Anna Nowak',
     avatarUrl: '/avatars/anna.jpg',
-    comment: 'Очень понравился сервис! Всё быстро, удобно и качественно.',
+    comment:
+      'Bardzo podobał mi się serwis! Wszystko szybko, wygodnie i wysokiej jakości.',
   },
   {
-    name: 'Иван Смирнов',
+    name: 'Jan Kowalski',
     avatarUrl: '/avatars/ivan.jpg',
-    comment: 'Поддержка на высоте! Решили мой вопрос за 5 минут.',
+    comment:
+      'Wsparcie na najwyższym poziomie! Rozwiązali mój problem w 5 minut.',
   },
   {
-    name: 'Екатерина Орлова',
+    name: 'Katarzyna Wiśniewska',
     avatarUrl: '/avatars/ekaterina.jpg',
-    comment: 'Пользуюсь уже полгода — всё работает стабильно.',
+    comment: 'Korzystam już od pół roku - wszystko działa stabilnie.',
   },
   {
-    name: 'Дмитрий Кузнецов',
+    name: 'Marek Lewandowski',
     avatarUrl: '/avatars/dmitry.jpg',
-    comment: 'Удобный интерфейс и приятный дизайн.',
+    comment: 'Przyjazny interfejs i ładny design.',
   },
   {
-    name: 'Мария Белова',
+    name: 'Agnieszka Wojciechowska',
     avatarUrl: '/avatars/maria.jpg',
-    comment: 'Рекомендую всем друзьям — лучший опыт за последнее время!',
+    comment: 'Polecam wszystkim znajomym - najlepsze doświadczenie od dawna!',
   },
   {
-    name: 'Алексей Соколов',
+    name: 'Piotr Dąbrowski',
     avatarUrl: '/avatars/alexey.jpg',
-    comment: 'Поначалу сомневался, но теперь очень доволен.',
+    comment:
+      'Początkowo miałem wątpliwości, ale teraz jestem bardzo zadowolony.',
   },
 ];

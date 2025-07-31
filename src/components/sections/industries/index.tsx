@@ -12,7 +12,7 @@ const Industries = () => {
       <Title text={data.title} />
       <div className={styles.container}>
         {data.items.map((item, i) => (
-          <Link className={styles.card} href={item.link.href} key={i}>
+          <Link className={styles.card} href={item.link.href || ''} key={i}>
             {item.link.text}
           </Link>
         ))}

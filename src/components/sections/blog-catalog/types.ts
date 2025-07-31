@@ -1,6 +1,9 @@
-import { TBreadcrumbs } from '../breadcrumbs/type';
+import { PortableTextBlock } from '@portabletext/react';
+
 import { TSanityImage } from '@/types/image';
 import { TImage, TLink, TSeo } from '@/types/types';
+
+import { TBreadcrumbs } from '../breadcrumbs/type';
 
 export type TArticleContentBlock = {
   title?: string;
@@ -18,9 +21,7 @@ export type TArticle = {
   slug: { current: string };
   coverImage: TSanityImage;
   breadcrumbs: TBreadcrumbs[];
-  contentRaw: {
-    children: { text: string }[];
-  }[];
+  contentRaw: PortableTextBlock;
   seo: TSeo;
   socials: { link: TLink }[];
 };

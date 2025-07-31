@@ -4,10 +4,13 @@ import Link from 'next/link';
 import { SectionLayout } from '@/components/sections';
 import { Button, Card, Title } from '@/components/ui';
 
-import { data, TData } from './data';
+import { TData, data } from './data';
 import styles from './styles.module.scss';
+import { DEFAULT_VALUE_ALL_COUNTRY } from '@/graphql/queries/cases';
 
 type TProps = TData;
+
+const PAGE_MORE_URL = `/cases?country=${DEFAULT_VALUE_ALL_COUNTRY}`;
 
 const OurProjectsSection = ({
   title = data.title || '',
@@ -29,9 +32,9 @@ const OurProjectsSection = ({
             </Link>
           ))}
         <Card className={`${styles.card} ${styles.card__more}`}>
-          <span className={styles.card__more_text}>Show more</span>
-          <Button type={'link'} href='/'>
-            Show More
+          <span className={styles.card__more_text}>{data.showMore}</span>
+          <Button type={'link'} href={PAGE_MORE_URL}>
+            {data.showMore}
           </Button>
         </Card>
       </div>

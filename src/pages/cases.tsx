@@ -1,7 +1,8 @@
 'use client';
 
-import { useState, useEffect, useCallback, useMemo, useRef } from 'react';
-import { useStoreContext } from '@/components/store-context';
+import { GetServerSideProps } from 'next';
+import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
+
 import {
   Breadcrumbs,
   Cases,
@@ -9,29 +10,21 @@ import {
   Hero,
   Subscribe,
 } from '@/components/sections';
-import Seo from '@/components/seo';
+import { TBreadcrumbs } from '@/components/sections/breadcrumbs/type';
 import { TCase } from '@/components/sections/cases/type';
-import { TSeo } from '@/types/seo';
-import { TSanityError } from '@/types/sanityError';
+import Seo from '@/components/seo';
+import { useStoreContext } from '@/components/store-context';
+
 import { TPageProps } from '@/types/pageProps';
+import { TSanityError } from '@/types/sanityError';
+import { TSeo } from '@/types/seo';
+
+import { getBreadcrumbs } from '@/graphql/queries/breadcrumbs';
 import { ALL_CASES_ITEMS, ITEMS_PER_PAGE } from '@/graphql/queries/cases';
 import { fetchGraphQL } from '@/lib/graphql';
-import { GetServerSideProps } from 'next';
-import { getBreadcrumbs } from '@/graphql/queries/breadcrumbs';
-import { TBreadcrumbs } from '@/components/sections/breadcrumbs/type';
 
 const PROPS_SECTIONS = {
-  hero: { title: 'cases' },
-  breadcrumbs: [
-    {
-      title: 'Home',
-      path: '/',
-    },
-    {
-      title: 'Portfolio',
-      path: '/cases',
-    },
-  ],
+  hero: { title: 'sprawy' },
 };
 
 type TProps = TPageProps & {

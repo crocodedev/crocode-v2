@@ -1,19 +1,20 @@
-import { TLink } from '@/types/types';
-
 type TData = {
   title: string;
   items: {
-    link: TLink;
+    link: {
+      text: string;
+      href: string;
+    };
   }[];
   color?: `green` | `black` | `grey`;
 };
 
 export const data: TData = {
-  title: 'Industries',
+  title: 'Branże',
   items: [
     {
       link: {
-        text: 'eCommerce',
+        text: 'eHandel',
         href: '/e-commerce-development',
       },
     },
@@ -31,7 +32,7 @@ export const data: TData = {
     },
     {
       link: {
-        text: 'GameDev',
+        text: 'Twórcy gry',
         href: '/game-dev',
       },
     },

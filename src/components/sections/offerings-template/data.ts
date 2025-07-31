@@ -1,22 +1,25 @@
-import { TLink } from '@/types/types';
+type TLink = {
+  text: string;
+  href: string;
+};
 
 type TItems = [TLink, TLink, TLink, TLink];
 
 export const items: TItems = [
   {
-    text: 'game Development',
-    href: '/',
+    text: 'Rozwój gry',
+    href: '/game-dev',
   },
   {
-    text: 'dedicated team',
-    href: '/',
+    text: 'Wydzielony zespół',
+    href: '/dedicated-team',
   },
   {
-    text: 'Custom Software Development',
-    href: '/',
+    text: 'Tworzenie oprogramowania na zamówienie',
+    href: '/custom-software-development',
   },
   {
-    text: 'mvp Development',
-    href: '/',
+    text: 'Tworzenie MVP',
+    href: '/mvp',
   },
 ];
