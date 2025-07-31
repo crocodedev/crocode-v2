@@ -4,6 +4,14 @@
   align-items: center;
   overflow-x: auto;
   padding: 60px 0;
+  
+  // Скрываем скроллбар для разных браузеров
+  scrollbar-width: none; // Firefox
+  -ms-overflow-style: none; // IE and Edge
+  
+  &::-webkit-scrollbar {
+    display: none; // Chrome, Safari, Opera
+  }
 }
 
 .container {
@@ -24,9 +32,9 @@
   background: $color-bg-gray;
   border-radius: fluid-size(20, 34);
   flex-shrink: 0;
-
   cursor: pointer;
   overflow: hidden;
+  transition: width 0.3s ease-in-out;
 
   &.active {
     @include media-up(md) {
@@ -79,10 +87,16 @@
     gap: fluid-size(20, 40);
     height: max-content;
     padding: 30px 0;
+    opacity: 0;
+    transition: opacity 0.3s ease-in-out;
 
     @include media-down(md) {
       min-width: 390px;
     }
+  }
+
+  &.active &__technologies {
+    opacity: 1;
   }
 
   &__technology {

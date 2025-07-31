@@ -35,7 +35,7 @@ const Technologies = () => {
                   </span>
                 </div>
                 <div className={styles.card__technologies}>
-                  {category.technologiesList.map((technology, index) => (
+                  {category.technologiesList?.map((technology, index) => (
                     <div className={styles.card__technology} key={index}>
                       <span className={styles.card__technology_icon}>
                         <Image

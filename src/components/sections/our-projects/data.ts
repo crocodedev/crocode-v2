@@ -16,14 +16,14 @@ export const data: TData = {
         src: '/images/our-project.png',
         alt: 'Show More',
       },
-      href: '/',
+      href: '/cases/arcus',
     },
     {
       image: {
         src: '/images/our-project-2.png',
         alt: 'Show More',
       },
-      href: '/',
+      href: '/cases/bearbricks',
     },
   ],
 };

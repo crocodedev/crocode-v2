@@ -51,8 +51,7 @@ const TechnologyPage = ({ technology, errors, seo, allRedirects }: TProps) => {
       })),
     },
     ourProject: {
-      cards: projects
-        ?.map((project) => ({
+      cards: projects?.map((project) => ({
           image: {
             src: project?.casesItemImage?.image.asset.url || '',
             alt: project?.casesItemImage?.altText || '',

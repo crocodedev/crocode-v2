@@ -31,7 +31,7 @@ const ContainerItems = ({ items }: TContainerImagesProps) => {
     <div className={styles.card__icon__container}>
       {items?.map((item) => {
         const slug = item.slug;
-        const icon = item.image.icon;
+        const icon = item.image.icon
         const altText = item.image.altText;
         const title = item.title;
 
