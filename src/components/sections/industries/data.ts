@@ -15,7 +15,7 @@ export const data: TData = {
     {
       link: {
         text: 'eHandel',
-        href: '/e-commerce-development',
+        href: '/rozwoj-handlu-elektronicznego',
       },
     },
     {
@@ -33,7 +33,7 @@ export const data: TData = {
     {
       link: {
         text: 'Twórcy gry',
-        href: '/game-dev',
+        href: '/tworzenie-gier',
       },
     },
   ],

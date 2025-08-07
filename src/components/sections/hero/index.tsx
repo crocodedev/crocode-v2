@@ -97,7 +97,7 @@ const Hero = ({
             {title}
           </h1>
           <Button onClick={handleClickContact} className={styles.hero__button}>
-            Contact us
+            Kontakt
           </Button>
         </div>
       </div>

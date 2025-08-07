@@ -105,7 +105,7 @@ const PopupContactUs = ({ form, className }: TProps) => {
               disabled={!isValid}
               view={'second'}
             >
-              Send form
+              Wyślij formularz
             </Button>
           </form>
         </div>

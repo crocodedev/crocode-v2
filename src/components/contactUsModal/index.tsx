@@ -16,29 +16,29 @@ const ContactUSModal = () => {
 
   const POPUP = {
     form: {
-      title: 'get in touch with us',
+      title: 'Skontaktuj się z nami',
       inputs: [
         {
           name: 'name',
           type: 'text',
-          label: 'Your name',
-          placeholder: 'Enter your name',
+          label: 'Twoje imię',
+          placeholder: 'Wprowadź swoje imię',
           rules: nameRules,
         },
         {
           name: 'email',
           type: 'email',
-          label: 'Corporate E-mail',
-          placeholder: 'Enter E-mail',
+          label: 'E-mail firmowy',
+          placeholder: 'Wprowadź e-mail',
           rules: emailRules,
         },
       ],
       message: {
-        text: 'By leaving your data you agree to the',
+        text: 'Przesyłając dane, wyrażasz zgodę na',
       },
       link: {
         href: '/',
-        text: 'Privacy Policy',
+        text: 'Politykę Prywatności',
       },
     },
   };

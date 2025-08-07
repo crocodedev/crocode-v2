@@ -7,23 +7,23 @@ import styles from './styles.module.scss';
 const DATA_ITEMS = [
   {
     id: '01',
-    title: 'Flexibility',
-    text: 'you can scale your dedicated development team size any time',
+    title: 'Elastyczność',
+    text: 'Możesz dostosować wielkość dedykowanego zespołu developerskiego w dowolnym momencie',
   },
   {
     id: '02',
-    title: 'cost savings',
-    text: 'an offshore dedicated development team will cost less than in-hose team',
+    title: 'Oszczędność kosztów',
+    text: 'Zespół dedykowany w modelu offshore kosztuje mniej niż wewnętrzny zespół',
   },
   {
     id: '03',
-    title: 'increasing and scaling team skills',
-    text: 'Dedicated Team empowers you to scale your dedicated team’s skills and costs up and down as needed',
+    title: 'Rozwijanie kompetencji zespołu',
+    text: 'Model Dedicated Team pozwala elastycznie zwiększać lub zmniejszać kompetencje i koszty zespołu według potrzeb',
   },
   {
     id: '04',
-    title: 'time savings',
-    text: 'Having a dedicated development team with solid experience and high quality project management will ensure faster speed to market',
+    title: 'Oszczędność czasu',
+    text: 'Posiadanie dedykowanego zespołu developerskiego z solidnym doświadczeniem i wysokiej jakości zarządzaniem projektami zapewnia szybsze wprowadzenie produktu na rynek',
   },
 ];
 
@@ -31,7 +31,7 @@ const BenefitsSection = () => {
   return (
     <SectionLayout className={styles.section}>
       <h2 className={styles.section__title}>
-        {'What are the benefits of hiring a dedicated team?'.toUpperCase()}
+        {'Jakie korzyści niesie zatrudnienie dedykowanego zespołu?'.toUpperCase()}
       </h2>
       <div className={styles.container}>
         {DATA_ITEMS.map((item) => (

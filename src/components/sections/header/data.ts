@@ -15,19 +15,19 @@ export const data: THeader = {
     },
     {
       text: 'Usługi',
-      href: '/our-services',
+      href: '/uslugi',
     },
     {
       text: 'Projekty',
-      href: `/cases`,
+      href: `/projekty`,
     },
     {
       text: 'Technologie',
-      href: '/technologies',
+      href: '/technologie',
     },
     {
       text: 'O nas',
-      href: '/about-us',
+      href: '/o-nas',
     },
     {
       text: 'Blog',

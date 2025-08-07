@@ -9,7 +9,7 @@ import { data } from './data';
 import styles from './styles.module.scss';
 import { TContainerImagesProps, TIconCardProps } from './types';
 
-const PAGE_URL = '/technologies';
+const PAGE_URL = '/technologie';
 
 const IconCard = ({ title, icon, slug, altText }: TIconCardProps) => {
   return (
@@ -62,7 +62,7 @@ const TechnologyStackSection = () => {
           const isActive = indexActiveCard === item.title;
 
           return (
-            <Fragment key={item.title}>
+            <Fragment key={item.title + index}>
               <Card
                 onClick={handleClickMore.bind(null, item.title)}
                 className={`

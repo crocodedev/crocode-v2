@@ -24,7 +24,7 @@ import { ALL_CASES_ITEMS, ITEMS_PER_PAGE } from '@/graphql/queries/cases';
 import { fetchGraphQL } from '@/lib/graphql';
 
 const PROPS_SECTIONS = {
-  hero: { title: 'sprawy' },
+  hero: { title: 'projekty' },
 };
 
 type TProps = TPageProps & {

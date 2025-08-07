@@ -31,7 +31,7 @@ const FiltersCases = ({
       <Filters
         setSelect={setSelectCountry}
         select={selectCountry}
-        title='Country:'
+        title='Kraj:'
         items={countries}
       />
     </SectionLayout>

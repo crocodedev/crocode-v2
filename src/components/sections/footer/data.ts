@@ -61,15 +61,15 @@ export const data: TFooter = {
       items: [
         {
           text: 'Dedykowane zespoły',
-          href: '/dedicated-team',
+          href: '/dedykowane-zespoly',
         },
         {
-          text: 'Tworzenie MVP',
-          href: '/mvp',
+          text: 'Rozwój mvp',
+          href: '/rozwoj-mvp',
         },
         {
           text: 'Oprogramowanie na zamówienie',
-          href: '/custom-software-development',
+          href: '/oprogramowanie-na-zamowienie',
         },
         {
           text: 'Ordynacyjny',
@@ -79,40 +79,40 @@ export const data: TFooter = {
     },
     {
       title: {
-        href: '/technologies',
+        href: '/technologie',
         text: 'Technologie',
       },
       items: [
         {
           text: 'Tworzenie gier',
-          href: '/game-dev',
+          href: '/tworzenie-gier',
         },
         {
           text: 'Tworzenie front-endu',
-          href: '/front-end-development',
+          href: '/tworzenie-front-endu',
         },
         {
           text: 'Tworzenie back-endu',
-          href: '/back-end-development',
+          href: '/tworzenie-back-endu',
         },
         {
           text: 'Tworzenie aplikacji mobilnych',
-          href: '/mobile-development',
+          href: '/rozwoj-mobilny',
         },
         {
           text: 'Tworzenie sklepów internetowych',
-          href: '/e-commerce-development',
+          href: '/rozwoj-handlu-elektronicznego',
         },
         {
           text: 'Rozwój Headless CMS',
-          href: '/headless-cms-development',
+          href: '/rozwoj-headless-cms',
         },
       ],
     },
     {
       title: {
         text: 'O nas',
-        href: '/about-us',
+        href: '/o-nas',
       },
       items: [
         {
@@ -121,7 +121,7 @@ export const data: TFooter = {
         },
         {
           text: 'Kontakt',
-          href: '/contact-us',
+          href: '/kontakt',
         },
       ],
     },

@@ -1,12 +1,14 @@
 import { GetServerSideProps } from 'next';
 
 import {
-  AboutUs,
+  Benefits,
   Breadcrumbs,
   ContactUsForm,
+  DedicatedSoftware,
   Hero,
-  OfferingsTemplate,
-  Questions,
+  OurProject,
+  Technologies,
+  WhyCrocode,
 } from '@/components/sections';
 import { TBreadcrumbs } from '@/components/sections/breadcrumbs/type';
 import Seo from '@/components/seo';
@@ -19,12 +21,10 @@ import { getBreadcrumbs } from '@/graphql/queries/breadcrumbs';
 import { useRedirect } from '@/hooks';
 import { fetchGraphQL } from '@/lib/graphql';
 
-export const PROPS_SECTIONS = {
+const PROPS_SECTIONS = {
   hero: {
-    title: 'NASZE USŁUGI',
-  },
-  offeringsTemplate: {
-    title: 'co możemy',
+    modelsIsShow: true,
+    title: 'Dedykowane zespoły',
   },
 };
 
@@ -35,7 +35,7 @@ type TProps = TPageProps & {
   };
 };
 
-const ServicesPage = ({ allRedirects, seo, breadcrumbs }: TProps) => {
+const DedicatedTeamPage = ({ allRedirects, seo, breadcrumbs }: TProps) => {
   useRedirect(allRedirects);
 
   return (
@@ -43,9 +43,11 @@ const ServicesPage = ({ allRedirects, seo, breadcrumbs }: TProps) => {
       <Seo {...seo} />
       <Hero {...PROPS_SECTIONS.hero} />
       <Breadcrumbs sanityData={breadcrumbs?.data} />
-      <OfferingsTemplate {...PROPS_SECTIONS.offeringsTemplate} />
-      <Questions />
-      <AboutUs />
+      <WhyCrocode />
+      <DedicatedSoftware />
+      <Benefits />
+      <Technologies />
+      <OurProject />
       <ContactUsForm />
     </>
   );
@@ -65,11 +67,11 @@ export const getServerSideProps: GetServerSideProps<TPageProps> = async (
       allRedirects,
       seo,
       breadcrumbs: {
+        data: dataBreadcrumbs?.allPage?.[0]?.breadcrumbs ?? null,
         error: errorsBreadcrumbs ?? null,
-        data: dataBreadcrumbs?.allPage[0].breadcrumbs ?? null,
       },
     },
   };
 };
 
-export default ServicesPage;
+export default DedicatedTeamPage;

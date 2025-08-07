@@ -6,11 +6,10 @@ import { Button, Card, Title } from '@/components/ui';
 
 import { TData, data } from './data';
 import styles from './styles.module.scss';
-import { DEFAULT_VALUE_ALL_COUNTRY } from '@/graphql/queries/cases';
 
 type TProps = TData;
 
-const PAGE_MORE_URL = `/cases?country=${DEFAULT_VALUE_ALL_COUNTRY}`;
+const PAGE_MORE_URL = `/projekty`;
 
 const OurProjectsSection = ({
   title = data.title || '',

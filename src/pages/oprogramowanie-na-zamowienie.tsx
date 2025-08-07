@@ -11,21 +11,20 @@ import {
   Specialist,
   Technologies,
 } from '@/components/sections';
+import { TBreadcrumbs } from '@/components/sections/breadcrumbs/type';
 import Seo from '@/components/seo';
 
 import { TPageProps } from '@/types/pageProps';
 
 import { getSeoProps } from '@/utils/seo';
 
+import { getBreadcrumbs } from '@/graphql/queries/breadcrumbs';
 import { useRedirect } from '@/hooks';
 import { fetchGraphQL } from '@/lib/graphql';
-import { getBreadcrumbs } from '@/graphql/queries/breadcrumbs';
-import { TBreadcrumbs } from '@/components/sections/breadcrumbs/type';
 
 const PROPS_SECTIONS = {
   hero: {
-    modelsIsShow: true,
-    title: 'CUSTOM SOFTWARE DEVELOPMENT',
+    title: 'TWORZENIE OPROGRAMOWANIA NA ZAMÓWIENIE',
   },
 };
 

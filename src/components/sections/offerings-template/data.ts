@@ -8,7 +8,7 @@ type TItems = [TLink, TLink, TLink, TLink];
 export const items: TItems = [
   {
     text: 'Rozwój gry',
-    href: '/game-dev',
+    href: '/tworzenie-gier',
   },
   {
     text: 'Wydzielony zespół',
@@ -16,10 +16,10 @@ export const items: TItems = [
   },
   {
     text: 'Tworzenie oprogramowania na zamówienie',
-    href: '/custom-software-development',
+    href: '/oprogramowanie-na-zamowienie',
   },
   {
-    text: 'Tworzenie MVP',
-    href: '/mvp',
+    text: 'Rozwój MVP',
+    href: '/rozwoj-mvp',
   },
 ];

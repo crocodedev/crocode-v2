@@ -7,7 +7,7 @@ import {
 import styles from './styles.module.scss';
 
 type TProps = {
-  value: PortableTextBlock;
+  value: PortableTextBlock[];
   className?: string;
 };
 
