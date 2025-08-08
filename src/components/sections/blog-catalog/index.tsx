@@ -2,16 +2,16 @@
 
 import Image from 'next/image';
 import Link from 'next/link';
+import { useCallback, useMemo, useState } from 'react';
 
 import { SectionLayout } from '@/components/sections';
 import { Card, Filters, Pagination } from '@/components/ui';
 
 import styles from './styles.module.scss';
 import { TProps } from './types';
-import { useCallback, useMemo, useState } from 'react';
 
 const BlogCatalogSection = ({ category, articles }: TProps) => {
-  const ITEMS_PER_PAGE = 7;
+  const ITEMS_PER_PAGE = 8; // Number of articles per page: max 8, no more styles
   const [selectCategory, setSelectCategory] = useState<string[]>([]);
   const [currentPage, setCurrentPage] = useState(1);
 
@@ -49,6 +49,10 @@ const BlogCatalogSection = ({ category, articles }: TProps) => {
     setSelectCategory((prev) => (prev[0] === country ? [] : [country]));
   }, []);
 
+  console.log(paginatedArticle.length);
+
+  if (paginatedArticle.length == 0) return null;
+
   return (
     <SectionLayout className={styles.section} id={'blog-top'}>
       <Filters
@@ -58,19 +62,18 @@ const BlogCatalogSection = ({ category, articles }: TProps) => {
         setSelect={handleSelectCategory}
       />
       <div className={styles.container}>
-        {paginatedArticle.length > 0 &&
-          paginatedArticle.map((article, index) => (
-            <Card key={index} className={styles.card}>
-              <Link className={styles.card__link} href={article.slug.current}>
-                <Image
-                  className={styles.card__image}
-                  src={article.coverImage.image.asset.url}
-                  fill
-                  alt={article.coverImage.altText ?? 'image'}
-                />
-              </Link>
-            </Card>
-          ))}
+        {paginatedArticle.map((article, index) => (
+          <Card key={index} className={styles.card}>
+            <Link className={styles.card__link} href={article.slug.current}>
+              <Image
+                className={styles.card__image}
+                src={article.coverImage.image.asset.url}
+                fill
+                alt={article.coverImage.altText ?? 'image'}
+              />
+            </Link>
+          </Card>
+        ))}
       </div>
       <Pagination
         paginationData={{ currentPage, totalPages }}

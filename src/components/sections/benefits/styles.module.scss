@@ -7,31 +7,19 @@
     max-width: 1600px;
     margin-bottom: fluid-size(50, 120);
     font-weight: 700;
+    text-transform: uppercase;
   }
 }
 
 .container {
   display: grid;
   grid-template-columns: repeat(2, fluid-size(315, 750));
-  grid-template-rows: repeat(2, fluid-size(150, 280));
   gap: fluid-size(5, 30);
 
   @include media-down('lg') {
     @include flex-center;
     flex-direction: column;
     max-width: 80%;
-
-    & > div:nth-child(2) {
-      height: 180px;
-    }
-
-    & > div:nth-child(3) {
-      height: 200px;
-    }
-
-    & > div:nth-child(4) {
-      height: 200px;
-    }
   }
 
   & > div:nth-child(3) {
@@ -46,33 +34,28 @@
 .card {
   @include flex-center;
   justify-content: flex-start;
-  gap: 15px;
-  padding: fluid-size(10, 40) fluid-size(5, 30);
+  padding: fluid-size(10, 40) fluid-size(10, 30);
   position: relative;
+  text-transform: uppercase;
 
   &__title {
     font-weight: 700;
-    max-width: fluid-size(250, 450);
-    font-size: $size-text-2;
+    max-width: 80%;
+    font-size: fluid-size(20, 32);
+    line-height: 120%;
+    margin-bottom: 15px;
   }
 
   &__text {
-    font-size: $size-text-1;
+    font-size: fluid-size(12, 20);
     text-align: justify;
-    max-width: 80%;
+    line-height: 150%;
+    flex: 1 0 auto;
   }
 
   &__num {
-    position: absolute;
-    transform: translate(-50%, -50%);
+    align-self: flex-end;
     font-weight: 400;
-    font-size: $size-title-4;
-    right: fluid-size(5, 40);
-    bottom: fluid-size(5, 15);
-  }
-
-  @include media-down('lg') {
-    width: 100%;
-    height: 150px;
+    font-size: fluid-size(20, 64);
   }
 }

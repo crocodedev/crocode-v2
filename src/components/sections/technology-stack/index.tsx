@@ -64,11 +64,12 @@ const TechnologyStackSection = () => {
           return (
             <Fragment key={item.title + index}>
               <Card
+                color={null}
                 onClick={handleClickMore.bind(null, item.title)}
                 className={`
                 ${styles.card}  
                 ${styles.card}__${index + 1}
-                ${indexActiveCard && styles.hide}
+                ${indexActiveCard ? styles.hide : ''}
                 `}
                 key={item.title}
               >
@@ -79,6 +80,7 @@ const TechnologyStackSection = () => {
 
               {isActive && (
                 <Card
+                  color={null}
                   onClick={handleClickMore.bind(null, item.title)}
                   className={`${styles.card} ${styles.card__absolute} ${styles.card}__${index + 1} `}
                 >

@@ -597,7 +597,7 @@ export const data: TTechnologieCard[] = [
         },
       },
       {
-        title: 'Tworzenie Oprogramowania na Zamówienie',
+        title: 'Programowanie na zamówienie',
         slug: '/tworzenie-oprogramowania-na-zamowienie',
         image: {
           altText: 'Obraz rozwoju Custom Software',
@@ -613,7 +613,7 @@ export const data: TTechnologieCard[] = [
         },
       },
       {
-        title: 'Tworzenie aplikacji wieloplatformowych',
+        title: 'Aplikacje wieloplatformowe',
         slug: '/tworzenie-aplikacji-wieloplatformowych',
         image: {
           altText: 'Obraz rozwoju Cross-Platform',

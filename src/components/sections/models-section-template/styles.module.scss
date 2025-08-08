@@ -1,7 +1,8 @@
 .models {
-    height: 120%;
+  pointer-events: none;
+  height: 120%;
 
-    @include media-down('lg') {
-        height: 130%;
-    }
+  @include media-down('lg') {
+    height: 130%;
+  }
 }
