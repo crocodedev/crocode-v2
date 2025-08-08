@@ -160,10 +160,10 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
 
   const defaultSeo = {
     titleTemplate: false,
-    title: 'Cases',
-    description: 'Description for cases page',
+    title: 'Projekty',
+    description: 'Description for Projekty page',
     image: {
-      altText: 'Cases',
+      altText: 'Projekty Crocode',
       image: {
         asset: {
           url: 'https://cdn.sanity.io/images/kx2cy1wz/production/49421dd260db3c7fb4200b3c687c1e1f88b1801f-717x137.svg',

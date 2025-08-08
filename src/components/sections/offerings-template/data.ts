@@ -15,7 +15,7 @@ export const items: TItems = [
     href: '/dedicated-team',
   },
   {
-    text: 'Tworzenie oprogramowania na zamówienie',
+    text: 'Software na zamówienie',
     href: '/oprogramowanie-na-zamowienie',
   },
   {
