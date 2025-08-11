@@ -1,7 +1,7 @@
 import { Fragment, useRef, useState } from 'react';
 
 import { SectionLayout } from '@/components/sections';
-import { Button, Card, Title } from '@/components/ui';
+import { Card, Title } from '@/components/ui';
 
 import { TData, data } from './data';
 import styles from './styles.module.scss';
@@ -49,10 +49,13 @@ const QuestionsSection = ({ questions = data, isDynamicPage }: TProps) => {
             return (
               <Fragment key={question.id}>
                 <Card
+                  color={null}
                   onClick={handleClickMore.bind(null, id)}
-                  className={`${styles.question}
-                ${styles[`question__${id}`]}
-                ${isActive && styles.hide}`}
+                  className={`
+                    ${styles.question}
+                    ${styles[`question__${id}`]}
+                    ${isActive && styles.hide}
+                  `}
                   ref={(el: HTMLDivElement | null) => {
                     cardRefs.current[id] = el;
                   }}
@@ -62,15 +65,19 @@ const QuestionsSection = ({ questions = data, isDynamicPage }: TProps) => {
                   >
                     {question.text}
                   </h2>
-                  <Button className={styles.question__button}>
+                  <button className={styles.question__button}>
                     {isActive ? '-' : '+'}
-                  </Button>
+                  </button>
                 </Card>
 
                 {isActive && (
                   <Card
+                    color={null}
                     onClick={handleClickMore.bind(null, id)}
-                    className={` ${styles.question} ${styles.question__absolute} ${styles.question}__${question.id}`}
+                    className={` 
+                      ${styles.question} 
+                      ${styles.question__absolute} 
+                      ${styles.question}__${question.id}`}
                     style={
                       {
                         '--initial-top': `${clickPosition.top - 100}px`,
@@ -80,9 +87,13 @@ const QuestionsSection = ({ questions = data, isDynamicPage }: TProps) => {
                       } as React.CSSProperties
                     }
                   >
-                    <h2 className={styles.question__title}>{question.text}</h2>
+                    <h2
+                      className={`${styles.question__title} ${styles.question__title_active}`}
+                    >
+                      {question.text}
+                    </h2>
                     <p className={styles.question__answer}>{question.answer}</p>
-                    <Button className={styles.question__button}>-</Button>
+                    <button className={styles.question__button}>-</button>
                   </Card>
                 )}
               </Fragment>

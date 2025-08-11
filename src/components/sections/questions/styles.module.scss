@@ -32,28 +32,29 @@
 
 .question {
   position: relative;
-  font-size: $size-title-2;
   font-weight: 700;
   transition: all 1.2s ease-in-out;
   @include flex-center;
   overflow-wrap: break-word;
-  padding: 30px;
-
+  padding: fluid-size(10, 30);
   border-radius: fluid-size(20, 45);
   cursor: pointer;
 
   &__title {
-    max-width: 100%;
-    margin-bottom: 20px;
+    font-weight: 700;
+    font-size: fluid-size(16, 40);
+    line-height: 115%;
+
+    &_active {
+      max-width: 80%;
+      font-size: fluid-size(26, 40);
+    }
 
     &__absolute {
       margin-bottom: 20px;
       opacity: 0;
       animation: fade-in-answer 0.8s ease-in-out 0.2s forwards;
     }
-
-    font-weight: 700;
-    font-size: $size-title-2;
 
     &_dynamic {
       font-size: fluid-size(14, 38);
@@ -89,6 +90,7 @@
     color: $color-text-black;
     font-size: $size-title-2;
     font-weight: 700;
+    border: none;
 
     &:hover {
       background-color: transparent;
@@ -112,6 +114,7 @@
   &__01 {
     grid-column: span 4;
     grid-row: span 3;
+    background-color: $color-bg-gray;
   }
 
   &__02 {
@@ -127,33 +130,36 @@
   &__03 {
     grid-column: 8 / span 5;
     grid-row: span 3;
+    background-color: $color-bg-gray;
   }
 
   &__04 {
     grid-column: span 3;
-    grid-row: 4 / span 2;
+    grid-row: 4 / span 3;
     @include color-scheme($color-bg-green, $color-text-black);
   }
 
   &__05 {
     grid-column: span 3;
-    grid-row: 4 / span 2;
+    grid-row: 4 / span 3;
+    background-color: $color-bg-gray;
   }
 
   &__06 {
     grid-column: span 3;
-    grid-row: 4 / span 2;
+    grid-row: 4 / span 3;
     @include color-scheme($color-bg-green, $color-text-black);
   }
 
   &__07 {
     grid-column: span 3;
-    grid-row: 4 / span 4;
+    grid-row: 4 / span 6;
+    background-color: $color-bg-gray;
   }
 
   &__08 {
     grid-column: 1 / span 9;
-    grid-row: 6 / span 2;
+    grid-row: 7 / span 3;
     @include color-scheme($color-bg-black, $color-text-white);
 
     & button {
@@ -187,7 +193,7 @@
 
 @keyframes fade-in-answer {
   from {
-    opacity: 0;
+    opacity: 1;
   }
 
   to {
