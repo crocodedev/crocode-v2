@@ -13,7 +13,7 @@ type TProps = {
   desc: string;
   socials: { link: TLink; _key?: string }[];
   title: string;
-  contentRaw: PortableTextBlock;
+  contentRaw: PortableTextBlock[];
   coverImage: TSanityImage;
 };
 

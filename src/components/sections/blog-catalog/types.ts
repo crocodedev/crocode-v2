@@ -21,7 +21,7 @@ export type TArticle = {
   slug: { current: string };
   coverImage: TSanityImage;
   breadcrumbs: TBreadcrumbs[];
-  contentRaw: PortableTextBlock;
+  contentRaw: PortableTextBlock[];
   seo: TSeo;
   socials: { link: TLink }[];
 };
