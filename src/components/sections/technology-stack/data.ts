@@ -6,25 +6,25 @@ export const data: TTechnologieCard[] = [
     technologiesList: [
       {
         title: 'React Native',
-        slug: '/react-native-development',
+        slug: '/rozwoj-react-native',
         image: {
-          altText: 'React Native image',
+          altText: 'Obraz React Native',
           icon: '/images/technologies/mobile/react.svg',
         },
       },
       {
         title: 'Pixi.js',
-        slug: '/pixi-js-development',
+        slug: '/pixi-js',
         image: {
-          altText: 'Pixi.js image',
+          altText: 'Obraz Pixi.js',
           icon: '/images/technologies/mobile/pixiJs.svg',
         },
       },
       {
         title: 'Haxe',
-        slug: '/haxe-development',
+        slug: '/rozwoj-Haxe',
         image: {
-          altText: 'Haxe image',
+          altText: 'Obraz Haxe',
           icon: '/images/technologies/mobile/Haxe.svg',
         },
       },
@@ -32,129 +32,129 @@ export const data: TTechnologieCard[] = [
         title: 'Electron.js',
         slug: '/electron-js-development',
         image: {
-          altText: 'Electron.js image',
+          altText: 'Obraz Electron.js',
           icon: '/images/technologies/mobile/Electron.js.svg',
         },
       },
     ],
   },
   {
-    title: 'e-Commerce platform',
+    title: 'Platformy e-Commerce',
     technologiesList: [
       {
         title: 'Shopify',
-        slug: '/shopify-development',
+        slug: '/rozwój-shopify',
         image: {
-          altText: 'Shopify image',
+          altText: 'Obraz Shopify',
           icon: '/images/technologies/e-commerce/Shopify.svg',
         },
       },
       {
-        title: 'Shopify plus',
-        slug: '/shopify-plus-development',
+        title: 'Shopify Plus',
+        slug: '/rozwój-shopify-plus',
         image: {
-          altText: 'Shopify plus image',
+          altText: 'Obraz Shopify Plus',
           icon: '/images/technologies/e-commerce/Shopify-plus.svg',
         },
       },
       {
         title: 'Hydrogen',
-        slug: '/hydrogen-development',
+        slug: '/rozwój-hydrogen',
         image: {
-          altText: 'Hydrogen image',
+          altText: 'Obraz Hydrogen',
           icon: '/images/technologies/e-commerce/Hydrogen.svg',
         },
       },
       {
         title: 'Medusa.js',
-        slug: '/medusa-js-development',
+        slug: '/rozwoj-medusa-js',
         image: {
-          altText: 'Medusa.js image',
+          altText: 'Obraz Medusa.js',
           icon: '/images/technologies/e-commerce/Medusa.js.svg',
         },
       },
       {
         title: 'Commercetools',
-        slug: '/commercetools-development',
+        slug: '/rozwój-commercetools',
         image: {
-          altText: 'Commercetools image',
+          altText: 'Obraz Commercetools',
           icon: '/images/technologies/e-commerce/Commercetools.svg',
         },
       },
     ],
   },
   {
-    title: 'Back-End Development',
+    title: 'Back-End',
     technologiesList: [
       {
         title: 'PHP',
-        slug: '/php-development',
+        slug: '/rozwój-php',
         image: {
-          altText: 'PHP image',
+          altText: 'Obraz PHP',
           icon: '/images/technologies/back-end/php.svg',
         },
       },
       {
         title: 'Symfony',
-        slug: '/symfony-development',
+        slug: '/rozwój-symfony',
         image: {
-          altText: 'Symfony image',
+          altText: 'Obraz Symfony',
           icon: '/images/technologies/back-end/Symfony.svg',
         },
       },
       {
         title: 'Laravel',
-        slug: '/laravel-development',
+        slug: '/rozwój-laravel',
         image: {
-          altText: 'Laravel image',
+          altText: 'Obraz Laravel',
           icon: '/images/technologies/back-end/laravel.svg',
         },
       },
       {
         title: 'Node.Js',
-        slug: '/node-js-developmentt',
+        slug: '/rozwój-node-js',
         image: {
-          altText: 'Node.Js Image',
+          altText: 'Obraz Node.Js',
           icon: '/images/technologies/back-end/Node.js.svg',
         },
       },
       {
         title: 'Express',
-        slug: '/express-js-development',
+        slug: '/rozwój-express-js',
         image: {
-          altText: 'Express image',
+          altText: 'Obraz Express',
           icon: '/images/technologies/back-end/Express.svg',
         },
       },
       {
         title: 'NestJS',
-        slug: '/nest-js-development',
+        slug: '/rozwój-nest-js',
         image: {
-          altText: 'NestJS image',
+          altText: 'Obraz NestJS',
           icon: '/images/technologies/back-end/NestJS.svg',
         },
       },
       {
         title: 'Python',
-        slug: '/python-development',
+        slug: '/rozwój-python',
         image: {
-          altText: 'Python image',
+          altText: 'Obraz Python',
           icon: '/images/technologies/back-end/Python.svg',
         },
       },
       {
         title: 'C++',
-        slug: '/c-plus-plus-development',
+        slug: '/rozwój-c-plus-plus',
         image: {
-          altText: 'C++ image',
+          altText: 'Obraz C++',
           icon: '/images/technologies/back-end/c-plus-plus.svg',
         },
       },
       {
         title: 'Liquid',
-        slug: '/liquid-development',
+        slug: '/rozwój-liquid',
         image: {
-          altText: 'Liquid image',
+          altText: 'Obraz Liquid',
           icon: '/images/technologies/back-end/Liquid.svg',
         },
       },
@@ -165,248 +165,248 @@ export const data: TTechnologieCard[] = [
     technologiesList: [
       {
         title: 'Contentful',
-        slug: '/contentful-development',
+        slug: '/rozwój-contentful',
         image: {
-          altText: 'Contentful image',
+          altText: 'Obraz Contentful',
           icon: '/images/technologies/headless-cms/Contentful.svg',
         },
       },
       {
         title: 'Strapi',
-        slug: '/strapi-development',
+        slug: '/rozwój-strapi',
         image: {
-          altText: 'Strapi image',
+          altText: 'Obraz Strapi',
           icon: '/images/technologies/headless-cms/Strapi.svg',
         },
       },
       {
         title: 'Sanity',
-        slug: '/sanity-development',
+        slug: '/rozwój-sanity',
         image: {
-          altText: 'Sanity image',
+          altText: 'Obraz Sanity',
           icon: '/images/technologies/headless-cms/Sanity.svg',
         },
       },
       {
         title: 'Netlify',
-        slug: '/netlify-development',
+        slug: '/rozwój-netlify',
         image: {
-          altText: 'Netlify image',
+          altText: 'Obraz Netlify',
           icon: '/images/technologies/headless-cms/Netlify.svg',
         },
       },
       {
         title: 'Dato',
-        slug: '/dato-development',
+        slug: '/rozwój-dato',
         image: {
-          altText: 'Dato image',
+          altText: 'Obraz Dato',
           icon: '/images/technologies/headless-cms/Dato.svg',
         },
       },
       {
         title: 'WordPress (Atlas)',
-        slug: '/wordpress-atlas-development',
+        slug: '/rozwój-wordpress',
         image: {
-          altText: 'WordPress (Atlas) image',
+          altText: 'Obraz WordPress (Atlas)',
           icon: '/images/technologies/headless-cms/WordPress.svg',
         },
       },
       {
         title: 'Shopify',
-        slug: '/shopify-development',
+        slug: '/rozwój-shopify',
         image: {
-          altText: 'Shopify image',
+          altText: 'Obraz Shopify',
           icon: '/images/technologies/headless-cms/Shopify.svg',
         },
       },
     ],
   },
   {
-    title: 'Other',
+    title: 'Inne',
     technologiesList: [
       {
-        title: 'Rest API',
-        slug: '/rest-api-development',
+        title: 'REST API',
+        slug: '/rozwój-rest-api',
         image: {
-          altText: 'Rest API image',
+          altText: 'Obraz REST API',
           icon: '/images/technologies/other/RestAPI.svg',
         },
       },
       {
         title: 'GraphQL',
-        slug: '/graphq-developmentl',
+        slug: '/rozwój-graphql',
         image: {
-          altText: 'GraphQL image',
+          altText: 'Obraz GraphQL',
           icon: '/images/technologies/other/GraphQL.svg',
         },
       },
       {
         title: 'GROQ',
-        slug: '/groq-development',
+        slug: '/rozwój-groq',
         image: {
-          altText: 'GROQ image',
+          altText: 'Obraz GROQ',
           icon: '/images/technologies/other/GROQ.svg',
         },
       },
       {
         title: 'Docker',
-        slug: '/docker-development',
+        slug: '/uslugi-programistyczne-platformy-docker',
         image: {
-          altText: 'Docker image',
+          altText: 'Obraz Docker',
           icon: '/images/technologies/other/Docker.svg',
         },
       },
       {
         title: 'Kubernetes',
-        slug: '/kubernetes-development',
+        slug: '/uslugi-rozwoju-kubernetesie',
         image: {
-          altText: 'Kubernetes image',
+          altText: 'Obraz Kubernetes',
           icon: '/images/technologies/other/Kubernetes.svg',
         },
       },
       {
         title: 'Apollo',
-        slug: '/apollo-development',
+        slug: '/uslugi-programistyczne-apollo',
         image: {
-          altText: 'Apollo image',
+          altText: 'Obraz Apollo',
           icon: '/images/technologies/other/Apollo.svg',
         },
       },
       {
         title: 'Webpack',
-        slug: '/webpack-development',
+        slug: '/uslugi-programistyczne-webpack',
         image: {
-          altText: 'Webpack image',
+          altText: 'Obraz Webpack',
           icon: '/images/technologies/other/Webpack.svg',
         },
       },
       {
         title: 'Gulp',
-        slug: '/gulp-development',
+        slug: '/uslugi-programistyczne-gulp',
         image: {
-          altText: 'Gulp image',
+          altText: 'Obraz Gulp',
           icon: '/images/technologies/other/Gulp.svg',
         },
       },
       {
         title: 'npm',
-        slug: '/npm-development',
+        slug: '/uslugi-rozwoju-npm',
         image: {
-          altText: 'npm image',
+          altText: 'Obraz npm',
           icon: '/images/technologies/other/npm.svg',
         },
       },
       {
         title: 'yarn',
-        slug: '/yarn-development',
+        slug: '/uslugi-rozwoju-yarn',
         image: {
-          altText: 'yarn image',
+          altText: 'Obraz yarn',
           icon: '/images/technologies/other/yarn.svg',
         },
       },
       {
         title: 'Babel',
-        slug: '/babel-development',
+        slug: '/usluga-rozwoju-babel',
         image: {
-          altText: 'Babel image',
+          altText: 'Obraz Babel',
           icon: '/images/technologies/other/babel.svg',
         },
       },
       {
         title: 'Storybook',
-        slug: '/storybook-development',
+        slug: '/uslugi-rozwoju-storybook',
         image: {
-          altText: 'Storybook image',
+          altText: 'Obraz Storybook',
           icon: '/images/technologies/other/Storybook.svg',
         },
       },
     ],
   },
   {
-    title: 'Game Engine',
+    title: 'Silniki gier',
     technologiesList: [
       {
-        title: 'Unreal engine',
-        slug: '/unreal-engine-development',
+        title: 'Unreal Engine',
+        slug: '/rozwoj-unreal-engine',
         image: {
-          altText: 'Unreal engine image',
+          altText: 'Obraz Unreal Engine',
           icon: '/images/technologies/game-engine/unreal.svg',
         },
       },
       {
         title: 'Unity',
-        slug: '/unity-development',
+        slug: '/rozwoj-unity',
         image: {
-          altText: 'Unity image',
+          altText: 'Obraz Unity',
           icon: '/images/technologies/game-engine/unity.svg',
         },
       },
     ],
   },
   {
-    title: 'Industries',
+    title: 'Branże',
     technologiesList: [
       {
         title: 'e-Commerce',
-        slug: '/e-commerce-development',
+        slug: '/rozwoj-e-commerce',
         image: {
-          altText: 'e-Commerce image',
+          altText: 'Obraz e-Commerce',
           icon: '/images/technologies/industries/e-Commerce.svg',
         },
       },
       {
         title: 'e-Learning',
-        slug: '/e-learning-development',
+        slug: '/uslugi-rozwoju-e-learningu',
         image: {
-          altText: 'e-Learning image',
+          altText: 'Obraz e-Learning',
           icon: '/images/technologies/industries/e-Learning.svg',
         },
       },
       {
-        title: 'Helthcare',
-        slug: '/helthcare-development',
+        title: 'Opieka zdrowotna',
+        slug: '/rozwoj-oprogramowania-medycznego',
         image: {
-          altText: 'Helthcare image',
+          altText: 'Obraz Opieka zdrowotna',
           icon: '/images/technologies/industries/Helthcare.svg',
         },
       },
       {
-        title: 'Financial',
-        slug: '/financial-development',
+        title: 'Finansowy',
+        slug: '/uslugi-tworzenia-oprogramowania-FinTech',
         image: {
-          altText: 'Financial image',
+          altText: 'Obraz Finansowy',
           icon: '/images/technologies/industries/Financial.svg',
         },
       },
       {
-        title: 'Logistics & Transportation',
-        slug: '/logistics-and-transportation-development',
+        title: 'Logistyka i Transport',
+        slug: '/logistyka-i-transport-rozwoj',
         image: {
-          altText: 'Logistics & Transportation image',
+          altText: 'Obraz Logistyka i Transport',
           icon: '/images/technologies/industries/LogisticsAndTransportation.svg',
         },
       },
       {
         title: 'IoT',
-        slug: '/iot-development',
+        slug: '/uslugi-rozwoju-IoT',
         image: {
-          altText: 'IoT image',
+          altText: 'Obraz IoT',
           icon: '/images/technologies/industries/IoT.svg',
         },
       },
       {
-        title: 'Digital marketing',
-        slug: '/digital-development',
+        title: 'Marketing cyfrowy',
+        slug: '/uslugi-marketingu-cyfrowego',
         image: {
-          altText: 'Digital marketing image',
+          altText: 'Obraz Digital Marketing',
           icon: '/images/technologies/industries/Digital-marketing.svg',
         },
       },
       {
-        title: 'Game development',
-        slug: '/game-development',
+        title: 'Tworzenie gier',
+        slug: '/tworzenie-gier',
         image: {
-          altText: 'Game development image',
+          altText: 'Obraz Tworzenie gier',
           icon: '/images/technologies/industries/Game-development.svg',
         },
       },
@@ -414,7 +414,7 @@ export const data: TTechnologieCard[] = [
         title: 'AI',
         slug: '/ai',
         image: {
-          altText: 'AI image',
+          altText: 'Obraz AI',
           icon: '/images/technologies/industries/AI.svg',
         },
       },
@@ -425,246 +425,246 @@ export const data: TTechnologieCard[] = [
     technologiesList: [
       {
         title: 'JavaScript',
-        slug: '/javascript-development',
+        slug: '/rozwoj-javascript',
         image: {
-          altText: 'JavaScript image',
+          altText: 'Obraz JavaScript',
           icon: '/images/technologies/front-end/js.svg',
         },
       },
       {
-        title: 'Typescript',
-        slug: '/typescript-development',
+        title: 'TypeScript',
+        slug: '/rozwoj-typescript',
         image: {
-          altText: 'Typescript image',
+          altText: 'Obraz TypeScript',
           icon: '/images/technologies/front-end/ts.svg',
         },
       },
       {
         title: 'Gatsby',
-        slug: '/gatsby-development',
+        slug: '/rozwoj-gatsby',
         image: {
-          altText: 'Gatsby image',
+          altText: 'Obraz Gatsby',
           icon: '/images/technologies/front-end/gatsby.svg',
         },
       },
       {
         title: 'React',
-        slug: '/react-development',
+        slug: '/rozwoj-react',
         image: {
-          altText: 'React image',
+          altText: 'Obraz React',
           icon: '/images/technologies/front-end/react.svg',
         },
       },
       {
         title: 'Next.js',
-        slug: '/next-js-development',
+        slug: '/next-js-tworzenie',
         image: {
-          altText: 'Next.js image',
+          altText: 'Obraz Next.js',
           icon: '/images/technologies/front-end/next.svg',
         },
       },
       {
         title: 'Svelte',
-        slug: '/svelte-development',
+        slug: '/svelte-tworzenie',
         image: {
-          altText: 'Svelte image',
+          altText: 'Obraz Svelte',
           icon: '/images/technologies/front-end/svelte.svg',
         },
       },
       {
         title: 'Vue',
-        slug: '/vue-development',
+        slug: '/vue-js-tworzenie',
         image: {
-          altText: 'Vue image',
+          altText: 'Obraz Vue',
           icon: '/images/technologies/front-end/vue.svg',
         },
       },
       {
         title: 'Nuxt.js',
-        slug: '/nuxt-js-development',
+        slug: '/nuxt-js-tworzenie',
         image: {
-          altText: 'Nuxt.js image',
+          altText: 'Obraz Nuxt.js',
           icon: '/images/technologies/front-end/nuxt.svg',
         },
       },
       {
         title: 'Pixi.js',
-        slug: '/pixi-js-development',
+        slug: '/rozwój-pixi-js',
         image: {
-          altText: 'Pixi.js image',
+          altText: 'Obraz Pixi.js',
           icon: '/images/technologies/front-end/pixiJs.svg',
         },
       },
       {
         title: 'Haxe',
-        slug: '/haxe-development',
+        slug: '/rozwoj-Haxe',
         image: {
-          altText: 'Haxe image',
+          altText: 'Obraz Haxe',
           icon: '/images/technologies/front-end/Haxe.svg',
         },
       },
       {
         title: 'HTML',
-        slug: '/html-development',
+        slug: '/rozwój-html',
         image: {
-          altText: 'HTML image',
+          altText: 'Obraz HTML',
           icon: '/images/technologies/front-end/html.svg',
         },
       },
       {
         title: 'CSS',
-        slug: '/css-development',
+        slug: '/rozwój-css',
         image: {
-          altText: 'CSS image',
+          altText: 'Obraz CSS',
           icon: '/images/technologies/front-end/css.svg',
         },
       },
       {
         title: 'Emotion',
-        slug: '/emotion-development',
+        slug: '/rozwoj-emotion',
         image: {
-          altText: 'Emotion image',
+          altText: 'Obraz Emotion',
           icon: '/images/technologies/front-end/emotion.svg',
         },
       },
       {
         title: 'Linaria',
-        slug: '/linaria-development',
+        slug: '/rozwój-linaria',
         image: {
-          altText: 'Linaria image',
+          altText: 'Obraz Linaria',
           icon: '/images/technologies/front-end/linaria.svg',
         },
       },
       {
         title: 'MaterialUI',
-        slug: '/material-ui-development',
+        slug: '/rozwój-material-ui',
         image: {
-          altText: 'MaterialUI image',
+          altText: 'Obraz MaterialUI',
           icon: '/images/technologies/front-end/MaterialUI.svg',
         },
       },
       {
         title: 'Bootstrap',
-        slug: '/bootstrap-development',
+        slug: '/rozwój-bootstrap',
         image: {
-          altText: 'Bootstrap image',
+          altText: 'Obraz Bootstrap',
           icon: '/images/technologies/front-end/Bootstrap.svg',
         },
       },
       {
         title: 'ChakraUI',
-        slug: '/chakra-ui-development',
+        slug: '/rozwoj-chakra-ui',
         image: {
-          altText: 'ChakraUI image',
+          altText: 'Obraz ChakraUI',
           icon: '/images/technologies/front-end/chakraUI.svg',
         },
       },
       {
         title: 'Angular',
-        slug: '/angular-development',
+        slug: '/rozwoj-angular',
         image: {
-          altText: 'Angular image',
+          altText: 'Obraz Angular',
           icon: '/images/technologies/front-end/angular.svg',
         },
       },
     ],
   },
   {
-    title: 'Services',
+    title: 'Usługi',
     technologiesList: [
       {
         title: 'E-Commerce',
-        slug: '/e-commerce-development',
+        slug: '/rozwoj-e-commerce',
         image: {
-          altText: 'E-Commerce service image',
+          altText: 'Obraz usługi E-Commerce',
           icon: '/images/technologies/services/e-Commerce.svg',
         },
       },
       {
-        title: 'Shopify/Shopify plus development',
-        slug: '/shopify-development',
+        title: 'Shopify/Shopify Plus Development',
+        slug: '/rozwój-shopify',
         image: {
-          altText: 'Shopify development image',
+          altText: 'Obraz rozwoju Shopify',
           icon: '/images/technologies/services/Shopify plus.svg',
         },
       },
       {
         title: 'Jamstack',
-        slug: '/jamstack-development',
+        slug: '/rozwoj-jamstack',
         image: {
-          altText: 'Jamstack image',
+          altText: 'Obraz Jamstack',
           icon: '/images/technologies/services/Jamstack.svg',
         },
       },
       {
-        title: 'Custom Software development',
-        slug: '/custom-software-development',
+        title: 'Programowanie na zamówienie',
+        slug: '/tworzenie-oprogramowania-na-zamowienie',
         image: {
-          altText: 'Custom Software development image',
+          altText: 'Obraz rozwoju Custom Software',
           icon: '/images/technologies/services/Custom-Software.svg',
         },
       },
       {
         title: 'Mobile',
-        slug: '/mobile-development',
+        slug: '/rozwoj-mobilny',
         image: {
-          altText: 'Mobile service image',
+          altText: 'Obraz usługi Mobile',
           icon: '/images/technologies/services/Mobile.svg',
         },
       },
       {
-        title: 'Cross-Platform development',
-        slug: '/cross-platform-development',
+        title: 'Aplikacje wieloplatformowe',
+        slug: '/tworzenie-aplikacji-wieloplatformowych',
         image: {
-          altText: 'Cross-Platform development image',
+          altText: 'Obraz rozwoju Cross-Platform',
           icon: '/images/technologies/services/Cross-Platform.svg',
         },
       },
       {
-        title: 'Game development',
-        slug: '/game-development',
+        title: 'Tworzenie gier',
+        slug: '/tworzenie-gier',
         image: {
-          altText: 'Game development service image',
+          altText: 'Obraz usługi Tworzenie gier',
           icon: '/images/technologies/services/Game-development.svg',
         },
       },
       {
-        title: 'UI/UX design',
-        slug: '/ui-ux-design-services',
+        title: 'UI/UX Design',
+        slug: '/usługi-projektowania-ui/ux',
         image: {
-          altText: 'UI/UX design image',
+          altText: 'Obraz UI/UX Design',
           icon: '/images/technologies/services/UI-UX.svg',
         },
       },
       {
-        title: 'Project management',
-        slug: '/project-management-services',
+        title: 'Usługi zarządzania projektami',
+        slug: '/uslugi-zarządzania-projektami',
         image: {
-          altText: 'Project management image',
+          altText: 'Usługi zarządzania projektami',
           icon: '/images/technologies/services/Project-management.svg',
         },
       },
       {
-        title: 'Computer Vision Development',
-        slug: '/computer-vision-development',
+        title: 'Rozwój komputerowego widzenia',
+        slug: '/rozwoj-komputerowego-widzenia',
         image: {
-          altText: 'Computer Vision Development image',
+          altText: 'Obraz Computer Vision Development',
           icon: '/images/technologies/services/Computer-Vision-Development.svg',
         },
       },
       {
-        title: 'Startup and MVP Services',
-        slug: '/mvp-development-services',
+        title: 'Usługi tworzenia MVP',
+        slug: '/uslugi-tworzenia-mvp',
         image: {
-          altText: 'Startup and MVP Services image',
+          altText: 'Obraz Usługi tworzenia MVP',
           icon: '/images/technologies/services/Startup-and-MVP-Services.svg',
         },
       },
       {
-        title: 'PWA Development Services',
-        slug: '/pwa-development-services',
+        title: 'Usługi tworzenia PWA',
+        slug: '/uslugi-tworzenia-pwa',
         image: {
-          altText: 'PWA Development Services image',
+          altText: 'Obraz PWA Development Services',
           icon: '/images/technologies/services/PWA-Development-Services.svg',
         },
       },

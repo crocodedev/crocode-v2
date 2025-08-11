@@ -10,12 +10,12 @@ type TData = {
 };
 
 export const data: TData = {
-  title: 'Industries',
+  title: 'Branże',
   items: [
     {
       link: {
-        text: 'eCommerce',
-        href: '/e-commerce-development',
+        text: 'eHandel',
+        href: '/rozwoj-handlu-elektronicznego',
       },
     },
     {
@@ -32,8 +32,8 @@ export const data: TData = {
     },
     {
       link: {
-        text: 'GameDev',
-        href: '/game-dev',
+        text: 'Twórcy gry',
+        href: '/tworzenie-gier',
       },
     },
   ],

@@ -48,7 +48,7 @@ const Header = () => {
             ))}
             <li className={styles.nav__list__actions}>
               <Button className={styles.nav__list__button} onClick={openPopup}>
-                Contact us
+                {data.button}
               </Button>
             </li>
           </ul>

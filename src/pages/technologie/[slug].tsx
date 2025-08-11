@@ -2,6 +2,7 @@ import { GetServerSideProps } from 'next';
 
 import {
   AboutUs,
+  Breadcrumbs,
   CardGrid,
   ContactUsForm,
   Hero,
@@ -10,6 +11,7 @@ import {
   StyleGuide,
   WhyCrocode,
 } from '@/components/sections';
+import { TBreadcrumbs } from '@/components/sections/breadcrumbs/type';
 import { TTechnologies } from '@/components/sections/technologies/data';
 import Seo from '@/components/seo';
 
@@ -30,6 +32,7 @@ type TProps = TPageProps & {
 
 const TechnologyPage = ({ technology, errors, seo, allRedirects }: TProps) => {
   useRedirect(allRedirects);
+  console.log('TechnologyPage', technology);
 
   const { title = '', questions, process, projects, contentRaw } = technology;
 
@@ -37,6 +40,7 @@ const TechnologyPage = ({ technology, errors, seo, allRedirects }: TProps) => {
     hero: {
       title,
     },
+    breadcrumbs: technology.breadcrumbs as TBreadcrumbs,
     description: contentRaw,
     questions: questions?.map((item, index) => ({
       id: smartNumber(index + 1),
@@ -44,14 +48,15 @@ const TechnologyPage = ({ technology, errors, seo, allRedirects }: TProps) => {
       answer: item.answer,
     })),
     cardGrid: {
-      title: 'Our process',
+      title: 'Nasz proces',
       cards: process?.map((item) => ({
         title: item.titleItem,
         text: item.description,
       })),
     },
     ourProject: {
-      cards: projects?.map((project) => ({
+      cards: projects
+        ?.map((project) => ({
           image: {
             src: project?.casesItemImage?.image.asset.url || '',
             alt: project?.casesItemImage?.altText || '',
@@ -70,12 +75,17 @@ const TechnologyPage = ({ technology, errors, seo, allRedirects }: TProps) => {
     <>
       <Seo {...seo} />
       <Hero {...PROPS_SECTIONS.hero} />
+      <Breadcrumbs sanityData={PROPS_SECTIONS.breadcrumbs} />
       {PROPS_SECTIONS.description && (
         <StyleGuide value={PROPS_SECTIONS.description} />
       )}
       <OurProject {...PROPS_SECTIONS.ourProject} />
-      <Questions questions={PROPS_SECTIONS.questions} />
-      <CardGrid {...PROPS_SECTIONS.cardGrid} />
+      {PROPS_SECTIONS.questions && (
+        <Questions questions={PROPS_SECTIONS.questions} />
+      )}
+      {PROPS_SECTIONS.cardGrid.cards && (
+        <CardGrid {...PROPS_SECTIONS.cardGrid} />
+      )}
       <WhyCrocode />
       <AboutUs />
       <ContactUsForm />
@@ -90,7 +100,7 @@ export const getServerSideProps: GetServerSideProps<TProps> = (async (
 
   const { data, errors } = await fetchGraphQL(getTechnology(slug));
   const technology = data?.allTechnologies?.[0] || null;
-  const { seo, allRedirects } = await getSeoProps(`/technology/${slug}`);
+  const { seo, allRedirects } = await getSeoProps(`/technologie/${slug}`);
 
   if (!technology) {
     return {

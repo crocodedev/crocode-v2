@@ -1,4 +1,4 @@
-import { PortableTextBlock } from '@portabletext/react';
+import { PortableTextBlock } from '@portabletext/types';
 
 import { TImage } from '@/types/types';
 
@@ -18,7 +18,7 @@ export type TTechnologies = {
     linkExternal?: { href: string; label: string; blank: boolean };
     linkInternal?: { label: string; reference?: { slug: { current: string } } };
   }[];
-  contentRaw: PortableTextBlock;
+  contentRaw: PortableTextBlock[];
   projects: {
     title: string;
     slug: {
@@ -56,7 +56,7 @@ type TData = {
 };
 
 export const data: TData = {
-  title: ' Technologies',
+  title: 'Technologie',
   categories: [
     {
       title: 'Front-End',
@@ -216,7 +216,7 @@ export const data: TData = {
       ],
     },
     {
-      title: 'Mobile',
+      title: 'Mobilne',
       technologiesList: [
         {
           title: 'React Native',
@@ -303,7 +303,7 @@ export const data: TData = {
       ],
     },
     {
-      title: 'Game Engine',
+      title: 'Silnik gier',
       technologiesList: [
         {
           title: 'Unreal engine',
@@ -362,7 +362,7 @@ export const data: TData = {
       ],
     },
     {
-      title: 'Industries',
+      title: 'Branże',
       technologiesList: [
         {
           title: 'e-Commerce',
@@ -430,7 +430,7 @@ export const data: TData = {
       ],
     },
     {
-      title: 'Services',
+      title: 'Usługi',
       technologiesList: [
         {
           title: 'e-Commerce',
@@ -484,7 +484,7 @@ export const data: TData = {
       ],
     },
     {
-      title: 'Other',
+      title: 'Inne',
       technologiesList: [
         {
           title: 'Rest API',

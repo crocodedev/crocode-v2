@@ -5,11 +5,11 @@ import { Fragment, useState } from 'react';
 import { SectionLayout } from '@/components/sections';
 import { Card } from '@/components/ui';
 
+import { data } from './data';
 import styles from './styles.module.scss';
 import { TContainerImagesProps, TIconCardProps } from './types';
-import { data } from './data';
 
-const PAGE_URL = '/technologies';
+const PAGE_URL = '/technologie';
 
 const IconCard = ({ title, icon, slug, altText }: TIconCardProps) => {
   return (
@@ -31,7 +31,7 @@ const ContainerItems = ({ items }: TContainerImagesProps) => {
     <div className={styles.card__icon__container}>
       {items?.map((item) => {
         const slug = item.slug;
-        const icon = item.image.icon
+        const icon = item.image.icon;
         const altText = item.image.altText;
         const title = item.title;
 
@@ -62,13 +62,14 @@ const TechnologyStackSection = () => {
           const isActive = indexActiveCard === item.title;
 
           return (
-            <Fragment key={item.title}>
+            <Fragment key={item.title + index}>
               <Card
+                color={null}
                 onClick={handleClickMore.bind(null, item.title)}
                 className={`
                 ${styles.card}  
                 ${styles.card}__${index + 1}
-                ${indexActiveCard && styles.hide}
+                ${indexActiveCard ? styles.hide : ''}
                 `}
                 key={item.title}
               >
@@ -79,6 +80,7 @@ const TechnologyStackSection = () => {
 
               {isActive && (
                 <Card
+                  color={null}
                   onClick={handleClickMore.bind(null, item.title)}
                   className={`${styles.card} ${styles.card__absolute} ${styles.card}__${index + 1} `}
                 >

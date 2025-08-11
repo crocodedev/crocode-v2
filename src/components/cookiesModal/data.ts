@@ -13,17 +13,17 @@ type TDataCookies = {
 
 export const cookiesData: TDataCookies = {
   modalContainerId: 'cookies',
-  title: 'Our website uses cookies',
-  text: 'This site uses cookies for analytics, personalization and advertising. By continuing to browse it, you agree to our use of cookies. To find out more or change your cookie settings, ',
+  title: 'Nasza strona używa plików cookies',
+  text: 'Ta strona wykorzystuje pliki cookies do celów analitycznych, personalizacji i reklamy. Kontynuując przeglądanie, zgadzasz się na ich użycie. Aby dowiedzieć się więcej lub zmienić ustawienia cookies, ',
   background: {
     src: '/images/background.jpg',
-    alt: 'background',
+    alt: 'tło',
   },
   link: {
-    text: 'click here.',
+    text: 'kliknij tutaj.',
     href: 'https://www.google.com',
   },
   button: {
-    text: 'Accept',
+    text: 'Akceptuję',
   },
 };

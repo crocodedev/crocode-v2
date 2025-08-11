@@ -1,8 +1,8 @@
 import { useState } from 'react';
 
+import { IconChevronLeft, IconChevronRight } from '@/components/icons';
 import { SectionLayout } from '@/components/sections';
 import { Avatar, Title } from '@/components/ui';
-import { IconChevronLeft, IconChevronRight } from '@/components/icons';
 
 import { usersData } from './mockData';
 import styles from './styles.module.scss';
@@ -17,7 +17,7 @@ type TProps = {
 };
 
 const AboutUsSection = ({
-  title = 'Say about us',
+  title = 'Co mówią o nas',
   users = usersData,
 }: TProps) => {
   const [activeIndex, setActiveIndex] = useState(0);

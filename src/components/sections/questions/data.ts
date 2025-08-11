@@ -7,50 +7,50 @@ export type TData = {
 export const data: TData[] = [
   {
     id: '01',
-    text: 'What does the cost consist of?',
+    text: 'Z czego składa się koszt?',
     answer:
-      'The cost consists of the time spent, the number of specialists required and the cost of third-party licenses (if the project requires it).',
+      'Koszt składa się z czasu pracy, liczby wymaganych specjalistów oraz kosztów zewnętrznych licencji (jeśli projekt tego wymaga).',
   },
   {
     id: '02',
-    text: 'What models of cooperation do you have?',
+    text: 'Jakie modele współpracy oferujecie?',
     answer:
-      'Firstly, we have an outsourced development. This includes a joint team of specialists, cost reduction, fixed price/hourly rate, direct management. Secondly, we have a dedicated team. Our team will be there and will do all the work on your project. And these are full-time remote employees, individual hiring, fixed price / hourly rate, direct management. Thirdly, we have IT staffing. It includes full-time remote team, cherry-picked hires, developer salary + vendor fee, large projects. We will be happy to cooperate with you in any of the chosen models, the main thing is that our values and vision about your project coincide.',
+      'Po pierwsze, oferujemy outsourcing rozwoju. Obejmuje to wspólny zespół specjalistów, redukcję kosztów, stałą cenę/stawkę godzinową, bezpośrednie zarządzanie. Po drugie, mamy dedykowany zespół. Nasz zespół będzie dostępny i wykona całą pracę nad Twoim projektem. Są to pełnoetatowi zdalni pracownicy, indywidualne zatrudnienie, stała cena/stawka godzinowa, bezpośrednie zarządzanie. Po trzecie, oferujemy IT staffing. Obejmuje to pełnoetatowy zdalny zespół, starannie wyselekcjonowanych pracowników, wynagrodzenie developera + opłata dla dostawcy, duże projekty. Chętnie współpracujemy w dowolnym z wybranych modeli, najważniejsze aby nasze wartości i wizja dotycząca projektu były zbieżne.',
   },
   {
     id: '03',
-    text: 'How is the work organized in the Crocode Team?',
+    text: 'Jak zorganizowana jest praca w Crocode Team?',
     answer:
-      'At the beginning, we always formulate an understanding of the task. To do this, we conduct a series of interviews with the client. The result of the work is a technical task that describes how the project will look like. At this stage, we can give you an accurate estimate of the time and budget for system designs and an approximate estimate for development. Then, we prepare the designs of the future project (if you already have layouts, this stage is skipped). We start by designing the future product — we prepare wireframes. The result of this stage is the rendered designs of the future product. The final stage is Delivery. At this stage we are engaged in programming: wireframes, frontend and backend. We also conduct QA testing of the project to make sure that all the scenarios of the project have been taken into account, and everything is working efficiently. All communication, starting from the second stage of the project implementation, is conducted through PM, this allows you to always have a responsible person from our team who makes the development process transparent and understandable for you.',
+      "Na początku zawsze formułujemy zrozumienie zadania. W tym celu przeprowadzamy serię wywiadów z klientem. Rezultatem pracy jest specyfikacja techniczna opisująca jak będzie wyglądał projekt. Na tym etapie możemy podać dokładny szacunek czasu i budżetu dla projektów systemowych oraz przybliżony szacunek dla rozwoju. Następnie przygotowujemy projekty przyszłego projektu (jeśli masz już makietę, ten etap jest pomijany). Zaczynamy od projektowania przyszłego produktu - przygotowujemy wireframe'y. Rezultatem tego etapu są renderowane projekty przyszłego produktu. Ostatnim etapem jest Dostawa. Na tym etapie zajmujemy się programowaniem: wireframe'y, frontend i backend. Przeprowadzamy również testy QA projektu, aby upewnić się, że wszystkie scenariusze projektu zostały uwzględnione i wszystko działa wydajnie. Cała komunikacja, począwszy od drugiego etapu realizacji projektu, jest prowadzona przez PM, co pozwala zawsze mieć osobę odpowiedzialną z naszego zespołu, która sprawia, że proces rozwoju jest przejrzysty i zrozumiały dla Ciebie.",
   },
   {
     id: '04',
-    text: 'What service do I need?',
+    text: 'Jakiej usługi potrzebuję?',
     answer:
-      'Do not worry if you are not sure about the choice of service. We offer free consultations, during which we will analyze the needs of your business and help you choose the perfect service for you.',
+      'Nie martw się, jeśli nie jesteś pewien wyboru usługi. Oferujemy bezpłatne konsultacje, podczas których przeanalizujemy potrzeby Twojego biznesu i pomożemy wybrać idealną usługę dla Ciebie.',
   },
   {
     id: '05',
-    text: 'What will I get as a result?',
+    text: 'Co otrzymam w rezultacie?',
     answer:
-      "Crocode Team's experience allows you to entrust various tasks related to your project: coding, databases, graphic design and user interface management. Our developers have extensive coding experience in various programming languages and will control all parts of your website.",
+      'Doświadczenie Crocode Team pozwala powierzyć nam różne zadania związane z Twoim projektem: kodowanie, bazy danych, projektowanie graficzne i zarządzanie interfejsem użytkownika. Nasi deweloperzy mają bogate doświadczenie w kodowaniu w różnych językach programowania i będą kontrolować wszystkie części Twojej strony internetowej.',
   },
   {
     id: '06',
-    text: 'What are the stages of work?',
+    text: 'Jakie są etapy pracy?',
     answer:
-      'Depending on what data you have now. If you only have an idea, then we are engaged in structuring, drafting technical specifications, approving it with you, discussing the cost of the project and only then we get to work. This path takes from 2 weeks to 2 months. If you have a large turnkey project and the project management is in your hands, then we take 1 week to agree on the main points and after that we get to work.',
+      'W zależności od tego, jakie dane masz teraz. Jeśli masz tylko pomysł, to zajmujemy się strukturyzacją, opracowaniem specyfikacji technicznej, jej zatwierdzeniem z Tobą, omówieniem kosztów projektu i dopiero potem zabieramy się do pracy. Ta ścieżka trwa od 2 tygodni do 2 miesięcy. Jeśli masz duży projekt pod klucz i zarządzanie projektem jest w Twoich rękach, to poświęcamy 1 tydzień na uzgodnienie głównych punktów i potem zabieramy się do pracy.',
   },
   {
     id: '07',
-    text: 'I dont have the documentation ready. What to do?',
+    text: 'Nie mam gotowej dokumentacji. Co robić?',
     answer:
-      'Clients come with completely different documentation and with different levels of detail. We have a team of analysts who can help collect the requirements, clarify them and prepare the necessary documentation. The set of documentation differs from one type of project to another. As for the documentation we provide at the end of the project, it also differs depending on the project.',
+      'Klienci przychodzą z zupełnie różną dokumentacją i różnym poziomem szczegółowości. Mamy zespół analityków, którzy mogą pomóc zebrać wymagania, wyjaśnić je i przygotować niezbędną dokumentację. Zestaw dokumentacji różni się w zależności od typu projektu. Jeśli chodzi o dokumentację, którą dostarczamy na końcu projektu, również różni się w zależności od projektu.',
   },
   {
     id: '08',
-    text: 'How do you ensure the quality of your work?',
+    text: 'Jak zapewniacie jakość swojej pracy?',
     answer:
-      'Quality is at the core of everything we do at Crocode. We follow a rigorous process that includes detailed planning, regular code reviews, and comprehensive testing—both automated and manual—at every stage. Our team adheres to industry best practices and standards, ensuring your product is secure, scalable, and bug-free. We also involve you in the process with progress updates and feedback sessions to align with your vision. After delivery, we offer support to address any issues and ensure your solution performs flawlessly in the real world.',
+      'Jakość jest podstawą wszystkiego, co robimy w Crocode. Stosujemy rygorystyczny proces, który obejmuje szczegółowe planowanie, regularne przeglądy kodu i kompleksowe testy - zarówno automatyczne, jak i manualne - na każdym etapie. Nasz zespół przestrzega najlepszych praktyk i standardów branżowych, zapewniając, że Twój produkt jest bezpieczny, skalowalny i wolny od błędów. Angażujemy Cię również w proces poprzez aktualizacje postępów i sesje feedbackowe, aby dostosować się do Twojej wizji. Po dostarczeniu oferujemy wsparcie w rozwiązaniu wszelkich problemów i zapewniamy bezproblemowe działanie Twojego rozwiązania w rzeczywistym świecie.',
   },
 ];

@@ -4,11 +4,11 @@
   align-items: center;
   overflow-x: auto;
   padding: 60px 0;
-  
+
   // Скрываем скроллбар для разных браузеров
   scrollbar-width: none; // Firefox
   -ms-overflow-style: none; // IE and Edge
-  
+
   &::-webkit-scrollbar {
     display: none; // Chrome, Safari, Opera
   }

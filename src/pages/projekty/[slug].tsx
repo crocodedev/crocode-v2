@@ -10,6 +10,7 @@ import {
   Hero,
   Info,
 } from '@/components/sections';
+import { TBreadcrumbs } from '@/components/sections/breadcrumbs/type';
 import { TCase } from '@/components/sections/cases/type';
 import Seo from '@/components/seo';
 import { TitleSection } from '@/components/ui';
@@ -20,11 +21,10 @@ import { TSanityError } from '@/types/sanityError';
 import { parseHtmlToBlocks } from '@/utils/parseMarkdown';
 import { getSeoProps } from '@/utils/seo';
 
+import { getBreadcrumbs } from '@/graphql/queries/breadcrumbs';
 import { getCaseItem } from '@/graphql/queries/cases';
 import { useRedirect } from '@/hooks';
 import { fetchGraphQL } from '@/lib/graphql';
-import { getBreadcrumbs } from '@/graphql/queries/breadcrumbs';
-import { TBreadcrumbs } from '@/components/sections/breadcrumbs/type';
 
 type TProps = TPageProps & {
   caseItem: TCase;
@@ -67,28 +67,30 @@ const CasePage = ({
       })),
       info: [
         {
-          title: 'Tech',
+          title: 'Technologia',
           description: technologiesList
             ?.map((item) => item.title)
             .filter(Boolean)
             .join(', '),
         },
         {
-          title: 'Duration',
+          title: 'Czas trwania',
           description: duration,
         },
         {
-          title: 'Industry',
+          title: 'Branża',
           description: industry,
         },
         {
-          title: 'Service',
+          title: 'Usługa',
           description: service,
         },
       ],
     },
-    content: html ? parseHtmlToBlocks(html) : null,
+    content: html ? parseHtmlToBlocks(html) : null, //!! переделать функцию parseHtmlToBlocks для работы с markdown
   };
+
+  console.log(PROPS_SECTIONS.content);
 
   if (errors) {
     console.error(errors[0].message);

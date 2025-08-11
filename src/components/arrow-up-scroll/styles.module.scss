@@ -9,7 +9,6 @@
   height: fluid-size(40, 70);
   @include flex-center;
   font-size: $size-title-1;
-  opacity: 0;
   transform: translateY(30px) scale(0.8);
   transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
   cursor: pointer;
@@ -44,6 +43,11 @@
   &.visible {
     opacity: 1;
     animation: pulse 2s ease-in-out infinite alternate;
+  }
+
+  &.hidden {
+    opacity: 0;
+    pointer-events: none;
   }
 
   span {

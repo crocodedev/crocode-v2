@@ -1,26 +1,36 @@
 import { GetServerSideProps } from 'next';
 
 import {
+  AboutUs,
+  Blog,
   Breadcrumbs,
   ContactUsForm,
-  ContactUsMap,
+  GetStarted,
   Hero,
+  OurFigures,
 } from '@/components/sections';
+import { TBreadcrumbs } from '@/components/sections/breadcrumbs/type';
 import Seo from '@/components/seo';
 
 import { TPageProps } from '@/types/pageProps';
 
 import { getSeoProps } from '@/utils/seo';
 
-import { useRedirect } from '@/hooks';
-import { TBreadcrumbs } from '@/components/sections/breadcrumbs/type';
 import { getBreadcrumbs } from '@/graphql/queries/breadcrumbs';
+import { useRedirect } from '@/hooks';
 import { fetchGraphQL } from '@/lib/graphql';
 
 const PROPS_SECTIONS = {
   hero: {
     modelsIsShow: true,
-    title: `Tell us about your project`.toUpperCase(),
+    title: 'O nas',
+  },
+  blog: {
+    title: 'BLOG',
+    linkDetails: {
+      text: 'Dowiedz się więcej',
+      href: '/',
+    },
   },
 };
 
@@ -31,7 +41,7 @@ type TProps = TPageProps & {
   };
 };
 
-const ContactUsPage = ({ allRedirects, seo, breadcrumbs }: TProps) => {
+const AboutUsPage = ({ allRedirects, seo, breadcrumbs }: TProps) => {
   useRedirect(allRedirects);
 
   return (
@@ -39,8 +49,11 @@ const ContactUsPage = ({ allRedirects, seo, breadcrumbs }: TProps) => {
       <Seo {...seo} />
       <Hero {...PROPS_SECTIONS.hero} />
       <Breadcrumbs sanityData={breadcrumbs?.data} />
+      <OurFigures />
+      <GetStarted />
+      <Blog {...PROPS_SECTIONS.blog} />
+      <AboutUs />
       <ContactUsForm />
-      <ContactUsMap />
     </>
   );
 };
@@ -49,7 +62,6 @@ export const getServerSideProps: GetServerSideProps<TPageProps> = async (
   context,
 ) => {
   const slug = context.resolvedUrl;
-
   const { allRedirects, seo } = await getSeoProps(slug);
   const { data: dataBreadcrumbs, errors: errorsBreadcrumbs } =
     await fetchGraphQL(getBreadcrumbs(slug));
@@ -66,4 +78,4 @@ export const getServerSideProps: GetServerSideProps<TPageProps> = async (
   };
 };
 
-export default ContactUsPage;
+export default AboutUsPage;

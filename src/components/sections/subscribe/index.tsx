@@ -40,7 +40,7 @@ const SubscribeSection = () => {
         <Input
           className={styles.subscribe__input}
           type='email'
-          placeholder='Enter E-mail'
+          placeholder='Wprowadź e-mail'
           error={
             (errors as Record<string, FieldError>)?.[data.input.name]?.message
           }
@@ -51,7 +51,7 @@ const SubscribeSection = () => {
           className={styles.subscribe__button}
           disabled={!isValid}
         >
-          Subscribe
+          {data.button}
         </Button>
       </form>
     </section>

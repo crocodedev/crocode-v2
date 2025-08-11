@@ -30,58 +30,23 @@ const PROPS_SECTIONS = {
     typeText: 'main',
   },
   offeringsTemplate: {
-    title: 'Services',
+    title: 'Usługi',
     modelsIsShow: true,
     anchor: 'right' as AnchorType,
   },
   banner: {
-    title: 'About Crocode',
+    title: 'O Crocode',
     texts: [
-      `Crocode is a go-to tech company providing a full-cycle of mobile and web application development, solutions to UX/UI design problems, business solutions for e-commerce and project management. We always focus on technical orientation to give you superior quality. Our team consists of developers who are able to work with a variety of technologies, such as: Shopify, JS, Gatsby.js, React and so on. Crocode Team is here to transform and expand your business through e-commerce and marketplaces.`,
+      `Crocode to wiodąca firma technologiczna świadcząca kompleksowe usługi rozwoju aplikacji mobilnych i webowych, rozwiązań w zakresie UX/UI designu oraz rozwiązań biznesowych dla e-commerce i zarządzania projektami. Zawsze koncentrujemy się na doskonałości technologicznej, aby zapewnić najwyższą jakość. Nasz zespół składa się z developerów pracujących z różnymi technologiami, takimi jak: Shopify, JS, Gatsby.js, React i inne. Zespół Crocode jest gotów przekształcić i rozwinąć Twój biznes poprzez e-commerce i platformy marketplace.`,
     ],
     showModels: false,
-  },
-  aboutUs: {
-    title: ' say about us',
-    users: [
-      {
-        name: 'Анна Петрова',
-        avatarUrl: '/avatars/anna.jpg',
-        comment: 'Очень понравился сервис! Всё быстро, удобно и качественно.',
-      },
-      {
-        name: 'Иван Смирнов',
-        avatarUrl: '/avatars/ivan.jpg',
-        comment: 'Поддержка на высоте! Решили мой вопрос за 5 минут.',
-      },
-      {
-        name: 'Екатерина Орлова',
-        avatarUrl: '/avatars/ekaterina.jpg',
-        comment: 'Пользуюсь уже полгода — всё работает стабильно.',
-      },
-      {
-        name: 'Дмитрий Кузнецов',
-        avatarUrl: '/avatars/dmitry.jpg',
-        comment: 'Удобный интерфейс и приятный дизайн.',
-      },
-      {
-        name: 'Мария Белова',
-        avatarUrl: '/avatars/maria.jpg',
-        comment: 'Рекомендую всем друзьям — лучший опыт за последнее время!',
-      },
-      {
-        name: 'Алексей Соколов',
-        avatarUrl: '/avatars/alexey.jpg',
-        comment: 'Поначалу сомневался, но теперь очень доволен.',
-      },
-    ],
   },
   blog: {
     title: 'BLOG',
     cards: ['1', '2', '3', '4'],
     linkDetails: {
-      text: 'Learn in detail',
-      href: '/blog?category=Latest',
+      text: 'Dowiedz się więcej',
+      href: '/blog',
     } as TLink,
   },
 };
@@ -100,7 +65,7 @@ const HomePage = ({ seo, allRedirects }: TPageProps) => {
       <Technologies />
       <GetStarted />
       <OurProject />
-      <AboutUs {...PROPS_SECTIONS.aboutUs} />
+      <AboutUs />
       <Blog {...PROPS_SECTIONS.blog} />
       <ContactUsForm />
     </>

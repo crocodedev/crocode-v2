@@ -1,7 +1,8 @@
+import { JSX } from 'react';
+
 import { IconFacebook, IconLinkedin, IconTwitter } from '@/components/icons';
 
 import { TImage } from '@/types/types';
-import { JSX } from 'react';
 
 type TLink = {
   href: string;
@@ -27,91 +28,91 @@ type TFooter = {
 export const data: TFooter = {
   bottomLink: {
     href: '/',
-    text: 'Privacy policy',
+    text: 'Polityka prywatności',
   },
   logoImage: {
     src: '/images/logo.png',
-    alt: 'Logo image Crocode',
+    alt: 'Logo firmy Crocode',
   },
   socialIcons: [
     {
       icon: IconTwitter,
       href: '/',
-      alt: 'Twitter icon',
+      alt: 'Ikona Twittera',
     },
     {
       icon: IconLinkedin,
       href: '/',
-      alt: 'LinkedIn icon',
+      alt: 'Dołącz do nas na LinkedIn',
     },
     {
       icon: IconFacebook,
       href: '/',
-      alt: 'Facebook icon',
+      alt: 'Logo Facebook',
     },
   ],
-  copyrightText: '© 2025 KROKOD Sp. z o.o. All Rights Reserved',
+  copyrightText: '© 2025 KROKOD Sp. z o.o. Wszelkie prawa zastrzeżone',
   columns: [
     {
       title: {
         href: '/',
-        text: 'Services',
+        text: 'Usługi',
       },
       items: [
         {
-          text: 'Dedicated Teams',
-          href: '/dedicated-team',
+          text: 'Dedykowane zespoły',
+          href: '/dedykowane-zespoly',
         },
         {
-          text: 'MVP Development',
-          href: '/mvp',
+          text: 'Rozwój mvp',
+          href: '/rozwoj-mvp',
         },
         {
-          text: 'Custom Software',
-          href: '/custom-software-development',
+          text: 'Oprogramowanie na zamówienie',
+          href: '/oprogramowanie-na-zamowienie',
         },
         {
-          text: 'Consulting',
+          text: 'Ordynacyjny',
           href: '/',
         },
       ],
     },
     {
       title: {
-        href: '/technologies',
-        text: 'Technologies',
+        href: '/technologie',
+        text: 'Technologie',
       },
       items: [
         {
-          text: 'Game Development',
-          href: '/game-dev',
+          text: 'Tworzenie gier',
+          href: '/tworzenie-gier',
         },
         {
-          text: 'Front-end Development',
-          href: '/front-end-development',
+          text: 'Tworzenie front-endu',
+          href: '/tworzenie-front-endu',
         },
         {
-          text: 'Back-end Development',
-          href: '/back-end-development',
+          text: 'Tworzenie back-endu',
+          href: '/tworzenie-back-endu',
         },
         {
-          text: 'Mobile Development',
-          href: '/mobile-development',
+          text: 'Tworzenie aplikacji mobilnych',
+          href: '/rozwoj-mobilny',
         },
         {
-          text: 'E-commerce Development',
-          href: '/e-commerce-development',
+          text: 'Tworzenie sklepów internetowych',
+          href: '/rozwoj-handlu-elektronicznego',
         },
         {
-          text: 'Healdess CMS Development',
-          href: '/headless-cms-development',
+          text: 'Rozwój Headless CMS',
+          href: '/rozwoj-headless-cms',
         },
       ],
     },
     {
       title: {
-        text: 'About us',
-        href: '/about-us',
+        text: 'O nas',
+        href: '/o-nas',
       },
       items: [
         {
@@ -119,8 +120,8 @@ export const data: TFooter = {
           href: '/blog',
         },
         {
-          text: 'Contacts',
-          href: '/contact-us',
+          text: 'Kontakt',
+          href: '/kontakt',
         },
       ],
     },

@@ -1,6 +1,7 @@
 import Image from 'next/image';
 import { useLayoutEffect, useState } from 'react';
 
+import { useMainContext } from '@/components/main-context';
 import { ModelsLayout } from '@/components/sections';
 import { Button } from '@/components/ui';
 
@@ -9,8 +10,6 @@ import { TImage } from '@/types/types';
 import { MODELS } from '@/utils/const';
 
 import styles from './styles.module.scss';
-import ContactUSModal from '@/components/contactUsModal';
-import { useMainContext } from '@/components/main-context';
 
 const COMPONENT_MODELS = [
   {
@@ -68,7 +67,6 @@ const Hero = ({
   const [size, setSize] = useState<'big' | 'small'>('small');
   const { openPopup } = useMainContext();
 
-
   useLayoutEffect(() => {
     if (title?.length > 20) {
       setSize('small');
@@ -77,10 +75,9 @@ const Hero = ({
     }
   }, [title]);
 
-
   const handleClickContact = () => {
     openPopup();
-  }
+  };
 
   return (
     <section className={styles.section}>
@@ -99,7 +96,9 @@ const Hero = ({
           >
             {title}
           </h1>
-          <Button onClick={handleClickContact} className={styles.hero__button}>Contact us</Button>
+          <Button onClick={handleClickContact} className={styles.hero__button}>
+            Kontakt
+          </Button>
         </div>
       </div>
     </section>

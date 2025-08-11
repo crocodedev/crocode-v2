@@ -40,7 +40,7 @@ const Input = ({
               )}
             </div>
             <PhoneInput
-              country={'us'}
+              country={'pl'}
               value={field.value}
               onChange={(value) => field.onChange(value)}
               containerClass={`${styles.input__input_tel_container} ${fieldState.error?.message && styles.input__input_tel_container_error}`}

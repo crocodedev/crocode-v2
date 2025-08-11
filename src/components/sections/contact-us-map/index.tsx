@@ -37,7 +37,7 @@ const ContactUsMap = () => {
       <div className={styles.info}>
         <TitleSection
           className={styles.info__title}
-          label={'Connect with our Team'}
+          label={'Skontaktuj się z naszym zespołem'}
         />
         <div className={styles.info__contacts}>
           <div className={styles.info__contacts__inner}>
