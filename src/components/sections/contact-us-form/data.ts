@@ -15,7 +15,7 @@ type TForm = {
 };
 
 export const form: TForm = {
-  title: 'SKONTAKTUJ SIĘ Z NAMI',
+  title: 'NAPISZ DO NAS',
   inputs: [
     {
       name: 'name',
