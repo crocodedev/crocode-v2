@@ -12,7 +12,7 @@ export const items: TItems = [
   },
   {
     text: 'Wydzielony zespół',
-    href: '/dedicated-team',
+    href: '/dedykowane-zespoly',
   },
   {
     text: 'Software na zamówienie',

@@ -73,7 +73,7 @@ export const data: TFooter = {
         },
         {
           text: 'Ordynacyjny',
-          href: '/',
+          href: '/doradztwo',
         },
       ],
     },

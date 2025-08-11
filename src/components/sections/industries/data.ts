@@ -27,7 +27,7 @@ export const data: TData = {
     {
       link: {
         text: 'Mobile',
-        href: '/',
+        href: '/rozwoj-mobilny',
       },
     },
     {
