@@ -6,7 +6,7 @@ type TProps = PropsWithChildren<unknown> & {
   className?: string;
   onClick?: () => void;
   id?: string;
-  color?: string;
+  color?: string | null;
   style?: React.CSSProperties;
 };
 
@@ -15,7 +15,7 @@ const Card = forwardRef<HTMLDivElement, TProps>(
     return (
       <div
         id={id}
-        className={`${styles.card} ${className} ${styles[color && `card--${color}`]}`}
+        className={`${styles.card} ${className} ${styles[color ? `card--${color}` : '']}`}
         style={style}
         ref={ref}
         {...props}

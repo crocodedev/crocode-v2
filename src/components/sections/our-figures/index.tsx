@@ -8,15 +8,15 @@ import styles from './styles.module.scss';
 const OUR_FIGURES = [
   {
     number: 80,
-    label: 'READY ORDERS',
+    label: 'ZREALIZOWANE ZAMÓWIENIA',
   },
   {
     number: 100,
-    label: 'HAPPY CLIENTS',
+    label: 'ZADOWOLENI KLIENCI',
   },
   {
     number: 100,
-    label: 'ORDERS',
+    label: 'ZAMÓWIENIA',
   },
 ];
 
@@ -55,10 +55,7 @@ const OurFiguresSection = () => {
 
         <Card className={styles.mission}>
           <p className={styles.mission__text}>
-            {` Our mission is to turn ideas into impressive digital products that
-          change the world. Our vision is that our products will be used by
-          millions of people around the world. Our Values: C - Continuous growth
-          R - Reliability O - Open-minded`.toUpperCase()}
+            {`Naszą misją jest przekształcanie pomysłów w imponujące produkty cyfrowe, które zmieniają świat. Naszą wizją jest, aby nasze produkty były używane przez miliony ludzi na całym świecie. Nasze wartości: C - Ciągły rozwój, R - Niezawodność, O - Otwarty umysł.`.toUpperCase()}
           </p>
         </Card>
       </SectionLayout>

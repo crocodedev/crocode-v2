@@ -90,7 +90,7 @@ const ContactUsForm = ({
           <Checkbox
             type={form.checkbox.type}
             label={form.checkbox.label}
-            link={{ href: '/', label: ' Privacy policy' }}
+            link={{ href: '/', label: ' Polityka prywatności' }}
             error={
               (errors as Record<string, FieldError>)?.[form.checkbox.name]
                 ?.message
@@ -104,7 +104,7 @@ const ContactUsForm = ({
             view={'second'}
             disabled={!isValid}
           >
-            Send form
+            Prześlij
           </Button>
         </div>
       </form>

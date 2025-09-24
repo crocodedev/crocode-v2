@@ -95,5 +95,7 @@
 
 .label {
   font-size: clamp(0.625rem, 0rem + 2.5vw, 3rem);
+  text-wrap: wrap;
   font-weight: 700;
+  line-height: 110%;
 }

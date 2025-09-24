@@ -61,6 +61,12 @@ export default defineType({
       type: 'string',
     }),
     defineField({
+      title: 'Status',
+      name: 'status',
+      type: 'string',
+      hidden: true,
+    }),
+    defineField({
       name: 'seo',
       type: 'seo',
     }),

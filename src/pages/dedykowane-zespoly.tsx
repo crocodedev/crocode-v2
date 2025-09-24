@@ -1,20 +1,30 @@
 import { GetServerSideProps } from 'next';
 
-import { Breadcrumbs, Hero, TechnologyStack } from '@/components/sections';
+import {
+  Benefits,
+  Breadcrumbs,
+  ContactUsForm,
+  DedicatedSoftware,
+  Hero,
+  OurProject,
+  Technologies,
+  WhyCrocode,
+} from '@/components/sections';
+import { TBreadcrumbs } from '@/components/sections/breadcrumbs/type';
 import Seo from '@/components/seo';
 
 import { TPageProps } from '@/types/pageProps';
 
 import { getSeoProps } from '@/utils/seo';
-import { getBreadcrumbs } from '@/graphql/queries/breadcrumbs';
 
+import { getBreadcrumbs } from '@/graphql/queries/breadcrumbs';
 import { useRedirect } from '@/hooks';
 import { fetchGraphQL } from '@/lib/graphql';
-import { TBreadcrumbs } from '@/components/sections/breadcrumbs/type';
 
 const PROPS_SECTIONS = {
   hero: {
-    title: 'OUR TECHNOLOGY STACK',
+    modelsIsShow: true,
+    title: 'Dedykowane zespoły',
   },
 };
 
@@ -25,7 +35,7 @@ type TProps = TPageProps & {
   };
 };
 
-const TechnologiesPage = ({ allRedirects, seo, breadcrumbs }: TProps) => {
+const DedicatedTeamPage = ({ allRedirects, seo, breadcrumbs }: TProps) => {
   useRedirect(allRedirects);
 
   return (
@@ -33,12 +43,17 @@ const TechnologiesPage = ({ allRedirects, seo, breadcrumbs }: TProps) => {
       <Seo {...seo} />
       <Hero {...PROPS_SECTIONS.hero} />
       <Breadcrumbs sanityData={breadcrumbs?.data} />
-      <TechnologyStack />
+      <WhyCrocode />
+      <DedicatedSoftware />
+      <Benefits />
+      <Technologies />
+      <OurProject />
+      <ContactUsForm />
     </>
   );
 };
 
-export const getServerSideProps: GetServerSideProps<TProps> = async (
+export const getServerSideProps: GetServerSideProps<TPageProps> = async (
   context,
 ) => {
   const slug = context.resolvedUrl;
@@ -59,4 +74,4 @@ export const getServerSideProps: GetServerSideProps<TProps> = async (
   };
 };
 
-export default TechnologiesPage;
+export default DedicatedTeamPage;

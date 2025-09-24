@@ -1,10 +1,15 @@
-import { TLink } from '@/types/types';
-
 type TData = {
   title: string;
-  buttonLink?: TLink;
+  button?: {
+    text: string;
+    href: string;
+  };
 };
 
 export const data: TData = {
-  title: 'Get started on your journey to digital transformation!',
+  title: 'Rozpocznij swoją podróż ku transformacji cyfrowej!',
+  button: {
+    text: 'Rozpocznij projekt',
+    href: '/kontakt',
+  },
 };

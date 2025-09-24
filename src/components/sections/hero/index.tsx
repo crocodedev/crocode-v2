@@ -1,6 +1,7 @@
 import Image from 'next/image';
 import { useLayoutEffect, useState } from 'react';
 
+import { useMainContext } from '@/components/main-context';
 import { ModelsLayout } from '@/components/sections';
 import { Button } from '@/components/ui';
 
@@ -64,6 +65,7 @@ const Hero = ({
   typeText = 'default',
 }: TProps) => {
   const [size, setSize] = useState<'big' | 'small'>('small');
+  const { openPopup } = useMainContext();
 
   useLayoutEffect(() => {
     if (title?.length > 20) {
@@ -72,6 +74,10 @@ const Hero = ({
       setSize('big');
     }
   }, [title]);
+
+  const handleClickContact = () => {
+    openPopup();
+  };
 
   return (
     <section className={styles.section}>
@@ -90,7 +96,9 @@ const Hero = ({
           >
             {title}
           </h1>
-          <Button className={styles.hero__button}>Contact us</Button>
+          <Button onClick={handleClickContact} className={styles.hero__button}>
+            Kontakt
+          </Button>
         </div>
       </div>
     </section>

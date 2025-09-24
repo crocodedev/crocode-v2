@@ -1,30 +1,32 @@
 export const emailRules = {
-  required: 'This field is required',
+  required: 'To pole jest wymagane',
   pattern: {
     value: /^[^\s@]+@[^\s@]+\.[^\s@]+$/,
-    message: 'Invalid email',
+    message: 'Nieprawidłowy adres e-mail',
   },
 };
 
 export const phoneRules = {
-  required: 'This field is required',
+  required: 'To pole jest wymagane',
   validate: (value: string) => {
     const cleaned = value.replace(/\D/g, '');
-    return cleaned.length >= 10 || 'The phone length cannot be less than 10';
+    return (
+      cleaned.length >= 10 || 'Numer telefonu musi mieć co najmniej 10 cyfr'
+    );
   },
 };
 
 export const nameRules = {
-  required: 'This field is required',
+  required: 'To pole jest wymagane',
   pattern: {
     value: /^[A-Za-zА-Яа-яЁё]{3,}$/,
-    message: 'Invalid Name',
+    message: 'Nieprawidłowe imię',
   },
 };
 
 export const checkboxRules = {
   required: {
     value: true,
-    message: 'You must agree to proceed',
+    message: 'Musisz wyrazić zgodę, aby kontynuować',
   },
 };

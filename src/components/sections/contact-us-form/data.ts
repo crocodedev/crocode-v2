@@ -15,26 +15,26 @@ type TForm = {
 };
 
 export const form: TForm = {
-  title: 'CONTACT US',
+  title: 'NAPISZ DO NAS',
   inputs: [
     {
       name: 'name',
       type: 'text',
-      label: 'Your name',
-      placeholder: 'Enter your name',
+      label: 'Twoje imię',
+      placeholder: 'Wprowadź swoje imię',
       rules: nameRules,
     },
     {
       name: 'email',
       type: 'email',
-      label: 'Corporate E-mail',
-      placeholder: 'Enter E-mail',
+      label: 'E-mail firmowy',
+      placeholder: 'Wprowadź e-mail',
       rules: emailRules,
     },
     {
       name: 'phone',
       type: 'tel',
-      label: 'Phone number',
+      label: 'Numer telefonu',
       rules: phoneRules,
     },
   ],
@@ -42,8 +42,8 @@ export const form: TForm = {
     {
       name: 'comments',
       type: 'textarea',
-      label: 'Your comments',
-      placeholder: 'Brief information about the project',
+      label: 'Twoje uwagi',
+      placeholder: 'Krótkie informacje o projekcie',
     },
     {
       name: 'file',
@@ -53,7 +53,7 @@ export const form: TForm = {
   checkbox: {
     name: 'checkbox',
     type: 'checkbox',
-    label: 'By sending this form I confirm that I have read and accept the ',
+    label: 'Wysyłając ten formularz, potwierdzam że zapoznałem/am się z ',
     rules: checkboxRules,
   },
 };

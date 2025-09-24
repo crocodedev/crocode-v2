@@ -7,27 +7,27 @@ type THeader = {
 };
 
 export const data: THeader = {
-  button: 'Contact us',
+  button: 'Kontakt',
   links: [
     {
-      text: 'Home',
+      text: 'Główna',
       href: '/',
     },
     {
-      text: 'Services',
-      href: '/our-services',
+      text: 'Usługi',
+      href: '/uslugi',
     },
     {
-      text: 'Portfolio',
-      href: `/cases`,
+      text: 'Projekty',
+      href: `/projekty`,
     },
     {
-      text: 'Technologies',
-      href: '/technologies',
+      text: 'Technologie',
+      href: '/technologie',
     },
     {
-      text: 'About us',
-      href: '/about-us',
+      text: 'O nas',
+      href: '/o-nas',
     },
     {
       text: 'Blog',

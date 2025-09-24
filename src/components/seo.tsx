@@ -84,6 +84,20 @@ const Seo = (props: TSeo) => {
            gtag('config', 'G-JRHLER8WXC');
          `}
       </Script>
+
+      {/* reCAPTCHA Script */}
+      <Script
+        id='recaptcha'
+        src='https://www.google.com/recaptcha/api.js?render=explicit'
+        strategy='afterInteractive'
+      />
+
+      {/* Alternative reCAPTCHA v3 Script */}
+      <Script
+        id='recaptcha-v3'
+        src='https://www.google.com/recaptcha/api.js?render=YOUR_SITE_KEY'
+        strategy='afterInteractive'
+      />
     </>
   );
 };

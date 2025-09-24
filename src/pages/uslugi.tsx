@@ -1,30 +1,30 @@
 import { GetServerSideProps } from 'next';
 
 import {
-  Benefits,
+  AboutUs,
   Breadcrumbs,
   ContactUsForm,
-  DedicatedSoftware,
   Hero,
-  OurProject,
-  Technologies,
-  WhyCrocode,
+  OfferingsTemplate,
+  Questions,
 } from '@/components/sections';
+import { TBreadcrumbs } from '@/components/sections/breadcrumbs/type';
 import Seo from '@/components/seo';
 
 import { TPageProps } from '@/types/pageProps';
 
 import { getSeoProps } from '@/utils/seo';
 
+import { getBreadcrumbs } from '@/graphql/queries/breadcrumbs';
 import { useRedirect } from '@/hooks';
 import { fetchGraphQL } from '@/lib/graphql';
-import { getBreadcrumbs } from '@/graphql/queries/breadcrumbs';
-import { TBreadcrumbs } from '@/components/sections/breadcrumbs/type';
 
-const PROPS_SECTIONS = {
+export const PROPS_SECTIONS = {
   hero: {
-    modelsIsShow: true,
-    title: 'DEDICATED TEAM',
+    title: 'NASZE USŁUGI',
+  },
+  offeringsTemplate: {
+    title: 'co możemy',
   },
 };
 
@@ -35,7 +35,7 @@ type TProps = TPageProps & {
   };
 };
 
-const DedicatedTeamPage = ({ allRedirects, seo, breadcrumbs }: TProps) => {
+const ServicesPage = ({ allRedirects, seo, breadcrumbs }: TProps) => {
   useRedirect(allRedirects);
 
   return (
@@ -43,11 +43,9 @@ const DedicatedTeamPage = ({ allRedirects, seo, breadcrumbs }: TProps) => {
       <Seo {...seo} />
       <Hero {...PROPS_SECTIONS.hero} />
       <Breadcrumbs sanityData={breadcrumbs?.data} />
-      <WhyCrocode />
-      <DedicatedSoftware />
-      <Benefits />
-      <Technologies />
-      <OurProject />
+      <OfferingsTemplate {...PROPS_SECTIONS.offeringsTemplate} />
+      <Questions />
+      <AboutUs />
       <ContactUsForm />
     </>
   );
@@ -67,11 +65,11 @@ export const getServerSideProps: GetServerSideProps<TPageProps> = async (
       allRedirects,
       seo,
       breadcrumbs: {
-        data: dataBreadcrumbs?.allPage?.[0]?.breadcrumbs ?? null,
         error: errorsBreadcrumbs ?? null,
+        data: dataBreadcrumbs?.allPage[0]?.breadcrumbs ?? null,
       },
     },
   };
 };
 
-export default DedicatedTeamPage;
+export default ServicesPage;

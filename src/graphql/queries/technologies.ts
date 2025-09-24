@@ -43,6 +43,21 @@ export const getTechnology = (slug: string) => `
       slug {
         current
       }
+      breadcrumbs {
+        linkInternal {
+          label
+          reference {
+            slug {
+              current
+            }
+          }
+        }
+        linkExternal {
+          label
+          href
+          blank
+        }
+      }
       contentRaw
       questions {
         question

@@ -74,10 +74,10 @@ const NotFound = ({
             <h1 className={styles.section__title}>404</h1>
             <div className={styles.section__description}>
               <span className={styles.section__description__text}>
-                Page Not Found
+                Strona nie została znaleziona
               </span>
               <span className={styles.section__description__text}>
-                The page you&apos;re looking for doesn&apos;t exist moved.
+                Strona, której szukasz, nie istnieje lub została przeniesiona.
               </span>
             </div>
           </div>
@@ -87,7 +87,7 @@ const NotFound = ({
             href='/'
             view='xl'
           >
-            Return to Home
+            Powrót do strony głównej
           </Button>
         </div>
       </div>

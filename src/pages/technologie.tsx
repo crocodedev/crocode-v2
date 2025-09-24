@@ -1,36 +1,20 @@
 import { GetServerSideProps } from 'next';
 
-import {
-  AboutUs,
-  Blog,
-  Breadcrumbs,
-  ContactUsForm,
-  GetStarted,
-  Hero,
-  OurFigures,
-} from '@/components/sections';
+import { Breadcrumbs, Hero, TechnologyStack } from '@/components/sections';
+import { TBreadcrumbs } from '@/components/sections/breadcrumbs/type';
 import Seo from '@/components/seo';
 
 import { TPageProps } from '@/types/pageProps';
 
 import { getSeoProps } from '@/utils/seo';
 
+import { getBreadcrumbs } from '@/graphql/queries/breadcrumbs';
 import { useRedirect } from '@/hooks';
 import { fetchGraphQL } from '@/lib/graphql';
-import { getBreadcrumbs } from '@/graphql/queries/breadcrumbs';
-import { TBreadcrumbs } from '@/components/sections/breadcrumbs/type';
 
 const PROPS_SECTIONS = {
   hero: {
-    modelsIsShow: true,
-    title: 'ABOUT US',
-  },
-  blog: {
-    title: 'BLOG',
-    linkDetails: {
-      text: 'Learn in detail',
-      href: '/',
-    },
+    title: 'NASZ STOS TECHNOLOGICZNY',
   },
 };
 
@@ -41,7 +25,7 @@ type TProps = TPageProps & {
   };
 };
 
-const AboutUsPage = ({ allRedirects, seo, breadcrumbs }: TProps) => {
+const TechnologiesPage = ({ allRedirects, seo, breadcrumbs }: TProps) => {
   useRedirect(allRedirects);
 
   return (
@@ -49,19 +33,16 @@ const AboutUsPage = ({ allRedirects, seo, breadcrumbs }: TProps) => {
       <Seo {...seo} />
       <Hero {...PROPS_SECTIONS.hero} />
       <Breadcrumbs sanityData={breadcrumbs?.data} />
-      <OurFigures />
-      <GetStarted />
-      <Blog {...PROPS_SECTIONS.blog} />
-      <AboutUs />
-      <ContactUsForm />
+      <TechnologyStack />
     </>
   );
 };
 
-export const getServerSideProps: GetServerSideProps<TPageProps> = async (
+export const getServerSideProps: GetServerSideProps<TProps> = async (
   context,
 ) => {
   const slug = context.resolvedUrl;
+
   const { allRedirects, seo } = await getSeoProps(slug);
   const { data: dataBreadcrumbs, errors: errorsBreadcrumbs } =
     await fetchGraphQL(getBreadcrumbs(slug));
@@ -78,4 +59,4 @@ export const getServerSideProps: GetServerSideProps<TPageProps> = async (
   };
 };
 
-export default AboutUsPage;
+export default TechnologiesPage;

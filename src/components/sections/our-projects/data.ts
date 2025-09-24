@@ -6,24 +6,26 @@ export type TData = {
   title?: string;
   anchor?: AnchorType;
   cards?: { image: TImage; href: string }[];
+  showMore?: string;
 };
 
 export const data: TData = {
-  title: 'OUR PROJECTS',
+  title: 'NASZE PROJEKTY',
   cards: [
     {
       image: {
         src: '/images/our-project.png',
-        alt: 'Show More',
+        alt: 'Pokaż więcej',
       },
-      href: '/',
+      href: '/projekty/arcus',
     },
     {
       image: {
         src: '/images/our-project-2.png',
-        alt: 'Show More',
+        alt: 'Pokaż więcej',
       },
-      href: '/',
+      href: '/projekty/bearbricks',
     },
   ],
+  showMore: 'Pokaż więcej',
 };

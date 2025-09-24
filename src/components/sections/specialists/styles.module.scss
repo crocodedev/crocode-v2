@@ -53,6 +53,6 @@
   }
 
   @include media-down('lg') {
-    width: fluid-size(200, 700);
+    width: 90%;
   }
 }

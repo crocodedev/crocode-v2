@@ -1,6 +1,7 @@
+import { PortableTextBlock } from '@portabletext/react';
 import Image from 'next/image';
 
-import { SectionLayout } from '@/components/sections';
+import { SectionLayout, StyleGuide } from '@/components/sections';
 
 import { TSanityImage } from '@/types/image';
 import { TLink } from '@/types/link';
@@ -10,11 +11,9 @@ import styles from './styles.module.scss';
 
 type TProps = {
   desc: string;
-  socials: { link: TLink }[];
+  socials: { link: TLink; _key?: string }[];
   title: string;
-  contentRaw: {
-    children: { text: string }[];
-  }[];
+  contentRaw: PortableTextBlock[];
   coverImage: TSanityImage;
 };
 
@@ -24,11 +23,6 @@ const BlogContentSection = ({
   contentRaw,
   coverImage,
 }: TProps) => {
-  const html = contentRaw?.reduce(
-    (acc, elem) => acc + (elem?.children?.[0]?.text || ''),
-    '',
-  );
-
   return (
     <SectionLayout className={styles.blog__wrapper}>
       <div className={styles.blog__inner}>
@@ -42,10 +36,7 @@ const BlogContentSection = ({
           />
         </div>
         <h2 className={styles.blog__description}>{desc}</h2>
-        <div
-          className={styles.blog__content}
-          dangerouslySetInnerHTML={{ __html: html }}
-        ></div>
+        <StyleGuide value={contentRaw} className={styles.blog__content} />
         <SocialsBlock socials={socials} />
       </div>
     </SectionLayout>
