@@ -15,7 +15,6 @@ const nextConfig: NextConfig = {
       @use "@/styles/_functions" as *;
     `,
   },
-
   // eslint: {
   //   ignoreDuringBuilds: true, // отключает все ошибки ESLint
   // },
