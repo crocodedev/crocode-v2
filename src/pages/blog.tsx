@@ -7,6 +7,7 @@ import {
   Subscribe,
 } from '@/components/sections';
 import { TArticle } from '@/components/sections/blog-catalog/types';
+import { TBreadcrumbs } from '@/components/sections/breadcrumbs/type';
 import Seo from '@/components/seo';
 
 import { TPageProps } from '@/types/pageProps';
@@ -15,10 +16,9 @@ import { TSanityError } from '@/types/sanityError';
 import { TSeo } from '@/types/seo';
 
 import { ALL_BLOG_ARTICLES } from '@/graphql/queries/blog';
+import { getBreadcrumbs } from '@/graphql/queries/breadcrumbs';
 import { useRedirect } from '@/hooks';
 import { fetchGraphQL } from '@/lib/graphql';
-import { getBreadcrumbs } from '@/graphql/queries/breadcrumbs';
-import { TBreadcrumbs } from '@/components/sections/breadcrumbs/type';
 
 const PROPS_SECTIONS = {
   hero: {
@@ -81,9 +81,10 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
 
   const seo = {
     titleTemplate: false,
-    title: 'Blogs',
-    description: `Description for blogs`,
-    keywords: `blogs`,
+    title:
+      'Blog Crocode – Eksperckie artykuły o Shopify, AI, automatyzacji i UX',
+    description: `Na blogu CrocodeLab znajdziesz przewodniki, analizy i case studies dotyczące sklepów internetowych na Shopify, sztucznej inteligencji w e-commerce, automatyzacji procesów oraz nowoczesnego UX/UI. Zapisz się i rozwijaj swój biznes online z ekspertami.`,
+    keywords: `blog o e-commerce, blog Shopify Polska, rozwój e-commerce w Polsce, skuteczny marketing w e-commerce, projektowanie UX dla sklepów internetowych, optymalizacja doświadczenia użytkownika, UX e-commerce, UI dla e-commerce, customer experience w sklepie online`,
     image: {
       altText: `blogs work technologies `,
       image: {
