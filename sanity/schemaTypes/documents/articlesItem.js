@@ -9,6 +9,8 @@ export default defineType({
   preview: {
     select: {
       title: 'title',
+      subtitle: 'category',
+      media: 'coverImage.image',
     },
   },
   fields: [
